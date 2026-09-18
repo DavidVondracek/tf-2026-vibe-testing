@@ -71,7 +71,7 @@ We test **Foodora**, a food delivery web app: [foodora.lovable.app](https://food
 - Laptop with admin rights (let me know if you can't have admin rights)
 - Browser (preferably Chrome)
 - Accounts for [GitHub](https://github.com) and [Wopee.io](https://wopee.io), using the same email for both
-- [VS Code](https://code.visualstudio.com/) with an AI coding agent: TODO (GitHub Copilot free plan / Claude Code / other)
+- [VS Code](https://code.visualstudio.com/) with [GitHub Copilot Chat](https://code.visualstudio.com/docs/copilot/overview) (the free plan is enough). The AI models come through the Vercel AI Gateway, with a key I give you.
 - Leave your comfort zone in the parking lot
 
 ## Get ready for the workshop
@@ -83,6 +83,8 @@ Please follow these steps before the workshop:
 3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`.
 4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode)
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal.
-6. **Set up Wopee.io:** TODO (project creation, API key, `.env` variables).
-7. **Verify:** TODO (setup check command and expected output).
-8. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
+6. **Install the recommended extensions:** when VS Code asks, click **Install** (or `Ctrl/Cmd+Shift+P` → Extensions: Show Recommended Extensions). You get [Vercel AI Gateway](https://marketplace.visualstudio.com/items?itemName=SferaDev.vscode-extension-vercel-ai), GitHub Copilot Chat, and Playwright Test.
+7. **Connect the AI models:** `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** → paste the Vercel AI Gateway API key (starts with `vck_`) I send you. Open the Chat view (`Ctrl/Cmd+Alt+I`) and start a new chat: the model picker shows **DeepSeek V4.1 Flash**, set as the default by this repo. Send "hi" to check it answers.
+8. **Set up Wopee.io:** TODO (project creation, API key, `.env` variables).
+9. **Verify:** TODO (setup check command and expected output).
+10. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
