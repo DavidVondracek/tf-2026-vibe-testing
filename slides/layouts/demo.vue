@@ -1,5 +1,7 @@
 <template>
-  <div class="slidev-layout wp-demo" :class="{ 'with-image': $frontmatter.image }" :style="$frontmatter.image ? { backgroundImage: `linear-gradient(90deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.75) 100%), url(${$frontmatter.image})` } : {}">
+  <div class="slidev-layout wp-demo" :class="{ 'with-image': $frontmatter.image }">
+    <div v-if="$frontmatter.image" class="wp-photo" :style="{ backgroundImage: `url(${$frontmatter.image})` }" />
+    <div v-if="$frontmatter.image" class="wp-demo-shade" />
     <div class="wp-demo-labels">
       <span class="wp-demo-big">Demo</span>
       <span v-for="line in [].concat($frontmatter.lines || [])" :key="line" class="wp-demo-line">{{ line }}</span>
@@ -11,8 +13,8 @@
 <style scoped>
 .wp-demo {
   align-items: center !important;
-  background-size: cover !important;
-  background-position: center !important;
+  position: relative;
+  overflow: hidden;
   background:
     radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.35) 0%, rgba(112, 48, 160, 0.25) 28%, transparent 55%),
     #111;
@@ -62,5 +64,14 @@
 
 .wp-demo.with-image .wp-demo-labels {
   align-items: flex-end;
+}
+.wp-demo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+.wp-demo > :not(.wp-photo, .wp-demo-shade) {
+  position: relative;
 }
 </style>

@@ -14,7 +14,7 @@ import { repoUrl } from '../agenda'
       <div class="wp-task-steps"><slot /></div>
     </div>
     <aside class="wp-task-side">
-      <Countdown v-if="$frontmatter.until" :until="$frontmatter.until" />
+      <Countdown v-if="$frontmatter.until" :until="$frontmatter.until" :minutes="$frontmatter.minutes" />
       <div class="wp-task-box" v-if="$frontmatter.done">
         <div class="k">Done when</div>
         <div>{{ $frontmatter.done }}</div>

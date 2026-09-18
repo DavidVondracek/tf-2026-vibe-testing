@@ -10,7 +10,9 @@ import Agenda from '../components/Agenda.vue'
       <slot />
       <Agenda v-if="$frontmatter.block && $frontmatter.agenda !== false" :current="$frontmatter.block" class="wp-section-agenda" />
     </div>
-    <div v-if="$frontmatter.image" class="wp-section-image" :style="{ backgroundImage: `url(${$frontmatter.image})` }" />
+    <div v-if="$frontmatter.image" class="wp-section-image">
+      <div class="wp-photo" :style="{ backgroundImage: `url(${$frontmatter.image})` }" />
+    </div>
     <img v-else-if="$frontmatter.monkey !== false" class="wp-section-monkey" src="/img/wopee-monkey.svg" alt="" />
   </div>
 </template>
@@ -36,8 +38,8 @@ import Agenda from '../components/Agenda.vue'
 
 .wp-section-image {
   flex: 1;
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
   margin-bottom: var(--wp-footer);
   border-left: 8px solid var(--wp-black);
 }

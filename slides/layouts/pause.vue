@@ -1,25 +1,48 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useSlideContext } from '@slidev/client'
 import Countdown from '../components/Countdown.vue'
+import { blockStart, minutesBetween } from '../agenda'
+
+const { $frontmatter } = useSlideContext()
+const minutes = computed(() => {
+  const start = blockStart($frontmatter.block)
+  return start && $frontmatter.until ? minutesBetween(start, $frontmatter.until) : undefined
+})
 </script>
 
 <!-- Break / lunch: full-bleed photo, the return time is the hero. -->
 <template>
-  <div class="slidev-layout wp-pause" :style="$frontmatter.image ? { backgroundImage: `linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.7) 45%, rgba(0,0,0,.15) 100%), url(${$frontmatter.image})` } : {}">
+  <div class="slidev-layout wp-pause">
+    <div v-if="$frontmatter.image" class="wp-photo" :style="{ backgroundImage: `url(${$frontmatter.image})` }" />
+    <div class="wp-pause-shade" />
     <div class="wp-pause-what">{{ $frontmatter.emoji }} {{ $frontmatter.what }}</div>
     <div class="wp-pause-back">Back at {{ $frontmatter.until }}</div>
-    <Countdown v-if="$frontmatter.until" :until="$frontmatter.until" label="Starts again in" class="wp-pause-count" />
+    <Countdown v-if="$frontmatter.until" :until="$frontmatter.until" :minutes="minutes" label="Starts again in" class="wp-pause-count" />
     <div class="wp-pause-note"><slot /></div>
   </div>
 </template>
 
 <style scoped>
 .wp-pause {
-  background: #000 center / cover no-repeat;
+  background: #000;
+  position: relative;
+  overflow: hidden;
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 2rem 3.5rem calc(var(--wp-footer) + 1.5rem);
+}
+
+.wp-pause-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.wp-pause > :not(.wp-photo, .wp-pause-shade) {
+  position: relative;
 }
 
 .wp-pause-what {

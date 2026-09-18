@@ -19,11 +19,24 @@ export const agenda: Block[] = [
   { id: 'wrap', time: '16:15', title: 'Wrap-up & Q&A' },
 ]
 
+// On this day countdowns follow the wall clock; on any other day they run as rehearsal timers.
+export const eventDate = '2026-09-24'
+
 export const repoUrl = 'https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps'
 export const appUrl = 'https://foodora.lovable.app/'
 
 export function blockTitle(id?: string) {
   return agenda.find((b) => b.id === id)?.title
+}
+
+export function minutesBetween(from: string, to: string) {
+  const [fh, fm] = from.split(':').map(Number)
+  const [th, tm] = to.split(':').map(Number)
+  return th * 60 + tm - (fh * 60 + fm)
+}
+
+export function blockStart(id?: string) {
+  return agenda.find((b) => b.id === id)?.time
 }
 
 export function nextBlock(id?: string) {

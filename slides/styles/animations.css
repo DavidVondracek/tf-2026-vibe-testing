@@ -1,0 +1,337 @@
+/*
+ * Entrance animations. Slidev shows the current slide with v-show, so these
+ * replay every time a slide opens. They are off in exports and for reduced motion.
+ */
+
+@keyframes wp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wp-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wp-marker {
+  from {
+    background-size: 0% 37%;
+  }
+  to {
+    background-size: 100% 37%;
+  }
+}
+
+@keyframes wp-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.12) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes wp-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wp-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes wp-bob {
+  0%,
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-3deg) translateY(-8px);
+  }
+}
+
+@keyframes wp-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* Titles and their subtitle */
+.slidev-layout.default > h1,
+.wp-task-main > h1 {
+  animation: wp-rise 0.45s ease-out both;
+}
+
+.slidev-layout.default > h1 + p {
+  animation: wp-rise 0.45s 0.1s ease-out both;
+}
+
+/* The yellow marker draws itself under the key words */
+.slidev-layout .y {
+  animation: wp-marker 0.6s 0.35s ease-out both;
+}
+
+/* Card rows stagger in */
+.cards > .card,
+.gap-eq > *,
+.vs > * {
+  animation: wp-rise 0.45s ease-out both;
+}
+
+.cards > .card:nth-child(1),
+.gap-eq > :nth-child(1),
+.vs > :nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.cards > .card:nth-child(2),
+.gap-eq > :nth-child(2),
+.vs > :nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.cards > .card:nth-child(3),
+.gap-eq > :nth-child(3),
+.vs > :nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+.cards > .card:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.gap-eq-mid,
+.vs-disc {
+  animation-name: wp-pop !important;
+  animation-duration: 0.5s !important;
+}
+
+.banner {
+  animation: wp-rise 0.45s 0.6s ease-out both;
+}
+
+/* Table rows and checklists */
+.agenda tr,
+.zoo tbody tr,
+.wp-score tbody tr,
+.checklist li,
+.wp-work-checkpoints li {
+  animation: wp-rise 0.4s ease-out both;
+}
+
+.agenda tr:nth-child(1),
+.zoo tbody tr:nth-child(1),
+.wp-score tbody tr:nth-child(1),
+.checklist li:nth-child(1),
+.wp-work-checkpoints li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.agenda tr:nth-child(2),
+.zoo tbody tr:nth-child(2),
+.wp-score tbody tr:nth-child(2),
+.checklist li:nth-child(2),
+.wp-work-checkpoints li:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.agenda tr:nth-child(3),
+.zoo tbody tr:nth-child(3),
+.wp-score tbody tr:nth-child(3),
+.checklist li:nth-child(3),
+.wp-work-checkpoints li:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.agenda tr:nth-child(4),
+.zoo tbody tr:nth-child(4),
+.wp-score tbody tr:nth-child(4),
+.checklist li:nth-child(4) {
+  animation-delay: 0.28s;
+}
+
+.agenda tr:nth-child(5) {
+  animation-delay: 0.34s;
+}
+
+.agenda tr:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.agenda tr:nth-child(7) {
+  animation-delay: 0.46s;
+}
+
+.agenda tr:nth-child(8) {
+  animation-delay: 0.52s;
+}
+
+.agenda tr:nth-child(9) {
+  animation-delay: 0.58s;
+}
+
+.agenda tr:nth-child(10) {
+  animation-delay: 0.64s;
+}
+
+.agenda tr:nth-child(11) {
+  animation-delay: 0.7s;
+}
+
+/* Chapter slides: title rises, photo drifts, monkey bobs */
+.wp-section-panel > * {
+  animation: wp-rise 0.5s ease-out both;
+}
+
+.wp-section-panel > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wp-section-panel > :nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wp-section-panel > :nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+.wp-section-emoji {
+  animation: wp-pop 0.6s ease-out both !important;
+}
+
+.wp-photo {
+  animation: wp-kenburns 18s ease-in-out infinite alternate;
+}
+
+.wp-section-monkey {
+  animation: wp-bob 4s ease-in-out infinite;
+}
+
+/* Exhibit sign: plaque slides in, badge pops */
+.wp-exhibit-plaque {
+  animation: wp-from-right 0.55s 0.1s ease-out both;
+}
+
+.wp-exhibit-badge {
+  animation: wp-pop 0.6s 0.5s ease-out both;
+}
+
+/* Break slides and demo */
+.wp-pause-what,
+.wp-pause-back,
+.wp-pause-count,
+.wp-pause-note {
+  animation: wp-rise 0.5s ease-out both;
+}
+
+.wp-pause-back {
+  animation-delay: 0.15s;
+}
+
+.wp-pause-count {
+  animation-delay: 0.3s;
+}
+
+.wp-pause-note {
+  animation-delay: 0.45s;
+}
+
+.wp-demo-labels > * {
+  animation: wp-from-right 0.45s ease-out both;
+}
+
+.wp-demo-labels > :nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.wp-demo-labels > :nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Cover and closing */
+.wp-cover-text > *,
+.wp-closing-text > * {
+  animation: wp-rise 0.5s ease-out both;
+}
+
+.wp-cover-text > :nth-child(2),
+.wp-closing-text > :nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.wp-cover-text > :nth-child(3),
+.wp-closing-text > :nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.wp-cover-text > :nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+.wp-cover-monkey,
+.wp-closing-monkey {
+  animation: wp-pop 0.7s 0.3s ease-out both;
+}
+
+/* Statement slide */
+.wp-statement > h1 {
+  animation: wp-rise 0.6s ease-out both;
+}
+
+.wp-statement > hr {
+  animation: wp-fade 0.4s 0.4s both;
+}
+
+/* Countdown: last 5 minutes pulse */
+.wp-countdown.soon .wp-countdown-value {
+  animation: wp-pulse 1s ease-in-out infinite;
+}
+
+/* Items revealed on click start their entrance only when they appear */
+.slidev-vclick-hidden,
+.slidev-vclick-hidden * {
+  animation: none !important;
+}
+
+/* Off in exports and for people who prefer less motion */
+html.print *,
+#print-container * {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slidev-layout *,
+  .slidev-layout {
+    animation: none !important;
+  }
+}

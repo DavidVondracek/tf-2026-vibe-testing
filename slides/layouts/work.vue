@@ -9,7 +9,7 @@ import Countdown from '../components/Countdown.vue'
       <slot />
     </div>
     <aside class="wp-work-side">
-      <Countdown :until="$frontmatter.until" />
+      <Countdown :until="$frontmatter.until" :minutes="$frontmatter.minutes" />
       <ol class="wp-work-checkpoints" v-if="$frontmatter.checkpoints">
         <li v-for="c in $frontmatter.checkpoints" :key="c.t"><b>{{ c.t }}</b> {{ c.v }}</li>
       </ol>

@@ -186,7 +186,7 @@ Write both numbers on a sticky note. Put it on the board. No judgment.
   <div class="card"><div class="n">QA</div><h3>Time to verify it</h3><p>From merged code to "we trust it in production".</p></div>
 </div>
 
-<p class="text-2xl font-bold mt-8 text-center">Today is about <span class="y">closing the gap</span> between these two numbers.</p>
+<p v-click class="text-2xl font-bold mt-8 text-center">Today is about <span class="y">closing the gap</span> between these two numbers.</p>
 
 <!--
 09:10 — sticky notes: yellow for DEV, white for QA. Photograph the board; we come back to it at 16:15.
@@ -212,11 +212,11 @@ block: stack
 <div class="grid grid-cols-2 gap-10">
 <div class="flex flex-col justify-center">
   <p class="text-4xl font-bold my-1">You prompt.</p>
-  <p class="text-4xl font-bold my-1">The AI codes.</p>
-  <p class="text-4xl muted my-1">Nobody reads the code.</p>
-  <p class="text-4xl font-bold my-1">You ship.</p>
+  <p v-click class="text-4xl font-bold my-1">The AI codes.</p>
+  <p v-click class="text-4xl muted my-1">Nobody reads the code.</p>
+  <p v-click class="text-4xl font-bold my-1">You ship.</p>
 </div>
-<div class="cards c1 mt-0">
+<div v-click class="cards c1 mt-0">
 <div class="card yellow"><div class="n">DEV</div><h3>Ships in hours</h3><p>Prompt → AI writes code → commit. The loop runs all day.</p></div>
 <div class="card"><div class="n">QA</div><h3>Verifies in weeks</h3><p>Still fixing brittle tests. More features, more work.</p></div>
 </div>
@@ -412,6 +412,7 @@ kicker: Exhibit 1 · AI Coding Agent
 goal: Define the intent. Let the agent write, run and interpret the tests. Find where it breaks.
 path: experiments/1_Zoo/1-CodingAgent/
 until: '10:30'
+minutes: 20
 done: TODO
 ---
 
@@ -452,6 +453,7 @@ kicker: Exhibit 2 · Playwright MCP
 goal: Connect Playwright MCP to your agent. Explore the app and generate tests in plain English.
 path: experiments/1_Zoo/2-PlaywrightMCP/
 until: '10:55'
+minutes: 20
 done: TODO
 ---
 
@@ -492,6 +494,7 @@ kicker: Exhibit 3 · Playwright CLI
 goal: Same task through the Playwright CLI. What changed in speed and tokens?
 path: experiments/1_Zoo/3-PlaywrightCLI/
 until: '11:20'
+minutes: 20
 done: TODO
 ---
 
@@ -536,6 +539,7 @@ kicker: Exhibit 4 · Wopee.io
 goal: Paste the URL. Watch it map the app, then generate and run visual + functional regression end to end.
 path: experiments/1_Zoo/4-Wopee/
 until: '11:45'
+minutes: 20
 done: TODO
 ---
 
@@ -637,6 +641,7 @@ block: build
 layout: work
 block: build
 until: '14:30'
+minutes: 85
 checkpoints:
   - { t: '13:30', v: 'First test green' }
   - { t: '14:00', v: 'SKILL.md drafted' }
@@ -672,6 +677,7 @@ emoji: 🔁
 layout: work
 block: swap
 until: '15:00'
+minutes: 30
 checkpoints:
   - { t: '14:30', v: 'Hand over your SKILL.md' }
   - { t: '14:50', v: 'Feedback written' }
@@ -735,6 +741,7 @@ Extend your suite to cover them. Use exactly what you built. No rebuilding. No s
 layout: work
 block: battle
 until: '16:00'
+minutes: 45
 checkpoints:
   - { t: '15:15', v: 'Features revealed' }
   - { t: '15:40', v: 'First feature covered' }
@@ -744,9 +751,9 @@ checkpoints:
 # 3 new features
 
 <div class="cards c1">
-<div class="card"><div class="n">FEATURE 1</div><h3>…</h3></div>
-<div class="card"><div class="n">FEATURE 2</div><h3>…</h3></div>
-<div class="card"><div class="n">FEATURE 3</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">FEATURE 1</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">FEATURE 2</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">FEATURE 3</div><h3>…</h3></div>
 </div>
 
 <div class="todo">Pre-script 3 features on the demo app (agree in the dry run): simple enough for 45 min, interesting enough to stress the SKILL.md.</div>
@@ -791,9 +798,9 @@ block: wrap
 # And the winner is…
 
 <div class="cards c3 tall">
-<div class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
-<div class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
-<div class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
 </div>
 
 <div class="todo">Fill in the tally live.</div>
@@ -822,8 +829,8 @@ block: wrap
 
 <div class="cards c3 tall">
 <div class="card"><div class="num">1</div><h3>What held you back?</h3><p>Tools, setup, the app, the team?</p></div>
-<div class="card"><div class="num">2</div><h3>What surprised you?</h3><p>Which exhibit changed your mind?</p></div>
-<div class="card dark"><div class="num">3</div><h3>What breaks in a real codebase?</h3><p>Where does today's approach stop scaling?</p></div>
+<div v-click class="card"><div class="num">2</div><h3>What surprised you?</h3><p>Which exhibit changed your mind?</p></div>
+<div v-click class="card dark"><div class="num">3</div><h3>What breaks in a real codebase?</h3><p>Where does today's approach stop scaling?</p></div>
 </div>
 
 ---
@@ -834,8 +841,8 @@ block: wrap
 
 <div class="cards c3 tall">
 <div class="card yellow"><div class="n">DO MONDAY</div><h3>…</h3><p>…</p></div>
-<div class="card"><div class="n">TAKES LONGER</div><h3>…</h3><p>…</p></div>
-<div class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>The one habit worth dropping immediately.</p></div>
+<div v-click class="card"><div class="n">TAKES LONGER</div><h3>…</h3><p>…</p></div>
+<div v-click class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>The one habit worth dropping immediately.</p></div>
 </div>
 
 <div class="todo">Marcel's Vibe Testing rally: what to do Monday, what takes longer, the one habit to drop.</div>
@@ -849,7 +856,7 @@ block: wrap
 
 <hr>
 
-## Testing is next.
+<h2 v-click>Testing is next.</h2>
 
 ---
 layout: closing
