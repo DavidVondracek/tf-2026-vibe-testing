@@ -14,7 +14,7 @@ Test automation engineers, QA leads, and QA managers.
 ## What you will do
 
 - Run Playwright the traditional way, then via CLI, then via MCP, and see exactly what changes at each step
-- Try Wopee.io as a purpose-built AI testing agent on the same app and the same task, as a direct comparison
+- Try Wopee.io as a purpose-built AI testing agent on the same app and the same task — from its own UI, and as an MCP tool your coding agent calls
 - Wire an AI coding agent to generate, run, and interpret tests autonomously
 - Write a `SKILL.md` that encodes your team's testing knowledge so any agent can reuse it
 - Get hands-on with AI-assisted API testing: the same agent concepts, one layer below the UI
@@ -41,9 +41,9 @@ No death by slides. The day has 4 gears:
 | #   | Exhibit             | What you do                                                                                     | Core concept                                        |
 | --- | ------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | 🤖  | **AI Coding Agent** | Define intent, watch the agent write, run, and interpret tests. Find where it breaks            | Agent autonomy and where human judgment still wins  |
-| 🐍  | **Playwright MCP**  | Connect Playwright to an LLM, generate and run tests via natural language                       | MCP as the protocol that makes tools agent-readable |
-| 🦁  | **Playwright CLI**  | Drive browser tests from the command line, pipe the output to an AI agent                       | CLI as the bridge between agent and browser         |
-| 🔬  | **Wopee.io**        | Paste the URL, watch it map the app, generate and run visual + functional regression end to end | Purpose-built testing agent vs. general-purpose tools |
+| 🐍  | **Playwright Agents** | Let the planner explore, the generator write and the healer repair — you review the artifacts   | Plan → test → repair, riding on MCP                 |
+| 🦁  | **Playwright CLI + Skills** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge      |
+| 🔬  | **Wopee.io + MCP**  | Paste the URL and watch it map the app — then call the same agent from your own coding agent    | Purpose-built testing agent vs. general-purpose tools |
 
 ### Agenda
 
@@ -81,10 +81,19 @@ Please follow these steps before the workshop:
 1. **Connect with me via LinkedIn:** [linkedin.com/in/marcelveselka](https://www.linkedin.com/in/marcelveselka) — share your expectations and questions, and I will adjust the workshop based on them.
 2. **Submit this form:** [Google Form](TODO-form-url), so I can make sure everything is ready for you.
 3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`.
-4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode)
+4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode). We need **Playwright 1.62 or newer** — the browser CLI, the test agents and the skills all ship inside the `playwright` package now, so there is nothing else to install.
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal.
 6. **Install the recommended extensions:** when VS Code asks, click **Install** (or `Ctrl/Cmd+Shift+P` → Extensions: Show Recommended Extensions). You get [Vercel AI Gateway](https://marketplace.visualstudio.com/items?itemName=SferaDev.vscode-extension-vercel-ai), GitHub Copilot Chat, and Playwright Test.
 7. **Connect the AI models:** `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** → paste the Vercel AI Gateway API key (starts with `vck_`) I send you. Open the Chat view (`Ctrl/Cmd+Alt+I`) and start a new chat: the model picker shows **DeepSeek V4.1 Flash**, set as the default by this repo. Send "hi" to check it answers.
 8. **Set up Wopee.io:** TODO (project creation, API key, `.env` variables).
-9. **Verify:** TODO (setup check command and expected output).
+9. **Verify:** in the repo folder, run these four and check the output:
+
+   ```bash
+   node --version                 # v20 or v22
+   npx playwright --version       # must be 1.62.0 or newer
+   npx playwright cli --help      # prints the browser command list
+   npx playwright install chromium
+   ```
+
+   Please do the last one **at the office, not on conference wifi** — it downloads about 150 MB.
 10. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
