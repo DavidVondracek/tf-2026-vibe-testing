@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+// Pre-workshop setup check. Run `npm run verify` and fix whatever comes back red.
+// Everything here is checked for real — no step reports OK without doing the thing.
+
+import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..')
+const APP_URL = 'https://foodora.lovable.app/'
+const MIN_PLAYWRIGHT = [1, 62, 0]
+
+const results = []
+let failed = 0
+
+function check(name, fn) {
+  try {
+    const detail = fn()
+    results.push(['ok', name, detail ?? ''])
+  } catch (err) {
+    failed++
+    results.push(['fail', name, err.message])
+  }
+}
+
+function run(cmd, args) {
+  return execFileSync(cmd, args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim()
+}
+
+check('Node.js 20 or newer', () => {
+  const major = Number(process.versions.node.split('.')[0])
+  if (major < 20) throw new Error(`found v${process.versions.node} — install the Node.js LTS`)
+  return `v${process.versions.node}`
+})
+
+check('Dependencies installed', () => {
+  if (!existsSync(join(root, 'node_modules', '@playwright', 'test')))
+    throw new Error('run `npm install` in the repository root first')
+  return 'node_modules is present'
+})
+
+check(`Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
+  const version = run('npx', ['playwright', '--version']).replace(/^Version\s+/, '')
+  const parts = version.split('.').map(Number)
+  for (let i = 0; i < MIN_PLAYWRIGHT.length; i++) {
+    if ((parts[i] ?? 0) > MIN_PLAYWRIGHT[i]) break
+    if ((parts[i] ?? 0) < MIN_PLAYWRIGHT[i])
+      throw new Error(`found ${version} — the CLI, the agents and the skills all need ${MIN_PLAYWRIGHT.join('.')}+`)
+  }
+  return version
+})
+
+check('Browser CLI available', () => {
+  const help = run('npx', ['playwright', 'cli', '--help'])
+  if (!help.includes('snapshot')) throw new Error('`npx playwright cli --help` did not list the browser commands')
+  return 'npx playwright cli responds'
+})
+
+check('Test-runner MCP server available', () => {
+  const help = run('npx', ['playwright', 'run-test-mcp-server', '--help'])
+  if (!help.includes('MCP')) throw new Error('`npx playwright run-test-mcp-server --help` did not respond')
+  return 'npx playwright run-test-mcp-server responds'
+})
+
+check('Chromium downloaded', () => {
+  // `install --dry-run` prints the resolved browser path without downloading anything.
+  const out = run('npx', ['playwright', 'install', '--dry-run', 'chromium'])
+  const match = out.match(/Install location:\s*(.+)/)
+  if (!match || !existsSync(match[1].trim()))
+    throw new Error('run `npm run browsers` — about 150 MB, please do it before you travel')
+  return match[1].trim()
+})
+
+check(`Demo app reachable (${APP_URL})`, () => {
+  const res = execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', '-m', '15', APP_URL], {
+    encoding: 'utf8',
+  }).trim()
+  if (res !== '200') throw new Error(`got HTTP ${res} — check your network, or tell me if the app is down`)
+  return 'HTTP 200'
+})
+
+const pad = Math.max(...results.map((r) => r[1].length))
+console.log('')
+for (const [status, name, detail] of results) {
+  const mark = status === 'ok' ? '\x1b[32m✓\x1b[0m' : '\x1b[31m✗\x1b[0m'
+  console.log(`  ${mark} ${name.padEnd(pad)}  \x1b[2m${detail}\x1b[0m`)
+}
+console.log('')
+
+if (failed) {
+  console.log(`\x1b[31m${failed} check${failed > 1 ? 's' : ''} failed.\x1b[0m Fix the above, then run \`npm run verify\` again.`)
+  console.log('Still stuck? Message me on LinkedIn before the workshop — not on the morning of.\n')
+  process.exit(1)
+}
+
+console.log('\x1b[32mYou are ready.\x1b[0m See you at Tesena Fest.\n')

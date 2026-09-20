@@ -63,6 +63,15 @@ Did it invent an error message the app never shows? That is the failure mode to 
 the agent asserts what *should* be true rather than what *is* true, and the test passes
 against an app that never behaves that way.
 
+Do not take my word for what the app does. Run the agent's negative test and watch it fail, then
+run the one in [`solutions/empty-cart.spec.ts`](./solutions/empty-cart.spec.ts) and watch it pass.
+The difference between the two is the whole exhibit.
+
 ## If you get stuck
 
-Ask your neighbour first. Then the root README's troubleshooting. Then raise your hand.
+Ask your neighbour first, then the root README's
+[When something breaks](../../../README.md#when-something-breaks). Then raise your hand.
+
+Fell behind entirely? [`solutions/`](./solutions/) has both tests, and `npm run solutions` from
+the repository root runs them. Read them rather than copying them — at the debrief the question
+is where yours differed, not whether you finished.

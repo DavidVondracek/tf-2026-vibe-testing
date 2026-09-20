@@ -82,18 +82,44 @@ Please follow these steps before the workshop:
 2. **Submit this form:** [Google Form](TODO-form-url), so I can make sure everything is ready for you.
 3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`.
 4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode). We need **Playwright 1.62 or newer** — the browser CLI, the test agents and the skills all ship inside the `playwright` package now, so there is nothing else to install.
-5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal.
+5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal. One install at the root covers every exhibit.
 6. **Install the recommended extensions:** when VS Code asks, click **Install** (or `Ctrl/Cmd+Shift+P` → Extensions: Show Recommended Extensions). You get [Vercel AI Gateway](https://marketplace.visualstudio.com/items?itemName=SferaDev.vscode-extension-vercel-ai), GitHub Copilot Chat, and Playwright Test.
 7. **Connect the AI models:** `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** → paste the Vercel AI Gateway API key (starts with `vck_`) I send you. Open the Chat view (`Ctrl/Cmd+Alt+I`) and start a new chat: the model picker shows **DeepSeek V4.1 Flash**, set as the default by this repo. Send "hi" to check it answers.
 8. **Set up Wopee.io:** TODO (project creation, API key, `.env` variables).
-9. **Verify:** in the repo folder, run these four and check the output:
+9. **Download the browser:** `npm run browsers`. Please do this **at the office, not on conference wifi** — it is about 150 MB.
+10. **Verify:** in the repo folder, run
 
-   ```bash
-   node --version                 # v20 or v22
-   npx playwright --version       # must be 1.62.0 or newer
-   npx playwright cli --help      # prints the browser command list
-   npx playwright install chromium
-   ```
+    ```bash
+    npm run verify
+    ```
 
-   Please do the last one **at the office, not on conference wifi** — it downloads about 150 MB.
-10. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
+    Seven checks: Node, dependencies, Playwright version, the browser CLI, the test-runner MCP server, Chromium on disk, and the demo app responding. Every line must be green. If one is red it tells you what to fix.
+11. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
+
+## Repository layout
+
+```
+experiments/1_Zoo/
+  1-CodingAgent/          Exhibit 1 — config + an empty tests/ for the agent to fill
+  2-PlaywrightAgents/     Exhibit 2 — config, a green seed test, specs/ for the planner
+  3-PlaywrightCLI/        Exhibit 3 — a hand-written skill to copy and break
+  4-Wopee/                Exhibit 4 — MCP config for VS Code, and the env-var route
+scripts/verify-setup.mjs  what `npm run verify` runs
+slides/                   the deck (Slidev)
+```
+
+Each exhibit has a `solutions/` folder. Open it if you fall behind — it is what a good run
+produces, not a thing to copy blindly.
+
+## When something breaks
+
+| What you see | What it means |
+| --- | --- |
+| `npm run verify` red on *Playwright version* | You are on an older Playwright. The CLI, the agents and the skills all need **1.62+**. `npm install` at the repository root. |
+| `init-agents` prints `Using project ""` | It did not find a config. `cd` into the exhibit folder and run it there. |
+| `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
+| Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**. |
+| MCP tools do not appear in chat | Reload the VS Code window after writing `.vscode/mcp.json`, and make sure the chat is in **agent** mode. |
+| A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, tell me. |
+
+Still stuck? Ask your neighbour, then raise your hand. Do not spend 10 of your 20 minutes on setup.

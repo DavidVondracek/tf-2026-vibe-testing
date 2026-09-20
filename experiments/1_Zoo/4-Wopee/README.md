@@ -20,24 +20,27 @@ A run finished, and you opened one visual diff.
 Add the Wopee MCP server to your coding agent and ask **it** to start the run. Your coding agent
 now calls a testing agent as a tool.
 
-```json
-{
-  "mcpServers": {
-    "wopee": {
-      "command": "npx wopee-mcp",
-      "env": {
-        "WOPEE_PROJECT_UUID": "your-project-uuid",
-        "WOPEE_API_KEY": "your-api-key"
-      }
-    }
-  }
-}
+Copy [`mcp.json.example`](./mcp.json.example) into place and reload VS Code:
+
+```bash
+cp experiments/1_Zoo/4-Wopee/mcp.json.example .vscode/mcp.json
 ```
 
-Both values come from your project in `cmd.wopee.io`. The server exposes tools to dispatch an
-analysis, dispatch an agent run, fetch suites and read or write artifacts.
+VS Code prompts you for the project UUID and the API key on first use and keeps them in its
+secret storage. **Do not paste the key into a file in this repository** — same rule as the
+gateway key at Exhibit 1.
 
-Then just ask, in the chat: *start a Wopee analysis on my project and tell me what it found.*
+Both values come from **cmd.wopee.io → your project → Settings** (the key under *API Keys*).
+
+Open Copilot Chat in **agent mode** and ask: *start a Wopee analysis on my project and tell me
+what it found.* You should see it call `wopee_dispatch_analysis`.
+
+The server exposes seven tools — create a blank suite, fetch suites, dispatch an analysis,
+dispatch an agent run, and fetch, update or generate artifacts.
+
+> On Claude Code instead? Same two values, different file and a different top-level key:
+> `.mcp.json` with `mcpServers` rather than `servers`, and no `inputs` block. See
+> [`.env.example`](./.env.example) for the environment-variable route.
 
 ## The question to answer at the debrief
 
