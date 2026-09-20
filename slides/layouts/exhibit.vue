@@ -1,7 +1,10 @@
 <!-- Zoo exhibit sign: photo "enclosure" on the left, black plaque with the facts on the right. -->
 <template>
   <div class="slidev-layout wp-exhibit">
-    <div class="wp-exhibit-photo" :style="{ backgroundImage: `url(${$frontmatter.image})` }">
+    <div class="wp-exhibit-photo">
+      <div class="wp-exhibit-clip">
+        <div class="wp-photo" :style="{ backgroundImage: `url(${$frontmatter.image})` }" />
+      </div>
       <div class="wp-exhibit-badge">
         <img v-if="$frontmatter.icon === 'monkey'" src="/img/wopee-monkey.svg" alt="" />
         <span v-else>{{ $frontmatter.icon }}</span>
@@ -30,10 +33,14 @@
 
 .wp-exhibit-photo {
   flex: 0 0 48%;
-  background-size: cover;
-  background-position: center;
   position: relative;
   margin-bottom: var(--wp-footer);
+}
+
+.wp-exhibit-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
 .wp-exhibit-badge {

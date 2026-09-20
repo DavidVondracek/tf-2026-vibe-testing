@@ -4,8 +4,8 @@ defineProps<{ active?: 'agent' | 'mcp' | 'cli' | 'wopee' }>()
 
 const rows = [
   { id: 'agent', icon: '🤖', name: 'AI Coding Agent' },
-  { id: 'mcp', icon: '🐍', name: 'Playwright MCP' },
-  { id: 'cli', icon: '🦁', name: 'Playwright CLI' },
+  { id: 'mcp', icon: '🐍', name: 'Playwright Agents' },
+  { id: 'cli', icon: '🦁', name: 'Playwright CLI + Skills' },
   { id: 'wopee', icon: '', name: 'Wopee.io' },
 ]
 const cols = ['Setup', 'Tokens / cost', 'Reliability', 'Upkeep', 'Verdict']

@@ -6,6 +6,7 @@
 @import '@fontsource/bungee/400.css';
 @import '@fontsource/gruppo/400.css';
 @import '@fontsource/jetbrains-mono/400.css';
+@import './animations.css';
 
 :root {
   --wp-yellow: #ffcc00;
@@ -86,14 +87,26 @@
 
 /* Yellow keyword in a title: a marker stroke on light slides, yellow text on dark ones */
 .y {
-  background: linear-gradient(transparent 55%, var(--wp-yellow) 55%, var(--wp-yellow) 92%, transparent 92%);
+  background-image: linear-gradient(var(--wp-yellow), var(--wp-yellow));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 37%;
   padding: 0 0.08em;
 }
 
 .wp-statement .y,
 .card.dark .y {
   background: none;
+  animation: none;
   color: var(--wp-yellow);
+}
+
+/* Photo layer that drifts slowly inside a clipped frame */
+.wp-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Highlighter-pen emphasis inside body text */

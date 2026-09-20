@@ -186,7 +186,7 @@ Write both numbers on a sticky note. Put it on the board. No judgment.
   <div class="card"><div class="n">QA</div><h3>Time to verify it</h3><p>From merged code to "we trust it in production".</p></div>
 </div>
 
-<p class="text-2xl font-bold mt-8 text-center">Today is about <span class="y">closing the gap</span> between these two numbers.</p>
+<p v-click class="text-2xl font-bold mt-8 text-center">Today is about <span class="y">closing the gap</span> between these two numbers.</p>
 
 <!--
 09:10 — sticky notes: yellow for DEV, white for QA. Photograph the board; we come back to it at 16:15.
@@ -207,23 +207,103 @@ The minimum theory to survive the Zoo
 block: stack
 ---
 
-# Vibe coding → <span class="y">vibe testing</span>
+# First, <span class="y">the name on the door</span>
+
+<p class="muted -mt-2">May 2025. Ministry of Testing asks its own community to define the term. Four days, four answers:</p>
+
+<div class="cards c4">
+<div class="card"><div class="n">16 MAY · DEMI VAN MALCOT</div><p>"Tell the AI what you want to test… and let them figure out the rest."</p></div>
+<div class="card"><div class="n">20 MAY · ANDRE LEROUX</div><p>Ask the model what coverage exists and what is missing — "but you need to verify".</p></div>
+<div class="card"><div class="n">25 MAY · YOGENDRA PORWAL</div><p>"Less rigid, more dynamic, aligned with the creative flow AI brings."</p></div>
+<div class="card"><div class="n">VENDORS, EVER SINCE</div><p>Testing how the app <em>feels</em> to real users. No method. No oracle.</p></div>
+</div>
+
+<div class="banner" style="margin-top: 1rem; font-size: 1.2rem">"An unprofessional, ineffective and pointless software-related activity <em>masquerading as testing</em>." <span style="opacity:.7; font-weight:400">— Steve Green, same thread, 17 May 2025</span></div>
+
+<p v-click class="text-3xl font-bold text-center mt-4">He is right about the word. <span class="hl">Stay for the practice underneath.</span></p>
+
+<!--
+09:15 — Open the day's thinking here. Say it before anyone else can: the title on your badge is indefensible as a term.
+Four incompatible definitions and one flat rejection inside 96 hours — from the practitioner community itself, not from vendors.
+The term has no coiner and no literature. Every other label in this space was minted by a vendor or an analyst.
+Simon Willison on his own coinage: "Is this a stupid name? Yeah, probably." Kent Beck: vibe coding "just sounds like you're relaxing in a hot tub."
+Then turn the room with the next slide — the man who coined the parent term agrees with the critics.
+Attacking your own title is the cheapest credibility you will buy all day, and it disarms the hostile question before it is asked.
+-->
+
+---
+block: stack
+---
+
+# The man who named it <span class="y">already retired the word</span>
 
 <div class="grid grid-cols-2 gap-10">
 <div class="flex flex-col justify-center">
-  <p class="text-4xl font-bold my-1">You prompt.</p>
-  <p class="text-4xl font-bold my-1">The AI codes.</p>
-  <p class="text-4xl muted my-1">Nobody reads the code.</p>
-  <p class="text-4xl font-bold my-1">You ship.</p>
+  <p class="text-2xl muted my-1">2 Feb 2025 — Karpathy coins <b>vibe coding</b>:</p>
+  <p class="text-3xl font-bold my-2">"forget that the code even exists"</p>
+  <p v-click class="text-2xl muted mt-6 my-1">8 Feb 2026 — one year later, he replaces it:</p>
+  <p v-click class="text-3xl font-bold my-2"><span class="hl">agentic engineering</span></p>
 </div>
-<div class="cards c1 mt-0">
-<div class="card yellow"><div class="n">DEV</div><h3>Ships in hours</h3><p>Prompt → AI writes code → commit. The loop runs all day.</p></div>
-<div class="card"><div class="n">QA</div><h3>Verifies in weeks</h3><p>Still fixing brittle tests. More features, more work.</p></div>
+<div v-click class="flex flex-col justify-center">
+  <p class="text-xl">"at the top tiers, deep technical expertise may be <b>even more</b> of a multiplier than before because of the added leverage."</p>
+  <p class="muted mt-3">— Karpathy, Feb 2026</p>
 </div>
 </div>
 
 <!--
-09:15 — the shift developers already made. QA is next.
+09:15 — Open here. Do NOT defend the word; concede it in the first five minutes and the room is yours.
+Kent Beck, on why he calls it augmented coding instead: "vibe coding just sounds like you're relaxing in a hot tub."
+Steve Green, Ministry of Testing, May 2025: "an unprofessional, ineffective and pointless activity masquerading as testing."
+Rosie Sherry asked MoT to define "vibe testing" — four incompatible answers and one flat rejection in 96 hours. The term arrived definition-free.
+-->
+
+---
+block: stack
+---
+
+# They all renamed it. <span class="y">They all landed on your job.</span>
+
+<div class="cards c3">
+<div class="card"><div class="n">KENT BECK · JUN 2025</div><h3>Augmented coding</h3><p>"You care deeply about the code, its complexity, <b>the tests, &amp; their coverage</b>."</p></div>
+<div class="card"><div class="n">SIMON WILLISON · OCT 2025</div><h3>Vibe engineering</h3><p>Professionals accelerate with LLMs "while staying <b>proudly and confidently accountable</b>".</p></div>
+<div class="card"><div class="n">KARPATHY · FEB 2026</div><h3>Agentic engineering</h3><p>You orchestrate agents and <b>act as oversight</b>. Expertise matters more, not less.</p></div>
+</div>
+
+<div v-click class="banner">Willison lists <em>11 practices</em> that make it work. <span class="y">Seven of them are testing.</span></div>
+
+<p v-click class="text-2xl font-bold text-center mt-4">Nobody coordinated this. They independently reinvented <span class="hl">the testing profession</span>.</p>
+
+<!--
+09:18 — This is the slide that turns a sceptical QA room around. The successors to vibe coding are structurally a QA discipline.
+Willison's 11: automated testing and test-first · advance planning · documentation · version control · CI/CD and linting · code review · manual QA and edge cases · research skills · preview environments · intuition for what AI can handle · estimation.
+Veracode, Mar 2026: two years of model progress moved code security 55% → 55%. The model is provably not the variable. The discipline is.
+-->
+
+---
+block: stack
+---
+
+# The whole lifecycle moved. <span class="y">Test is stage 4.</span>
+
+<p class="muted -mt-2">Anthropic, 21 August 2026. Six stages — and each one commits an artifact the next one reads.</p>
+
+<div class="cards c3">
+<div class="card"><div class="n">1 · PLAN</div><h3>intent.md</h3><p>The problem and the constraints, in the repo.</p></div>
+<div class="card"><div class="n">2 · DESIGN</div><h3>spec.md</h3><p>Requirements and design collapse into one session.</p></div>
+<div class="card"><div class="n">3 · BUILD</div><h3>plan.md → code</h3><p>Plan mode first. Several streams at once.</p></div>
+<div class="card yellow"><div class="n">4 · TEST</div><h3>The agent checks itself</h3><p>Tests, builds, screenshots — before a human looks.</p></div>
+<div class="card"><div class="n">5 · DEPLOY</div><h3>Review + gates</h3><p>Findings ranked by severity. Hooks ask for approval.</p></div>
+<div class="card"><div class="n">6 · MAINTAIN</div><h3>Back to intent.md</h3><p>Production anomaly opens the loop again.</p></div>
+</div>
+
+<div class="banner">"Code is no longer the bottleneck. <em>The human-speed steps around it are.</em>"</div>
+
+<p v-click class="text-xl text-center mt-3">Stage 4 proves the fix with a test <span class="hl">the agent wrote</span>. Hold that thought.</p>
+
+<!--
+09:20 — this is the slide that makes the Speed Gap someone else's argument, not just mine.
+The chain of commits is the audit trail: who asked for what, what the agent produced, who approved it.
+Ask the room: which of these six does your team already do in the open, in git?
 -->
 
 ---
@@ -236,7 +316,7 @@ block: stack
 <div class="card"><div class="n">CODING AGENT</div><h3>Claude Code, Copilot, Cursor</h3><p>Writes, runs and fixes test code in your repo.</p></div>
 <div class="card"><div class="n">PROTOCOL</div><h3>MCP</h3><p>A standard way to make any tool readable and callable by an LLM.</p></div>
 <div class="card"><div class="n">BROWSER CLI</div><h3>Playwright CLI</h3><p>The agent drives the browser with shell commands. Snapshots saved to disk.</p></div>
-<div class="card"><div class="n">TESTING AGENT</div><h3>Wopee.io</h3><p>Maps the app, then generates and runs regression tests end to end.</p></div>
+<div class="card"><div class="n">TESTING AGENT</div><h3>Wopee.io</h3><p>Maps the app, then generates and runs regression tests. Usable from the cloud — or as an MCP tool your agent calls.</p></div>
 </div>
 
 <div class="todo">Draw the one diagram: agent in the middle, MCP and CLI as the two ways to the browser, SKILL.md as the knowledge layer.</div>
@@ -249,18 +329,23 @@ block: stack
 block: stack
 ---
 
-# Playwright CLI vs MCP: <span class="y">~4× fewer tokens</span>
+# CLI or MCP? <span class="y">Ask what the agent is doing.</span>
 
-Same Playwright engine. A different interface for the LLM.
+Same Playwright engine. Two interfaces — and the honest difference is architecture, not a multiplier.
 
 <div class="vs">
-  <div class="card"><div class="n">@playwright/cli</div><h3>CLI</h3><div class="metric">~27K<small>tokens / session</small></div><p>Shell commands. Snapshots saved to disk, not to the context.</p><p><b>Best for:</b> agents with a shell.</p></div>
+  <div class="card"><div class="n">npx playwright cli</div><h3>CLI</h3><div class="metric">a path<small>the tree goes to disk</small></div><p>Every command answers with <code>.playwright-cli/page-*.yml</code>. The agent reads it only if it needs to. Skills load on demand.</p><p><b>Best for:</b> pre-planned runs, agents with a shell.</p></div>
   <div class="vs-disc">VS</div>
-  <div class="card"><div class="n">@playwright/mcp</div><h3>MCP</h3><div class="metric">~114K<small>tokens / session</small></div><p>JSON-RPC server. Full accessibility tree pushed into the context.</p><p><b>Best for:</b> sandboxed UIs, exploration.</p></div>
+  <div class="card"><div class="n">npx playwright mcp</div><h3>MCP</h3><div class="metric">the tree<small>in context, by default</small></div><p>Persistent state and rich introspection. Since v0.0.52 it can write snapshots to disk too — the difference is a default, not a limit.</p><p><b>Best for:</b> exploring, self-healing, long autonomous runs.</p></div>
 </div>
 
+<div class="banner">Microsoft names the mechanism. <em>It publishes no numbers.</em></div>
+
 <!--
-09:28 — numbers from the OSC workshop deck (August 2026). Re-check against current Playwright releases before the event; drop "4×" from the title if they changed.
+09:28 — DO NOT say "4× fewer tokens". That figure (27K vs 114K) traces to a Medium post via a personal blog; it is not a Playwright benchmark.
+The one measured head-to-head with a stated method — Checkly, Stefan Judis, 30 Jul 2026, three runs each — found 45–48K (CLI) vs 48–50K (MCP). Near parity, because harnesses now defer tool loading.
+Both ship inside `playwright` since 1.62 — no separate package to install. The standalone @playwright/mcp still exists and still outships the CLI on npm; MCP is not dying, they do different jobs.
+If someone pushes: offer to measure it live at the CLI exhibit. That beats any cited number.
 -->
 
 ---
@@ -390,6 +475,10 @@ block: zoo
 <Qr url="https://foodora.lovable.app/" size="9rem" caption="Open the app" />
 </div>
 
+<div class="banner">One task, four tools: <em>order a meal and prove it worked.</em></div>
+
+<p class="text-center muted mt-3">Add a dish to the cart, complete the checkout, get a check that passes. Then find one thing the tool got wrong.</p>
+
 ---
 layout: exhibit
 block: zoo
@@ -412,10 +501,16 @@ kicker: Exhibit 1 · AI Coding Agent
 goal: Define the intent. Let the agent write, run and interpret the tests. Find where it breaks.
 path: experiments/1_Zoo/1-CodingAgent/
 until: '10:30'
-done: TODO
+minutes: 20
+done: A test file exists, it runs, and you can name one thing the agent got wrong.
+stuck: Run `git checkout zoo/1-solution` and read what it produced instead.
 ---
 
-<div class="todo">Steps (max 3), "done when", the solution branch, and which coding agent attendees use.</div>
+1. Open the folder in your agent (Claude Code, Copilot or Cursor — whichever you already have).
+2. Ask it in one sentence: *order a meal on <code>foodora.lovable.app</code> and write a Playwright test that proves it.*
+3. Run the test. If it fails, paste the failure back and let the agent fix it — <b>twice</b>, no more.
+
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Ask for a negative case: checkout with an empty cart. Did it invent an error message the app never shows?</p>
 
 <!--
 10:10 — intro 2 min, hands-on until 10:30, debrief 5 min.
@@ -434,28 +529,34 @@ label: The Zoo · debrief
 layout: exhibit
 block: zoo
 no: '02'
-name: Playwright MCP
+name: Playwright Agents
 icon: 🐍
 image: /img/photos/exhibit-mcp.jpg
-tagline: The protocol that makes tools agent-readable.
+tagline: Planner, generator, healer — three agents riding on MCP.
 facts:
-  - { k: Habitat, v: 'Any MCP client: IDE, chat app' }
-  - { k: Feeds on, v: '~114K tokens / session' }
-  - { k: Best at, v: 'Exploring an app in natural language' }
-  - { k: Watch out, v: 'The context window fills up fast' }
+  - { k: Habitat, v: 'Your repo, over a test-runner-aware MCP server' }
+  - { k: Feeds on, v: 'A seed test, and the page tree in context' }
+  - { k: Best at, v: 'Plan → test → repair, as reviewable artifacts' }
+  - { k: Watch out, v: 'The healer may skip a test instead of fixing it' }
 ---
 
 ---
 layout: task
 block: zoo
-kicker: Exhibit 2 · Playwright MCP
-goal: Connect Playwright MCP to your agent. Explore the app and generate tests in plain English.
-path: experiments/1_Zoo/2-PlaywrightMCP/
+kicker: Exhibit 2 · Playwright Agents
+goal: Let the planner explore, the generator write, the healer repair. You review the artifacts.
+path: experiments/1_Zoo/2-PlaywrightAgents/
 until: '10:55'
-done: TODO
+minutes: 20
+done: A plan in specs/, a generated test, and a green run you did not write.
+stuck: The folder ships a working config and a green seed test — start from there.
 ---
 
-<div class="todo">Steps (max 3, with exact commands), "done when" and the solution branch.</div>
+1. <code>npx playwright init-agents --loop=claude --prompts</code> — look for <code>🎭 Using project "chromium"</code>, then run the seed test once. It must be green.
+2. Ask the <b>planner</b> for a plan of ordering a meal. Read <code>specs/order.md</code> — that is the artifact a non-coder can review.
+3. Ask the <b>generator</b> for bullet 1.1 only, then run it.
+
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then <code>grep -r "test.fixme" tests/</code>. Did it repair your test — or just silence it?</p>
 
 <!--
 10:35 — hands-on until 10:55, debrief 5 min.
@@ -480,22 +581,28 @@ image: /img/photos/exhibit-cli.jpg
 tagline: The CLI as the bridge between agent and browser.
 facts:
   - { k: Habitat, v: 'Your terminal' }
-  - { k: Feeds on, v: '~27K tokens / session' }
-  - { k: Best at, v: 'Fast, scriptable runs by agents with a shell' }
-  - { k: Watch out, v: 'Needs a shell the agent can use' }
+  - { k: Feeds on, v: 'Shell commands; snapshots land on disk' }
+  - { k: Best at, v: 'Pre-planned runs, agents with a shell' }
+  - { k: Watch out, v: 'Needs Playwright 1.62+ — older builds lack half the commands' }
 ---
 
 ---
 layout: task
 block: zoo
-kicker: Exhibit 3 · Playwright CLI
-goal: Same task through the Playwright CLI. What changed in speed and tokens?
+kicker: Exhibit 3 · Playwright CLI + Skills
+goal: Install one skill. Watch your agent drive a browser from it, without you writing a locator.
 path: experiments/1_Zoo/3-PlaywrightCLI/
 until: '11:20'
-done: TODO
+minutes: 20
+done: The skill is on disk, and snapshots are landing in .playwright-cli/ — not in the context.
+stuck: Everything here is `npx playwright …` — no extra package, no global install.
 ---
 
-<div class="todo">Steps (max 3, with exact commands), "done when" and the solution branch.</div>
+1. <code>npx playwright init-skills</code> — then <code>head -4 .claude/skills/playwright-cli/SKILL.md</code>. Four lines of frontmatter is all the agent holds until it needs more.
+2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. Every answer is a <em>file path</em>, not a page.
+3. Now ask your agent to order the meal. It never had to be told the commands.
+
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Write your own 20-line <code>SKILL.md</code> for the login flow — then break its <code>description</code> and watch the agent stop finding it.</p>
 
 <!--
 11:00 — hands-on until 11:20, debrief 5 min.
@@ -518,13 +625,13 @@ label: The Zoo · debrief
 layout: exhibit
 block: zoo
 no: '04'
-name: Wopee.io
+name: Wopee.io + MCP
 icon: monkey
 image: /img/photos/exhibit-wopee.jpg
-tagline: A purpose-built AI testing agent. Built by your zookeeper, judged by you.
+tagline: A purpose-built testing agent — from the cloud, or called by your own agent.
 facts:
-  - { k: Habitat, v: 'The cloud: cmd.wopee.io' }
-  - { k: Feeds on, v: 'A URL' }
+  - { k: Habitat, v: 'cmd.wopee.io, and any MCP client' }
+  - { k: Feeds on, v: 'A URL — or a tool call from your coding agent' }
   - { k: Best at, v: 'Mapping the app, visual + functional regression' }
   - { k: Watch out, v: 'Less control over the generated code' }
 ---
@@ -533,13 +640,19 @@ facts:
 layout: task
 block: zoo
 kicker: Exhibit 4 · Wopee.io
-goal: Paste the URL. Watch it map the app, then generate and run visual + functional regression end to end.
+goal: Paste the URL. Watch it map the app, generate and run regression — then call the same agent from your own agent.
 path: experiments/1_Zoo/4-Wopee/
 until: '11:45'
-done: TODO
+minutes: 20
+done: A run finished, and you opened one visual diff.
+stuck: Use the shared project on the whiteboard — a finished run is already waiting there.
 ---
 
-<div class="todo">Steps (max 3), "done when" and the fallback.</div>
+1. Sign in at <code>cmd.wopee.io</code>, create a project with the Foodora URL, instruction: *order a meal and verify the confirmation.*
+2. Start it and watch the agent explore live while it maps the app.
+3. Open one visual diff and decide: real regression, or noise?
+
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Add <code>wopee-mcp</code> to your coding agent and ask <em>it</em> to start the run — the testing agent becomes a tool your agent calls.</p>
 
 <!--
 11:25 — hands-on until 11:45, debrief 5 min.
@@ -637,6 +750,7 @@ block: build
 layout: work
 block: build
 until: '14:30'
+minutes: 85
 checkpoints:
   - { t: '13:30', v: 'First test green' }
   - { t: '14:00', v: 'SKILL.md drafted' }
@@ -672,6 +786,7 @@ emoji: 🔁
 layout: work
 block: swap
 until: '15:00'
+minutes: 30
 checkpoints:
   - { t: '14:30', v: 'Hand over your SKILL.md' }
   - { t: '14:50', v: 'Feedback written' }
@@ -735,6 +850,7 @@ Extend your suite to cover them. Use exactly what you built. No rebuilding. No s
 layout: work
 block: battle
 until: '16:00'
+minutes: 45
 checkpoints:
   - { t: '15:15', v: 'Features revealed' }
   - { t: '15:40', v: 'First feature covered' }
@@ -744,9 +860,9 @@ checkpoints:
 # 3 new features
 
 <div class="cards c1">
-<div class="card"><div class="n">FEATURE 1</div><h3>…</h3></div>
-<div class="card"><div class="n">FEATURE 2</div><h3>…</h3></div>
-<div class="card"><div class="n">FEATURE 3</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">FEATURE 1</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">FEATURE 2</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">FEATURE 3</div><h3>…</h3></div>
 </div>
 
 <div class="todo">Pre-script 3 features on the demo app (agree in the dry run): simple enough for 45 min, interesting enough to stress the SKILL.md.</div>
@@ -791,9 +907,9 @@ block: wrap
 # And the winner is…
 
 <div class="cards c3 tall">
-<div class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
-<div class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
-<div class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
 </div>
 
 <div class="todo">Fill in the tally live.</div>
@@ -822,8 +938,8 @@ block: wrap
 
 <div class="cards c3 tall">
 <div class="card"><div class="num">1</div><h3>What held you back?</h3><p>Tools, setup, the app, the team?</p></div>
-<div class="card"><div class="num">2</div><h3>What surprised you?</h3><p>Which exhibit changed your mind?</p></div>
-<div class="card dark"><div class="num">3</div><h3>What breaks in a real codebase?</h3><p>Where does today's approach stop scaling?</p></div>
+<div v-click class="card"><div class="num">2</div><h3>What surprised you?</h3><p>Which exhibit changed your mind?</p></div>
+<div v-click class="card dark"><div class="num">3</div><h3>What breaks in a real codebase?</h3><p>Where does today's approach stop scaling?</p></div>
 </div>
 
 ---
@@ -834,8 +950,8 @@ block: wrap
 
 <div class="cards c3 tall">
 <div class="card yellow"><div class="n">DO MONDAY</div><h3>…</h3><p>…</p></div>
-<div class="card"><div class="n">TAKES LONGER</div><h3>…</h3><p>…</p></div>
-<div class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>The one habit worth dropping immediately.</p></div>
+<div v-click class="card"><div class="n">TAKES LONGER</div><h3>…</h3><p>…</p></div>
+<div v-click class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>The one habit worth dropping immediately.</p></div>
 </div>
 
 <div class="todo">Marcel's Vibe Testing rally: what to do Monday, what takes longer, the one habit to drop.</div>
@@ -849,7 +965,7 @@ block: wrap
 
 <hr>
 
-## Testing is next.
+<h2 v-click>Testing is next.</h2>
 
 ---
 layout: closing
