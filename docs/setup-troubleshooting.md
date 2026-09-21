@@ -88,7 +88,7 @@ GitHub Desktop is not enough: it does not put `git` on the terminal's path.
 
 | What you see | Fix |
 | --- | --- |
-| `head` "is not recognized" in PowerShell (Exhibit 3) | Open the file in VS Code instead. `ls` and `cat` work in PowerShell; `head` does not. |
+| `head` "is not recognized" in PowerShell (Exhibit 3) | Use `Get-Content <file> -TotalCount 4`, or open the file in VS Code. `ls` and `cat` work in PowerShell; `head` does not. |
 
 The workshop-day problems with the exhibits themselves are in the
 [root README](../README.md#when-something-breaks).
