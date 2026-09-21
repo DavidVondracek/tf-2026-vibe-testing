@@ -9,11 +9,7 @@ The attendee repository for a full-day, hands-on workshop at
 
 Four AI testing tools go head-to-head on the same demo app, then teams build their own
 AI-assisted test suite and defend it. Everything you need for the day — and to rerun it at home —
-is in this repository.
-
-- **About the workshop** — who it is for, what you do, the four tools: [`docs/workshop.md`](docs/workshop.md)
-- **The day, block by block** — agenda and one page per block: [`day/`](day/)
-- **The demo app and what it should do:** [`spec/`](spec/)
+is in this repository: set up below, then follow [the day](day/).
 
 ## Get ready for the workshop
 
@@ -34,12 +30,15 @@ organised by step.
 10. **Verify:** `npm run verify`. All seven lines must be green; a red one tells you what to fix.
 11. **Let me know you're ready** on LinkedIn, or ask anything there.
 
-## More
+## Find your way
 
-| | |
+| Page | What is in it |
 | --- | --- |
-| [`docs/repository.md`](docs/repository.md) | What is where in this repository, and the `npm run` commands |
+| [`docs/workshop.md`](docs/workshop.md) | About the workshop: who it is for, what you do, the four tools, the demo app |
+| [`day/`](day/) | The agenda, and one page per block — what to do if you lose the presenter |
+| [`spec/`](spec/) | What the demo app should do — the input for every test you write |
 | [`docs/setup-troubleshooting.md`](docs/setup-troubleshooting.md) | Fixes, before and during the workshop |
+| [`docs/repository.md`](docs/repository.md) | What is where in this repository, and the `npm run` commands |
 | [`docs/research/`](docs/research/) | The data behind the concepts: MCP, CLIs, Playwright, and our own measurement |
 | [`AGENTS.md`](AGENTS.md) | Rules your AI agent follows in this repository |
 | [`slides/`](slides/) | The deck — `npm run slides` |
