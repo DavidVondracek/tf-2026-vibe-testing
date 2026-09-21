@@ -633,3 +633,33 @@
   justify-content: space-between;
   gap: 1rem;
 }
+
+/* CLI vs MCP section */
+.hands .card ul,
+.which .card ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.hands .card li,
+.which .card li {
+  font-size: 1.05rem;
+  margin: 0.15rem 0;
+}
+
+.stats .stat {
+  font-family: 'Bungee', sans-serif;
+  font-size: 2.3rem;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stats .card.dark .stat {
+  color: var(--wp-yellow);
+}
+
+.chart-note {
+  font-size: 0.95rem !important;
+  color: var(--wp-grey);
+  margin-top: 0.4rem;
+}
