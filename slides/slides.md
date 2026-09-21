@@ -217,21 +217,26 @@ block: stack
 
 # First, <span class="y">the name on the door</span>
 
-<p class="muted -mt-2">May 2025. Ministry of Testing asks its own community to define the term. Four days, four answers:</p>
+May 2025: Ministry of Testing asked its community to define "vibe testing". Four days, four answers.
 
-<div class="cards c4">
-<div class="card"><div class="n">16 MAY · DEMI VAN MALCOT</div><p>"Tell the AI what you want to test… and let them figure out the rest."</p></div>
-<div class="card"><div class="n">20 MAY · ANDRE LEROUX</div><p>Ask the model what coverage exists and what is missing — "but you need to verify".</p></div>
-<div class="card"><div class="n">25 MAY · YOGENDRA PORWAL</div><p>"Less rigid, more dynamic, aligned with the creative flow AI brings."</p></div>
-<div class="card"><div class="n">VENDORS, EVER SINCE</div><p>Testing how the app <em>feels</em> to real users. No method. No oracle.</p></div>
+<div class="cards c4 phrases">
+<div class="card"><h3>"Tell the AI what to test"</h3></div>
+<div class="card"><h3>"Ask the model what is missing"</h3></div>
+<div class="card"><h3>"Less rigid, more creative"</h3></div>
+<div class="card"><h3>"Test how it <em>feels</em>"</h3></div>
 </div>
 
-<div class="banner" style="margin-top: 1rem; font-size: 1.2rem">"An unprofessional, ineffective and pointless software-related activity <em>masquerading as testing</em>." <span style="opacity:.7; font-weight:400">— Steve Green, same thread, 17 May 2025</span></div>
+<div class="banner">"…an unprofessional, ineffective and pointless activity <em>masquerading as testing</em>." — Steve Green</div>
 
-<p v-click class="text-3xl font-bold text-center mt-4">He is right about the word. <span class="hl">Stay for the practice underneath.</span></p>
+<p v-click class="text-2xl font-bold text-center mt-5">He is right about the word. Stay for <span class="hl">the practice underneath.</span></p>
 
 <!--
-09:15 — Open the day's thinking here. Say it before anyone else can: the title on your badge is indefensible as a term.
+09:15 — Open the day's thinking here.
+The four answers, if asked: Demi Van Malcot (16 May, "tell the AI what you want to test… and let them figure out
+the rest"), Andre Leroux (20 May, ask the model what coverage is missing, "but you need to verify"), Yogendra
+Porwal (25 May, "less rigid, more dynamic"), and vendors ever since (how the app feels — no method, no oracle).
+Steve Green's full line, same thread, 17 May 2025: "an unprofessional, ineffective and pointless
+software-related activity masquerading as testing." Say it before anyone else can: the title on your badge is indefensible as a term.
 Four incompatible definitions and one flat rejection inside 96 hours — from the practitioner community itself, not from vendors.
 The term has no coiner and no literature. Every other label in this space was minted by a vendor or an analyst.
 Simon Willison on his own coinage: "Is this a stupid name? Yeah, probably." Kent Beck: vibe coding "just sounds like you're relaxing in a hot tub."
