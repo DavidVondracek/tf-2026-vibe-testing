@@ -114,6 +114,7 @@ Please follow these steps before the workshop. If one fails, look it up in
 | [`experiments/1_Zoo/2-PlaywrightAgents/`](experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |
 | [`experiments/1_Zoo/3-PlaywrightCLI/`](experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |
 | [`experiments/1_Zoo/4-Wopee/`](experiments/1_Zoo/4-Wopee/) | Exhibit 4 — [MCP config](experiments/1_Zoo/4-Wopee/mcp.json.example) for VS Code, and the [env-var route](experiments/1_Zoo/4-Wopee/.env.example) |
+| [`experiments/2_API/`](experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time. A [fixture](experiments/2_API/fixtures.ts) that finds the API for you, and [reference tests](experiments/2_API/solutions/restaurants.spec.ts) |
 | [`scripts/verify-setup.mjs`](scripts/verify-setup.mjs) | What `npm run verify` runs |
 | [`scripts/check-links.mjs`](scripts/check-links.mjs) | What `npm run links` runs — keeps the cross-references in these docs honest |
 | [`AGENTS.md`](AGENTS.md) | Rules your AI agent follows in this repository |
