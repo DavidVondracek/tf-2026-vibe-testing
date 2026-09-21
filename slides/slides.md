@@ -406,7 +406,7 @@ Playwright, landing page → checkout: tokens that land in the agent's context. 
 <p class="chart-note">Every modern step costs ~100 tokens: both write the page to a file and return a link. The difference is what loads first. "4× fewer tokens" comes from a Medium post, not Microsoft.</p>
 
 <!--
-09:34 — our own measurement, re-runnable: tmp scripts (scratchpad mcp-cli-measure/run.sh). Playwright 1.63 built-in MCP and CLI, @playwright/mcp 0.0.82 identical to built-in; 0.0.41 = Oct 2025.
+09:34 — our own measurement, re-runnable: docs/research/measure/run.sh (write-up: docs/research/foodora-measurement.md). Playwright 1.63 built-in MCP and CLI, @playwright/mcp 0.0.82 identical to built-in; 0.0.41 = Oct 2025.
 Tokenizer: o200k (OpenAI), within ~10% of Claude. Lower bound: the agent never re-reads the page file; reading it every step adds ~5.6K to each bar.
 MCP stopped putting the page tree into every answer in @playwright/mcp 0.0.69 / Playwright 1.59 (Mar–Apr 2026, PR #39768). Only an explicit browser_snapshot puts it inline.
 Checkly (Stefan Judis, 30 Jul 2026, one task × 3 runs): CLI 45–48K vs MCP 48–50K — also near parity.

@@ -107,6 +107,7 @@ Please follow these steps before the workshop. If one fails, look it up in
 | Where | What is in it |
 | --- | --- |
 | [`spec/`](spec/) | [The product spec](spec/foodora-spec.md) — what Foodora should do, with a screenshot of every page. The input for every experiment |
+| [`docs/research/`](docs/research/) | The data behind the concepts slides: MCP, CLIs for agents, Playwright's three interfaces, and [our own token measurement](docs/research/foodora-measurement.md) you can re-run |
 | [`experiments/1_Zoo/1-CodingAgent/`](experiments/1_Zoo/1-CodingAgent/) | Exhibit 1 — a config and an empty [`tests/`](experiments/1_Zoo/1-CodingAgent/tests/) for the agent to fill |
 | [`experiments/1_Zoo/2-PlaywrightAgents/`](experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |
 | [`experiments/1_Zoo/3-PlaywrightCLI/`](experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |

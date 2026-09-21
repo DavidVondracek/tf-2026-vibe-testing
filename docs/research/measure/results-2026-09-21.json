@@ -1,0 +1,582 @@
+{
+  "rows": [
+    {
+      "group": "upfront",
+      "name": "CLI skill frontmatter (always loaded)",
+      "bytes": 182,
+      "chars4": 46,
+      "o200k": 43,
+      "claudeLegacy": 53
+    },
+    {
+      "group": "upfront",
+      "name": "CLI SKILL.md full (loaded when skill invoked)",
+      "bytes": 12726,
+      "chars4": 3181,
+      "o200k": 3047,
+      "claudeLegacy": 3563
+    },
+    {
+      "group": "upfront",
+      "name": "CLI references/*.md (9 files, on demand)",
+      "bytes": 46005,
+      "chars4": 11489,
+      "o200k": 11067,
+      "claudeLegacy": 12562
+    },
+    {
+      "group": "upfront",
+      "name": "CLI `--help` stdout (optional)",
+      "bytes": 6889,
+      "chars4": 1722,
+      "o200k": 1435,
+      "claudeLegacy": 1460
+    },
+    {
+      "group": "upfront",
+      "name": "mcp-bundled-1.63 tools/list tools[] JSON (24 tools)",
+      "bytes": 18904,
+      "chars4": 4726,
+      "o200k": 4095,
+      "claudeLegacy": 4223
+    },
+    {
+      "group": "upfront",
+      "name": "mcp-bundled-1.63 tools minimal {name,description,input_schema}",
+      "bytes": 14979,
+      "chars4": 3745,
+      "o200k": 3065,
+      "claudeLegacy": 3169
+    },
+    {
+      "group": "upfront",
+      "name": "mcp-0.0.82 tools/list tools[] JSON (25 tools)",
+      "bytes": 20102,
+      "chars4": 5026,
+      "o200k": 4376,
+      "claudeLegacy": 4499
+    },
+    {
+      "group": "upfront",
+      "name": "mcp-0.0.82 tools minimal {name,description,input_schema}",
+      "bytes": 16007,
+      "chars4": 4002,
+      "o200k": 3302,
+      "claudeLegacy": 3400
+    },
+    {
+      "group": "upfront",
+      "name": "mcp-0.0.41 tools/list tools[] JSON (21 tools)",
+      "bytes": 12516,
+      "chars4": 3129,
+      "o200k": 2762,
+      "claudeLegacy": 2853
+    },
+    {
+      "group": "upfront",
+      "name": "mcp-0.0.41 tools minimal {name,description,input_schema}",
+      "bytes": 9208,
+      "chars4": 2302,
+      "o200k": 1888,
+      "claudeLegacy": 1937
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "navigate-landing — returned to agent",
+      "bytes": 272,
+      "chars4": 68,
+      "o200k": 82,
+      "claudeLegacy": 95
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "navigate-landing — linked snapshot file (only if read)",
+      "bytes": 3292,
+      "chars4": 821,
+      "o200k": 878,
+      "claudeLegacy": 936
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "snapshot-landing — returned to agent",
+      "bytes": 6618,
+      "chars4": 1651,
+      "o200k": 1701,
+      "claudeLegacy": 1813
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "open-restaurant-1 — returned to agent",
+      "bytes": 306,
+      "chars4": 76,
+      "o200k": 95,
+      "claudeLegacy": 105
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "open-restaurant-1 — linked snapshot file (only if read)",
+      "bytes": 4811,
+      "chars4": 1203,
+      "o200k": 1212,
+      "claudeLegacy": 1304
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "add-classic-beef-burger — returned to agent",
+      "bytes": 340,
+      "chars4": 85,
+      "o200k": 103,
+      "claudeLegacy": 113
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "add-classic-beef-burger — linked snapshot file (only if read)",
+      "bytes": 5230,
+      "chars4": 1308,
+      "o200k": 1318,
+      "claudeLegacy": 1418
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "open-cart — returned to agent",
+      "bytes": 421,
+      "chars4": 105,
+      "o200k": 140,
+      "claudeLegacy": 150
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "open-cart — linked snapshot file (only if read)",
+      "bytes": 4911,
+      "chars4": 1228,
+      "o200k": 1095,
+      "claudeLegacy": 1103
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "proceed-to-checkout — returned to agent",
+      "bytes": 306,
+      "chars4": 77,
+      "o200k": 98,
+      "claudeLegacy": 107
+    },
+    {
+      "group": "mcp-bundled-1.63",
+      "name": "proceed-to-checkout — linked snapshot file (only if read)",
+      "bytes": 4335,
+      "chars4": 1084,
+      "o200k": 1096,
+      "claudeLegacy": 1151
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "navigate-landing — returned to agent",
+      "bytes": 272,
+      "chars4": 68,
+      "o200k": 82,
+      "claudeLegacy": 95
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "navigate-landing — linked snapshot file (only if read)",
+      "bytes": 3292,
+      "chars4": 821,
+      "o200k": 878,
+      "claudeLegacy": 936
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "snapshot-landing — returned to agent",
+      "bytes": 6618,
+      "chars4": 1651,
+      "o200k": 1701,
+      "claudeLegacy": 1813
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "open-restaurant-1 — returned to agent",
+      "bytes": 306,
+      "chars4": 76,
+      "o200k": 95,
+      "claudeLegacy": 105
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "open-restaurant-1 — linked snapshot file (only if read)",
+      "bytes": 4811,
+      "chars4": 1203,
+      "o200k": 1212,
+      "claudeLegacy": 1304
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "add-classic-beef-burger — returned to agent",
+      "bytes": 340,
+      "chars4": 85,
+      "o200k": 103,
+      "claudeLegacy": 113
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "add-classic-beef-burger — linked snapshot file (only if read)",
+      "bytes": 5230,
+      "chars4": 1308,
+      "o200k": 1318,
+      "claudeLegacy": 1418
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "open-cart — returned to agent",
+      "bytes": 421,
+      "chars4": 105,
+      "o200k": 140,
+      "claudeLegacy": 150
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "open-cart — linked snapshot file (only if read)",
+      "bytes": 4911,
+      "chars4": 1228,
+      "o200k": 1095,
+      "claudeLegacy": 1103
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "proceed-to-checkout — returned to agent",
+      "bytes": 306,
+      "chars4": 77,
+      "o200k": 98,
+      "claudeLegacy": 108
+    },
+    {
+      "group": "mcp-0.0.82",
+      "name": "proceed-to-checkout — linked snapshot file (only if read)",
+      "bytes": 4335,
+      "chars4": 1084,
+      "o200k": 1096,
+      "claudeLegacy": 1151
+    },
+    {
+      "group": "mcp-0.0.41",
+      "name": "navigate-landing — returned to agent",
+      "bytes": 3530,
+      "chars4": 880,
+      "o200k": 937,
+      "claudeLegacy": 1009
+    },
+    {
+      "group": "mcp-0.0.41",
+      "name": "snapshot-landing — returned to agent",
+      "bytes": 7786,
+      "chars4": 1943,
+      "o200k": 1926,
+      "claudeLegacy": 2068
+    },
+    {
+      "group": "mcp-0.0.41",
+      "name": "open-restaurant-1 — returned to agent",
+      "bytes": 5341,
+      "chars4": 1335,
+      "o200k": 1328,
+      "claudeLegacy": 1430
+    },
+    {
+      "group": "mcp-0.0.41",
+      "name": "add-classic-beef-burger — returned to agent",
+      "bytes": 5697,
+      "chars4": 1424,
+      "o200k": 1421,
+      "claudeLegacy": 1531
+    },
+    {
+      "group": "mcp-0.0.41",
+      "name": "open-cart — returned to agent",
+      "bytes": 6033,
+      "chars4": 1508,
+      "o200k": 1322,
+      "claudeLegacy": 1333
+    },
+    {
+      "group": "mcp-0.0.41",
+      "name": "proceed-to-checkout — returned to agent",
+      "bytes": 4732,
+      "chars4": 1183,
+      "o200k": 1194,
+      "claudeLegacy": 1260
+    },
+    {
+      "group": "cli",
+      "name": "open-landing — returned to agent",
+      "bytes": 332,
+      "chars4": 83,
+      "o200k": 99,
+      "claudeLegacy": 113
+    },
+    {
+      "group": "cli",
+      "name": "open-landing — linked snapshot file (only if read)",
+      "bytes": 3292,
+      "chars4": 821,
+      "o200k": 878,
+      "claudeLegacy": 936
+    },
+    {
+      "group": "cli",
+      "name": "snapshot-landing — returned to agent",
+      "bytes": 6619,
+      "chars4": 1651,
+      "o200k": 1702,
+      "claudeLegacy": 1814
+    },
+    {
+      "group": "cli",
+      "name": "open-restaurant-1 — returned to agent",
+      "bytes": 307,
+      "chars4": 76,
+      "o200k": 94,
+      "claudeLegacy": 105
+    },
+    {
+      "group": "cli",
+      "name": "open-restaurant-1 — linked snapshot file (only if read)",
+      "bytes": 4811,
+      "chars4": 1203,
+      "o200k": 1212,
+      "claudeLegacy": 1304
+    },
+    {
+      "group": "cli",
+      "name": "add-classic-beef-burger — returned to agent",
+      "bytes": 341,
+      "chars4": 85,
+      "o200k": 102,
+      "claudeLegacy": 113
+    },
+    {
+      "group": "cli",
+      "name": "add-classic-beef-burger — linked snapshot file (only if read)",
+      "bytes": 5230,
+      "chars4": 1308,
+      "o200k": 1318,
+      "claudeLegacy": 1418
+    },
+    {
+      "group": "cli",
+      "name": "open-cart — returned to agent",
+      "bytes": 422,
+      "chars4": 105,
+      "o200k": 139,
+      "claudeLegacy": 149
+    },
+    {
+      "group": "cli",
+      "name": "open-cart — linked snapshot file (only if read)",
+      "bytes": 4911,
+      "chars4": 1228,
+      "o200k": 1095,
+      "claudeLegacy": 1103
+    },
+    {
+      "group": "cli",
+      "name": "proceed-to-checkout — returned to agent",
+      "bytes": 307,
+      "chars4": 77,
+      "o200k": 97,
+      "claudeLegacy": 107
+    },
+    {
+      "group": "cli",
+      "name": "proceed-to-checkout — linked snapshot file (only if read)",
+      "bytes": 4335,
+      "chars4": 1084,
+      "o200k": 1096,
+      "claudeLegacy": 1151
+    },
+    {
+      "group": "cli",
+      "name": "find before-open-restaurant-1",
+      "bytes": 1036,
+      "chars4": 259,
+      "o200k": 264,
+      "claudeLegacy": 285
+    },
+    {
+      "group": "cli",
+      "name": "find before-add-burger",
+      "bytes": 1361,
+      "chars4": 340,
+      "o200k": 334,
+      "claudeLegacy": 365
+    },
+    {
+      "group": "cli",
+      "name": "find before-open-cart",
+      "bytes": 1308,
+      "chars4": 327,
+      "o200k": 377,
+      "claudeLegacy": 416
+    },
+    {
+      "group": "cli",
+      "name": "find before-checkout",
+      "bytes": 328,
+      "chars4": 82,
+      "o200k": 97,
+      "claudeLegacy": 108
+    }
+  ],
+  "totals": {
+    "mcp-bundled-1.63": {
+      "returned": {
+        "bytes": 8263,
+        "chars4": 2062,
+        "o200k": 2219,
+        "claudeLegacy": 2383
+      },
+      "files": {
+        "bytes": 22579,
+        "chars4": 5644,
+        "o200k": 5599,
+        "claudeLegacy": 5912
+      },
+      "finds": {
+        "bytes": 0,
+        "chars4": 0,
+        "o200k": 0,
+        "claudeLegacy": 0
+      }
+    },
+    "mcp-0.0.82": {
+      "returned": {
+        "bytes": 8263,
+        "chars4": 2062,
+        "o200k": 2219,
+        "claudeLegacy": 2384
+      },
+      "files": {
+        "bytes": 22579,
+        "chars4": 5644,
+        "o200k": 5599,
+        "claudeLegacy": 5912
+      },
+      "finds": {
+        "bytes": 0,
+        "chars4": 0,
+        "o200k": 0,
+        "claudeLegacy": 0
+      }
+    },
+    "mcp-0.0.41": {
+      "returned": {
+        "bytes": 33119,
+        "chars4": 8273,
+        "o200k": 8128,
+        "claudeLegacy": 8631
+      },
+      "files": {
+        "bytes": 0,
+        "chars4": 0,
+        "o200k": 0,
+        "claudeLegacy": 0
+      },
+      "finds": {
+        "bytes": 0,
+        "chars4": 0,
+        "o200k": 0,
+        "claudeLegacy": 0
+      }
+    },
+    "cli": {
+      "returned": {
+        "bytes": 8328,
+        "chars4": 2077,
+        "o200k": 2233,
+        "claudeLegacy": 2401
+      },
+      "files": {
+        "bytes": 22579,
+        "chars4": 5644,
+        "o200k": 5599,
+        "claudeLegacy": 5912
+      },
+      "finds": {
+        "bytes": 4033,
+        "chars4": 1008,
+        "o200k": 1072,
+        "claudeLegacy": 1174
+      }
+    }
+  },
+  "T": {
+    "MCP 0.0.41 (Oct 2025, inline snapshots)": {
+      "a": {
+        "bytes": 45635,
+        "chars4": 11402,
+        "o200k": 10890,
+        "claudeLegacy": 11484
+      }
+    },
+    "MCP bundled (playwright 1.63)": {
+      "a": {
+        "bytes": 27167,
+        "chars4": 6788,
+        "o200k": 6314,
+        "claudeLegacy": 6606
+      },
+      "b": {
+        "bytes": 49746,
+        "chars4": 12432,
+        "o200k": 11913,
+        "claudeLegacy": 12518
+      }
+    },
+    "@playwright/mcp 0.0.82": {
+      "a": {
+        "bytes": 28365,
+        "chars4": 7088,
+        "o200k": 6595,
+        "claudeLegacy": 6883
+      },
+      "b": {
+        "bytes": 50944,
+        "chars4": 12732,
+        "o200k": 12194,
+        "claudeLegacy": 12795
+      }
+    },
+    "CLI 1.63 (skill body loaded)": {
+      "a": {
+        "bytes": 21054,
+        "chars4": 5258,
+        "o200k": 5280,
+        "claudeLegacy": 5964
+      },
+      "b": {
+        "bytes": 43633,
+        "chars4": 10902,
+        "o200k": 10879,
+        "claudeLegacy": 11876
+      },
+      "c_find": {
+        "bytes": 25087,
+        "chars4": 6266,
+        "o200k": 6352,
+        "claudeLegacy": 7138
+      }
+    },
+    "CLI 1.63 (frontmatter only)": {
+      "a": {
+        "bytes": 8510,
+        "chars4": 2123,
+        "o200k": 2276,
+        "claudeLegacy": 2454
+      },
+      "b": {
+        "bytes": 31089,
+        "chars4": 7767,
+        "o200k": 7875,
+        "claudeLegacy": 8366
+      }
+    }
+  }
+}
