@@ -27,6 +27,10 @@ ready-to-use `foodoraApi` request context.
 1. **Find the API yourself.** Open [foodora.lovable.app](https://foodora.lovable.app/), then
    DevTools → **Network** → **Fetch/XHR**, and reload. Open one request: look at the URL, the
    `apikey` header and the JSON that comes back. Then open a restaurant and watch the second call.
+
+   Three things trip people up. The API is **not** on `foodora.lovable.app` — look at the host.
+   Rows are picked with filters, `?slug=eq.1`, not paths like `/restaurants/1`. And every request
+   needs the key: in a browser tab, add `&apikey=<the key>` to the URL.
 2. **Ask your agent for tests**, in one prompt:
 
    ```

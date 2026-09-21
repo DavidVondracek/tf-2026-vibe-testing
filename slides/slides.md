@@ -418,7 +418,7 @@ block: stack
 
 # API testing with AI agents: <span class="y">an honest map</span>
 
-Foodora has an API too. The UI's own traffic shows you where: <code>GET …/rest/v1/restaurants</code>
+Foodora has an API too — on another host. The UI's traffic shows you where: <code>GET …supabase.co/rest/v1/restaurants</code>
 
 <div class="cards c3">
 <div class="card"><div class="n">WORKS TODAY</div><h3>Tests from real traffic</h3><p>Show the agent one captured request. Status, shape, filters, errors — written in minutes.</p></div>
