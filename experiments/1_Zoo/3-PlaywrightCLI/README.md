@@ -40,7 +40,8 @@ The browser CLI and its skills ship inside the `playwright` package. No separate
    `[ref=e17]` — that is what you pass to `click`. `cat cart.yaml` to see the accessibility tree
    that was on disk the whole time, never in the model's context.
 
-3. Now ask your agent to order the meal. It was never told the commands — the skill told it.
+3. Now ask your agent to order the meal, taking its expected results from
+   [the spec](../../../spec/foodora-spec.md). It was never told the commands — the skill told it.
 
    > **If the agent starts running a bare `playwright-cli` command and it fails:** that binary is
    > not installed here, and `playwright-cli` on npm is an unrelated project. Tell it to use

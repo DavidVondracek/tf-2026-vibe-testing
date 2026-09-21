@@ -392,3 +392,44 @@ await page.getByRole('link', { name: 'Back' }).click();   // -> /restaurant/1, h
 That extra hop is why `happy-path.spec.js` uses the quick-add button on the restaurant page.
 
 ---
+
+## 9. Spec vs reality
+
+The [product spec](../../spec/foodora-spec.md) says what Foodora should do. This is what it
+does. Every **deviates** row is a real bug a team can find by testing against the spec — and a
+test that "fixes" itself to pass on one of them has encoded the bug.
+
+Rows marked *21 Sep* were verified on 21 September 2026 against the live app; the rest point to
+the section above that proves them.
+
+| Story | Rule in the spec | Reality | Evidence |
+| --- | --- | --- | --- |
+| FD-01 | Cards show name, cuisines, rating, time, fee, promotion | matches | *21 Sep* |
+| FD-01 | **View All** shows the full list | **deviates** — the button does nothing, URL and list unchanged | *21 Sep* |
+| FD-02 | Search by restaurant or dish name, any case, live while typing | matches — *Classic Beef* finds Burger Palace | *21 Sep* |
+| FD-02 | Cuisine chips filter; **All** resets | matches | *21 Sep* |
+| FD-02 | Search and chip apply together | **deviates** — with **Pizza** selected, *burger* still shows Burger Palace | *21 Sep* |
+| FD-02 | *No restaurants found* when nothing matches | matches | *21 Sep* |
+| FD-03 | Quick-add adds one and bumps the header count | matches | [§3](#step-3--add-an-item-to-the-cart-quick-add) |
+| FD-03 | Every button has an accessible name | **deviates** — quick-add, the cart steppers and remove are unnamed icon buttons | [§3 step 3](#step-3--add-an-item-to-the-cart-quick-add), [step 4](#step-4--open-the-cart-drawer) |
+| FD-04 | Size is a single choice; price on the button follows it | matches | [§8](#8-alternative-path-the-product-detail-page) |
+| FD-04 | Add-ons: any combination | **deviates** — add-ons are radios, only one can be picked | [§8](#8-alternative-path-the-product-detail-page) |
+| FD-04 | Cart reachable from the dish page | **deviates** — `/product/*` has no header and no Cart button | [§8](#8-alternative-path-the-product-detail-page) |
+| FD-05 | Delivery fee is the restaurant's advertised fee | **deviates** — always $2.99: Pizza Corner advertises *Free*, Sushi Masters $1.99, both are charged $2.99 | *21 Sep* |
+| FD-05 | Promotion applied automatically | **deviates** — Burger Palace *20% OFF orders over $25*: subtotals of $27.94 and $39.93 got no discount, no discount line | *21 Sep* |
+| FD-05 | Service fee $1.50; totals add up | matches — $12.95 + $2.99 + $1.50 = $17.44 | [§4](#4-the-confirmation--exact-assertion) |
+| FD-05 | Empty cart offers no way to check out | matches — **Proceed to Checkout** is absent, not disabled | [§6a](#6a-cart-drawer-with-an-empty-cart) |
+| FD-05 | Cart survives a reload | **deviates** — the cart is in memory; a reload empties it | [§7](#7-stability-notes) |
+| FD-06 | Required fields block **Place Order** with a message per field | **deviates** — a completely empty form places the order | [§5](#5-checkout-form-fields--and-the-validation-truth) |
+| FD-06 | Card is the default payment; three options | matches | [§5](#5-checkout-form-fields--and-the-validation-truth) |
+| FD-06 | Empty cart at checkout shows an empty state | matches — no redirect, no form, **Browse Restaurants** | [§6b](#6b-navigating-directly-to-checkout-with-an-empty-cart) |
+| FD-07 | Confirmation, order number `FDR-` + 6, new each time | matches | [§4](#4-the-confirmation--exact-assertion) |
+| FD-07 | Tracking shows five stages, order number, total, estimate | matches | *21 Sep* |
+| FD-07 | Tracking only for real orders | **deviates** — `/order/FDR-TEST01` renders a full tracking page for an order that never existed | *21 Sep* |
+| FD-07 | **Total paid** cannot be changed from the address bar | **deviates** — it is read from `?total=` and shows whatever the URL says | *21 Sep* |
+| FD-08 | Unknown address shows the 404 page | matches — `/cart` too | [§2](#2-page-inventory-routes-verified) |
+
+**Eleven deviations.** The Zoo exhibits hit FD-06 validation first, because it is on the order
+path. The pricing ones (FD-05 delivery fee and promotion) are the best material for the Build and
+the Battle: a happy-path test sails straight past them unless it checks the totals against the
+spec.

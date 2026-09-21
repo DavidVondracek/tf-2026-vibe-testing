@@ -47,6 +47,9 @@ secret storage — **do not paste it into a file in this repository.**
    Order a meal on https://foodora.lovable.app/ and write a Playwright test that proves it worked.
    ```
 
+   Attach [the spec](../../../spec/foodora-spec.md) (`#file:spec/foodora-spec.md`), so "worked"
+   means what `FD-05` and `FD-06` say, not whatever the app shows.
+
 3. Run the test. If it fails, paste the failure back and let the agent fix it — **twice, no more.**
 
 ## Done when
