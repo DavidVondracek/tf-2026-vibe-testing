@@ -20,12 +20,14 @@ exists. In this repository, that fallback is always the correct form.
 
 ## Where things go
 
-Each exhibit lives in `experiments/1_Zoo/<n>-<name>/` and owns its `playwright.config.ts`.
+Each exhibit lives in [`experiments/1_Zoo/`](experiments/1_Zoo/)`<n>-<name>/` and owns its `playwright.config.ts`.
 `cd` into the exhibit folder before running anything — commands run from the repository root
 will not find the config, and `init-agents` will report `Using project ""`.
 
 Write tests into that exhibit's `tests/`. Leave `solutions/` alone: it holds reference answers
 and is run separately via `npm run solutions`.
+
+The setup steps and the troubleshooting table are in the [root README](README.md).
 
 ## Secrets
 

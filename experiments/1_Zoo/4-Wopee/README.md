@@ -6,7 +6,7 @@ Built by your zookeeper, judged by you. Same rules as the other three.
 
 ## Steps
 
-1. Sign in at [cmd.wopee.io](https://cmd.wopee.io) and create a project with the Foodora URL.
+1. Sign in at [cmd.wopee.io](https://cmd.wopee.io) and create a project with the [Foodora URL](https://foodora.lovable.app/).
    Test instructions: *order a meal and verify the confirmation.*
 2. Start it, then watch the agent explore live while it maps the app.
 3. Open one visual diff.
@@ -49,3 +49,15 @@ Open a visual diff and decide: **real regression, or noise?**
 That judgement is the whole job. A tool that shows you every difference has not saved you
 anything; a tool that hides the wrong one has cost you a bug. Score it on the scorecard
 accordingly — and score it honestly. Especially this one.
+
+## If you get stuck
+
+1. **Ask your neighbour.** Or your team, after lunch.
+2. **Check the troubleshooting table** in the [root README](../../../README.md#when-something-breaks).
+3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
+
+**Shortcut:** use the shared project on the whiteboard — a finished run is already waiting there.
+Config to copy: [`mcp.json.example`](./mcp.json.example) for VS Code, or
+[`.env.example`](./.env.example) for the terminal.
+
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)

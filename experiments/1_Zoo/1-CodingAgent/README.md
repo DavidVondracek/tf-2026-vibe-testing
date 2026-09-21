@@ -14,7 +14,7 @@ Same task at all four exhibits:
 
 ## Setup
 
-You did most of this before the workshop (see the root README). Two minutes to confirm:
+You did most of this before the workshop (see the [root README](../../../README.md#get-ready-for-the-workshop)). Two minutes to confirm:
 
 1. Open this repository folder in VS Code.
 2. When VS Code offers the recommended extensions, click **Install**. You need
@@ -24,7 +24,7 @@ You did most of this before the workshop (see the root README). Two minutes to c
 ### No Copilot licence?
 
 Use the Vercel AI Gateway instead. It is already configured in this repository —
-`.vscode/settings.json` sets `deepseek/deepseek-v4.1-flash` as the default chat model.
+[`.vscode/settings.json`](../../../.vscode/settings.json) sets `deepseek/deepseek-v4.1-flash` as the default chat model.
 You only need to add the key:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
@@ -69,9 +69,14 @@ The difference between the two is the whole exhibit.
 
 ## If you get stuck
 
-Ask your neighbour first, then the root README's
-[When something breaks](../../../README.md#when-something-breaks). Then raise your hand.
+1. **Ask your neighbour.** Or your team, after lunch.
+2. **Check the troubleshooting table** in the [root README](../../../README.md#when-something-breaks).
+3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
 
-Fell behind entirely? [`solutions/`](./solutions/) has both tests, and `npm run solutions` from
-the repository root runs them. Read them rather than copying them — at the debrief the question
-is where yours differed, not whether you finished.
+**Shortcut:** [`solutions/`](./solutions/) has both tests —
+[the happy path](./solutions/order-a-meal.spec.ts) and
+[the negative case](./solutions/empty-cart.spec.ts). Run them with `npm run solutions` from the
+repository root. Read them rather than copying them: at the debrief the question is where yours
+differed, not whether you finished.
+
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)

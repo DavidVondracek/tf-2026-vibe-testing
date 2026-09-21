@@ -2,13 +2,14 @@
   "name": "tf-2026-vibe-testing-web-apps",
   "version": "1.0.0",
   "private": true,
-  "description": "Vibe Testing Lab — Tesena Fest 2026. AI coding agents, Playwright Agents, Playwright CLI and Wopee.io on one demo app.",
+  "description": "Vibe Testing Lab \u2014 Tesena Fest 2026. AI coding agents, Playwright Agents, Playwright CLI and Wopee.io on one demo app.",
   "license": "MIT",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "verify": "node scripts/verify-setup.mjs",
+    "links": "node scripts/check-links.mjs",
     "browsers": "playwright install chromium",
     "solutions": "playwright test --config experiments/1_Zoo/solutions.config.ts"
   },

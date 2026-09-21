@@ -17,9 +17,9 @@ npx playwright --version      # must be 1.62.0 or newer
 
 This folder already ships the two things the agents need before they can do anything:
 
-- **`playwright.config.ts`** — read it. The project is named `chromium` and the agents look it
+- **[`playwright.config.ts`](./playwright.config.ts)** — read it. The project is named `chromium` and the agents look it
   up by that name. Without a config the seed test lands in the wrong place and nothing lines up.
-- **`tests/seed.spec.ts`** — a green test that only checks the app loads.
+- **[`tests/seed.spec.ts`](./tests/seed.spec.ts)** — a green test that only checks the app loads.
 
 Now wire up the agents:
 
@@ -46,14 +46,14 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
 1. Run the seed test once — `npx playwright test --project=chromium`. **It must be green.**
    The planner runs this exact test to boot your environment. If it is red, the problem is your
    network or the app, and none of the rest will work until you fix it.
-2. Ask the **planner** for a plan of ordering a meal. Read `specs/order.md`.
+2. Ask the **planner** for a plan of ordering a meal. Read `specs/order.md` — [`specs/`](./specs/) explains what that artifact is for.
 3. Ask the **generator** for bullet **1.1 only**, then run it.
 
 Generate one bullet at a time, never in parallel — all three agents share one browser page.
 
 ## Done when
 
-A plan in `specs/`, a generated test, and a green run you did not write.
+A plan in [`specs/`](./specs/), a generated test, and a green run you did not write.
 
 Read the plan out loud. That Markdown file is the artifact a non-coder on your team could
 review — that is the actual point of this exhibit.
@@ -71,3 +71,15 @@ test `test.fixme()` when it cannot fix it — so a healer "success" can be a ski
 It optimises for green, and it cannot tell a broken test from a broken app.
 
 **Commit before you heal.** The healer is the only one of the three with write access to your files.
+
+## If you get stuck
+
+1. **Ask your neighbour.** Or your team, after lunch.
+2. **Check the troubleshooting table** in the [root README](../../../README.md#when-something-breaks).
+3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
+
+**Shortcut:** [`solutions/`](./solutions/) has [the plan the planner should produce](./solutions/order.md)
+and [the test the generator writes from it](./solutions/order.spec.ts). Run it with
+`npm run solutions` from the repository root.
+
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)

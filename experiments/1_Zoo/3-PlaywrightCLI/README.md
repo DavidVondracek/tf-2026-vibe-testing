@@ -44,7 +44,7 @@ The browser CLI and its skills ship inside the `playwright` package. No separate
 
    > **If the agent starts running a bare `playwright-cli` command and it fails:** that binary is
    > not installed here, and `playwright-cli` on npm is an unrelated project. Tell it to use
-   > `npx playwright cli` instead. The repository's `AGENTS.md` says so already, but not every
+   > `npx playwright cli` instead. The repository's [`AGENTS.md`](../../../AGENTS.md) says so already, but not every
    > agent reads it.
 
 ## Done when
@@ -81,3 +81,15 @@ Close your own session when you leave, and only yours:
 ```bash
 npx playwright cli -s=lab close
 ```
+
+## If you get stuck
+
+1. **Ask your neighbour.** Or your team, after lunch.
+2. **Check the troubleshooting table** in the [root README](../../../README.md#when-something-breaks).
+3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
+
+**Shortcut:** the worked skill is at
+[`skills/foodora-order/SKILL.md`](./skills/foodora-order/SKILL.md). Write your own first, then
+compare.
+
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)
