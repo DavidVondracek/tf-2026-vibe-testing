@@ -348,23 +348,92 @@ clicks: 4
 block: stack
 ---
 
-# CLI or MCP? <span class="y">Ask what the agent is doing.</span>
+# Two ways to give an agent <span class="y">hands</span>
 
-Same Playwright engine. Two interfaces — and the honest difference is architecture, not a multiplier.
+Both let an AI agent use a tool — a browser, GitHub, a database. They package it very differently.
 
-<div class="vs">
-  <div class="card"><div class="n">npx playwright cli</div><h3>CLI</h3><div class="metric">a path<small>the tree goes to disk</small></div><p>Every command answers with <code>.playwright-cli/page-*.yml</code>. The agent reads it only if it needs to.</p><p><b>Best for:</b> pre-planned runs, agents with a shell.</p></div>
-  <div class="vs-disc">VS</div>
-  <div class="card"><div class="n">npx playwright mcp</div><h3>MCP</h3><div class="metric">the tree<small>in context, by default</small></div><p>Persistent state and rich introspection. Since v0.0.52 it writes snapshots to disk too — a default, not a limit.</p><p><b>Best for:</b> exploring, self-healing, long autonomous runs.</p></div>
+<div class="cards c2 hands">
+<div class="card"><div class="n">MCP · MODEL CONTEXT PROTOCOL</div><h3>A standard socket for tools</h3>
+<p>The AI app plugs into a <b>server</b>. The server lists its <b>tools</b> — the agent sees every one before it starts.</p>
+<ul><li>~34,000 servers in the official registry</li><li>~0.5 billion SDK downloads a month</li><li>In Copilot, VS Code, Claude, OpenAI, Gemini</li></ul></div>
+<div class="card"><div class="n">CLI · COMMAND LINE</div><h3>The terminal the agent already knows</h3>
+<p>The agent types commands — <code>git</code>, <code>gh</code>, <code>npx playwright cli</code> — and reads <code>--help</code> only when it needs to.</p>
+<ul><li>Big results go to files, not into the chat</li><li>A skill costs ~100 tokens until it is used</li><li>Needs a shell — and a sandbox around it</li></ul></div>
 </div>
 
-<div class="banner">Microsoft names the mechanism. <em>It publishes no numbers.</em></div>
+<!--
+09:26 — plain words first. MCP: one standard way to plug tools into any AI app (the "USB-C" of AI tools). CLI: the agent just uses the terminal like we do.
+Sources: registry.modelcontextprotocol.io API, 33,919 servers on 21 Sep 2026; MCP blog 28 Jul 2026 ("close to half a billion" SDK downloads/month);
+MCP is run by the Agentic AI Foundation (Linux Foundation) since 9 Dec 2025, co-founded by Anthropic, OpenAI, Block.
+Skills: ~100 tokens of metadata per skill until invoked (agentskills.io spec). Anthropic sandboxing post, Oct 2025: a shell needs filesystem + network isolation.
+-->
+
+---
+block: stack
+---
+
+# What the data says: <span class="y">design beats protocol</span>
+
+Head-to-head studies, 2025–2026 — same tasks, one done through MCP, one through a CLI.
+
+<div class="cards c4 stats">
+<div class="card"><div class="stat">~26K</div><h3>tokens before you type</h3><p>GitHub's MCP server: 35 tool definitions, loaded upfront.</p></div>
+<div class="card"><div class="stat">Tie</div><h3>on success rate</h3><p>100% vs 100% (120 runs). 86% vs 87% (85 runs per setup).</p></div>
+<div class="card"><div class="stat">2–3×</div><h3>fewer tokens with CLI</h3><p>Mostly that upfront list — not the work itself.</p></div>
+<div class="card dark"><div class="stat">−85%</div><h3>with tool search</h3><p>Load MCP tools only when needed. Accuracy went 49% → 74%.</p></div>
+</div>
+
+<div class="banner">The protocol matters less than <em>how the tools are designed.</em></div>
 
 <!--
-09:29 — DO NOT say "4× fewer tokens". That figure (27K vs 114K) traces to a Medium post via a personal blog; it is not a Playwright benchmark.
-The one measured head-to-head with a stated method — Checkly, Stefan Judis, 30 Jul 2026, three runs each — found 45–48K (CLI) vs 48–50K (MCP). Near parity, because harnesses now defer tool loading.
-Both ship inside `playwright` since 1.62 — no separate package to install. The standalone @playwright/mcp still exists and still outships the CLI on npm; MCP is not dying, they do different jobs.
-If someone pushes: offer to measure it live at the CLI exhibit. That beats any cited number.
+09:30 — the point: it is not "CLI good, MCP bad". Success is about level; the cost gap is mostly the upfront tool list, and clients now defer it.
+Sources: Anthropic "Advanced tool use", 24 Nov 2025 (GitHub MCP ~26K tokens / 35 tools; 5 servers ~55K; tool search −85%, Opus 4 accuracy 49→74%).
+Mario Zechner, 15 Aug 2025: same tool as MCP and CLI, 120 runs, 100% vs 100%, $19.45 vs $19.95.
+Kun Chen, 21 Mar 2026: 17 GitHub tasks × 5, CLI 86% / $0.054 vs MCP 87% / $0.148 per task. Scalekit, Mar 2026: CLI 1.4–9.4K vs MCP 32–83K tokens.
+Claude Code now defers MCP tool loading by default (code.claude.com/docs/en/mcp).
+-->
+
+---
+block: stack
+---
+
+# Measured on Foodora: <span class="y">same steps</span>
+
+Playwright, landing page → checkout: tokens that land in the agent's context. The difference is how it starts.
+
+<TokenBars />
+
+<p class="chart-note">Every modern step costs ~100 tokens: both write the page to a file and return a link. The difference is what loads first. "4× fewer tokens" comes from a Medium post, not Microsoft.</p>
+
+<!--
+09:34 — our own measurement, re-runnable: tmp scripts (scratchpad mcp-cli-measure/run.sh). Playwright 1.63 built-in MCP and CLI, @playwright/mcp 0.0.82 identical to built-in; 0.0.41 = Oct 2025.
+Tokenizer: o200k (OpenAI), within ~10% of Claude. Lower bound: the agent never re-reads the page file; reading it every step adds ~5.6K to each bar.
+MCP stopped putting the page tree into every answer in @playwright/mcp 0.0.69 / Playwright 1.59 (Mar–Apr 2026, PR #39768). Only an explicit browser_snapshot puts it inline.
+Checkly (Stefan Judis, 30 Jul 2026, one task × 3 runs): CLI 45–48K vs MCP 48–50K — also near parity.
+Offer to re-run it live at the CLI exhibit.
+-->
+
+---
+block: stack
+---
+
+# So which one? <span class="y">Ask what the agent is doing.</span>
+
+<div class="cards c2 which">
+<div class="card"><div class="n">REACH FOR THE CLI</div><ul><li>A coding agent with a shell, in your repo</li><li>Well-known tools: <code>git</code>, <code>gh</code>, <code>npx playwright cli</code></li><li>Long runs where tokens cost money</li></ul></div>
+<div class="card"><div class="n">REACH FOR MCP</div><ul><li>No shell: chat apps, IDE agents, non-developers</li><li>Per-user login, permissions, audit trail</li><li>Exploring an app, self-healing tests</li></ul></div>
+</div>
+
+<div class="card yellow mt-4"><div class="n">PLAYWRIGHT SHIPS BOTH</div><p class="text-lg">One <code>npm i playwright</code> (1.62+) gives you <code>npx playwright cli</code> and <code>npx playwright mcp</code>. Microsoft: CLI + skills for coding agents; MCP for exploring and self-healing. The Test Agents in Exhibit 2 run on MCP.</p></div>
+
+<p class="chart-note">Vet every MCP server you add: in a 2025 study, poisoned tool descriptions hijacked agents up to 72.8% of the time.</p>
+
+<!--
+09:37 — close the section with the decision, not the debate. Both ship in one package; you will try all of them in the Zoo.
+Sources: microsoft/playwright-mcp and microsoft/playwright-cli READMEs (Sep 2026): CLI + skills for "high-throughput coding agents", MCP for "exploratory automation, self-healing tests, long-running autonomous workflows".
+Playwright 1.62 (24 Jul 2026) bundles `playwright mcp` and `playwright cli`; Test Agents since 1.56 (6 Oct 2025).
+MCPTox (arXiv 2508.14925, Aug 2025): 45 real servers, 353 tools, attack success up to 72.8%, refusal rate under 3%.
+Anthropic's own view (D. Soria Parra, Apr 2026): skills, MCP and CLI compose — agents in 2026 use all of them.
 -->
 
 ---
