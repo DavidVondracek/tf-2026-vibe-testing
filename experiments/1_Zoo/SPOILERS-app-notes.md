@@ -33,13 +33,9 @@ Stack (observed): React SPA + react-router, Radix UI primitives (Sheet / Tabs / 
 - No login wall — `/checkout` and `Place Order` work signed-out. `/auth` exists but is entirely optional; nothing in the order flow redirects to it.
 - No age gate, no splash screen, no interstitial.
 
-One cosmetic overlay exists and is **harmless — do not dismiss it**:
-
-```
-button "Dismiss"   // id="lovable-badge-close", the "Edit with Lovable" badge, bottom corner
-```
-
-It is outside the app root, never covers the flow, and is absent from the `/product/*` route. Ignore it.
+The published app has no overlay at all: the "Edit with Lovable" badge is switched off (21 September
+2026). Lovable's **preview** links still show it, with a `button "Dismiss"` in the bottom corner —
+outside the app root, never covering the flow. Ignore it there.
 
 The only pre-seeded state is `localStorage.delivery_address = "New York, NY"` (written on first load, drives the header location button).
 
