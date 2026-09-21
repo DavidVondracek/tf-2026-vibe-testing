@@ -574,3 +574,62 @@
 .battle-cmd .slidev-code {
   font-size: 0.95rem !important;
 }
+
+/* Foodora introduction: screenshot left, what the app is and does right */
+.app-intro {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.6rem;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.app-intro .browser img {
+  max-height: 14rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+.app-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.app-lead {
+  font-size: 1.2rem !important;
+  font-weight: 500;
+  margin: 0;
+}
+
+.app-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.app-flow span {
+  background: var(--wp-card);
+  border-left: 4px solid var(--wp-yellow);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+}
+
+.app-flow span + span::before {
+  content: '→ ';
+  color: var(--wp-muted);
+  font-weight: 400;
+}
+
+.app-spec {
+  font-size: 1rem !important;
+  margin: 0;
+}
+
+.app-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
