@@ -80,11 +80,12 @@ What it is supposed to do is in [`spec/`](spec/): eight user stories with the ru
 
 ## Get ready for the workshop
 
-Please follow these steps before the workshop:
+Please follow these steps before the workshop. If one fails, look it up in
+[setup troubleshooting](docs/setup-troubleshooting.md) — it is organised by step.
 
 1. **Connect with me via LinkedIn:** [linkedin.com/in/marcelveselka](https://www.linkedin.com/in/marcelveselka) — share your expectations and questions, and I will adjust the workshop based on them.
 2. **Submit this form:** [forms.gle/hU57AS3A5SPrqKWK8](https://forms.gle/hU57AS3A5SPrqKWK8), so I can make sure everything is ready for you.
-3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`.
+3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`. **On Windows, do [these two fixes](docs/setup-troubleshooting.md#windows-do-these-first) first.**
 4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode). We need **Playwright 1.62 or newer** — the browser CLI, the test agents and the skills all ship inside the `playwright` package now, so there is nothing else to install.
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal. One install at the root covers every exhibit.
 6. **Install the recommended extensions:** when VS Code asks, click **Install** (or `Ctrl/Cmd+Shift+P` → Extensions: Show Recommended Extensions). You get [Vercel AI Gateway](https://marketplace.visualstudio.com/items?itemName=SferaDev.vscode-extension-vercel-ai), GitHub Copilot Chat, and Playwright Test.
@@ -136,5 +137,7 @@ read it after the exhibits, not before.
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**. |
 | MCP tools do not appear in chat | Reload the VS Code window after writing `.vscode/mcp.json`, and make sure the chat is in **agent** mode. |
 | A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, tell me. |
+
+Setup problems before the day are in [setup troubleshooting](docs/setup-troubleshooting.md).
 
 Still stuck? Ask your neighbour, then raise your hand. Do not spend 10 of your 20 minutes on setup.
