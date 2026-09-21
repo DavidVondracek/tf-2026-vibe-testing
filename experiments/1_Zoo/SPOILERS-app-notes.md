@@ -63,7 +63,7 @@ There is no `/menu` route; the menu is the restaurant detail page.
 
 ## 3. The happy path (verified, step by step)
 
-The same chain, as a runnable test: `1-CodingAgent/solutions/order-a-meal.spec.ts`. Every locator below is copy-paste from a passing run.
+The same chain, as a runnable test: [`1-CodingAgent/solutions/order-a-meal.spec.ts`](1-CodingAgent/solutions/order-a-meal.spec.ts). Every locator below is copy-paste from a passing run.
 
 ### Step 1 — Load the landing page
 

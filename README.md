@@ -1,4 +1,6 @@
-# Vibe Testing Lab: AI Agents, MCP, and the New Stack for Web App Testing
+# Vibe Testing Lab
+
+## AI Agents, MCP, and the New Stack for Web App Testing
 
 A full-day, hands-on workshop at [Tesena Fest 2026](https://www.tesena.com/tesena-fest) (24 September 2026, Prague). AI coding agents, Playwright MCP, Playwright CLI, and Wopee.io go head-to-head on the same demo app. You build the test suite, then you race to defend it.
 
@@ -40,10 +42,10 @@ No death by slides. The day has 4 gears:
 
 | #   | Exhibit             | What you do                                                                                     | Core concept                                        |
 | --- | ------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| 🤖  | **AI Coding Agent** | Define intent, watch the agent write, run, and interpret tests. Find where it breaks            | Agent autonomy and where human judgment still wins  |
-| 🐍  | **Playwright Agents** | Let the planner explore, the generator write and the healer repair — you review the artifacts   | Plan → test → repair, riding on MCP                 |
-| 🦁  | **Playwright CLI + Skills** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge      |
-| 🔬  | **Wopee.io + MCP**  | Paste the URL and watch it map the app — then call the same agent from your own coding agent    | Purpose-built testing agent vs. general-purpose tools |
+| 🤖  | **[AI Coding Agent](experiments/1_Zoo/1-CodingAgent/)** | Define intent, watch the agent write, run, and interpret tests. Find where it breaks            | Agent autonomy and where human judgment still wins  |
+| 🐍  | **[Playwright Agents](experiments/1_Zoo/2-PlaywrightAgents/)** | Let the planner explore, the generator write and the healer repair — you review the artifacts   | Plan → test → repair, riding on MCP                 |
+| 🦁  | **[Playwright CLI + Skills](experiments/1_Zoo/3-PlaywrightCLI/)** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge      |
+| 🔬  | **[Wopee.io + MCP](experiments/1_Zoo/4-Wopee/)**  | Paste the URL and watch it map the app — then call the same agent from your own coding agent    | Purpose-built testing agent vs. general-purpose tools |
 
 ### Agenda
 
@@ -79,7 +81,7 @@ We test **Foodora**, a food delivery web app: [foodora.lovable.app](https://food
 Please follow these steps before the workshop:
 
 1. **Connect with me via LinkedIn:** [linkedin.com/in/marcelveselka](https://www.linkedin.com/in/marcelveselka) — share your expectations and questions, and I will adjust the workshop based on them.
-2. **Submit this form:** [Google Form](TODO-form-url), so I can make sure everything is ready for you.
+2. **Submit this form:** _(link to follow — I will send it on LinkedIn)_, so I can make sure everything is ready for you.
 3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`.
 4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode). We need **Playwright 1.62 or newer** — the browser CLI, the test agents and the skills all ship inside the `playwright` package now, so there is nothing else to install.
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal. One install at the root covers every exhibit.
@@ -98,18 +100,24 @@ Please follow these steps before the workshop:
 
 ## Repository layout
 
-```
-experiments/1_Zoo/
-  1-CodingAgent/          Exhibit 1 — config + an empty tests/ for the agent to fill
-  2-PlaywrightAgents/     Exhibit 2 — config, a green seed test, specs/ for the planner
-  3-PlaywrightCLI/        Exhibit 3 — a hand-written skill to copy and break
-  4-Wopee/                Exhibit 4 — MCP config for VS Code, and the env-var route
-scripts/verify-setup.mjs  what `npm run verify` runs
-slides/                   the deck (Slidev)
-```
+| Where | What is in it |
+| --- | --- |
+| [`experiments/1_Zoo/1-CodingAgent/`](experiments/1_Zoo/1-CodingAgent/) | Exhibit 1 — a config and an empty [`tests/`](experiments/1_Zoo/1-CodingAgent/tests/) for the agent to fill |
+| [`experiments/1_Zoo/2-PlaywrightAgents/`](experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |
+| [`experiments/1_Zoo/3-PlaywrightCLI/`](experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |
+| [`experiments/1_Zoo/4-Wopee/`](experiments/1_Zoo/4-Wopee/) | Exhibit 4 — [MCP config](experiments/1_Zoo/4-Wopee/mcp.json.example) for VS Code, and the [env-var route](experiments/1_Zoo/4-Wopee/.env.example) |
+| [`scripts/verify-setup.mjs`](scripts/verify-setup.mjs) | What `npm run verify` runs |
+| [`scripts/check-links.mjs`](scripts/check-links.mjs) | What `npm run links` runs — keeps the cross-references in these docs honest |
+| [`AGENTS.md`](AGENTS.md) | Rules your AI agent follows in this repository |
+| [`slides/`](slides/) | The deck (Slidev) |
 
-Each exhibit has a `solutions/` folder. Open it if you fall behind — it is what a good run
-produces, not a thing to copy blindly.
+Each exhibit has a `solutions/` folder — [1](experiments/1_Zoo/1-CodingAgent/solutions/),
+[2](experiments/1_Zoo/2-PlaywrightAgents/solutions/). Open it if you fall behind, and run them
+all with `npm run solutions`. It is what a good run produces, not a thing to copy blindly.
+
+The verified notes behind those solutions are in
+[`SPOILERS-app-notes.md`](experiments/1_Zoo/SPOILERS-app-notes.md) — that is the answer key, so
+read it after the exhibits, not before.
 
 ## When something breaks
 
