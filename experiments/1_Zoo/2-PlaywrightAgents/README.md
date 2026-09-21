@@ -10,29 +10,41 @@ your projects and your fixtures — not the general-purpose Playwright MCP.
 
 Everything is in the `playwright` package. There is nothing else to install.
 
-```bash
-cd experiments/1_Zoo/2-PlaywrightAgents
-npx playwright --version      # must be 1.62.0 or newer
-```
-
 This folder already ships the two things the agents need before they can do anything:
 
 - **[`playwright.config.ts`](./playwright.config.ts)** — read it. The project is named `chromium` and the agents look it
   up by that name. Without a config the seed test lands in the wrong place and nothing lines up.
 - **[`tests/seed.spec.ts`](./tests/seed.spec.ts)** — a green test that only checks the app loads.
 
-Now wire up the agents:
+Keep the **repository root** open in VS Code. Copilot only reads `.github/agents/`,
+`.github/prompts/` and `.vscode/mcp.json` at the root of the open folder, so wire up the agents
+from the root and point them at this exhibit's config:
 
 ```bash
-npx playwright init-agents --loop=vscode --prompts
+npx playwright --version      # must be 1.62.0 or newer
+npx playwright init-agents --loop=vscode --prompts --config experiments/1_Zoo/2-PlaywrightAgents/playwright.config.ts
 ```
 
 Look for `🎭 Using project "chromium" as a primary project` in the output. If it says
-`Using project ""`, your config was not found — check you are in this folder and run again.
+`Using project ""`, the `--config` path is wrong — check you are in the repository root.
 
 You get four prompt files in `.github/prompts/` (the `/` commands in Copilot Chat), three agent
 definitions in `.github/agents/`, and `.vscode/mcp.json` pointing at
-`npx playwright run-test-mcp-server`. Reload VS Code so Copilot picks up the MCP server.
+`npx playwright run-test-mcp-server`. All three are gitignored.
+
+**One edit before you reload.** Started from the root, the MCP server does not know which config
+to use, and it would see every test in the repository. Open `.vscode/mcp.json` and add the
+config to the `playwright-test` server's `args`:
+
+```json
+"args": ["playwright", "run-test-mcp-server", "--config", "${workspaceFolder}/experiments/1_Zoo/2-PlaywrightAgents"]
+```
+
+Running `init-agents` again resets this line, so make the edit again after every run. Then
+reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the MCP server.
+
+> Ran `init-agents` from inside this folder? It still works for the terminal, but the files land
+> in this folder, where Copilot never looks. Run it again from the root as above.
 
 > On Claude Code instead of Copilot? `--loop=claude`. The choices are `claude`, `codex`,
 > `copilot`, `opencode`, `vscode`. Omitting `--loop` silently writes the VS Code wiring —
@@ -43,11 +55,19 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
 
 ## Steps
 
-1. Run the seed test once — `npx playwright test --project=chromium`. **It must be green.**
+1. Run the seed test once. **It must be green.**
+
+   ```bash
+   cd experiments/1_Zoo/2-PlaywrightAgents
+   npx playwright test --project=chromium
+   ```
+
    The planner runs this exact test to boot your environment. If it is red, the problem is your
    network or the app, and none of the rest will work until you fix it.
 2. Ask the **planner** for a plan of ordering a meal, checked against `FD-05` and `FD-06` in
-   [the spec](../../../spec/foodora-spec.md). Read `specs/order.md` — [`specs/`](./specs/) explains what that artifact is for.
+   [the spec](../../../spec/foodora-spec.md), saved as
+   `experiments/1_Zoo/2-PlaywrightAgents/specs/order.md` (the planner saves relative to the
+   repository root). Read it — [`specs/`](./specs/) explains what that artifact is for.
 3. Ask the **generator** for bullet **1.1 only**, then run it.
 
 Generate one bullet at a time, never in parallel — all three agents share one browser page.
@@ -66,6 +86,8 @@ Break a locator on purpose, then ask the **healer** to fix your tests. When it r
 ```bash
 grep -r "test.fixme" tests/
 ```
+
+PowerShell: `Get-ChildItem -Recurse tests | Select-String "test.fixme"`
 
 Did it repair your test, or just silence it? The healer's own instructions authorise marking a
 test `test.fixme()` when it cannot fix it — so a healer "success" can be a skipped test.

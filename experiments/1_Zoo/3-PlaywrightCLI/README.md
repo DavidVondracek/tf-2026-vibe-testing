@@ -4,16 +4,20 @@
 
 The browser CLI and its skills ship inside the `playwright` package. No separate install.
 
+Run everything here from the **repository root** — the folder you have open in VS Code. That is
+where your agent looks for skills, and where its terminal starts.
+
 ## Steps
 
 1. Install the skills and look at what you got:
 
    ```bash
-   cd experiments/1_Zoo/3-PlaywrightCLI
    npx playwright init-skills --loop=claude
    head -4 .claude/skills/playwright-cli/SKILL.md
    ls .claude/skills/playwright-cli/references/
    ```
+
+   PowerShell: `Get-Content .claude/skills/playwright-cli/SKILL.md -TotalCount 4` instead of `head -4`.
 
    You get three — `playwright-cli`, `playwright-component-testing`, `playwright-trace`. We only
    use the first.
@@ -23,7 +27,9 @@ The browser CLI and its skills ship inside the `playwright` package. No separate
    load if the task needs mocking, or tracing, or video. That is the whole idea.
 
    > **VS Code + Copilot reads this.** Copilot discovers skills from `.claude/skills/`,
-   > `.agents/skills/` and `.github/skills/`, so `--loop=claude` works as-is. `--loop=agents`
+   > `.agents/skills/` and `.github/skills/` at the root of the open folder, so `--loop=claude`
+   > works as-is. Run `init-skills` inside a subfolder and the skills land there, where no agent
+   > looks. `--loop=agents`
    > writes the same three skills to the vendor-neutral `.agents/skills/` instead — use that one
    > if you are on VS Code older than 1.110. Reload the window, then type `/` in Chat to see them.
 
@@ -33,11 +39,11 @@ The browser CLI and its skills ship inside the `playwright` package. No separate
    npx playwright cli -s=lab open https://foodora.lovable.app/
    npx playwright cli -s=lab find "Cart"
    npx playwright cli -s=lab click <the ref find printed>
-   npx playwright cli -s=lab snapshot --filename=cart.yaml
+   npx playwright cli -s=lab snapshot --filename=.playwright-cli/cart.yaml
    ```
 
    Look at what each command returns: a **file path**, not a page. `find` gives you refs like
-   `[ref=e17]` — that is what you pass to `click`. `cat cart.yaml` to see the accessibility tree
+   `[ref=e17]` — that is what you pass to `click`. `cat .playwright-cli/cart.yaml` to see the accessibility tree
    that was on disk the whole time, never in the model's context.
 
 3. Now ask your agent to order the meal, taking its expected results from
@@ -56,17 +62,21 @@ The skill is on disk, and snapshots are landing in `.playwright-cli/` — not in
 ls .playwright-cli/*.yml | wc -l      # 3 or more
 ```
 
+PowerShell: `(Get-ChildItem .playwright-cli/*.yml).Count`
+
 ## Bonus
 
 Write your own skill — this is the thing you take home.
 
 Write it yourself first, from what you just learned driving the CLI by hand. Then compare with
 [`skills/foodora-order/SKILL.md`](./skills/foodora-order/SKILL.md) in this folder, which is a
-worked version. Install yours by copying the folder in:
+worked version. Install one by copying its folder into `.claude/skills/` at the root:
 
 ```bash
-cp -r skills/foodora-order .claude/skills/
+cp -r experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order .claude/skills/
 ```
+
+PowerShell: `Copy-Item -Recurse experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order .claude/skills/`
 
 The folder name must match the `name` in the frontmatter, or it will not load.
 

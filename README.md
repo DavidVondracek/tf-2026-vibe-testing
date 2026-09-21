@@ -2,7 +2,7 @@
 
 ## AI Agents, MCP, and the New Stack for Web App Testing
 
-A full-day, hands-on workshop at [Tesena Fest 2026](https://www.tesena.com/tesena-fest) (24 September 2026, Prague). AI coding agents, Playwright MCP, Playwright CLI, and Wopee.io go head-to-head on the same demo app. You build the test suite, then you race to defend it.
+A full-day, hands-on workshop at [Tesena Fest 2026](https://www.tesena.com/tesena-fest) (24 September 2026, Prague). An AI coding agent, Playwright Agents, Playwright CLI + Skills, and Wopee.io + MCP go head-to-head on the same demo app. You build the test suite, then you race to defend it.
 
 - **Instructor:** [Marcel Veselka](https://www.linkedin.com/in/marcelveselka/) (Founder of [Wopee.io](https://wopee.io) and [Tesena](https://www.tesena.com))
 - **Format:** Full-day hands-on workshop
@@ -15,7 +15,7 @@ Test automation engineers, QA leads, and QA managers.
 
 ## What you will do
 
-- Run Playwright the traditional way, then via CLI, then via MCP, and see exactly what changes at each step
+- Drive the same browser three ways — an AI coding agent writing Playwright tests, Playwright Agents over MCP, and the Playwright CLI with skills — and see exactly what changes at each step
 - Try Wopee.io as a purpose-built AI testing agent on the same app and the same task — from its own UI, and as an MCP tool your coding agent calls
 - Wire an AI coding agent to generate, run, and interpret tests autonomously
 - Write a `SKILL.md` that encodes your team's testing knowledge so any agent can reuse it
@@ -31,12 +31,26 @@ Test automation engineers, QA leads, and QA managers.
 
 ## How the day runs
 
-No death by slides. The day has 4 gears:
+No death by slides. Every block has a page in [`day/`](day/) with its goal, steps, where your
+files go, when you are done, and what to do if you are stuck. Lost the presenter, or running the
+day at home? Follow those pages in order.
 
-1. **The Zoo:** 4 exhibits, 1 demo app. An AI coding agent, Playwright MCP, Playwright CLI, and Wopee.io, one at a time, side by side. Every tool gets the same fair test. Including the one we built.
-2. **Teams & Mission:** before lunch you are assigned to a team and handed a mission card. Lunch is yours, but your team is already talking.
-3. **Build One Thing:** 90 minutes to build a real AI-assisted test suite, including a reusable capability your agent can run cold, without guidance. Then another team runs your SKILL.md cold and tells you where it broke. This is the thing you take home.
-4. **Speed Gap Battle:** 3 new features just shipped on the demo app. Your suite is your only weapon. 40 minutes, then 3 minutes to show it. Speed, accuracy, and reusability count, and the room votes.
+### Agenda
+
+| Time  | Block                                                         | Page                                         |
+| ----- | ------------------------------------------------------------- | -------------------------------------------- |
+| 09:00 | Kick-off: Speed Gap Diagnostic                                | [`00-kickoff.md`](day/00-kickoff.md)         |
+| 09:15 | Concepts: The New Stack                                       | [`01-concepts.md`](day/01-concepts.md)       |
+| 09:55 | ☕ Break                                                      |                                              |
+| 10:10 | The Zoo: 4 exhibits × (20 min hands-on + 5 min debrief)       | [`02-zoo.md`](day/02-zoo.md)                 |
+| 11:50 | Teams & Mission                                               | [`03-teams.md`](day/03-teams.md)             |
+| 12:00 | 🍽 Lunch                                                      |                                              |
+| 13:00 | Build One Thing: a test suite and a `SKILL.md` that runs cold | [`04-build.md`](day/04-build.md)             |
+| 14:30 | SKILL.md Swap: another team runs your skill cold              | [`05-swap.md`](day/05-swap.md)               |
+| 15:00 | ☕ Break                                                      |                                              |
+| 15:15 | Speed Gap Battle: 3 new features, 40 min, 3-min demos         | [`06-battle.md`](day/06-battle.md)           |
+| 16:15 | Wrap-up & Q&A                                                 | [`07-wrap.md`](day/07-wrap.md)               |
+| 17:00 | End                                                           |                                              |
 
 ### The Zoo
 
@@ -46,23 +60,6 @@ No death by slides. The day has 4 gears:
 | 🐍  | **[Playwright Agents](experiments/1_Zoo/2-PlaywrightAgents/)** | Let the planner explore, the generator write and the healer repair — you review the artifacts   | Plan → test → repair, riding on MCP                 |
 | 🦁  | **[Playwright CLI + Skills](experiments/1_Zoo/3-PlaywrightCLI/)** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge      |
 | 🔬  | **[Wopee.io + MCP](experiments/1_Zoo/4-Wopee/)**  | Paste the URL and watch it map the app — then call the same agent from your own coding agent    | Purpose-built testing agent vs. general-purpose tools |
-
-### Agenda
-
-| Time  | Block                          |
-| ----- | ------------------------------ |
-| 09:00 | Kick-off: Speed Gap Diagnostic |
-| 09:15 | Concepts: The New Stack        |
-| 09:55 | ☕ Break                       |
-| 10:10 | The Zoo                        |
-| 11:50 | Teams & Mission                |
-| 12:00 | 🍽 Lunch                       |
-| 13:00 | Build One Thing                |
-| 14:30 | SKILL.md Swap                  |
-| 15:00 | ☕ Break                       |
-| 15:15 | Speed Gap Battle               |
-| 16:15 | Wrap-up & Q&A                  |
-| 17:00 | End                            |
 
 ## Demo app
 
@@ -114,15 +111,19 @@ Please follow these steps before the workshop. If one fails, look it up in
 | [`experiments/1_Zoo/2-PlaywrightAgents/`](experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |
 | [`experiments/1_Zoo/3-PlaywrightCLI/`](experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |
 | [`experiments/1_Zoo/4-Wopee/`](experiments/1_Zoo/4-Wopee/) | Exhibit 4 — [MCP config](experiments/1_Zoo/4-Wopee/mcp.json.example) for VS Code, and the [env-var route](experiments/1_Zoo/4-Wopee/.env.example) |
+| [`day/`](day/) | One page per block of the day — goal, steps, where files go, done when, if stuck |
+| [`teams/`](teams/) | Team work after lunch. Copy [`_template/`](teams/_template/) to `teams/team-N/` in your team's fork |
 | [`experiments/2_API/`](experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time. A [fixture](experiments/2_API/fixtures.ts) that finds the API for you, and [reference tests](experiments/2_API/solutions/restaurants.spec.ts) |
 | [`scripts/verify-setup.mjs`](scripts/verify-setup.mjs) | What `npm run verify` runs |
 | [`scripts/check-links.mjs`](scripts/check-links.mjs) | What `npm run links` runs — keeps the cross-references in these docs honest |
 | [`AGENTS.md`](AGENTS.md) | Rules your AI agent follows in this repository |
 | [`slides/`](slides/) | The deck (Slidev) — `npm run slides` opens it in your browser |
 
-Each exhibit has a `solutions/` folder — [1](experiments/1_Zoo/1-CodingAgent/solutions/),
-[2](experiments/1_Zoo/2-PlaywrightAgents/solutions/). Open it if you fall behind, and run them
-all with `npm run solutions`. It is what a good run produces, not a thing to copy blindly.
+Exhibits 1 and 2 have a `solutions/` folder — [1](experiments/1_Zoo/1-CodingAgent/solutions/),
+[2](experiments/1_Zoo/2-PlaywrightAgents/solutions/) — and Exhibit 3 has a
+[worked skill](experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md). Exhibit 4 runs in
+the cloud; its shortcut is a shared project with a finished run. Open them if you fall behind, and
+run the tests with `npm run solutions`. They are what a good run produces, not a thing to copy blindly.
 
 The verified notes behind those solutions are in
 [`SPOILERS-app-notes.md`](experiments/1_Zoo/SPOILERS-app-notes.md) — that is the answer key, so
@@ -133,7 +134,7 @@ read it after the exhibits, not before.
 | What you see | What it means |
 | --- | --- |
 | `npm run verify` red on *Playwright version* | You are on an older Playwright. The CLI, the agents and the skills all need **1.62+**. `npm install` at the repository root. |
-| `init-agents` prints `Using project ""` | It did not find a config. `cd` into the exhibit folder and run it there. |
+| `init-agents` prints `Using project ""` | It did not find a config. Run it from the repository root with `--config` pointing at the exhibit's `playwright.config.ts` — see [Exhibit 2](experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**. |
 | MCP tools do not appear in chat | Reload the VS Code window after writing `.vscode/mcp.json`, and make sure the chat is in **agent** mode. |

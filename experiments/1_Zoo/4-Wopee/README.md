@@ -21,11 +21,18 @@ A run finished, and you opened one visual diff.
 Add the Wopee MCP server to your coding agent and ask **it** to start the run. Your coding agent
 now calls a testing agent as a tool.
 
-Copy [`mcp.json.example`](./mcp.json.example) into place and reload VS Code:
+Put [`mcp.json.example`](./mcp.json.example) into `.vscode/mcp.json` at the repository root, then
+reload VS Code. If you have no `.vscode/mcp.json` yet, copy it from the repository root:
 
 ```bash
 cp experiments/1_Zoo/4-Wopee/mcp.json.example .vscode/mcp.json
 ```
+
+PowerShell: `Copy-Item experiments/1_Zoo/4-Wopee/mcp.json.example .vscode/mcp.json`
+
+**Already have one from Exhibit 2?** Do not overwrite it — you would lose the `playwright-test`
+server. Open both files and copy the `wopee` entry into `servers`, and the two entries into
+`inputs`.
 
 VS Code prompts you for the project UUID and the API key on first use and keeps them in its
 secret storage. **Do not paste the key into a file in this repository** — same rule as the
@@ -36,8 +43,9 @@ Both values come from **cmd.wopee.io → your project → Settings** (the key un
 Open Copilot Chat in **agent mode** and ask: *start a Wopee analysis on my project and tell me
 what it found.* You should see it call `wopee_dispatch_analysis`.
 
-The server exposes seven tools — create a blank suite, fetch suites, dispatch an analysis,
-dispatch an agent run, and fetch, update or generate artifacts.
+The server's tools create and fetch suites, dispatch an analysis, dispatch an agent run on chosen
+test cases, fetch the results, and fetch, update or generate artifacts such as user stories and
+Playwright code.
 
 > On Claude Code instead? Same two values, different file and a different top-level key:
 > `.mcp.json` with `mcpServers` rather than `servers`, and no `inputs` block. See

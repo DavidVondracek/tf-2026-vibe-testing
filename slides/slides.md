@@ -91,7 +91,7 @@ label: Welcome
   <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps" size="11rem" caption="Scan to open" />
   <div>
     <a class="repo-link" href="https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps"><span>github.com/Wopee-io/</span><span>tf-2026-vibe-testing-web-apps</span></a>
-    <p class="text-2xl">Clone it, run <code>npm install</code>, check the README.</p>
+    <p class="text-2xl">Every block of the day has a page in <code>day/</code>.<br>Lose me? Follow the page.</p>
   </div>
 </div>
 
@@ -119,7 +119,7 @@ One zookeeper, up to 30 visitors. This is the queue.
 <div class="card"><div class="num">1</div><h3>Ask your neighbour</h3><p>Or your team, after lunch.</p></div>
 <div class="card"><div class="num">2</div><h3>Check the README</h3><p>Setup troubleshooting covers the usual suspects.</p></div>
 <div class="card"><div class="num">3</div><h3>Raise your hand</h3><p>Or flip your laptop lid halfway. I work through the queue.</p></div>
-<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit has a solutions/ folder. Use it and keep going.</p></div>
+<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit README ends with a shortcut. Use it and keep going.</p></div>
 </div>
 
 <!--
@@ -546,9 +546,9 @@ Everyone on the same exhibit at the same time. Nobody left behind.
 | | Exhibit | What you do | Core concept |
 |---|---|---|---|
 | 🤖 | **AI Coding Agent** | Define intent, watch the agent write, run and interpret tests. Find where it breaks | Agent autonomy, and where human judgment still wins |
-| 🐍 | **Playwright MCP** | Connect Playwright to an LLM, generate and run tests in natural language | MCP makes tools agent-readable |
-| 🦁 | **Playwright CLI** | Drive browser tests from the command line, pipe the output to an AI agent | CLI as the bridge between agent and browser |
-| <img src="/img/wopee-monkey.svg" class="h-9 mx-auto" /> | **Wopee.io** | Paste the URL, watch it map the app, generate and run visual + functional regression | Purpose-built testing agent vs. general-purpose tools |
+| 🐍 | **Playwright Agents** | Let the planner explore, the generator write and the healer repair — you review the artifacts | Plan → test → repair, riding on MCP |
+| 🦁 | **Playwright CLI + Skills** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge |
+| <img src="/img/wopee-monkey.svg" class="h-9 mx-auto" /> | **Wopee.io + MCP** | Paste the URL, watch it map the app, generate and run visual + functional regression | Purpose-built testing agent vs. general-purpose tools |
 
 </div>
 
@@ -654,11 +654,11 @@ done: A plan in specs/, a generated test, and a green run you did not write.
 stuck: The folder ships a working config and a green seed test — start from there.
 ---
 
-1. <code>npx playwright init-agents --loop=vscode --prompts</code> — look for <code>🎭 Using project "chromium"</code>, then run the seed test once. It must be green.
-2. Ask the <b>planner</b> for a plan of ordering a meal. Read <code>specs/order.md</code> — that is the artifact a non-coder can review.
+1. From the <b>repo root</b>, run <code>init-agents</code> exactly as the README shows — it needs <code>--config</code>. Then run the seed test once. It must be green.
+2. Ask the <b>planner</b> for a plan of ordering a meal. Read its <code>specs/order.md</code> — that is the artifact a non-coder can review.
 3. Ask the <b>generator</b> for bullet 1.1 only, then run it.
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then <code>grep -r "test.fixme" tests/</code>. Did it repair your test — or just silence it?</p>
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then search <code>tests/</code> for <code>test.fixme</code>. Did it repair your test — or just silence it?</p>
 
 <!--
 10:35 — hands-on until 10:55, debrief 5 min.
@@ -677,7 +677,7 @@ label: The Zoo · debrief
 layout: exhibit
 block: zoo
 no: '03'
-name: Playwright CLI
+name: Playwright CLI + Skills
 icon: 🦁
 image: /img/photos/exhibit-cli.jpg
 tagline: The CLI as the bridge between agent and browser.
@@ -700,7 +700,7 @@ done: Snapshots are landing in .playwright-cli/ — not in your context.
 stuck: All of it is npx playwright … — nothing extra to install.
 ---
 
-1. <code>npx playwright init-skills --loop=claude</code>, then <code>head -4 .claude/skills/playwright-cli/SKILL.md</code>. Four lines of frontmatter is all the agent holds.
+1. From the <b>repo root</b>: <code>npx playwright init-skills --loop=claude</code>, then open <code>.claude/skills/playwright-cli/SKILL.md</code>. Four lines of frontmatter is all the agent holds.
 2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. Every answer is a <em>file path</em>, not a page.
 3. Now ask your agent to order the meal. It never had to be told the commands.
 
@@ -802,14 +802,14 @@ block: teams
   <p>Mixed leads and engineers, assigned in advance.</p>
   <h3 class="mt-5">1 tool per team</h3>
   <p>🤖 Coding Agent ×2 · 🐍 Playwright Agents · 🦁 CLI + Skills ×2 · <img src="/img/wopee-monkey.svg" class="inline h-5 align-text-bottom" /> Wopee.io</p>
-  <p class="muted mt-1">Two tools are used twice — on purpose. Same tool, different team: the only variable left is how you worked.</p>
-  <h3 class="mt-5">Lunch is yours</h3>
-  <p>But your team is already talking.</p>
+  <h3 class="mt-5">Before lunch: fork the repo</h3>
+  <p>One laptop per team — <code>day/03-teams.md</code>. Then lunch is yours.</p>
 </div>
 </div>
 
 <!--
 11:50 — 10 min. Hand out the cards, then go to lunch.
+Two tools are used twice — on purpose. Same tool, different team: the only variable left is how they worked.
 
 PREP, 48 h before: 6 teams of 4 from the Tesena attendee list. Mix leads and engineers.
 Tools: Coding Agent x2, Playwright Agents, CLI + Skills x2, Wopee.io.
@@ -873,11 +873,11 @@ checkpoints:
 <li>Test suite covers the core user flows</li>
 <li>At least one SKILL.md</li>
 <li>Fresh agent session runs it cold</li>
-<li>Pushed to your team branch</li>
+<li>Pushed to your fork, pull request open</li>
 <li>App address only in <code>baseURL</code> — never in a test</li>
 </ul>
 
-<p class="muted mt-6">This is the thing you take home.</p>
+<p class="muted mt-6">This is the thing you take home. Step by step: <code>day/04-build.md</code></p>
 
 <!--
 13:05 → 14:30 — leave this slide up. Walk the room; call out the checkpoints.
@@ -907,13 +907,13 @@ checkpoints:
 # Run another team's skill <span class="y">cold</span>
 
 <ul class="checklist">
-<li>1 → 2 → 3 → 4 → 5 → 6 → 1</li>
+<li>Team N runs team N−1's skill: <code>gh pr checkout &lt;number&gt;</code></li>
 <li>Fresh agent session, with your own tool, only their SKILL.md</li>
 <li>Note every place it broke or needed a hint</li>
 <li>Give them 3 lines of feedback</li>
 </ul>
 
-<p class="muted mt-6">The Battle scores reusability. This is your dress rehearsal.</p>
+<p class="muted mt-6">The Battle scores reusability. This is your dress rehearsal. Step by step: <code>day/05-swap.md</code></p>
 
 <!--
 14:30 — 2 min setup, 20 min runs, 8 min feedback. Teams use their own tool on someone else's skill: that is the reusability test.
@@ -975,12 +975,13 @@ checkpoints:
 <div v-click class="mt-4 battle-cmd">
 
 ```bash
-git pull
+git pull upstream main
+cd teams/team-N
 export FOODORA_URL=https://foodora-new.lovable.app
 npx playwright test
 ```
 
-<p class="text-sm muted">PowerShell: <code>$env:FOODORA_URL="https://foodora-new.lovable.app"</code></p>
+<p class="text-sm muted">PowerShell: <code>$env:FOODORA_URL="…"</code> · cmd: <code>set FOODORA_URL=…</code> · all of it: <code>day/06-battle.md</code></p>
 
 </div>
 
