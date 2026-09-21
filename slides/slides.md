@@ -291,46 +291,52 @@ Veracode, Mar 2026: two years of model progress moved code security 55% → 55%.
 block: stack
 ---
 
-# The whole lifecycle moved. <span class="y">Test is stage 4.</span>
+# Code is no longer <span class="y">the bottleneck.</span>
 
-<div class="cards c3">
-<div class="card"><div class="n">1 · PLAN</div><h3>intent.md</h3><p>The problem and the constraints, in the repo.</p></div>
-<div class="card"><div class="n">2 · DESIGN</div><h3>spec.md</h3><p>Requirements and design collapse into one session.</p></div>
-<div class="card"><div class="n">3 · BUILD</div><h3>plan.md → code</h3><p>Plan mode first. Several streams at once.</p></div>
-<div class="card yellow"><div class="n">4 · TEST</div><h3>The agent checks itself</h3><p>Tests, builds, screenshots — before a human looks.</p></div>
-<div class="card"><div class="n">5 · DEPLOY</div><h3>Review + gates</h3><p>Findings ranked by severity. Hooks ask for approval.</p></div>
-<div class="card"><div class="n">6 · MAINTAIN</div><h3>Back to intent.md</h3><p>Production anomaly opens the loop again.</p></div>
+The human-speed steps around it are.
+
+<div class="lifecycle">
+  <div class="lc"><span>1 · PLAN</span><b>intent.md</b></div>
+  <div class="lc"><span>2 · DESIGN</span><b>spec.md</b></div>
+  <div class="lc"><span>3 · BUILD</span><b>plan.md → code</b></div>
+  <div class="lc now"><span>4 · TEST</span><b>the agent checks itself</b></div>
+  <div class="lc"><span>5 · DEPLOY</span><b>review + gates</b></div>
+  <div class="lc"><span>6 · MAINTAIN</span><b>back to intent.md</b></div>
+</div>
+<p class="lc-note">Stage 4 proves the fix with a test <span class="hl">the agent wrote</span>. Hold that thought.</p>
+
+<div v-click class="banner lc-question">So what does it mean for us? <em>What is our new goal?</em></div>
+
+<div v-click class="lc-answer">
+  <div class="lc-verbs"><span>Shape it</span><span>Maintain it</span><span>Define the rules</span><span>Manage the whole process</span></div>
+  <p>A role or a skill in the team? Honestly, nobody knows yet — the industry is still searching.</p>
 </div>
 
-<div class="banner">"Code is no longer the bottleneck. <em>The human-speed steps around it are.</em>"</div>
-
-<p v-click class="text-xl text-center mt-3">Stage 4 proves the fix with a test <span class="hl">the agent wrote</span>. Hold that thought.</p>
-
 <!--
-09:21 — this is the slide that makes the Speed Gap someone else's argument, not just mine.
-Source out loud: Anthropic's AI-native SDLC playbook, 21 August 2026. Six stages, and each one
-commits an artifact the next one reads.
-The chain of commits is the audit trail: who asked for what, what the agent produced, who approved it.
-Ask the room: which of these six does your team already do in the open, in git?
+09:21 — lead with the quote, not the stages. Source out loud: Anthropic's AI-native SDLC playbook,
+21 August 2026. Six stages, each commits an artifact the next one reads — the strip is support, point at it once.
+Stage 4 is the callback for later: the agent proves its own fix with a test it wrote. Who checks that test?
+[click] Ask the room first and let two people answer. Do not rush to yours.
+[click] Mine: shape it, maintain it, define the rules, manage the whole process.
+Then be honest: whether that is a job title or a skill every engineer needs — nobody knows yet. We are all
+working it out, and today is one day of that.
 -->
 
 ---
 block: stack
+clicks: 4
 ---
 
 # The new stack in <span class="y">4 pieces</span>
 
-<div class="cards c4">
-<div class="card"><div class="n">CODING AGENT</div><h3>Claude Code, Copilot, Cursor</h3><p>Writes, runs and fixes test code in your repo.</p></div>
-<div class="card"><div class="n">PROTOCOL</div><h3>MCP</h3><p>A standard way to make any tool readable and callable by an LLM.</p></div>
-<div class="card"><div class="n">BROWSER CLI</div><h3>Playwright CLI</h3><p>The agent drives the browser with shell commands. Snapshots saved to disk.</p></div>
-<div class="card"><div class="n">TESTING AGENT</div><h3>Wopee.io</h3><p>Maps the app, then generates and runs regression tests. Usable from the cloud — or as an MCP tool your agent calls.</p></div>
-</div>
-
-<div class="todo">Draw the one diagram: agent in the middle, MCP and CLI as the two ways to the browser, SKILL.md as the knowledge layer.</div>
+<StackDiagram />
 
 <!--
-09:26 — one sentence per piece. The Zoo will make each one concrete.
+09:26 — builds in four clicks, one sentence each. The Zoo makes every piece concrete.
+[click] SKILL.md — know-how the agent loads only when a task needs it. Exhibit 3 and the afternoon.
+[click] CLI — the agent drives the browser with shell commands; answers are file paths. Exhibit 3.
+[click] MCP — the same browser, through tools that live in the agent's context. Exhibit 2.
+[click] The testing agent — Wopee.io maps the app on its own, or your agent calls it as an MCP tool. Exhibit 4.
 -->
 
 ---
@@ -966,15 +972,39 @@ block: wrap
 block: wrap
 ---
 
-# What you do <span class="y">Monday morning</span>
+# Your turn: <span class="y">Monday morning</span>
+
+Pen and paper. 3 minutes. Write your own — mine comes next.
+
+<div class="cards c3 tall">
+<div class="card yellow"><div class="n">DO MONDAY</div><h3>One thing you will try on Monday</h3><p>Small enough to start before lunch.</p></div>
+<div class="card"><div class="n">TAKES LONGER</div><h3>One thing that needs your team</h3><p>A tool, a process, a budget — who do you have to convince?</p></div>
+<div class="card dark"><div class="n">DROP NOW</div><h3>One habit you stop</h3><p>The one that today made look slow.</p></div>
+</div>
+
+<!--
+16:35 — 3 minutes of silence while they write. Do not fill it.
+Then ask two or three people to read theirs out — ideally one lead and one engineer.
+Only then click on to yours. Theirs first, so they own the plan instead of copying mine.
+-->
+
+---
+block: wrap
+---
+
+# Mine: <span class="y">Monday morning</span>
 
 <div class="cards c3 tall">
 <div class="card yellow"><div class="n">DO MONDAY</div><h3>…</h3><p>…</p></div>
 <div v-click class="card"><div class="n">TAKES LONGER</div><h3>…</h3><p>…</p></div>
-<div v-click class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>The one habit worth dropping immediately.</p></div>
+<div v-click class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>…</p></div>
 </div>
 
 <div class="todo">Marcel's Vibe Testing rally: what to do Monday, what takes longer, the one habit to drop.</div>
+
+<!--
+Compare out loud with what the room wrote. Where they differ from mine, theirs are probably closer to their reality.
+-->
 
 ---
 layout: statement

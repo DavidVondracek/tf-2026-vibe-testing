@@ -485,3 +485,77 @@
   border: 3px solid var(--wp-black);
   background: var(--wp-yellow);
 }
+
+/* Compact lifecycle strip (slide "Code is no longer the bottleneck") */
+.lifecycle {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+}
+
+.lc {
+  background: var(--wp-card);
+  border-top: 4px solid var(--wp-yellow);
+  padding: 0.45rem 0.6rem 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.lc span {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--wp-muted);
+}
+
+.lc b {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.lc.now {
+  background: var(--wp-yellow);
+  border-top-color: var(--wp-black);
+}
+
+.lc.now span {
+  color: var(--wp-black);
+}
+
+.lc-note {
+  font-size: 1rem !important;
+  color: var(--wp-grey);
+  margin: 0.5rem 0 0;
+}
+
+.lc-question {
+  margin-top: 1.1rem;
+}
+
+.lc-answer {
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.lc-verbs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.lc-verbs span {
+  background: var(--wp-yellow);
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 0.3rem 0.9rem;
+}
+
+.lc-answer p {
+  font-size: 1.05rem !important;
+  font-style: italic;
+  color: var(--wp-grey);
+  margin-top: 0.6rem;
+}
