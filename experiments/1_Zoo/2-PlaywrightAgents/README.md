@@ -11,38 +11,41 @@ your projects and your fixtures — not the general-purpose Playwright MCP.
 Everything is in the `playwright` package. There is nothing else to install.
 
 ```bash
+cd experiments/1_Zoo/2-PlaywrightAgents
 npx playwright --version      # must be 1.62.0 or newer
 ```
 
-**Create `playwright.config.ts` before the next command.** Without it the seed test lands in the
-wrong place and nothing lines up:
+This folder already ships the two things the agents need before they can do anything:
 
-```ts
-import { defineConfig } from '@playwright/test'
+- **`playwright.config.ts`** — read it. The project is named `chromium` and the agents look it
+  up by that name. Without a config the seed test lands in the wrong place and nothing lines up.
+- **`tests/seed.spec.ts`** — a green test that only checks the app loads.
 
-export default defineConfig({
-  testDir: './tests',
-  use: { baseURL: 'https://foodora.lovable.app', trace: 'on-first-retry' },
-  projects: [{ name: 'chromium', use: { browserName: 'chromium' } }],
-})
-```
-
-Then:
+Now wire up the agents:
 
 ```bash
-npx playwright init-agents --loop=claude --prompts     # or --loop=vscode for Copilot
-echo ".playwright-mcp/" >> .gitignore
+npx playwright init-agents --loop=vscode --prompts
 ```
 
-Look for `🎭 Using project "chromium"` in the output. If it says `Using project ""`, your config
-was not found — fix it and run again.
+Look for `🎭 Using project "chromium" as a primary project` in the output. If it says
+`Using project ""`, your config was not found — check you are in this folder and run again.
 
-> Forgetting `--loop` silently writes Copilot wiring into `.github/`. No error, no prompt.
+You get four prompt files in `.github/prompts/` (the `/` commands in Copilot Chat), three agent
+definitions in `.github/agents/`, and `.vscode/mcp.json` pointing at
+`npx playwright run-test-mcp-server`. Reload VS Code so Copilot picks up the MCP server.
+
+> On Claude Code instead of Copilot? `--loop=claude`. The choices are `claude`, `codex`,
+> `copilot`, `opencode`, `vscode`. Omitting `--loop` silently writes the VS Code wiring —
+> no error, no prompt.
+
+`init-agents` also wants to write `tests/seed.spec.ts`, but it will not overwrite the one that
+is already there. Ours asserts the app is reachable; the generated stub is empty.
 
 ## Steps
 
 1. Run the seed test once — `npx playwright test --project=chromium`. **It must be green.**
-   The planner runs this exact test to boot your environment.
+   The planner runs this exact test to boot your environment. If it is red, the problem is your
+   network or the app, and none of the rest will work until you fix it.
 2. Ask the **planner** for a plan of ordering a meal. Read `specs/order.md`.
 3. Ask the **generator** for bullet **1.1 only**, then run it.
 

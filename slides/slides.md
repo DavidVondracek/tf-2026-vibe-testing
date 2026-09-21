@@ -251,7 +251,7 @@ block: stack
 </div>
 
 <!--
-09:15 — Open here. Do NOT defend the word; concede it in the first five minutes and the room is yours.
+09:17 — Open here. Do NOT defend the word; concede it in the first five minutes and the room is yours.
 Kent Beck, on why he calls it augmented coding instead: "vibe coding just sounds like you're relaxing in a hot tub."
 Steve Green, Ministry of Testing, May 2025: "an unprofessional, ineffective and pointless activity masquerading as testing."
 Rosie Sherry asked MoT to define "vibe testing" — four incompatible answers and one flat rejection in 96 hours. The term arrived definition-free.
@@ -274,7 +274,7 @@ block: stack
 <p v-click class="text-2xl font-bold text-center mt-4">Nobody coordinated this. They independently reinvented <span class="hl">the testing profession</span>.</p>
 
 <!--
-09:18 — This is the slide that turns a sceptical QA room around. The successors to vibe coding are structurally a QA discipline.
+09:19 — This is the slide that turns a sceptical QA room around. The successors to vibe coding are structurally a QA discipline.
 Willison's 11: automated testing and test-first · advance planning · documentation · version control · CI/CD and linting · code review · manual QA and edge cases · research skills · preview environments · intuition for what AI can handle · estimation.
 Veracode, Mar 2026: two years of model progress moved code security 55% → 55%. The model is provably not the variable. The discipline is.
 -->
@@ -301,7 +301,7 @@ block: stack
 <p v-click class="text-xl text-center mt-3">Stage 4 proves the fix with a test <span class="hl">the agent wrote</span>. Hold that thought.</p>
 
 <!--
-09:20 — this is the slide that makes the Speed Gap someone else's argument, not just mine.
+09:21 — this is the slide that makes the Speed Gap someone else's argument, not just mine.
 The chain of commits is the audit trail: who asked for what, what the agent produced, who approved it.
 Ask the room: which of these six does your team already do in the open, in git?
 -->
@@ -322,7 +322,7 @@ block: stack
 <div class="todo">Draw the one diagram: agent in the middle, MCP and CLI as the two ways to the browser, SKILL.md as the knowledge layer.</div>
 
 <!--
-09:22 — one sentence per piece. The Zoo will make each one concrete.
+09:26 — one sentence per piece. The Zoo will make each one concrete.
 -->
 
 ---
@@ -342,7 +342,7 @@ Same Playwright engine. Two interfaces — and the honest difference is architec
 <div class="banner">Microsoft names the mechanism. <em>It publishes no numbers.</em></div>
 
 <!--
-09:28 — DO NOT say "4× fewer tokens". That figure (27K vs 114K) traces to a Medium post via a personal blog; it is not a Playwright benchmark.
+09:29 — DO NOT say "4× fewer tokens". That figure (27K vs 114K) traces to a Medium post via a personal blog; it is not a Playwright benchmark.
 The one measured head-to-head with a stated method — Checkly, Stefan Judis, 30 Jul 2026, three runs each — found 45–48K (CLI) vs 48–50K (MCP). Near parity, because harnesses now defer tool loading.
 Both ship inside `playwright` since 1.62 — no separate package to install. The standalone @playwright/mcp still exists and still outships the CLI on npm; MCP is not dying, they do different jobs.
 If someone pushes: offer to measure it live at the CLI exhibit. That beats any cited number.
@@ -503,10 +503,10 @@ path: experiments/1_Zoo/1-CodingAgent/
 until: '10:30'
 minutes: 20
 done: A test file exists, it runs, and you can name one thing the agent got wrong.
-stuck: Run `git checkout zoo/1-solution` and read what it produced instead.
+stuck: Open `solutions/` in this folder and read what a good run produces.
 ---
 
-1. Open the folder in your agent (Claude Code, Copilot or Cursor — whichever you already have).
+1. Open this folder in VS Code and start a Copilot chat (`Ctrl/Cmd+Alt+I`). No licence? The gateway key is in the folder README.
 2. Ask it in one sentence: *order a meal on <code>foodora.lovable.app</code> and write a Playwright test that proves it.*
 3. Run the test. If it fails, paste the failure back and let the agent fix it — <b>twice</b>, no more.
 
@@ -552,7 +552,7 @@ done: A plan in specs/, a generated test, and a green run you did not write.
 stuck: The folder ships a working config and a green seed test — start from there.
 ---
 
-1. <code>npx playwright init-agents --loop=claude --prompts</code> — look for <code>🎭 Using project "chromium"</code>, then run the seed test once. It must be green.
+1. <code>npx playwright init-agents --loop=vscode --prompts</code> — look for <code>🎭 Using project "chromium"</code>, then run the seed test once. It must be green.
 2. Ask the <b>planner</b> for a plan of ordering a meal. Read <code>specs/order.md</code> — that is the artifact a non-coder can review.
 3. Ask the <b>generator</b> for bullet 1.1 only, then run it.
 

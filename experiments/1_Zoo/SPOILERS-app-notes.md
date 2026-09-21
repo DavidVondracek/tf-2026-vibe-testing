@@ -1,0 +1,394 @@
+# Foodora — verified app notes
+
+> **Spoilers.** This is the answer key: how the demo app actually behaves, verified against the
+> live app on 20 September 2026 by driving it, not by reading it. Every locator here was executed.
+>
+> It exists so the debriefs have ground truth — when a team says "the agent got the confirmation
+> wrong", we can check. If you read it before the exhibits, you have skipped your own exercise.
+
+Stack (observed): React SPA + react-router, Radix UI primitives (Sheet / Tabs / RadioGroup), sonner toasts, Tailwind. Lovable-hosted.
+
+---
+
+## 0. TL;DR for test authors
+
+| Thing | Reality |
+| --- | --- |
+| Cookie / consent banner | **None.** Nothing to dismiss. |
+| Login wall | **None.** Checkout and order placement are fully anonymous. |
+| Age gate / splash | **None.** |
+| `data-testid` attributes | **Zero** anywhere in the app. Role/label/text locators only. |
+| Checkout form validation | **None at all.** Empty form still places the order. |
+| Empty cart at `/checkout` | Renders an empty-state page. No error, no toast, no redirect. |
+| Cart persistence | **In-memory only.** A page reload empties the cart. |
+| Confirmation | `heading` "Order Confirmed!", rendered **in place** on `/checkout`. |
+
+---
+
+## 1. Blockers before step 1
+
+**There are none.** Verified on a cold context (no cookies, no storage):
+
+- No cookie/consent banner, no GDPR overlay, no modal on load.
+- No login wall — `/checkout` and `Place Order` work signed-out. `/auth` exists but is entirely optional; nothing in the order flow redirects to it.
+- No age gate, no splash screen, no interstitial.
+
+One cosmetic overlay exists and is **harmless — do not dismiss it**:
+
+```
+button "Dismiss"   // id="lovable-badge-close", the "Edit with Lovable" badge, bottom corner
+```
+
+It is outside the app root, never covers the flow, and is absent from the `/product/*` route. Ignore it.
+
+The only pre-seeded state is `localStorage.delivery_address = "New York, NY"` (written on first load, drives the header location button).
+
+---
+
+## 2. Page inventory (routes verified)
+
+| Route | View | Notes |
+| --- | --- | --- |
+| `/` | Landing / restaurant list | Hero, search box, cuisine filter chips, "Popular Restaurants" grid |
+| `/restaurant/1` | Burger Palace | Also `/restaurant/2` (Pizza Corner), `/restaurant/3` (Sushi Masters), `/restaurant/4` (Mediterranean Delight), `/restaurant/koliba-u-jana` (Koliba u Jána) — note the mixed numeric/slug ids |
+| `/product/:id` | Item detail + customiser | e.g. `/product/bp-1`. **Has no site header** — no Cart button here. Size/add-on radios, quantity stepper, Ingredients/Reviews/Nutrition tabs |
+| `/checkout` | Checkout form **and** the confirmation state | Same URL for both; the confirmation replaces the form in place |
+| `/order/:orderId?total=NN.NN` | Order tracking | e.g. `/order/FDR-QEXKGJ?total=17.44`. 5-stage progress list |
+| `/auth` | Sign in / Sign up | Optional, not part of the order flow |
+| anything else | 404 | `heading "404 — Page not found"` + `link "Return to Home"`. **`/cart` is a 404** — the cart is a drawer, not a route |
+
+There is no `/menu` route; the menu is the restaurant detail page.
+
+---
+
+## 3. The happy path (verified, step by step)
+
+The same chain, as a runnable test: `1-CodingAgent/solutions/order-a-meal.spec.ts`. Every locator below is copy-paste from a passing run.
+
+### Step 1 — Load the landing page
+
+```js
+await page.goto('https://foodora.lovable.app/', { waitUntil: 'domcontentloaded' });
+await page.getByRole('heading', { name: 'Delicious food, delivered fast' }).waitFor({ state: 'visible' });
+```
+
+Navigation: full page load. Nothing to dismiss.
+
+### Step 2 — Open a restaurant
+
+```js
+await page.getByRole('link', { name: /Burger Palace/ }).first().click();
+await page.getByRole('heading', { name: 'Burger Palace', exact: true }).waitFor({ state: 'visible' });
+// -> https://foodora.lovable.app/restaurant/1
+```
+
+Navigation: **client-side route change** (no reload — a `window` marker set before the click survives it).
+
+`.first()` is required: the restaurant card's accessible name is the whole card
+(`"Burger Palace 20% OFF orders over $25 4.8 Burger Palace American, Burgers 25-35 min $2.99"`),
+and the name repeats, so a bare `getByRole('link', {name: /Burger Palace/})` is ambiguous.
+`exact: true` on the heading avoids colliding with the page `<title>`-derived text.
+
+### Step 3 — Add an item to the cart (quick-add)
+
+The "+" button on each menu card **has no accessible name and no aria-label** — an unnamed
+icon-only button. The robust role-based answer is to scope it inside the menu item's link:
+
+```js
+const menuItem = page.getByRole('link', { name: /Classic Beef Burger/ });
+await menuItem.waitFor({ state: 'visible' });
+await menuItem.getByRole('button').click();          // the only button inside the card
+```
+
+Updates: **in place**. No navigation, no dialog.
+
+**Assert on the cart badge, not the toast:**
+
+```js
+const cartButton = page.getByRole('button', { name: 'Cart 1' });   // accessible name goes "Cart" -> "Cart 1"
+await cartButton.waitFor({ state: 'visible' });
+```
+
+Why not the toast: a sonner toast fires with title `Added to cart!` and body
+`Classic Beef Burger has been added to your cart.`, but it renders **twice** in the DOM —
+a visible `<div class="text-sm font-semibold">` **and** an `aria-live="assertive"` status span.
+`page.getByText('Added to cart!')` is therefore a **strict-mode violation** (2 elements).
+This actually bit a run during probing. If you must assert it:
+
+```js
+await page.getByText('Added to cart!', { exact: true }).first().waitFor({ state: 'visible' });
+```
+
+The toast auto-dismisses after ~4s.
+
+### Step 4 — Open the cart drawer
+
+```js
+await cartButton.click();
+const cartDialog = page.getByRole('dialog', { name: /Your Cart \(1\)/ });
+await cartDialog.waitFor({ state: 'visible' });
+```
+
+Opens a **Radix Sheet** (`role="dialog"`, slides in from the right,
+`data-[state=open]:duration-500` — a ~500 ms transition). Not a navigation.
+Drawer contents: line items with −/qty/+ steppers and a remove button (all unnamed icon
+buttons), then Subtotal / Delivery Fee / Service Fee / Total, then the CTA and `button "Close"`.
+
+### Step 5 — Proceed to checkout
+
+```js
+await page.getByRole('button', { name: 'Proceed to Checkout' }).click();
+await page.getByRole('heading', { name: 'Checkout' }).waitFor({ state: 'visible' });
+// -> https://foodora.lovable.app/checkout
+```
+
+Navigation: client-side route change; the drawer closes itself.
+
+### Step 6 — Fill the delivery form
+
+```js
+await page.getByLabel('Full Name').fill('Marcel Veselka');
+await page.getByLabel('Street Address').fill('123 Main Street');
+await page.getByLabel('Apt / Suite').fill('Apt 4B');
+await page.getByLabel('City').fill('New York');
+await page.getByLabel('Phone Number').fill('+1 (555) 123-4567');
+await page.getByLabel('Delivery Instructions (optional)').fill('Ring doorbell');
+await page.getByRole('radio', { name: /Cash on Delivery/ }).click();
+```
+
+All `getByLabel` calls work — every input has a real `<label for=...>`. Updates in place.
+
+### Step 7 — Place the order
+
+```js
+await page.getByRole('button', { name: 'Place Order' }).click();
+```
+
+**Updates in place. The URL stays `/checkout`** — the confirmation card replaces the form
+in the same route. Do not wait for a navigation here; `waitForURL` will hang.
+
+### Step 8 — Confirmation (see §4)
+
+---
+
+## 4. The confirmation — exact assertion
+
+Rendered DOM (verified):
+
+```html
+<h2 class="text-2xl font-bold mb-2">Order Confirmed!</h2>
+<p class="text-muted-foreground mb-1">Your order has been placed successfully.</p>
+<p class="text-muted-foreground mb-6">Estimated delivery: 25-35 min</p>
+<div class="bg-muted/50 rounded-xl p-4 mb-6">
+  <p class="text-sm font-medium">Order #FDR-5CFVYC</p>
+  <p class="text-sm text-muted-foreground">Total: $17.44</p>
+</div>
+<button ...>Track My Order</button>
+<button ...>Back to Home</button>
+```
+
+**The assertion the seed test needs:**
+
+```js
+await page.getByRole('heading', { name: 'Order Confirmed!' }).waitFor({ state: 'visible' });
+```
+
+`<h2>` → role `heading`. Supporting assertions, all verified:
+
+```js
+await page.getByText('Your order has been placed successfully.').waitFor({ state: 'visible' });
+await page.getByText('Estimated delivery: 25-35 min').waitFor({ state: 'visible' });
+
+// Order number: "FDR-" + 6 uppercase alphanumerics, regenerated per order.
+// It lives in ONE <p> as "Order #FDR-XXXXXX" — do NOT try to match the bare code.
+const orderNumber = page.getByText(/^Order #FDR-[A-Z0-9]{6}$/);
+await orderNumber.waitFor({ state: 'visible' });
+
+await page.getByText('Total: $17.44').waitFor({ state: 'visible' });
+await page.getByRole('button', { name: 'Track My Order' }).waitFor({ state: 'visible' });
+await page.getByRole('button', { name: 'Back to Home' }).waitFor({ state: 'visible' });
+```
+
+**Gotcha:** the accessibility tree reports `text "Order #"` and `text "FDR-5CFVYC"` as separate
+nodes, but the real DOM has them in a single `<p>`. A locator written from the a11y snapshot
+(`getByText(/^FDR-[A-Z0-9]{6}$/)`) **fails** — this was hit and fixed during probing.
+
+Order totals for a single Classic Beef Burger: `12.95 + 2.99 delivery + 1.50 service = 17.44`.
+
+`Track My Order` → navigates to `/order/FDR-XXXXXX?total=17.44` (tracking view with a 5-stage
+progress list: Order Confirmed → Preparing → Ready for Pickup → On the Way → Delivered).
+
+---
+
+## 5. Checkout form fields — and the validation truth
+
+| Label | `id` | Placeholder | HTML `required` | Actually enforced |
+| --- | --- | --- | --- | --- |
+| Full Name | `name` | `John Doe` | no | **no** |
+| Street Address | `address` | `123 Main Street` | no | **no** |
+| Apt / Suite | `apartment` | `Apt 4B` | no | **no** |
+| City | `city` | `New York` | no | **no** |
+| Phone Number | `phone` | `+1 (555) 000-0000` | no | **no** |
+| Delivery Instructions (optional) | `instructions` | `Ring doorbell, leave at door...` | no | **no** |
+
+All six are `<input type="text">`. **Not one carries a `required` attribute**, and there is no
+JS validation either.
+
+Payment method — a Radix `radiogroup` with three options. **"Credit / Debit Card" is
+pre-selected** (`data-state="checked"`), so payment is never an empty-state blocker:
+
+```js
+page.getByRole('radio', { name: /Credit \/ Debit Card/ })   // default, checked on load
+page.getByRole('radio', { name: /Cash on Delivery/ })
+page.getByRole('radio', { name: /Apple Pay/ })
+```
+
+### Verified: submitting a completely empty form still succeeds
+
+Cart with 1 item → `/checkout` → click `Place Order` **without typing anything**:
+
+- `role="alert"` elements: **0**
+- toasts: **none**
+- field-level error text: **none**
+- result: `heading "Order Confirmed!"` with a fresh order number, e.g. `Order #FDR-QQAD91`
+
+**This is the trap.** An AI writing tests for this app will assume required-field validation
+and author a negative test asserting an error message. There is no error message. Any test
+of the form "submit empty → expect validation error" will fail against the real app.
+
+---
+
+## 6. The empty-cart negative case — what ACTUALLY happens
+
+Two distinct entry points, both verified:
+
+### 6a. Cart drawer with an empty cart
+
+```js
+await page.getByRole('button', { name: 'Cart', exact: true }).click();   // badge has no number when empty
+await page.getByRole('dialog', { name: 'Your Cart (0)' }).waitFor();
+```
+
+Contents:
+
+```
+dialog "Your Cart (0)"
+  heading "Your Cart (0)"
+  heading "Your cart is empty"
+  text    "Add some delicious items to get started!"
+  button  "Continue Shopping"
+  button  "Close"
+```
+
+**The `Proceed to Checkout` button is not rendered at all** (count = 0). It is not disabled —
+it is absent. A test asserting `toBeDisabled()` will fail; assert `toHaveCount(0)` /
+`not.toBeVisible()` instead.
+
+### 6b. Navigating directly to `/checkout` with an empty cart
+
+```js
+await page.goto('https://foodora.lovable.app/checkout');
+await page.getByRole('heading', { name: 'Your cart is empty' }).waitFor();
+```
+
+What actually happens:
+
+- **No redirect.** The URL stays `https://foodora.lovable.app/checkout`.
+- **No error message, no toast, no `role="alert"`** (alert count = 0, status text = `[]`).
+- The checkout form **is not rendered** — `page.locator('input').count()` is **0**.
+- `Place Order` **is not rendered** — count **0**.
+- Instead an empty-state view renders:
+
+```
+heading "Your cart is empty"
+text    "Add some items before checking out."
+button  "Browse Restaurants"      // -> navigates to /
+```
+
+Note the copy differs between the two: the drawer says *"Add some delicious items to get
+started!"* with `Continue Shopping`; the page says *"Add some items before checking out."*
+with `Browse Restaurants`. Don't share a locator between them.
+
+**So: it is neither an error nor a blocked button — it is a guarded empty-state route.**
+The precise assertion:
+
+```js
+await expect(page.getByRole('heading', { name: 'Your cart is empty' })).toBeVisible();
+await expect(page.getByText('Add some items before checking out.')).toBeVisible();
+await expect(page.getByRole('button', { name: 'Place Order' })).toHaveCount(0);
+await expect(page).toHaveURL(/\/checkout$/);      // no redirect
+```
+
+---
+
+## 7. Stability notes
+
+**SPA:** yes. React + react-router with client-side routing — verified by setting
+`window.__spaMarker` before a link click and finding it intact afterwards. Consequences:
+
+- Use `waitUntil: 'domcontentloaded'` on the initial `goto`; `networkidle` also works but is
+  slower and the Lovable badge keeps a connection warm.
+- After in-app clicks do **not** `waitForNavigation`/`waitForLoadState` — wait on a locator
+  for the destination view instead. Several transitions (Place Order) change no URL at all.
+
+**Cart persistence: NONE.** This is the most important stability fact.
+
+```
+localStorage after adding an item: {"delivery_address":"New York, NY"}   // cart absent
+cart badge before reload: "Cart 1"
+cart badge after  reload: "Cart"                                          // emptied
+```
+
+The cart lives in React context/state only. Therefore:
+- You **cannot** seed a cart via `localStorage` / `addInitScript`; you must click through.
+- Never `page.reload()` mid-flow — it silently empties the cart and the next `/checkout`
+  lands on the empty-state view.
+- Each test must build its own cart. `storageState` reuse buys you nothing here.
+
+**Animations / transitions needing care:**
+- Cart drawer (Radix Sheet): `data-[state=open]:duration-500` slide-in, `duration-300`
+  slide-out. Wait for `getByRole('dialog')` to be visible rather than clicking blind.
+- sonner toasts: fade in, auto-dismiss ~4 s. Transient — never assert *absence* of a toast
+  without a wait, and never build a step on one still being on screen.
+- Menu-card hover has a `duration-300` transition; harmless.
+
+**Flakiness actually encountered:**
+1. `getByText('Added to cart!')` → **strict-mode violation**, toast renders in 2 nodes
+   (visible div + `aria-live` span). Fixed by asserting the `Cart 1` badge instead.
+2. `getByText(/^FDR-[A-Z0-9]{6}$/)` → **timeout**; a11y snapshot splits the node but the DOM
+   does not. Fixed with `/^Order #FDR-[A-Z0-9]{6}$/`.
+3. `getByRole('link', { name: /Burger Palace/ })` → ambiguous, needs `.first()`.
+
+**Three consecutive runs of `happy-path.spec.js`: 3/3 PASS**, ~7–8 s each, zero retries,
+zero console errors on any page of the flow. No flakiness once the three issues above were
+fixed. Each run produced a distinct order number (`FDR-XQ6FF0`, `FDR-23G7K0`, `FDR-CY4VGX`),
+confirming the id is generated per order and must be matched by pattern, never by value.
+
+---
+
+## 8. Alternative path: the product detail page
+
+Worth knowing, because it gives you a **properly named** add-to-cart button:
+
+```js
+await page.goto('https://foodora.lovable.app/restaurant/1');
+await page.getByRole('heading', { name: 'Classic Beef Burger' }).click();   // -> /product/bp-1
+await page.getByRole('radio', { name: /^Large/ }).click();                  // +$3.00
+await page.getByRole('button', { name: /^Add to Cart/ }).click();           // label carries the live price
+```
+
+The button's label tracks the configured price: `Add to Cart - $12.95` → `Add to Cart - $15.95`
+after choosing Large. Customisation options: Size (Regular / Large +$3.00) and Add-ons
+(Extra Cheese +$1.50, Bacon +$2.00, Avocado +$2.50, Extra Patty +$4.00) — note these are
+`role="radio"`, not checkboxes, despite reading like multi-select add-ons.
+
+**Catch: `/product/*` has no site header, so there is no Cart button on this page**
+(`getByRole('button', {name: /^Cart/}).count()` is 0). You must go back first:
+
+```js
+await page.getByRole('link', { name: 'Back' }).click();   // -> /restaurant/1, header returns, badge shows the count
+```
+
+That extra hop is why `happy-path.spec.js` uses the quick-add button on the restaurant page.
+
+---
