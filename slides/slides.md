@@ -704,16 +704,24 @@ block: teams
   <p class="mt-4">You have 90 min after lunch. Your suite goes straight into the Battle.</p>
 </div>
 <div class="flex flex-col justify-center">
-  <h3>3 teams</h3>
+  <h3>6 teams of 4</h3>
   <p>Mixed leads and engineers, assigned in advance.</p>
   <h3 class="mt-5">1 tool per team</h3>
-  <p>🤖 AI Coding Agent · 🐍 Playwright MCP · 🦁 Playwright CLI</p>
+  <p>🤖 Coding Agent ×2 · 🐍 Playwright Agents · 🦁 CLI + Skills ×2 · <img src="/img/wopee-monkey.svg" class="inline h-5 align-text-bottom" /> Wopee.io</p>
+  <p class="muted mt-1">Two tools are used twice — on purpose. Same tool, different team: the only variable left is how you worked.</p>
   <h3 class="mt-5">Lunch is yours</h3>
   <p>But your team is already talking.</p>
 </div>
 </div>
 
-<div class="todo">Team assignment: names per team (from the Tesena attendee list, 48 h before).</div>
+<!--
+11:50 — 10 min. Hand out the cards, then go to lunch.
+
+PREP, 48 h before: 6 teams of 4 from the Tesena attendee list. Mix leads and engineers.
+Tools: Coding Agent x2, Playwright Agents, CLI + Skills x2, Wopee.io.
+Seat the two head-to-head pairs apart so they cannot watch each other work — the whole point
+of doubling a tool is that the difference at the Battle is the team's practice, not the tool.
+-->
 
 ---
 layout: pause
@@ -804,7 +812,7 @@ checkpoints:
 # Run another team's skill <span class="y">cold</span>
 
 <ul class="checklist">
-<li>Team 1 → Team 2 → Team 3 → Team 1</li>
+<li>1 → 2 → 3 → 4 → 5 → 6 → 1</li>
 <li>Fresh agent session, with your own tool, only their SKILL.md</li>
 <li>Note every place it broke or needed a hint</li>
 <li>Give them 3 lines of feedback</li>
@@ -836,7 +844,7 @@ image: /img/photos/battle.jpg
 
 # Speed Gap Battle
 
-15:15 · 45 min build + 15 min show
+15:15 · 40 min build + 18 min show
 
 ---
 block: battle
@@ -847,22 +855,22 @@ block: battle
 Extend your suite to cover them. Use exactly what you built. No rebuilding. No switching tools.
 
 <div class="cards c3">
-<div class="card"><div class="n">🚀 SPEED</div><h3>Coverage in 45 min</h3><p>How much did you cover in time?</p></div>
+<div class="card"><div class="n">🚀 SPEED</div><h3>Coverage in 40 min</h3><p>How much did you cover in time?</p></div>
 <div class="card"><div class="n">🎯 ACCURACY</div><h3>Bugs it would catch</h3><p>Would it catch a real regression?</p></div>
 <div class="card"><div class="n">💡 REUSABILITY</div><h3>Reuse beyond today</h3><p>Does your SKILL.md work on another app?</p></div>
 </div>
 
-<div class="banner">Last 15 min: each team presents in 4 min. <em>The room votes.</em></div>
+<div class="banner">Last 18 min: each team presents in 3 min. <em>The room votes.</em></div>
 
 ---
 layout: work
 block: battle
-until: '16:00'
-minutes: 45
+until: '15:55'
+minutes: 40
 checkpoints:
   - { t: '15:15', v: 'Features revealed' }
-  - { t: '15:40', v: 'First feature covered' }
-  - { t: '16:00', v: 'Pencils down, presentations' }
+  - { t: '15:35', v: 'First feature covered' }
+  - { t: '15:55', v: 'Pencils down, presentations' }
 ---
 
 # 3 new features
@@ -873,10 +881,10 @@ checkpoints:
 <div v-click class="card"><div class="n">FEATURE 3</div><h3>…</h3></div>
 </div>
 
-<div class="todo">Pre-script 3 features on the demo app (agree in the dry run): simple enough for 45 min, interesting enough to stress the SKILL.md.</div>
+<div class="todo">Pre-script 3 features on the demo app (agree in the dry run): simple enough for 40 min, interesting enough to stress the SKILL.md.</div>
 
 <!--
-15:15 — reveal, then leave this slide up until 16:00.
+15:15 — reveal, then leave this slide up until 15:55.
 -->
 
 ---
@@ -891,10 +899,11 @@ block: battle
 <div class="card"><div class="n">💡 REUSABILITY</div><h3>1–5 fingers</h3></div>
 </div>
 
-<p class="text-2xl text-center mt-8">4 min per team. Vote after each one. <b>You don't vote for your own team.</b></p>
+<p class="text-2xl text-center mt-8">3 min per team, 6 teams. Vote after each one. <b>You don't vote for your own team.</b></p>
 
 <!--
-16:00 — tally on the whiteboard, one column per team.
+15:55 — tally on the whiteboard, six columns. Keep demos to 3 min or this overruns: 6 x 3 = 18 min and the block ends at 16:15.
+The two head-to-head pairs are the interesting comparison — same tool, so the difference is the team's practice, not the tool.
 -->
 
 ---
@@ -914,10 +923,13 @@ block: wrap
 
 # And the winner is…
 
-<div class="cards c3 tall">
+<div class="cards c3">
 <div v-click class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
 <div v-click class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
 <div v-click class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 4</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 5</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 6</div><h3>…</h3></div>
 </div>
 
 <div class="todo">Fill in the tally live.</div>

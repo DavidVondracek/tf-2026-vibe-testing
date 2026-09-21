@@ -36,7 +36,7 @@ No death by slides. The day has 4 gears:
 1. **The Zoo:** 4 exhibits, 1 demo app. An AI coding agent, Playwright MCP, Playwright CLI, and Wopee.io, one at a time, side by side. Every tool gets the same fair test. Including the one we built.
 2. **Teams & Mission:** before lunch you are assigned to a team and handed a mission card. Lunch is yours, but your team is already talking.
 3. **Build One Thing:** 90 minutes to build a real AI-assisted test suite, including a reusable capability your agent can run cold, without guidance. Then another team runs your SKILL.md cold and tells you where it broke. This is the thing you take home.
-4. **Speed Gap Battle:** 3 new features just shipped on the demo app. Your suite is your only weapon. 45 minutes. Speed, accuracy, and reusability count, and the room votes.
+4. **Speed Gap Battle:** 3 new features just shipped on the demo app. Your suite is your only weapon. 40 minutes, then 3 minutes to show it. Speed, accuracy, and reusability count, and the room votes.
 
 ### The Zoo
 
