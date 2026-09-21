@@ -14,9 +14,9 @@ const MIN_PLAYWRIGHT = [1, 62, 0]
 const results = []
 let failed = 0
 
-function check(name, fn) {
+async function check(name, fn) {
   try {
-    const detail = fn()
+    const detail = await fn()
     results.push(['ok', name, detail ?? ''])
   } catch (err) {
     failed++
@@ -24,23 +24,29 @@ function check(name, fn) {
   }
 }
 
+// On Windows `npx` is `npx.cmd`, which Node only starts through a shell.
 function run(cmd, args) {
-  return execFileSync(cmd, args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim()
+  return execFileSync(cmd, args, {
+    cwd: root,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    shell: process.platform === 'win32',
+  }).trim()
 }
 
-check('Node.js 20 or newer', () => {
+await check('Node.js 20 or newer', () => {
   const major = Number(process.versions.node.split('.')[0])
   if (major < 20) throw new Error(`found v${process.versions.node} — install the Node.js LTS`)
   return `v${process.versions.node}`
 })
 
-check('Dependencies installed', () => {
+await check('Dependencies installed', () => {
   if (!existsSync(join(root, 'node_modules', '@playwright', 'test')))
     throw new Error('run `npm install` in the repository root first')
   return 'node_modules is present'
 })
 
-check(`Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
+await check(`Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
   const version = run('npx', ['playwright', '--version']).replace(/^Version\s+/, '')
   const parts = version.split('.').map(Number)
   for (let i = 0; i < MIN_PLAYWRIGHT.length; i++) {
@@ -51,19 +57,19 @@ check(`Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
   return version
 })
 
-check('Browser CLI available', () => {
+await check('Browser CLI available', () => {
   const help = run('npx', ['playwright', 'cli', '--help'])
   if (!help.includes('snapshot')) throw new Error('`npx playwright cli --help` did not list the browser commands')
   return 'npx playwright cli responds'
 })
 
-check('Test-runner MCP server available', () => {
+await check('Test-runner MCP server available', () => {
   const help = run('npx', ['playwright', 'run-test-mcp-server', '--help'])
   if (!help.includes('MCP')) throw new Error('`npx playwright run-test-mcp-server --help` did not respond')
   return 'npx playwright run-test-mcp-server responds'
 })
 
-check('Chromium downloaded', () => {
+await check('Chromium downloaded', () => {
   // `install --dry-run` prints the resolved browser path without downloading anything.
   const out = run('npx', ['playwright', 'install', '--dry-run', 'chromium'])
   const match = out.match(/Install location:\s*(.+)/)
@@ -72,11 +78,14 @@ check('Chromium downloaded', () => {
   return match[1].trim()
 })
 
-check(`Demo app reachable (${APP_URL})`, () => {
-  const res = execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', '-m', '15', APP_URL], {
-    encoding: 'utf8',
-  }).trim()
-  if (res !== '200') throw new Error(`got HTTP ${res} — check your network, or tell me if the app is down`)
+await check(`Demo app reachable (${APP_URL})`, async () => {
+  let res
+  try {
+    res = await fetch(APP_URL, { signal: AbortSignal.timeout(15_000) })
+  } catch (err) {
+    throw new Error(`no response (${err.cause?.code ?? err.name}) — check your network or proxy`)
+  }
+  if (res.status !== 200) throw new Error(`got HTTP ${res.status} — check your network, or tell me if the app is down`)
   return 'HTTP 200'
 })
 
