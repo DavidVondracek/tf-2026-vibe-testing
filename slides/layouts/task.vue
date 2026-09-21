@@ -23,7 +23,7 @@ import { repoUrl } from '../agenda'
         <div class="k">Stuck?</div>
         <div>{{ $frontmatter.stuck ?? 'Ask your neighbour → README troubleshooting → raise your hand.' }}</div>
       </div>
-      <Qr v-if="$frontmatter.path" :url="`${repoUrl}/tree/main/${$frontmatter.path}`" size="6.5rem" caption="Open the folder" />
+      <Qr v-if="$frontmatter.path" :url="`${repoUrl}/tree/main/${$frontmatter.path}`" size="5.5rem" caption="Open the folder" />
     </aside>
   </div>
 </template>
@@ -38,6 +38,13 @@ import { repoUrl } from '../agenda'
 .wp-task-main {
   display: flex;
   flex-direction: column;
+}
+
+/* The goal reads as a task statement, not a slide title. Title size costs ~40px of a
+   layout that has to hold steps, a bonus, and a sidebar with a countdown and a QR. */
+.wp-task-main h1 {
+  font-size: 1.65rem;
+  line-height: 1.2;
 }
 
 .wp-task-kicker {
@@ -58,7 +65,7 @@ import { repoUrl } from '../agenda'
 }
 
 .wp-task-steps {
-  margin-top: 1.2rem;
+  margin-top: 0.8rem;
 }
 
 .wp-task-steps :deep(ol) {
@@ -66,14 +73,14 @@ import { repoUrl } from '../agenda'
 }
 
 .wp-task-steps :deep(li) {
-  font-size: 1.25rem;
-  margin: 0.4rem 0;
+  font-size: 1.1rem;
+  margin: 0.35rem 0;
 }
 
 .wp-task-side {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.6rem;
   align-items: stretch;
 }
 

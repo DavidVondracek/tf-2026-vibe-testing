@@ -26,8 +26,11 @@ favicon: /favicon.svg
 
 Marcel Veselka · Wopee.io
 
+<Wifi compact class="mt-6 max-w-max" />
+
 <!--
-08:50 — on screen while people arrive. Wi-Fi details on the whiteboard.
+08:50 — on screen while people arrive, with the wifi on it. Read it out once at 09:00 anyway:
+somebody always joins late, and somebody always mistypes the password.
 -->
 
 ---
@@ -92,10 +95,15 @@ label: Welcome
   </div>
 </div>
 
-<div class="todo">Replace with the final setup check once the repo has experiments (README steps 6–7).</div>
+<Wifi class="mt-7" />
+
+<p class="text-center muted mt-3">Then <code>npm run verify</code>. Seven checks, and it tells you what to fix.</p>
 
 <!--
-09:05 — anyone without a working setup: pair them with a neighbour now, fix it during the concepts block.
+09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
+Anyone without a working setup: pair them with a neighbour now, fix it during the concepts block.
+`npm run verify` checks Node, deps, the Playwright version, the browser CLI, the test MCP server,
+Chromium on disk, and that the demo app answers. Green all the way down or they are not ready.
 -->
 
 ---
@@ -111,7 +119,7 @@ One zookeeper, up to 30 visitors. This is the queue.
 <div class="card"><div class="num">1</div><h3>Ask your neighbour</h3><p>Or your team, after lunch.</p></div>
 <div class="card"><div class="num">2</div><h3>Check the README</h3><p>Setup troubleshooting covers the usual suspects.</p></div>
 <div class="card"><div class="num">3</div><h3>Raise your hand</h3><p>Or flip your laptop lid halfway. I work through the queue.</p></div>
-<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit has a solution branch. Use it and keep going.</p></div>
+<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit has a solutions/ folder. Use it and keep going.</p></div>
 </div>
 
 <!--
@@ -285,8 +293,6 @@ block: stack
 
 # The whole lifecycle moved. <span class="y">Test is stage 4.</span>
 
-<p class="muted -mt-2">Anthropic, 21 August 2026. Six stages — and each one commits an artifact the next one reads.</p>
-
 <div class="cards c3">
 <div class="card"><div class="n">1 · PLAN</div><h3>intent.md</h3><p>The problem and the constraints, in the repo.</p></div>
 <div class="card"><div class="n">2 · DESIGN</div><h3>spec.md</h3><p>Requirements and design collapse into one session.</p></div>
@@ -302,6 +308,8 @@ block: stack
 
 <!--
 09:21 — this is the slide that makes the Speed Gap someone else's argument, not just mine.
+Source out loud: Anthropic's AI-native SDLC playbook, 21 August 2026. Six stages, and each one
+commits an artifact the next one reads.
 The chain of commits is the audit trail: who asked for what, what the agent produced, who approved it.
 Ask the room: which of these six does your team already do in the open, in git?
 -->
@@ -334,9 +342,9 @@ block: stack
 Same Playwright engine. Two interfaces — and the honest difference is architecture, not a multiplier.
 
 <div class="vs">
-  <div class="card"><div class="n">npx playwright cli</div><h3>CLI</h3><div class="metric">a path<small>the tree goes to disk</small></div><p>Every command answers with <code>.playwright-cli/page-*.yml</code>. The agent reads it only if it needs to. Skills load on demand.</p><p><b>Best for:</b> pre-planned runs, agents with a shell.</p></div>
+  <div class="card"><div class="n">npx playwright cli</div><h3>CLI</h3><div class="metric">a path<small>the tree goes to disk</small></div><p>Every command answers with <code>.playwright-cli/page-*.yml</code>. The agent reads it only if it needs to.</p><p><b>Best for:</b> pre-planned runs, agents with a shell.</p></div>
   <div class="vs-disc">VS</div>
-  <div class="card"><div class="n">npx playwright mcp</div><h3>MCP</h3><div class="metric">the tree<small>in context, by default</small></div><p>Persistent state and rich introspection. Since v0.0.52 it can write snapshots to disk too — the difference is a default, not a limit.</p><p><b>Best for:</b> exploring, self-healing, long autonomous runs.</p></div>
+  <div class="card"><div class="n">npx playwright mcp</div><h3>MCP</h3><div class="metric">the tree<small>in context, by default</small></div><p>Persistent state and rich introspection. Since v0.0.52 it writes snapshots to disk too — a default, not a limit.</p><p><b>Best for:</b> exploring, self-healing, long autonomous runs.</p></div>
 </div>
 
 <div class="banner">Microsoft names the mechanism. <em>It publishes no numbers.</em></div>
@@ -477,7 +485,7 @@ block: zoo
 
 <div class="banner">One task, four tools: <em>order a meal and prove it worked.</em></div>
 
-<p class="text-center muted mt-3">Add a dish to the cart, complete the checkout, get a check that passes. Then find one thing the tool got wrong.</p>
+<p class="text-center muted mt-3">Add a dish, check out, get a check that passes — then find one thing the tool got wrong.</p>
 
 ---
 layout: exhibit
@@ -503,7 +511,7 @@ path: experiments/1_Zoo/1-CodingAgent/
 until: '10:30'
 minutes: 20
 done: A test file exists, it runs, and you can name one thing the agent got wrong.
-stuck: Open `solutions/` in this folder and read what a good run produces.
+stuck: Open the solutions/ folder and read what a good run produces.
 ---
 
 1. Open this folder in VS Code and start a Copilot chat (`Ctrl/Cmd+Alt+I`). No licence? The gateway key is in the folder README.
@@ -590,19 +598,19 @@ facts:
 layout: task
 block: zoo
 kicker: Exhibit 3 · Playwright CLI + Skills
-goal: Install one skill. Watch your agent drive a browser from it, without you writing a locator.
+goal: Install the skills. Watch your agent drive a browser without you writing a locator.
 path: experiments/1_Zoo/3-PlaywrightCLI/
 until: '11:20'
 minutes: 20
-done: The skill is on disk, and snapshots are landing in .playwright-cli/ — not in the context.
-stuck: Everything here is `npx playwright …` — no extra package, no global install.
+done: Snapshots are landing in .playwright-cli/ — not in your context.
+stuck: All of it is npx playwright … — nothing extra to install.
 ---
 
-1. <code>npx playwright init-skills</code> — then <code>head -4 .claude/skills/playwright-cli/SKILL.md</code>. Four lines of frontmatter is all the agent holds until it needs more.
+1. <code>npx playwright init-skills --loop=claude</code>, then <code>head -4 .claude/skills/playwright-cli/SKILL.md</code>. Four lines of frontmatter is all the agent holds.
 2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. Every answer is a <em>file path</em>, not a page.
 3. Now ask your agent to order the meal. It never had to be told the commands.
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Write your own 20-line <code>SKILL.md</code> for the login flow — then break its <code>description</code> and watch the agent stop finding it.</p>
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Write your own <code>SKILL.md</code> for the order flow — then break its <code>description</code> and watch the agent stop finding it.</p>
 
 <!--
 11:00 — hands-on until 11:20, debrief 5 min.
