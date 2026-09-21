@@ -20,6 +20,7 @@ a test that copies the app's behaviour passes on every bug.
 | [Exhibit 3 — Playwright CLI + Skills](../experiments/1_Zoo/3-PlaywrightCLI/) | Tell your agent the spec is where expected results come from |
 | [Exhibit 4 — Wopee.io](../experiments/1_Zoo/4-Wopee/) | Paste `FD-05` and `FD-06` into the project's test instructions |
 | Build One Thing, the Swap and the Battle | Cover stories, and name the `FD-xx` in every test |
+| [Optional — API testing](../experiments/2_API/) | The app's API is a second source of truth: prices and fees in the UI must match it (`FD-01`, `FD-05`) |
 
 When a test and the app disagree, check the spec before you fix the test. The app might be the
 one that is wrong.

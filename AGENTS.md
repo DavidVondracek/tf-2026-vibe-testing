@@ -24,6 +24,9 @@ Each exhibit lives in [`experiments/1_Zoo/`](experiments/1_Zoo/)`<n>-<name>/` an
 `cd` into the exhibit folder before running anything — commands run from the repository root
 will not find the config, and `init-agents` will report `Using project ""`.
 
+The optional API experiment lives in [`experiments/2_API/`](experiments/2_API/) and works the
+same way: `cd` into it, write into its `tests/`, and import `test` from its `fixtures.ts`.
+
 Write tests into that exhibit's `tests/`. Leave `solutions/` alone: it holds reference answers
 and is run separately via `npm run solutions`.
 

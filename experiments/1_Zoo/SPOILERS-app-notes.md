@@ -433,3 +433,28 @@ the section above that proves them.
 path. The pricing ones (FD-05 delivery fee and promotion) are the best material for the Build and
 the Battle: a happy-path test sails straight past them unless it checks the totals against the
 spec.
+
+## 10. The API
+
+Verified 21 September 2026, read-only. This is the ground truth for the optional
+[API experiment](../2_API/).
+
+- **What it is:** Supabase (PostgREST) at `https://uqcjwtfrmayvjhkzgiou.supabase.co/rest/v1/`,
+  two readable tables, `restaurants` and `menu_items`. The app calls
+  `restaurants?select=*&order=name.asc` on the landing page, then `restaurants?slug=eq.<slug>` and
+  `menu_items?restaurant_id=eq.<uuid>&order=sort_order.asc` on a restaurant page.
+- **Auth:** a public anon key in the `apikey` and `Authorization: Bearer` headers — the same one
+  every visitor's browser sends. Without it: `401 "No API key found in request"`.
+- **Errors worth a test:** an unknown slug is `200 []`, not a 404. An unknown column is
+  `400` with code `42703` and a *"Perhaps you meant…"* hint.
+- **`delivery_fee` is text,** not a number: `"$2.99"`, `"$3.49"`, `"$1.99"`, `"Free"`. The same
+  goes for `promo` (`"20% OFF orders over $25"`, or `null`). Nothing in the data model says *how*
+  a promotion applies, which is part of why the cart ignores it.
+- **The API has the right data; the cart ignores it.** Pizza Corner is `"Free"` and Sushi Masters
+  `"$1.99"`, yet the cart charges $2.99 for both (FD-05, §9). The reference test
+  [`restaurants.spec.ts`](../2_API/solutions/restaurants.spec.ts) proves it with the API as the oracle.
+- **Orders never reach the API.** Placing an order sends no request at all, and the `orders`
+  table refuses the public key (`401`, `permission denied for function has_role`). The order lives
+  only in the browser — which is why tracking renders any order number and takes the total from
+  the URL (FD-07, §9). An agent asked to "test placing an order via the API" should find nothing
+  to call; one that invents an endpoint has hallucinated it.
