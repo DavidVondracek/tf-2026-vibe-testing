@@ -1,0 +1,10 @@
+{
+  "name": "mcp-cli-measure",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/tokenizer": "^0.0.4",
+    "@playwright/mcp": "0.0.82",
+    "js-tiktoken": "^1.0.21"
+  }
+}

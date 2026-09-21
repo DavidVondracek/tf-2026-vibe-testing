@@ -42,6 +42,10 @@ self-healing, long runs: MCP.
 
 Nowhere yet.
 
+## Want the details?
+
+The research behind these slides, with every source: [`docs/research/`](../docs/research/).
+
 ## Done when
 
 You can say in one sentence what a `SKILL.md` is, and what "runs cold" means.
