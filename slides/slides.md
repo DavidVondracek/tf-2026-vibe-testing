@@ -796,6 +796,7 @@ checkpoints:
 <li>At least one SKILL.md</li>
 <li>Fresh agent session runs it cold</li>
 <li>Pushed to your team branch</li>
+<li>App address only in <code>baseURL</code> — never in a test</li>
 </ul>
 
 <p class="muted mt-6">This is the thing you take home.</p>
@@ -889,18 +890,27 @@ checkpoints:
   - { t: '15:55', v: 'Pencils down, presentations' }
 ---
 
-# 3 new features
+# 3 new features, <span class="y">one new build</span>
 
-<div class="cards c1">
-<div v-click class="card"><div class="n">FEATURE 1</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">FEATURE 2</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">FEATURE 3</div><h3>…</h3></div>
+<div v-click class="card yellow"><div class="n">THREE NEW STORIES</div><h3>FD-09 · FD-10 · FD-11 — in <code>spec/battle/</code></h3><p>Same rules as the rest of the spec. Test against the story, not the build.</p></div>
+
+<div v-click class="mt-4 battle-cmd">
+
+```bash
+git pull
+export FOODORA_URL=https://foodora-new.lovable.app
+npx playwright test
+```
+
+<p class="text-sm muted">PowerShell: <code>$env:FOODORA_URL="https://foodora-new.lovable.app"</code></p>
+
 </div>
 
-<div class="todo">Pre-script 3 features on the demo app (agree in the dry run): simple enough for 40 min, interesting enough to stress the SKILL.md.</div>
-
 <!--
-15:15 — reveal, then leave this slide up until 15:55.
+15:15 — BEFORE the reveal: publish foodora-new and push spec/battle/ (the stories are prepared in the
+private battle folder, not in this repo). Then click through: three story ids, then the commands.
+Leave this slide up until 15:55.
+The original foodora.lovable.app stays as it is — teams run the same suite against both.
 -->
 
 ---

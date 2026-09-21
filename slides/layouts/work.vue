@@ -28,6 +28,7 @@ import Countdown from '../components/Countdown.vue'
 .wp-work-main {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .wp-work-side {

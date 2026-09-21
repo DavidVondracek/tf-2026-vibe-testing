@@ -6,7 +6,8 @@ export default defineConfig({
   retries: 1,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: 'https://foodora.lovable.app',
+    // FOODORA_URL points the same tests at another build of the app (the Battle uses this).
+    baseURL: process.env.FOODORA_URL ?? 'https://foodora.lovable.app',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
