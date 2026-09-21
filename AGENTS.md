@@ -32,6 +32,12 @@ and is run separately via `npm run solutions`.
 
 The setup steps and the troubleshooting table are in the [root README](README.md).
 
+## The app address
+
+Never write the app's address into a test. Use relative paths — `page.goto('/checkout')` — and
+let `baseURL` in `playwright.config.ts` supply the host. Setting `FOODORA_URL` then points every
+test at another build of the app without editing a single file.
+
 ## Expected results
 
 Take expected results from the product spec, [`spec/foodora-spec.md`](spec/foodora-spec.md). It

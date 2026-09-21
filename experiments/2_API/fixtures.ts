@@ -2,15 +2,15 @@ import { test as base, expect, request, type APIRequestContext } from '@playwrig
 
 // The Foodora app calls its API with a public key that every visitor's browser sends. Instead of
 // copying that key into the repository, read it — and the API address — from the app's own
-// traffic, once per worker.
+// traffic, once per worker. Another build of the app (FOODORA_URL) brings its own API with it.
 type FoodoraApi = { url: string; key: string }
 
 export const test = base.extend<{}, { foodora: FoodoraApi; foodoraApi: APIRequestContext }>({
   foodora: [
-    async ({ browser }, use) => {
+    async ({ browser }, use, workerInfo) => {
       const page = await browser.newPage()
       const firstCall = page.waitForRequest((r) => new URL(r.url()).pathname.startsWith('/rest/v1/'))
-      await page.goto('https://foodora.lovable.app/')
+      await page.goto(workerInfo.project.use.baseURL ?? 'https://foodora.lovable.app')
       const call = await firstCall
       await page.close()
       await use({ url: new URL(call.url()).origin, key: call.headers()['apikey'] })

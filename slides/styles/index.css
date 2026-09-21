@@ -570,3 +570,7 @@
 .phrases .card h3 {
   font-size: 1.35rem;
 }
+
+.battle-cmd .slidev-code {
+  font-size: 0.95rem !important;
+}

@@ -30,7 +30,7 @@ function slugsOf(file) {
         .toLowerCase()
         .replace(/[`*_]/g, '')
         .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-')
+        .replace(/\s/g, '-')
         .replace(/^-+|-+$/g, ''),
     )
   }
