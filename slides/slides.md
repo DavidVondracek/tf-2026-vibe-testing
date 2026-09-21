@@ -806,7 +806,9 @@ block: stack
 <!--
 09:35 — 1 minute. The same intent-driven approach works for APIs. Following the testing pyramid, API tests have fewer moving
 parts than UI tests, so an agent automates them even more easily. A small demo is in the repo (experiments/2_API) to try after
-the workshop. Do not say what the UI-vs-API test finds; that is the experiment.
+the workshop. After the Battle you can say what it finds: from the rehearsal (23 Sep), the UI-vs-API fee test on
+Burger Palace passed — its $2.99 happens to match what the cart always charges. Run for every restaurant, four of five went red
+(Pizza Corner Free, Sushi Masters $1.99, two at $3.49 — all charged $2.99). One restaurant proved nothing; all five found the bug.
 -->
 
 ---
