@@ -18,6 +18,8 @@
    - **Takes longer:** one thing that needs your team. A tool, a process, a budget — who do you
      have to convince?
    - **Drop now:** one habit you stop. The one that today made look slow.
+
+   Then share it: read it to your neighbour now, and take it to your team on Monday.
 5. Questions.
 
 ## Where files go

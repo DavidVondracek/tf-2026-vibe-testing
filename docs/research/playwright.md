@@ -22,9 +22,8 @@ Sources: [release notes](https://playwright.dev/docs/release-notes) (dates from 
 
 - **Snapshots are ARIA-snapshot YAML** — the page's accessibility tree — with refs like `e15` that
   commands then target (`click e15`). **H**
-- **CLI:** each command prints a short page header plus a link,
-  `[Snapshot](.playwright-cli/page-<timestamp>.yml)`. The tree stays on disk until the agent reads
-  it. (`eval` and `console` return their result as text.) **H**
+- **CLI:** each command prints a short page header plus a Markdown link to
+  `.playwright-cli/page-<timestamp>.yml`. The tree stays on disk until the agent reads it. (`eval` and `console` return their result as text.) **H**
 - **MCP:** since `@playwright/mcp` **0.0.69 / Playwright 1.59** (30 Mar – 1 Apr 2026,
   [PR #39768](https://github.com/microsoft/playwright/pull/39768)), the snapshot taken after each
   action is also written to a file and returned as a link. The tree lands in the agent's context
