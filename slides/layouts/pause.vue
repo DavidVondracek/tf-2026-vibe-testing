@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useSlideContext } from '@slidev/client'
 import Countdown from '../components/Countdown.vue'
+import Wifi from '../components/Wifi.vue'
 import { blockStart, minutesBetween } from '../agenda'
 
 const { $frontmatter } = useSlideContext()
@@ -20,6 +21,8 @@ const minutes = computed(() => {
     <div class="wp-pause-back">Back at {{ $frontmatter.until }}</div>
     <Countdown v-if="$frontmatter.until" :until="$frontmatter.until" :minutes="minutes" label="Starts again in" class="wp-pause-count" />
     <div class="wp-pause-note"><slot /></div>
+    <!-- Laptops drop off the wifi over a break; this is exactly when people need it again. -->
+    <Wifi compact dark class="wp-pause-wifi" />
   </div>
 </template>
 
@@ -74,5 +77,12 @@ const minutes = computed(() => {
 .wp-pause-note :deep(p) {
   color: #fff;
   font-size: 1.2rem;
+}
+
+/* In flow, not absolute: the layout sets `position: relative` on every child, and with
+   Vue's scope attribute that rule outranks a plain class here. */
+.wp-pause-wifi {
+  align-self: flex-start;
+  margin-top: 1.3rem;
 }
 </style>

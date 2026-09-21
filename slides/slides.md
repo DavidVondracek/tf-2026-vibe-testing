@@ -26,8 +26,11 @@ favicon: /favicon.svg
 
 Marcel Veselka · Wopee.io
 
+<Wifi compact class="mt-6 max-w-max" />
+
 <!--
-08:50 — on screen while people arrive. Wi-Fi details on the whiteboard.
+08:50 — on screen while people arrive, with the wifi on it. Read it out once at 09:00 anyway:
+somebody always joins late, and somebody always mistypes the password.
 -->
 
 ---
@@ -92,10 +95,15 @@ label: Welcome
   </div>
 </div>
 
-<div class="todo">Replace with the final setup check once the repo has experiments (README steps 6–7).</div>
+<Wifi class="mt-7" />
+
+<p class="text-center muted mt-3">Then <code>npm run verify</code>. Seven checks, and it tells you what to fix.</p>
 
 <!--
-09:05 — anyone without a working setup: pair them with a neighbour now, fix it during the concepts block.
+09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
+Anyone without a working setup: pair them with a neighbour now, fix it during the concepts block.
+`npm run verify` checks Node, deps, the Playwright version, the browser CLI, the test MCP server,
+Chromium on disk, and that the demo app answers. Green all the way down or they are not ready.
 -->
 
 ---
@@ -111,7 +119,7 @@ One zookeeper, up to 30 visitors. This is the queue.
 <div class="card"><div class="num">1</div><h3>Ask your neighbour</h3><p>Or your team, after lunch.</p></div>
 <div class="card"><div class="num">2</div><h3>Check the README</h3><p>Setup troubleshooting covers the usual suspects.</p></div>
 <div class="card"><div class="num">3</div><h3>Raise your hand</h3><p>Or flip your laptop lid halfway. I work through the queue.</p></div>
-<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit has a solution branch. Use it and keep going.</p></div>
+<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit has a solutions/ folder. Use it and keep going.</p></div>
 </div>
 
 <!--

@@ -22,6 +22,10 @@ export const agenda: Block[] = [
 // On this day countdowns follow the wall clock; on any other day they run as rehearsal timers.
 export const eventDate = '2026-09-24'
 
+// Venue wifi. Shown on the cover, on the setup slide and on every break — the three
+// moments people need it. One place to change it if the venue hands us something else.
+export const wifi = { ssid: 'Tesena Fest 2026', password: 'TF2026WIFI' }
+
 export const repoUrl = 'https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps'
 export const appUrl = 'https://foodora.lovable.app/'
 
