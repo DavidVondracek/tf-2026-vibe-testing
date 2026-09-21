@@ -83,13 +83,17 @@ What it is supposed to do is in [`spec/`](spec/): eight user stories with the ru
 Please follow these steps before the workshop:
 
 1. **Connect with me via LinkedIn:** [linkedin.com/in/marcelveselka](https://www.linkedin.com/in/marcelveselka) — share your expectations and questions, and I will adjust the workshop based on them.
-2. **Submit this form:** _(link to follow — I will send it on LinkedIn)_, so I can make sure everything is ready for you.
+2. **Submit this form:** [forms.gle/hU57AS3A5SPrqKWK8](https://forms.gle/hU57AS3A5SPrqKWK8), so I can make sure everything is ready for you.
 3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`.
 4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode). We need **Playwright 1.62 or newer** — the browser CLI, the test agents and the skills all ship inside the `playwright` package now, so there is nothing else to install.
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → Git: Clone → paste this repository URL, then run `npm install` in the VS Code terminal. One install at the root covers every exhibit.
 6. **Install the recommended extensions:** when VS Code asks, click **Install** (or `Ctrl/Cmd+Shift+P` → Extensions: Show Recommended Extensions). You get [Vercel AI Gateway](https://marketplace.visualstudio.com/items?itemName=SferaDev.vscode-extension-vercel-ai), GitHub Copilot Chat, and Playwright Test.
 7. **Connect the AI models:** `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** → paste the Vercel AI Gateway API key (starts with `vck_`) I send you. Open the Chat view (`Ctrl/Cmd+Alt+I`) and start a new chat: the model picker shows **DeepSeek V4.1 Flash**, set as the default by this repo. Send "hi" to check it answers.
-8. **Set up Wopee.io:** TODO (project creation, API key, `.env` variables).
+8. **Set up Wopee.io:** create an account at [wopee.io](https://wopee.io), using the same email as
+   for GitHub. Then create the **SauceDemo demo project**, either straight from the Wopee.io home
+   page, or in [cmd.wopee.io](https://cmd.wopee.io) via **NEW PROJECT** → select the demo project.
+   That proves your account works; we create the Foodora project together at
+   [Exhibit 4](experiments/1_Zoo/4-Wopee/).
 9. **Download the browser:** `npm run browsers`. Please do this **at the office, not on conference wifi** — it is about 150 MB.
 10. **Verify:** in the repo folder, run
 
