@@ -88,10 +88,15 @@ GitHub Desktop is not enough: it does not put `git` on the terminal's path.
 
 | What you see | Fix |
 | --- | --- |
+| `npm run verify` red on *Playwright version* | You are on an older Playwright. The CLI, the agents and the skills all need **1.62+**. Run `npm install` at the repository root. |
+| `init-agents` prints `Using project ""` | It did not find a config. Run it from the repository root with `--config` pointing at the exhibit's `playwright.config.ts` — see [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
+| `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
+| Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste the key handed out in the room. |
+| MCP tools do not appear in chat | Reload the VS Code window after writing `.vscode/mcp.json`, and make sure the chat is in **agent** mode. |
+| A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, raise your hand. |
 | `head` "is not recognized" in PowerShell (Exhibit 3) | Use `Get-Content <file> -TotalCount 4`, or open the file in VS Code. `ls` and `cat` work in PowerShell; `head` does not. |
 
-The workshop-day problems with the exhibits themselves are in the
-[root README](../README.md#when-something-breaks).
+Still stuck? Ask your neighbour, then raise your hand. Do not spend 10 of your 20 minutes on setup.
 
 ## Still stuck?
 

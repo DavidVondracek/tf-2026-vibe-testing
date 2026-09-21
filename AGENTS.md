@@ -37,7 +37,7 @@ same way: `cd` into it, write into its `tests/`, and import `test` from its `fix
 Write tests into that exhibit's `tests/`. Leave `solutions/` alone: it holds reference answers
 and is run separately via `npm run solutions`.
 
-The setup steps and the troubleshooting table are in the [root README](README.md).
+The setup steps are in the [root README](README.md); fixes are in [setup troubleshooting](docs/setup-troubleshooting.md).
 
 ## Team work
 

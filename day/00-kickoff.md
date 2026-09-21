@@ -14,7 +14,7 @@
    picker shows **DeepSeek V4.1 Flash**, send "hi". At home? Use your own Copilot plan instead.
 4. Learn how to get unstuck (the order matters):
    1. Ask your neighbour. After lunch, ask your team.
-   2. Check [when something breaks](../README.md#when-something-breaks) and
+   2. Check [when something breaks](../docs/setup-troubleshooting.md#on-the-workshop-day) and
       [setup troubleshooting](../docs/setup-troubleshooting.md).
    3. Raise your hand, or put your laptop lid half down.
    4. Take the shortcut: open the exhibit's `solutions/` folder and keep going.

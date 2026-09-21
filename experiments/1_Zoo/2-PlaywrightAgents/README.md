@@ -98,7 +98,7 @@ It optimises for green, and it cannot tell a broken test from a broken app.
 ## If you get stuck
 
 1. **Ask your neighbour.** Or your team, after lunch.
-2. **Check the troubleshooting table** in the [root README](../../../README.md#when-something-breaks).
+2. **Check [troubleshooting](../../../docs/setup-troubleshooting.md#on-the-workshop-day)** — the workshop-day table.
 3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
 
 **Shortcut:** [`solutions/`](./solutions/) has [the plan the planner should produce](./solutions/order.md)
