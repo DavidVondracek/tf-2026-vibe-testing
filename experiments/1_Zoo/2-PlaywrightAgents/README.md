@@ -46,7 +46,8 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
 1. Run the seed test once — `npx playwright test --project=chromium`. **It must be green.**
    The planner runs this exact test to boot your environment. If it is red, the problem is your
    network or the app, and none of the rest will work until you fix it.
-2. Ask the **planner** for a plan of ordering a meal. Read `specs/order.md` — [`specs/`](./specs/) explains what that artifact is for.
+2. Ask the **planner** for a plan of ordering a meal, checked against `FD-05` and `FD-06` in
+   [the spec](../../../spec/foodora-spec.md). Read `specs/order.md` — [`specs/`](./specs/) explains what that artifact is for.
 3. Ask the **generator** for bullet **1.1 only**, then run it.
 
 Generate one bullet at a time, never in parallel — all three agents share one browser page.

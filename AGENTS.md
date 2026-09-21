@@ -29,6 +29,12 @@ and is run separately via `npm run solutions`.
 
 The setup steps and the troubleshooting table are in the [root README](README.md).
 
+## Expected results
+
+Take expected results from the product spec, [`spec/foodora-spec.md`](spec/foodora-spec.md). It
+says what the app should do. When the app and the spec disagree, report it — do not change the
+test to match the app.
+
 ## Secrets
 
 The Vercel AI Gateway key and the Wopee API key are workshop-only and live in the editor's

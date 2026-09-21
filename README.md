@@ -68,6 +68,8 @@ No death by slides. The day has 4 gears:
 
 We test **Foodora**, a food delivery web app: [foodora.lovable.app](https://foodora.lovable.app/). Every exhibit, the team build, and the battle use the same app.
 
+What it is supposed to do is in [`spec/`](spec/): eight user stories with the rules your tests check. Take expected results from there, not from what the app happens to do.
+
 ## What to bring
 
 - Laptop with admin rights (let me know if you can't have admin rights)
@@ -102,6 +104,7 @@ Please follow these steps before the workshop:
 
 | Where | What is in it |
 | --- | --- |
+| [`spec/`](spec/) | [The product spec](spec/foodora-spec.md) — what Foodora should do, with a screenshot of every page. The input for every experiment |
 | [`experiments/1_Zoo/1-CodingAgent/`](experiments/1_Zoo/1-CodingAgent/) | Exhibit 1 — a config and an empty [`tests/`](experiments/1_Zoo/1-CodingAgent/tests/) for the agent to fill |
 | [`experiments/1_Zoo/2-PlaywrightAgents/`](experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |
 | [`experiments/1_Zoo/3-PlaywrightCLI/`](experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |

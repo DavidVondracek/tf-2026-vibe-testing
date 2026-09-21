@@ -7,7 +7,8 @@ Built by your zookeeper, judged by you. Same rules as the other three.
 ## Steps
 
 1. Sign in at [cmd.wopee.io](https://cmd.wopee.io) and create a project with the [Foodora URL](https://foodora.lovable.app/).
-   Test instructions: *order a meal and verify the confirmation.*
+   Test instructions: paste `FD-05` and `FD-06` from [the spec](../../../spec/foodora-spec.md), or
+   the short version, *order a meal and verify the confirmation.*
 2. Start it, then watch the agent explore live while it maps the app.
 3. Open one visual diff.
 
