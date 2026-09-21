@@ -49,9 +49,13 @@ ready-to-use `foodoraApi` request context.
 
    ```
    Write Playwright API tests in tests/restaurants.spec.ts. Use the foodoraApi fixture from
-   ../fixtures.ts. Check the restaurant list and one restaurant's menu. Take expected results
-   from spec/foodora-spec.md, not from what the API happens to return.
+   ../fixtures.ts. The API contract is https://foodora.lovable.app/openapi.json. Check the
+   restaurant list and one restaurant's menu against it. Take expected results from
+   spec/foodora-spec.md, not from what the API happens to return.
    ```
+
+   The contract is the API's own [OpenAPI schema](https://foodora.lovable.app/openapi.json): every
+   column of `restaurants` and `menu_items`, with its type and whether it can be empty.
 
 3. Run them: `npx playwright test tests/`
 4. **Use the API as a second source of truth.** It knows each restaurant's delivery fee. Ask your
@@ -67,8 +71,10 @@ Your tests run, and one of them proves an `FD-05` bug from the API side.
 - What does the API return for a restaurant that does not exist? For a column that does not
   exist? Without the key? Which of those deserve a test — and which would your agent have written
   without being asked?
-- Look at `delivery_fee` in the response. What type would you expect? What do you get? Why does
-  that matter for the bug you just found?
+- Look at `delivery_fee` in [the schema](https://foodora.lovable.app/openapi.json). What type
+  would you expect? What does the contract say? Why does that matter for the bug you just found?
+- Ask your agent for a contract test: every row the API returns must match the schema. Would it
+  still pass if someone added a column tomorrow — and should it?
 - Ask your agent to test *placing an order* through the API. What does it find, and what does
   that tell you about the order tracking page?
 

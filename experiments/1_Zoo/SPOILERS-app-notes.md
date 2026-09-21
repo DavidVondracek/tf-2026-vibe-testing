@@ -439,6 +439,11 @@ spec.
 Verified 21 September 2026, read-only. This is the ground truth for the optional
 [API experiment](../2_API/).
 
+- **Schema:** [foodora.lovable.app/openapi.json](https://foodora.lovable.app/openapi.json), a
+  static OpenAPI 3.0.3 file published with the app (Supabase itself only serves its schema to the
+  secret key). Checked on 21 September 2026: all 5 restaurants and all 46 menu items match it
+  column for column — types, nullability, no extra or missing columns — and it mentions nothing
+  but the two public tables. It types `delivery_fee` as `string`, honestly.
 - **What it is:** Supabase (PostgREST) at `https://uqcjwtfrmayvjhkzgiou.supabase.co/rest/v1/`,
   two readable tables, `restaurants` and `menu_items`. The app calls
   `restaurants?select=*&order=name.asc` on the landing page, then `restaurants?slug=eq.<slug>` and
