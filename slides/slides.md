@@ -491,17 +491,26 @@ block: zoo
 
 # One enclosure for every exhibit: <span class="y">Foodora</span>
 
-<div class="flex items-center gap-10">
-<div class="browser flex-1">
+<div class="app-intro">
+<div class="browser">
   <div class="browser-bar"><i></i><i></i><i></i><span>foodora.lovable.app</span></div>
   <img src="/img/foodora.jpg" class="block w-full" />
 </div>
-<Qr url="https://foodora.lovable.app/" size="9rem" caption="Open the app" />
+<div class="app-facts">
+  <p class="app-lead">A food delivery app. Five restaurants, a cart, a checkout — and no account needed.</p>
+  <div class="app-flow"><span>Browse</span><span>Restaurant</span><span>Cart</span><span>Checkout</span><span>Confirmed</span><span>Tracking</span></div>
+  <div class="app-spec-row">
+    <p class="app-spec">What it <b>should</b> do:<br><code>spec/</code> — 8 stories, <b class="whitespace-nowrap">FD-01 … FD-08</b></p>
+    <Qr url="https://foodora.lovable.app/" size="5.5rem" caption="Open the app" />
+  </div>
+</div>
 </div>
 
 <div class="banner">One task, four tools: <em>order a meal and prove it worked.</em></div>
 
-<p class="text-center muted mt-3">Add a dish, check out, get a check that passes — then find one thing the tool got wrong.</p>
+<!--
+The task continues on every exhibit slide: then find one thing the tool got wrong — checked against the spec.
+-->
 
 ---
 layout: exhibit
