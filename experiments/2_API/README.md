@@ -64,7 +64,7 @@ ready-to-use `foodoraApi` request context.
 
 ## Done when
 
-Your tests run, and one of them proves an `FD-05` bug from the API side.
+Your tests run, and one of them checks what the UI shows against what the API says.
 
 ## Bonus
 
@@ -82,7 +82,8 @@ Your tests run, and one of them proves an `FD-05` bug from the API side.
 
 1. **Ask your neighbour.** Or your team, after lunch.
 2. **Check the troubleshooting table** in the [root README](../../README.md#when-something-breaks).
-3. **Shortcut:** [`solutions/restaurants.spec.ts`](./solutions/restaurants.spec.ts) — five
-   read-only tests, the last one catching the fee bug. Run it with `npx playwright test solutions/`.
+3. **Shortcut:** [`solutions/restaurants.spec.ts`](./solutions/restaurants.spec.ts) — four
+   read-only tests of the API itself. Run it with `npx playwright test solutions/`. The UI-against-API
+   test is yours to write.
 
 Repo map: [the Zoo exhibits](../1_Zoo/) · [the spec](../../spec/) · [what your agent must know](../../AGENTS.md)

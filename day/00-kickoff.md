@@ -9,13 +9,16 @@
 1. Say hello to your neighbour. They are your first help today.
 2. Open the repository in VS Code and run `npm run verify` in the terminal. All seven lines must be
    green. Red? It tells you what to fix.
-3. Learn how to get unstuck (the order matters):
+3. Connect the AI models with the key handed out in the room: `Ctrl/Cmd+Shift+P` →
+   **Vercel AI Gateway: Manage Authentication** → paste it. Start a new chat, check the model
+   picker shows **DeepSeek V4.1 Flash**, send "hi". At home? Use your own Copilot plan instead.
+4. Learn how to get unstuck (the order matters):
    1. Ask your neighbour. After lunch, ask your team.
    2. Check [when something breaks](../README.md#when-something-breaks) and
       [setup troubleshooting](../docs/setup-troubleshooting.md).
    3. Raise your hand, or put your laptop lid half down.
    4. Take the shortcut: open the exhibit's `solutions/` folder and keep going.
-4. Write two numbers on two sticky notes and put them on the board. No judgment.
+5. Write two numbers on two sticky notes and put them on the board. No judgment.
    - **DEV:** how long does your team need to ship a feature? From ticket to merged code.
    - **QA:** how long does your team need to verify it? From merged code to "we trust it in
      production".

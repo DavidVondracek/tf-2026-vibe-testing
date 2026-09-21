@@ -28,11 +28,12 @@ Use the Vercel AI Gateway instead. It is already configured in this repository �
 You only need to add the key:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
-2. Paste the API key I gave you. It starts with `vck_`.
+2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
 3. Open a new chat. The model picker should now show **DeepSeek V4.1 Flash**.
 4. Send `hi` and check you get an answer back.
 
-The key is workshop-only and is revoked afterwards. It is stored by the extension in VS Code's
+The key is workshop-only and is revoked afterwards — at home, use your own Copilot plan or your
+own [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) key. It is stored by the extension in VS Code's
 secret storage — **do not paste it into a file in this repository.**
 
 > Paying for Copilot and want the same model as everyone else? The gateway works alongside

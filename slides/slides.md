@@ -97,7 +97,7 @@ label: Welcome
 
 <Wifi class="mt-7" />
 
-<p class="text-center muted mt-3">Then <code>npm run verify</code>. Seven checks, and it tells you what to fix.</p>
+<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. And paste the AI key from the room: <b>Vercel AI Gateway: Manage Authentication</b>.</p>
 
 <!--
 09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
@@ -507,8 +507,8 @@ Foodora has an API too — on another host. The UI's traffic shows you where: <c
 <!--
 09:50 — 2 minutes. If running late, skip it and mention the optional experiment in the wrap-up.
 The banner is the point: an API test that checks the API against itself proves little. The API
-knows each restaurant's delivery fee — test the cart against it. Do not say which bug it finds;
-that is the experiment (and Build material).
+knows what the UI should show — test the UI against it. What that finds is the experiment, and
+material for the Build.
 -->
 
 ---
@@ -1073,7 +1073,7 @@ block: wrap
 
 # Your turn: <span class="y">Monday morning</span>
 
-Pen and paper. 3 minutes. Write your own — mine comes next.
+Pen and paper. 3 minutes. Then share it — with your neighbour now, with your team on Monday.
 
 <div class="cards c3 tall">
 <div class="card yellow"><div class="n">DO MONDAY</div><h3>One thing you will try on Monday</h3><p>Small enough to start before lunch.</p></div>
@@ -1083,26 +1083,8 @@ Pen and paper. 3 minutes. Write your own — mine comes next.
 
 <!--
 16:35 — 3 minutes of silence while they write. Do not fill it.
-Then ask two or three people to read theirs out — ideally one lead and one engineer.
-Only then click on to yours. Theirs first, so they own the plan instead of copying mine.
--->
-
----
-block: wrap
----
-
-# Mine: <span class="y">Monday morning</span>
-
-<div class="cards c3 tall">
-<div class="card yellow"><div class="n">DO MONDAY</div><h3>…</h3><p>…</p></div>
-<div v-click class="card"><div class="n">TAKES LONGER</div><h3>…</h3><p>…</p></div>
-<div v-click class="card dark"><div class="n">DROP NOW</div><h3>…</h3><p>…</p></div>
-</div>
-
-<div class="todo">Marcel's Vibe Testing rally: what to do Monday, what takes longer, the one habit to drop.</div>
-
-<!--
-Compare out loud with what the room wrote. Where they differ from mine, theirs are probably closer to their reality.
+Then pairs read theirs to each other (2 min), and two or three people read theirs to the room — ideally one lead and one engineer.
+Their own plan, not a copy of mine: that is what they take back on Monday.
 -->
 
 ---
