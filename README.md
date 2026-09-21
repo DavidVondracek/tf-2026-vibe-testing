@@ -109,7 +109,7 @@ Please follow these steps before the workshop:
 | [`scripts/verify-setup.mjs`](scripts/verify-setup.mjs) | What `npm run verify` runs |
 | [`scripts/check-links.mjs`](scripts/check-links.mjs) | What `npm run links` runs — keeps the cross-references in these docs honest |
 | [`AGENTS.md`](AGENTS.md) | Rules your AI agent follows in this repository |
-| [`slides/`](slides/) | The deck (Slidev) |
+| [`slides/`](slides/) | The deck (Slidev) — `npm run slides` opens it in your browser |
 
 Each exhibit has a `solutions/` folder — [1](experiments/1_Zoo/1-CodingAgent/solutions/),
 [2](experiments/1_Zoo/2-PlaywrightAgents/solutions/). Open it if you fall behind, and run them
