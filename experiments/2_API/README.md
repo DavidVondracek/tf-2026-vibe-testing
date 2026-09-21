@@ -31,6 +31,20 @@ ready-to-use `foodoraApi` request context.
    Three things trip people up. The API is **not** on `foodora.lovable.app` — look at the host.
    Rows are picked with filters, `?slug=eq.1`, not paths like `/restaurants/1`. And every request
    needs the key: in a browser tab, add `&apikey=<the key>` to the URL.
+
+   <details>
+   <summary>Stuck? A working request to open in your browser</summary>
+
+   Every restaurant, sorted by name:
+
+   ```
+   https://uqcjwtfrmayvjhkzgiou.supabase.co/rest/v1/restaurants?select=name,slug,delivery_fee,promo&order=name.asc&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxY2p3dGZybWF5dmpoa3pnaW91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMjMxMjksImV4cCI6MjA5MTU5OTEyOX0.8rplar0Db8NwpEPPGxn98xkMPipH_MNuzIh7nDhTowA
+   ```
+
+   One restaurant: replace `select=name,slug,delivery_fee,promo&order=name.asc` with `slug=eq.2`
+   (Pizza Corner). The key is the app's public one — every visitor's browser sends it.
+
+   </details>
 2. **Ask your agent for tests**, in one prompt:
 
    ```
