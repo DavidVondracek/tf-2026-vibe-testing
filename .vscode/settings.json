@@ -1,5 +1,4 @@
 {
-  "chat.defaultModel": "deepseek/deepseek-v4.1-flash",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.editor"
@@ -8,7 +7,7 @@
   "chat.mcp.autostart": "never",
   "workbench.browser.enableChatTools": false,
   "chat.tools.terminal.autoApprove": {
-    "/^npx playwright test\\b/": true
+    "/^npx playwright\\b/": true
   },
   "search.exclude": {
     "**/solutions/**": true,

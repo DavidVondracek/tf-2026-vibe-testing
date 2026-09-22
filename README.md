@@ -33,7 +33,7 @@ organised by step.
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → **Git: Clone** → paste this repository's URL, and open it. When VS Code asks whether you trust the authors, click **Yes, I trust the authors** — otherwise it opens in Restricted Mode and ignores the repository's settings, MCP servers and extensions. Then run `npm install` in the VS Code terminal.
 6. **Install the two recommended extensions:** open the Extensions view (`Ctrl/Cmd+Shift+X`), type `@recommended`, and under **Workspace Recommendations** click **Install** on **Vercel AI Gateway** and **Playwright Test for VSCode**. GitHub Copilot Chat is built into current VS Code, so it only shows up here on an older version — then install it too.
    The list is empty? Then you have both already — check under `@installed`. See [troubleshooting](docs/setup-troubleshooting.md#steps-6-and-7--extensions-and-ai-models) if they are missing there too.
-7. **AI models — nothing to do yet.** The Vercel AI Gateway key is handed out at the workshop, at 09:00.
+7. **AI models — nothing to do yet.** With a GitHub account, Copilot Free gives you the **Auto** model, which is enough for the whole day. Without one, take the Vercel AI Gateway key handed out at the workshop, at 09:00.
 8. **Set up Wopee.io:** sign in at [wopee.io](https://wopee.io) and create the **SauceDemo demo project** — from the home page, or in [cmd.wopee.io](https://cmd.wopee.io) via **NEW PROJECT** → **App URL** → **Demo app**.
 9. **Download the browser:** `npm run browsers` — about 150 MB, so please **not on conference wifi**.
 10. **Verify:** `npm run verify`. All seven lines must be green; a red one tells you what to fix.

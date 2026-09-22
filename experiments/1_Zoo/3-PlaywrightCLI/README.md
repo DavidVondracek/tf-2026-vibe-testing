@@ -48,8 +48,17 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
    `[ref=e17]` — that is what you pass to `click`. Run `cat .playwright-cli/cart.yml` to see the
    accessibility tree that was on disk the whole time, never in the model's context.
 
-3. Now ask your agent to order the meal, taking its expected results from
-   [the spec](../../../spec/foodora-spec.md). It was never told the commands — the skill told it.
+3. Now ask your agent to order the meal. It was never told the commands — the skill told it.
+   New chat, agent picker **Agent**, model **Auto** or **Claude Haiku 4.5**:
+
+   ```
+   Order a meal on https://foodora.lovable.app/ using the Playwright CLI: one Classic Beef Burger
+   from Burger Palace, paid cash on delivery.
+   Take the expected results from spec/foodora-spec.md (FD-05, FD-06) and tell me where the app differs.
+   ```
+
+   `npx playwright` commands are pre-approved in
+   [`.vscode/settings.json`](../../../.vscode/settings.json), so the agent runs them without asking.
 
    > **If the agent starts running a bare `playwright-cli` command and it fails:** that binary is
    > not installed here, and `playwright-cli` on npm is an unrelated project. Tell it to use

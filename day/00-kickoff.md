@@ -9,9 +9,10 @@
 1. Say hello to your neighbour. They are your first help today.
 2. Open the repository in VS Code and run `npm run verify` in the terminal. All seven lines must be
    green. Red? It tells you what to fix.
-3. Connect the AI models with the key handed out in the room: `Ctrl/Cmd+Shift+P` →
-   **Vercel AI Gateway: Manage Authentication** → paste it. Start a new chat, check the model
-   picker shows **DeepSeek V4.1 Flash**, send "hi". At home? Use your own Copilot plan instead.
+3. Check your model. Start a new chat in **Agent** and send "hi". With a GitHub account, the picker
+   shows **Auto** (Copilot Free) — that is all you need. No Copilot, or out of requests? Take the
+   key handed out in the room: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** →
+   paste it, then pick **Claude Haiku 4.5** in the model picker.
 4. Learn how to get unstuck (the order matters):
    1. Ask your neighbour. After lunch, ask your team.
    2. Check [when something breaks](../docs/setup-troubleshooting.md#on-the-workshop-day) and
