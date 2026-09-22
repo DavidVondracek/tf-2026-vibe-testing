@@ -101,8 +101,9 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | `npm run verify` red on *Playwright version* | You are on an older Playwright. The CLI, the agents and the skills all need **1.62+**. Run `npm install` at the repository root. |
 | `init-agents` prints `Using project ""` | It did not find a config. Use `npm run agents` from the repository root — see [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
 | `#foodora` suggests nothing, or only tools | `#` only suggests files that are open. Open `spec/foodora-spec.md` in the editor first, then type `#foodora` again. |
+| Exhibit 1: the agent opens the app in VS Code's browser ("Sharing with Agent", "Ran Playwright code") | The Integrated Browser tools are on. Check `.vscode/settings.json` has `"workbench.browser.enableChatTools": false` and the folder is trusted, then **Developer: Reload Window** and start a **New Chat**. |
 | Exhibit 1: the agent clicks through the app ("Ran Click – playwright-test") instead of writing a test | A server is still running from an earlier test. `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → stop **playwright-test** and **wopee**, then start a **New Chat**. |
-| The answer turns into repeated `</parameter> </invoke>`, then *Sorry, no response was returned* | The conversation got too long for the model — usually big page snapshots. Start a **New Chat** and send the prompt again. In Exhibit 1, check no MCP server is running first. |
+| The answer turns into repeated `</parameter> </invoke>` or "Let me run…", then *Sorry, no response was returned* | The conversation got too long for the model — usually big page snapshots. Start a **New Chat** and send the prompt again. In Exhibit 1, check no MCP server is running first. |
 | The agent answers but cannot edit files or run commands | Set the agent picker in the chat input to **Agent** (not Ask or Plan). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste the key handed out in the room. |
