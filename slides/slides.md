@@ -88,9 +88,9 @@ label: Welcome
 # Everything lives in <span class="y">one repo</span>
 
 <div class="flex items-center justify-center gap-14">
-  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps" size="11rem" caption="Scan to open" />
+  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="11rem" caption="Scan to open" />
   <div>
-    <a class="repo-link" href="https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps"><span>github.com/Wopee-io/</span><span>tf-2026-vibe-testing-web-apps</span></a>
+    <a class="repo-link" href="https://github.com/Wopee-io/tf-2026-vibe-testing"><span>github.com/Wopee-io/</span><span>tf-2026-vibe-testing</span></a>
     <p class="text-2xl">Every block of the day has a page in <code>day/</code>.<br>Lose me? Follow the page.</p>
   </div>
 </div>
@@ -1089,6 +1089,6 @@ layout: closing
 </div>
 
 <div class="flex items-end gap-8 mt-8">
-  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps" size="8rem" caption="The repo" />
+  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="8rem" caption="The repo" />
   <div class="todo">QR code to the feedback form</div>
 </div>

@@ -26,7 +26,7 @@ export const eventDate = '2026-09-24'
 // moments people need it. One place to change it if the venue hands us something else.
 export const wifi = { ssid: 'Tesena Fest 2026', password: 'TF2026WIFI' }
 
-export const repoUrl = 'https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps'
+export const repoUrl = 'https://github.com/Wopee-io/tf-2026-vibe-testing'
 export const appUrl = 'https://foodora.lovable.app/'
 
 export function blockTitle(id?: string) {
