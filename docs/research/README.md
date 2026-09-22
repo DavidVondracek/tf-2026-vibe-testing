@@ -1,14 +1,15 @@
 # Research: MCP, CLI, Playwright and intent-driven testing
 
 The data behind the "Concepts: The New Stack" slides, for anyone who wants more than one slide per
-topic. Researched 21 September 2026; every claim links to its source.
+topic. Researched 21–22 September 2026 (each report carries its date); every claim links to its source.
 
 | Report | The question it answers |
 | --- | --- |
 | [MCP in general](mcp.md) | What is MCP, who uses it, and what does it cost? |
 | [CLIs for AI agents](cli-for-agents.md) | Why do agents like the command line, and what do head-to-head studies measure? |
 | [Playwright: MCP, CLI and Test Agents](playwright.md) | What does Microsoft ship, how does each interface work, and what is true about the "4× fewer tokens" claim? |
-| [Intent-driven testing](intent-driven-testing.md) | What does "intent-driven" mean, which tools do it, and what has actually been measured? Researched 22 September 2026. |
+| [Intent-driven testing](intent-driven-testing.md) | What does "intent-driven" mean, which tools do it, and what has actually been measured? |
+| [measure/](measure/) | The scripts behind the Foodora measurement — `./run.sh` re-runs it |
 | [Our measurement on Foodora](foodora-measurement.md) | How many tokens does each Playwright interface put into an agent's context for the same task? Re-runnable. |
 
 ## The short version

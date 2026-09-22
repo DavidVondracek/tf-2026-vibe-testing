@@ -1,7 +1,6 @@
 # CLIs for AI agents
 
-Researched 21 September 2026. Confidence: **H** primary source read · **M** primary source but a
-narrow setup, or a secondary source linking to the primary · **L** could not verify (not used).
+Researched 21 September 2026. Confidence: **H** primary source read · **M** primary source with a caveat (a vendor claim, a narrow setup), or a reputable secondary source linking to the primary · **L** could not verify (not used).
 
 ## Why agents are good at the command line
 

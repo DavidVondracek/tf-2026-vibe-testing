@@ -1,7 +1,6 @@
 # MCP in general
 
-Researched 21 September 2026. Confidence: **H** primary source checked · **M** reputable secondary,
-or primary partly checked · **L** could not verify (not used on slides).
+Researched 21 September 2026. Confidence: **H** primary source read · **M** primary source with a caveat (a vendor claim, a narrow setup), or a reputable secondary source linking to the primary · **L** could not verify (not used).
 
 ## What it is
 

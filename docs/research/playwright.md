@@ -1,7 +1,6 @@
 # Playwright: MCP, CLI and Test Agents
 
-Researched 21 September 2026. Confidence: **H** primary source checked · **M** partly checked ·
-**L** could not verify (not used).
+Researched 21 September 2026. Confidence: **H** primary source read · **M** primary source with a caveat (a vendor claim, a narrow setup), or a reputable secondary source linking to the primary · **L** could not verify (not used).
 
 ## Three interfaces, one package
 
