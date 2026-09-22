@@ -33,21 +33,21 @@ Each team runs the skill of the team **before** it:
    ```
 
 3. Make it cold. In Copilot Chat, `Ctrl/Cmd+Shift+P` → **Clear All Memory Files**, so nothing your
-   agent remembered from the day helps it. Then remove your own skill from `.claude/skills/`, and
+   agent remembered from the day helps it. Then remove your own skill from `.github/skills/`, and
    install theirs (`M` is their team number):
 
    ```bash
-   rm -rf .claude/skills/<your-skill>
-   mkdir -p .claude/skills
-   cp -r teams/team-M/skills/<their-skill> .claude/skills/
+   rm -rf .github/skills/<your-skill>
+   mkdir -p .github/skills
+   cp -r teams/team-M/skills/<their-skill> .github/skills/
    ```
 
    PowerShell:
 
    ```powershell
-   Remove-Item -Recurse -Force .claude/skills/<your-skill> -ErrorAction SilentlyContinue
-   New-Item -ItemType Directory -Force .claude/skills | Out-Null
-   Copy-Item -Recurse teams/team-M/skills/<their-skill> .claude/skills/<their-skill>
+   Remove-Item -Recurse -Force .github/skills/<your-skill> -ErrorAction SilentlyContinue
+   New-Item -ItemType Directory -Force .github/skills | Out-Null
+   Copy-Item -Recurse teams/team-M/skills/<their-skill> .github/skills/<their-skill>
    ```
 
 4. Start a **new chat** with **your own tool**, with the agent picker on **Agent**. Type only this:

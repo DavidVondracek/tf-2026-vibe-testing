@@ -58,7 +58,8 @@ After lunch each team works in its own fork, in **`teams/team-N/`** only, copied
 - The same address rule applies: `baseURL` in `teams/team-N/playwright.config.ts` reads
   `FOODORA_URL`, and tests use relative paths.
 - Skills are committed in `teams/team-N/skills/<name>/SKILL.md`. Agents load them from
-  `.claude/skills/<name>/` at the repository root, which is gitignored — copy the folder there
+  `.github/skills/<name>/` at the repository root (Claude Code: `.claude/skills/`), which is
+  gitignored — copy the folder there
   after each edit. The folder name must match `name` in the frontmatter.
 - A skill that opens the app reads the address from `FOODORA_URL`, falling back to
   `https://foodora.lovable.app`.

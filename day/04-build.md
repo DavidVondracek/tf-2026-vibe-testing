@@ -57,21 +57,22 @@ teams/team-N/
   `FOODORA_URL`, so the Battle can point your suite at a new build.
 - **Your skill must use `FOODORA_URL` too.** Write "open `FOODORA_URL`, or
   `https://foodora.lovable.app` if it is not set" — not a fixed address.
-- **Where the agent finds your skill.** Agents look in `.claude/skills/` at the repository root.
+- **Where the agent finds your skill.** Copilot looks in `.github/skills/` at the repository root
+  (Claude Code: `.claude/skills/`).
   That folder is gitignored, so keep the real copy in `teams/team-N/skills/` and install it
   after every edit:
 
   ```bash
-  mkdir -p .claude/skills
-  cp -r teams/team-N/skills/<name> .claude/skills/
+  mkdir -p .github/skills
+  cp -r teams/team-N/skills/<name> .github/skills/
   ```
 
   PowerShell:
 
   ```powershell
-  New-Item -ItemType Directory -Force .claude/skills | Out-Null
-  Remove-Item -Recurse -Force .claude/skills/<name> -ErrorAction SilentlyContinue
-  Copy-Item -Recurse teams/team-N/skills/<name> .claude/skills/<name>
+  New-Item -ItemType Directory -Force .github/skills | Out-Null
+  Remove-Item -Recurse -Force .github/skills/<name> -ErrorAction SilentlyContinue
+  Copy-Item -Recurse teams/team-N/skills/<name> .github/skills/<name>
   ```
 
   The folder name must match the `name` in the frontmatter.
@@ -129,7 +130,7 @@ Write the suite's name in `teams/team-N/README.md`. Never write the API key into
 
 - No green test by 13:30? Start from the order-path test in
   [Exhibit 1's solutions](../experiments/1_Zoo/1-CodingAgent/solutions/) and extend it.
-- The agent cannot find your skill? Check it is in `.claude/skills/<name>/SKILL.md` at the root,
+- The agent cannot find your skill? Check it is in `.github/skills/<name>/SKILL.md` at the root,
   that the folder name equals `name`, and start a new chat.
 - Ask your team first, then raise your hand.
 
