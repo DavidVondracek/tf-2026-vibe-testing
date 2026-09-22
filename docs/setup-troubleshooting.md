@@ -5,33 +5,40 @@ here, then run `npm run verify` again. When all seven checks are green, you are 
 
 ## Windows: do these first
 
-Two things stop almost every Windows laptop. Fix both before step 3.
+Two things, about 10 minutes, and Windows behaves like any other laptop for the rest of the day.
 
-**1. PowerShell refuses to run npm.** You see *"npm.ps1 cannot be loaded because running scripts
-is disabled on this system."* This is Windows' default policy. Allow it for your user (no admin
-rights needed):
+**1. Install the tools.** Windows comes without Git, Node.js and the GitHub CLI, but it does come
+with `winget`, which installs all three. Open **PowerShell** or **Command Prompt** and run:
+
+```powershell
+winget install --id Git.Git -e --source winget --accept-source-agreements --accept-package-agreements
+winget install --id OpenJS.NodeJS.LTS -e --source winget --accept-package-agreements
+winget install --id GitHub.cli -e --source winget --accept-package-agreements
+```
+
+Click **Yes** when Windows asks for permission. Then **close VS Code completely and open it
+again** — a terminal opened before the install cannot see the new tools.
+
+`winget` not found? Install Git from [git-scm.com](https://git-scm.com/install/windows) and Node.js
+from [nodejs.org](https://nodejs.org/en/download/) instead (default options are fine). GitHub
+Desktop is not enough: it does not put `git` on the terminal's path.
+
+**2. Use Git Bash as your terminal.** Git for Windows brings **Git Bash**, and this repository tells
+VS Code to use it on Windows. Open a new terminal in VS Code (`` Ctrl+` ``): its tab should say
+**bash**. In Git Bash `npm` just works, and every command in these docs works exactly as written.
+
+The tab still says **powershell**? Click the **⌄** next to **+** in the terminal panel and pick
+**Git Bash** (or `Ctrl+Shift+P` → **Terminal: Select Default Profile** → **Git Bash**).
+
+Prefer to stay in PowerShell? Then allow `npm` to run once — otherwise you get *"npm.ps1 cannot be
+loaded because running scripts is disabled on this system"*. Either switch on **Settings → System →
+For developers → PowerShell** (named **Advanced** on the newest Windows 11), or run:
 
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-If your company's policy overrides this, use `-Scope Process` (it lasts until you close the
-window), or run npm from **Command Prompt** instead of PowerShell.
-
-**2. The tools are not installed.** Windows has no Git, Node.js or GitHub CLI by default. Install
-all three with `winget`:
-
-```powershell
-winget install --id Git.Git -e --source winget
-winget install --id OpenJS.NodeJS.LTS -e --source winget
-winget install --id GitHub.cli -e --source winget
-```
-
-Then **close VS Code completely and open it again.** A terminal that was open before the install
-still cannot find `git`, `node` or `gh`.
-
-Use Git from the [git-scm.com installer](https://git-scm.com/download/win) if `winget` is missing.
-GitHub Desktop is not enough: it does not put `git` on the terminal's path.
+No admin rights needed. If your company's policy blocks both, use Git Bash.
 
 ## Step 3 — Install the tools
 

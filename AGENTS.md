@@ -3,6 +3,11 @@
 This is a workshop repository. These are tooling rules, not app knowledge — working out how the
 demo app behaves is the exercise, so nothing about it is written down here.
 
+## The shell
+
+On Windows, this repository sets VS Code's terminal to **Git Bash**. Use bash syntax everywhere
+(`export`, `cp`, forward slashes) — not PowerShell or `cmd`.
+
 ## Running Playwright
 
 Everything ships inside the `playwright` package. There is no separate CLI package to install.
