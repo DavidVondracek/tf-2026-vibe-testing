@@ -11,11 +11,12 @@
 | [`experiments/2_API/`](../experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time |
 | [`teams/`](../teams/) | Team work after lunch. Copy [`_template/`](../teams/_template/) to `teams/team-N/` in your team's fork |
 | [`docs/`](.) | [About the workshop](workshop.md), [setup troubleshooting](setup-troubleshooting.md), [research](research/) |
+| [`.vscode/settings.json`](../.vscode/settings.json) | The workspace settings: Git Bash on Windows, Markdown opens rendered, autosave, MCP servers off until an exhibit starts them, no Integrated Browser tools for the agent, `npx playwright` pre-approved, longer agent turns, `solutions/` hidden from search |
 | [`.vscode/mcp.json`](../.vscode/mcp.json) | The MCP servers Copilot uses, preset: Playwright Test (Exhibit 2's agents) and Wopee (Exhibit 4). They start only when an exhibit says so |
 | [`.env.example`](../.env.example) | Local settings — `npm install` copies it to `.env` (gitignored): Wopee values, `FOODORA_URL` for the Battle |
 | [`AGENTS.md`](../AGENTS.md) | Rules your AI agent follows in this repository |
 | [`slides/`](../slides/) | The deck (Slidev) |
-| [`scripts/`](../scripts/) | What `npm run verify`, `npm run agents` and `npm run links` run |
+| [`scripts/`](../scripts/) | What `npm run verify`, `npm run agents` and `npm run links` run, plus the `postinstall` that creates `.env` |
 
 ## Commands
 
@@ -27,7 +28,7 @@ Run from the repository root.
 | `npm run browsers` | Downloads Chromium for Playwright (~150 MB) |
 | `npm run slides` | Opens the deck in your browser |
 | `npm run agents` | Wires Playwright's Test Agents into Copilot for Exhibit 2 — or `npm run agents -- teams/team-N` |
-| `npm run solutions` | Runs the exhibits' reference solutions against the live app |
+| `npm run solutions` | Runs the four Zoo exhibits' reference solutions against the live app (the API ones run from `experiments/2_API/` with `npx playwright test solutions/`) |
 | `npm run links` | Checks every link in these docs still resolves |
 
 ## Fell behind?
@@ -40,4 +41,5 @@ produces, not a thing to copy blindly.
 
 The verified notes behind those solutions are in
 [`SPOILERS-app-notes.md`](../experiments/1_Zoo/SPOILERS-app-notes.md) — the answer key, so read it
-after the exhibits, not before.
+after the exhibits, not before. Both are hidden from workspace search, and from the agents; open
+them from the Explorer.

@@ -30,11 +30,11 @@ organised by step.
 2. **Submit this form:** [forms.gle/hU57AS3A5SPrqKWK8](https://forms.gle/hU57AS3A5SPrqKWK8).
 3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads) and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`. **On Windows:** one `winget` line installs all three — see [Windows: do these first](docs/setup-troubleshooting.md#windows-do-these-first).
 4. **Install [VS Code](https://code.visualstudio.com/)** and sign in to GitHub Copilot Chat (the free plan is enough).
-5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → **Git: Clone** → paste this repository's URL, and open it. When VS Code asks whether you trust the authors, click **Yes, I trust the authors** — otherwise it opens in Restricted Mode and ignores the repository's settings, MCP servers and extensions. Then run `npm install` in the VS Code terminal.
-6. **Install the two recommended extensions:** open the Extensions view (`Ctrl/Cmd+Shift+X`), type `@recommended`, and under **Workspace Recommendations** click **Install** on **Vercel AI Gateway** and **Playwright Test for VSCode**. GitHub Copilot Chat is built into current VS Code, so it only shows up here on an older version — then install it too.
-   The list is empty? Then you have both already — check under `@installed`. See [troubleshooting](docs/setup-troubleshooting.md#steps-6-and-7--extensions-and-ai-models) if they are missing there too.
+5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → **Git: Clone** → paste `https://github.com/Wopee-io/tf-2026-vibe-testing`, and open it. When VS Code asks whether you trust the authors, click **Yes, I trust the authors** — otherwise it opens in Restricted Mode and ignores the repository's settings, MCP servers and extensions. Then run `npm install` in the VS Code terminal.
+6. **Install the recommended extensions:** open the Extensions view (`Ctrl/Cmd+Shift+X`), type `@recommended`, and under **Workspace Recommendations** click **Install** on **Vercel AI Gateway** and **Playwright Test for VSCode**. **GitHub Copilot Chat** is listed too; it is built into current VS Code, so it only shows up on an older version — then install it as well.
+   The list is empty? Then you have them all already — check under `@installed`. See [troubleshooting](docs/setup-troubleshooting.md#steps-6-and-7--extensions-and-ai-models) if they are missing there too.
 7. **AI models — nothing to do yet.** With a GitHub account, Copilot Free gives you the **Auto** model, which is enough for the whole day. Without one, take the Vercel AI Gateway key handed out at the workshop, at 09:00.
-8. **Set up Wopee.io:** sign in at [wopee.io](https://wopee.io) and create the **SauceDemo demo project** — from the home page, or in [cmd.wopee.io](https://cmd.wopee.io) via **NEW PROJECT** → **App URL** → **Demo app**.
+8. **Set up Wopee.io:** sign in at [wopee.io](https://wopee.io), then in [cmd.wopee.io](https://cmd.wopee.io) click **NEW PROJECT**, keep **My app**, paste `https://foodora.lovable.app/` and click **Create project and generate tests**. That is your project for Exhibit 4. (At the workshop you also generate an API key for it — **More → Settings → API Keys**; it is shown once.)
 9. **Download the browser:** `npm run browsers` — about 150 MB, so please **not on conference wifi**.
 10. **Verify:** `npm run verify`. All seven lines must be green; a red one tells you what to fix.
 11. **Let me know you're ready** on LinkedIn, or ask anything there. See you on Thursday — it will be a good day.
@@ -45,6 +45,8 @@ organised by step.
 | --- | --- |
 | [`docs/workshop.md`](docs/workshop.md) | About the workshop: who it is for, what you do, the four tools, the demo app |
 | [`day/`](day/) | The agenda, and one page per block — what to do if you lose the presenter |
+| [`experiments/`](experiments/) | The four Zoo exhibits, and the optional API experiment |
+| [`teams/`](teams/) | Your team's folder after lunch — copy `_template/` |
 | [`spec/`](spec/) | What the demo app should do — the input for every test you write |
 | [`docs/setup-troubleshooting.md`](docs/setup-troubleshooting.md) | Fixes, before and during the workshop |
 | [`docs/repository.md`](docs/repository.md) | What is where in this repository, and the `npm run` commands |

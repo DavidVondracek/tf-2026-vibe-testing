@@ -5,7 +5,7 @@
   "description": "Vibe Testing Lab \u2014 Tesena Fest 2026. AI coding agents, Playwright Agents, Playwright CLI and Wopee.io on one demo app.",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.12"
   },
   "scripts": {
     "postinstall": "node scripts/create-env.mjs",

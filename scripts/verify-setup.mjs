@@ -36,9 +36,10 @@ function run(cmd, args) {
   }).trim()
 }
 
-await check('🟢', 'Node.js 20 or newer', () => {
-  const major = Number(process.versions.node.split('.')[0])
-  if (major < 20) throw new Error(`found v${process.versions.node} — install the Node.js LTS`)
+await check('🟢', 'Node.js 20.12 or newer', () => {
+  const [major, minor] = process.versions.node.split('.').map(Number)
+  if (major < 20 || (major === 20 && minor < 12))
+    throw new Error(`found v${process.versions.node} — install the Node.js LTS (the configs read .env with process.loadEnvFile, which needs 20.12+)`)
   return `v${process.versions.node}`
 })
 
