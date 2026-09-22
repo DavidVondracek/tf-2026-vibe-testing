@@ -24,10 +24,10 @@ You did most of this before the workshop (see the [root README](../../../README.
 4. In the chat input box, set the **agent picker** to **Agent** (not Ask or Plan). The
    **model picker** sits next to it.
 
-This exhibit is the coding agent on its own: it writes and runs test code. The repository's MCP
-servers stay off until an exhibit starts them (`chat.mcp.autostart` is `never` in
-[`.vscode/settings.json`](../../../.vscode/settings.json)), so the agent cannot drive the browser
-through Exhibit 2's server instead of writing the test.
+This exhibit is the coding agent on its own: it writes and runs test code. So that it cannot
+click through the app instead, [`.vscode/settings.json`](../../../.vscode/settings.json) keeps the
+MCP servers off until an exhibit starts them (`chat.mcp.autostart`) and turns off the agent's
+tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 
 ### No Copilot licence?
 
@@ -60,7 +60,8 @@ Everything else below is the same.
    ```
    Write a Playwright test that orders a meal on https://foodora.lovable.app/ and proves it worked.
    Take the expected results from spec/foodora-spec.md (FD-05, FD-06), not from what the app shows.
-   Put it in experiments/1_Zoo/1-CodingAgent/tests/ and run it.
+   Put it in experiments/1_Zoo/1-CodingAgent/tests/, run it with npx playwright test, and fix it
+   from the test output.
    ```
 
    The agent opens the spec itself. To attach it as well: open `spec/foodora-spec.md` in the editor (click it in the
