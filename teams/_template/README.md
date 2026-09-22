@@ -28,6 +28,6 @@ npx playwright test
 
 | Where | What |
 | --- | --- |
-| [`playwright.config.ts`](playwright.config.ts) | Reads the app address from `FOODORA_URL`. Keep the project name `chromium` |
+| [`playwright.config.ts`](playwright.config.ts) | Reads the app address from `FOODORA_URL` in the repository's `.env`. Keep the project name `chromium` |
 | [`tests/`](tests/) | Your tests |
 | [`skills/my-skill/SKILL.md`](skills/my-skill/SKILL.md) | Your skill. Rename the folder and the `name` together |

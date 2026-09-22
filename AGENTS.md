@@ -33,8 +33,9 @@ it will not find the config.
 Agent wiring is the exception: run `init-agents`, `init-skills` and `npx playwright cli` from the
 **repository root**, because the editor only reads `.github/agents/`, `.github/prompts/`,
 `.vscode/mcp.json` and `.claude/skills/` there. Point `init-agents` at a config with
-`--config <folder>/playwright.config.ts`, and give `run-test-mcp-server` the same folder with
-`--config` in `.vscode/mcp.json`. Without it, `init-agents` reports `Using project ""`.
+`--config <folder>/playwright.config.ts` — without it, it reports `Using project ""`. The MCP
+servers (Playwright Test, Wopee) are preset in `.vscode/mcp.json`; after `init-agents`,
+run `git restore .vscode/mcp.json`, because it rewrites that file.
 
 The optional API experiment lives in [`experiments/2_API/`](experiments/2_API/) and works the
 same way: `cd` into it, write into its `tests/`, and import `test` from its `fixtures.ts`.
@@ -73,6 +74,6 @@ test to match the app.
 
 ## Secrets
 
-The Vercel AI Gateway key and the Wopee API key are workshop-only and live in the editor's
-secret storage. Never write either into a file in this repository, and never echo one into a
-terminal transcript.
+The Vercel AI Gateway key lives in the editor's secret storage. The Wopee values live in `.env`,
+which is gitignored. Never commit `.env`, never write a key into any other file, and never echo
+one into a terminal transcript.

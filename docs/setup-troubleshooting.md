@@ -101,7 +101,8 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | `init-agents` prints `Using project ""` | It did not find a config. Run it from the repository root with `--config` pointing at the exhibit's `playwright.config.ts` — see [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste the key handed out in the room. |
-| MCP tools do not appear in chat | Reload the VS Code window after writing `.vscode/mcp.json`, and make sure the chat is in **agent** mode. |
+| MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json`. Reload the VS Code window, make sure the chat is in **agent** mode, and — if you ran `init-agents` — run `git restore .vscode/mcp.json`. |
+| The Wopee MCP server fails to start | Fill in `WOPEE_PROJECT_UUID` and `WOPEE_API_KEY` in `.env` (see [Exhibit 4](../experiments/1_Zoo/4-Wopee/)), then reload the window. No `.env`? Run `npm install` once — it creates it. |
 | A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, raise your hand. |
 | `head` "is not recognized" in PowerShell (Exhibit 3) | Use `Get-Content <file> -TotalCount 4`, or open the file in VS Code. `ls` and `cat` work in PowerShell; `head` does not. |
 

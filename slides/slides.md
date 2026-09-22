@@ -974,14 +974,13 @@ checkpoints:
 
 <div v-click class="mt-4 battle-cmd">
 
-```bash
-git pull upstream main
-cd teams/team-N
-export FOODORA_URL=https://foodora-new.lovable.app
-npx playwright test
-```
+<ol class="battle-steps">
+<li><code>git pull upstream main</code> — the three stories</li>
+<li>In <code>.env</code>, remove the <code>#</code> before <code>FOODORA_URL</code></li>
+<li><code>cd teams/team-N</code> → <code>npx playwright test</code></li>
+</ol>
 
-<p class="text-sm muted">PowerShell: <code>$env:FOODORA_URL="…"</code> · cmd: <code>set FOODORA_URL=…</code> · all of it: <code>day/06-battle.md</code></p>
+<p class="text-sm muted">Same on every OS. All of it: <code>day/06-battle.md</code></p>
 
 </div>
 

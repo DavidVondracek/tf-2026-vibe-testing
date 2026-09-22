@@ -100,9 +100,9 @@ npx playwright init-agents --loop=vscode --prompts --config teams/team-N/playwri
 
 PowerShell: `Copy-Item experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts teams/team-N/tests/`
 
-Then in `.vscode/mcp.json` set the `playwright-test` args to
-`["playwright", "run-test-mcp-server", "--config", "${workspaceFolder}/teams/team-N"]` and reload
-the window. Save plans to `teams/team-N/specs/`. The details are in
+Then in `.vscode/mcp.json` change the `playwright-test` server's `--config` from
+`${workspaceFolder}/experiments/1_Zoo/2-PlaywrightAgents` to `${workspaceFolder}/teams/team-N`,
+and reload the window. Save plans to `teams/team-N/specs/`. The details are in
 [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup).
 
 **🦁 Playwright CLI + Skills.** Your skill drives `npx playwright cli`, like the worked

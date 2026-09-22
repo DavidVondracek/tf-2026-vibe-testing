@@ -28,20 +28,25 @@ npx playwright init-agents --loop=vscode --prompts --config experiments/1_Zoo/2-
 Look for `🎭 Using project "chromium" as a primary project` in the output. If it says
 `Using project ""`, the `--config` path is wrong — check you are in the repository root.
 
-You get four prompt files in `.github/prompts/` (the `/` commands in Copilot Chat), three agent
-definitions in `.github/agents/`, and `.vscode/mcp.json` pointing at
-`npx playwright run-test-mcp-server`. All three are gitignored.
+You get four prompt files in `.github/prompts/` (the `/` commands in Copilot Chat) and three agent
+definitions in `.github/agents/` — both gitignored.
 
-**One edit before you reload.** Started from the root, the MCP server does not know which config
-to use, and it would see every test in the repository. Open `.vscode/mcp.json` and add the
-config to the `playwright-test` server's `args`:
+The MCP server the agents use is already set up in this repository's
+[`.vscode/mcp.json`](../../../.vscode/mcp.json), pointed at this exhibit. `init-agents` rewrites
+that file and drops the pointer, so put it back straight away:
 
-```json
-"args": ["playwright", "run-test-mcp-server", "--config", "${workspaceFolder}/experiments/1_Zoo/2-PlaywrightAgents"]
+```bash
+git restore .vscode/mcp.json
 ```
 
-Running `init-agents` again resets this line, so make the edit again after every run. Then
-reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the MCP server.
+Then reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the
+MCP server.
+
+> **Why only one Playwright server?** `playwright-test` already contains every browser tool the
+> agents use — tied to your seed test, so they act only on a page the test has set up. The
+> general browser server, `npx playwright mcp`, is not needed for any exhibit. Want it for your own
+> agent later? Add it to `.vscode/mcp.json` — but Copilot allows at most 128 tools per request, and
+> it adds 24.
 
 > Ran `init-agents` from inside this folder? It still works for the terminal, but the files land
 > in this folder, where Copilot never looks. Run it again from the root as above.

@@ -663,3 +663,13 @@
   color: var(--wp-grey);
   margin-top: 0.4rem;
 }
+
+.battle-steps {
+  margin-top: 0.6rem;
+  padding-left: 1.4rem;
+}
+
+.battle-steps li {
+  font-size: 1.15rem;
+  margin: 0.35rem 0;
+}
