@@ -72,15 +72,22 @@ Everything else below is the same.
    that are open. The spec makes "worked" mean what `FD-05` and `FD-06` say, not whatever the
    app shows.
 
-3. Let the agent run the test. It asks before each terminal command; approve it. Or run it
-   yourself:
+3. Let the agent run the test. It asks before each terminal command: click the **⌄** next to
+   **Allow** and allow it for the session, so it stops asking. Or run it yourself:
 
    ```bash
    cd experiments/1_Zoo/1-CodingAgent
    npx playwright test --project=chromium
    ```
 
-   If it fails, let the agent fix it — **twice, no more.**
+   If it fails, let the agent fix it — **twice, no more.** It reads the failure from
+   `test-results/…/error-context.md`, which holds a snapshot of the page where the test stopped.
+   Each failing run is retried once, so a red run takes about a minute.
+
+   Agent reruns without changing the file? Stop it (⏹) and paste the error from its last run
+   into the chat.
+
+4. The chat shows the agent's file as a pending edit. When you are happy with it, click **Keep**.
 
 ## Done when
 
@@ -93,7 +100,7 @@ That last part is the exercise. The test passing is not the point.
 Ask for a negative case: checkout with an empty cart.
 
 Did it invent an error message the app never shows? That is the failure mode to remember —
-the agent asserts what *should* be true rather than what *is* true, and the test passes
+the agent asserts what _should_ be true rather than what _is_ true, and the test passes
 against an app that never behaves that way.
 
 Do not take my word for what the app does. Run the agent's negative test and watch it fail, then

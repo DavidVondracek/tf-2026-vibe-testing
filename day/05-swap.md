@@ -32,8 +32,9 @@ Each team runs the skill of the team **before** it:
    gh pr checkout <number> --repo Wopee-io/tf-2026-vibe-testing
    ```
 
-3. Make it cold: remove your own skill from `.claude/skills/`, and install theirs
-   (`M` is their team number):
+3. Make it cold. In Copilot Chat, `Ctrl/Cmd+Shift+P` → **Clear All Memory Files**, so nothing your
+   agent remembered from the day helps it. Then remove your own skill from `.claude/skills/`, and
+   install theirs (`M` is their team number):
 
    ```bash
    rm -rf .claude/skills/<your-skill>
