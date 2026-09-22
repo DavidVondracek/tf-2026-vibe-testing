@@ -52,6 +52,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 
 | What you see | Fix |
 | --- | --- |
+| A blue **Restricted Mode** bar, or a **Workspace Trust** dialog | Click **Trust** (or **Manage** in the bar → **Trust**). In Restricted Mode VS Code ignores this repository's settings, MCP servers and most extensions, so the Git Bash terminal, the default model and the Exhibit 2 and 4 tools do not work. |
 | `npm.ps1 cannot be loaded` | See [Windows: do these first](#windows-do-these-first). |
 | `npm install` hangs or fails with `ETIMEDOUT` / `ECONNRESET` | A company proxy. Set it for npm: `npm config set proxy http://proxy:port` and `npm config set https-proxy http://proxy:port`, using your company's proxy address. |
 | `npm install` fails with `EACCES` / permission denied | You cloned into a folder you cannot write to. Clone into your home folder instead. |
@@ -102,7 +103,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | The agent answers but cannot edit files or run commands | Set the agent picker in the chat input to **Agent** (not Ask or Plan). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste the key handed out in the room. |
-| MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json`. Reload the VS Code window and set the agent picker to **Agent**. Ran a bare `init-agents`? Run `npm run agents` instead — it repairs `.vscode/mcp.json`. |
+| MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json`. Check the status bar does not say **Restricted Mode** (if it does, trust the folder). Reload the VS Code window and set the agent picker to **Agent**. Ran a bare `init-agents`? Run `npm run agents` instead — it repairs `.vscode/mcp.json`. |
 | Wopee tools answer `WOPEE_PROJECT_UUID is not set` | Fill in `WOPEE_PROJECT_UUID` and `WOPEE_API_KEY` in `.env` (see [Exhibit 4](../experiments/1_Zoo/4-Wopee/)), then `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Restart Server**. No `.env`? Run `npm install` once — it creates it. |
 | A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, raise your hand. |
 | `head` "is not recognized" in PowerShell (Exhibit 3) | Use `Get-Content <file> -TotalCount 4`, or open the file in VS Code. `ls` and `cat` work in PowerShell; `head` does not. |
