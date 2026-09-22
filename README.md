@@ -13,6 +13,14 @@ is in this repository: set up below, then follow [the day](day/).
 
 ## Get ready for the workshop
 
+Please do this **before Thursday**. It takes **about 45–60 minutes** on a fresh laptop, and
+**20–30 minutes** if you already have Node.js, Git and VS Code. Most of it is waiting for downloads.
+
+Why before: we have one day and four tools to try, and the first exercise starts at 10:10. Every
+laptop that arrives ready means more time for the interesting part — and less time for me
+looking at installers. If something does not work, no problem: write to me, and we fix it before
+the workshop, not during it.
+
 **You need:** a laptop with admin rights (tell me if you can't have them), Chrome, and
 [GitHub](https://github.com) and [Wopee.io](https://wopee.io) accounts with the same email.
 If a step fails, look it up in [setup troubleshooting](docs/setup-troubleshooting.md) — it is
@@ -20,7 +28,7 @@ organised by step.
 
 1. **Connect with me on LinkedIn:** [linkedin.com/in/marcelveselka](https://www.linkedin.com/in/marcelveselka) — share your expectations and questions.
 2. **Submit this form:** [forms.gle/hU57AS3A5SPrqKWK8](https://forms.gle/hU57AS3A5SPrqKWK8).
-3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads) and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`. **On Windows, do [these two fixes](docs/setup-troubleshooting.md#windows-do-these-first) first.**
+3. **Install the tools:** [Node.js LTS](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads) and the [GitHub CLI](https://cli.github.com/), then sign in with `gh auth login`. **On Windows:** one `winget` line installs all three — see [Windows: do these first](docs/setup-troubleshooting.md#windows-do-these-first).
 4. **Install [VS Code](https://code.visualstudio.com/)** and sign in to GitHub Copilot Chat (the free plan is enough).
 5. **Clone this repo:** in VS Code, `Ctrl/Cmd+Shift+P` → **Git: Clone** → paste this repository's URL, then run `npm install` in the VS Code terminal.
 6. **Install the recommended extensions** when VS Code asks (or `Ctrl/Cmd+Shift+P` → **Extensions: Show Recommended Extensions**): Vercel AI Gateway, GitHub Copilot Chat and Playwright Test.
@@ -28,7 +36,7 @@ organised by step.
 8. **Set up Wopee.io:** sign in at [wopee.io](https://wopee.io) and create the **SauceDemo demo project** — from the home page, or in [cmd.wopee.io](https://cmd.wopee.io) via **NEW PROJECT** → the demo project.
 9. **Download the browser:** `npm run browsers` — about 150 MB, so please **not on conference wifi**.
 10. **Verify:** `npm run verify`. All seven lines must be green; a red one tells you what to fix.
-11. **Let me know you're ready** on LinkedIn, or ask anything there.
+11. **Let me know you're ready** on LinkedIn, or ask anything there. See you on Thursday — it will be a good day.
 
 ## Find your way
 
