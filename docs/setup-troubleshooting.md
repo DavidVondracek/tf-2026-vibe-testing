@@ -71,7 +71,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 
 | What you see | Fix |
 | --- | --- |
-| No demo project option on the home page | In [cmd.wopee.io](https://cmd.wopee.io), click **NEW PROJECT** and select the demo project there. |
+| No demo project option on the home page | In [cmd.wopee.io](https://cmd.wopee.io), click **NEW PROJECT** → **App URL** → **Demo app**. |
 | Sign-up email never arrives | Check spam, or sign up with the same email as your GitHub account. |
 
 ## Step 9 — Download the browser
@@ -98,11 +98,12 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | What you see | Fix |
 | --- | --- |
 | `npm run verify` red on *Playwright version* | You are on an older Playwright. The CLI, the agents and the skills all need **1.62+**. Run `npm install` at the repository root. |
-| `init-agents` prints `Using project ""` | It did not find a config. Run it from the repository root with `--config` pointing at the exhibit's `playwright.config.ts` — see [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
+| `init-agents` prints `Using project ""` | It did not find a config. Use `npm run agents` from the repository root — see [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
+| The agent answers but cannot edit files or run commands | Set the agent picker in the chat input to **Agent** (not Ask or Plan). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste the key handed out in the room. |
-| MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json`. Reload the VS Code window, make sure the chat is in **agent** mode, and — if you ran `init-agents` — run `git restore .vscode/mcp.json`. |
-| The Wopee MCP server fails to start | Fill in `WOPEE_PROJECT_UUID` and `WOPEE_API_KEY` in `.env` (see [Exhibit 4](../experiments/1_Zoo/4-Wopee/)), then reload the window. No `.env`? Run `npm install` once — it creates it. |
+| MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json`. Reload the VS Code window and set the agent picker to **Agent**. Ran a bare `init-agents`? Run `npm run agents` instead — it repairs `.vscode/mcp.json`. |
+| Wopee tools answer `WOPEE_PROJECT_UUID is not set` | Fill in `WOPEE_PROJECT_UUID` and `WOPEE_API_KEY` in `.env` (see [Exhibit 4](../experiments/1_Zoo/4-Wopee/)), then `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Restart Server**. No `.env`? Run `npm install` once — it creates it. |
 | A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, raise your hand. |
 | `head` "is not recognized" in PowerShell (Exhibit 3) | Use `Get-Content <file> -TotalCount 4`, or open the file in VS Code. `ls` and `cat` work in PowerShell; `head` does not. |
 

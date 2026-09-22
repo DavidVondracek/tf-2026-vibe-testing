@@ -39,7 +39,7 @@ app and the spec disagree, write it down — that may be a bug, not a broken tes
 A **fresh agent session**, given **only your `SKILL.md`** and the prompt `run <skill-name>`, does
 the job **without follow-up prompts**.
 
-To test it: start a new chat (Copilot: **New Chat**; Claude Code: `/clear`), use agent mode, type
+To test it: start a new chat (Copilot: **New Chat**; Claude Code: `/clear`), set the agent picker to **Agent**, type
 `run <skill-name>` and nothing else. If you have to type one more word, it is not cold yet. Fix
 the `SKILL.md`, not the prompt, and try again.
 
@@ -95,14 +95,11 @@ ask for tests in `teams/team-N/tests/`, let the agent fix a failure twice, no mo
 
 ```bash
 cp experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts teams/team-N/tests/
-npx playwright init-agents --loop=vscode --prompts --config teams/team-N/playwright.config.ts
+npm run agents -- teams/team-N
 ```
 
-PowerShell: `Copy-Item experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts teams/team-N/tests/`
-
-Then in `.vscode/mcp.json` change the `playwright-test` server's `--config` from
-`${workspaceFolder}/experiments/1_Zoo/2-PlaywrightAgents` to `${workspaceFolder}/teams/team-N`,
-and reload the window. Save plans to `teams/team-N/specs/`. The details are in
+It points the `playwright-test` MCP server at your folder. Reload the window. Before the Swap, run
+`git restore .vscode/mcp.json` — that file is shared, so keep your change out of your team's PR. Save plans to `teams/team-N/specs/`. The details are in
 [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup).
 
 **🦁 Playwright CLI + Skills.** Your skill drives `npx playwright cli`, like the worked
