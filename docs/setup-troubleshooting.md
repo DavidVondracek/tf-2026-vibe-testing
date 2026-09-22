@@ -100,6 +100,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | --- | --- |
 | `npm run verify` red on *Playwright version* | You are on an older Playwright. The CLI, the agents and the skills all need **1.62+**. Run `npm install` at the repository root. |
 | `init-agents` prints `Using project ""` | It did not find a config. Use `npm run agents` from the repository root — see [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup). |
+| `#foodora` suggests nothing, or only tools | `#` only suggests files that are open. Open `spec/foodora-spec.md` in the editor first, then type `#foodora` again. |
 | The agent answers but cannot edit files or run commands | Set the agent picker in the chat input to **Agent** (not Ask or Plan). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
 | Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste the key handed out in the room. |
