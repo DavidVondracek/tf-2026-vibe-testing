@@ -14,15 +14,17 @@ const MIN_PLAYWRIGHT = [1, 62, 0]
 const results = []
 let failed = 0
 
-async function check(name, fn) {
+async function check(icon, name, fn) {
   try {
     const detail = await fn()
-    results.push(['ok', name, detail ?? ''])
+    results.push(['ok', icon, name, detail ?? ''])
   } catch (err) {
     failed++
-    results.push(['fail', name, err.message])
+    results.push(['fail', icon, name, err.message])
   }
 }
+
+console.log('\n  🧪 \x1b[1mVibe Testing Lab\x1b[0m — checking your laptop, grab a coffee ☕')
 
 // On Windows `npx` is `npx.cmd`, which Node only starts through a shell.
 function run(cmd, args) {
@@ -34,19 +36,19 @@ function run(cmd, args) {
   }).trim()
 }
 
-await check('Node.js 20 or newer', () => {
+await check('🟢', 'Node.js 20 or newer', () => {
   const major = Number(process.versions.node.split('.')[0])
   if (major < 20) throw new Error(`found v${process.versions.node} — install the Node.js LTS`)
   return `v${process.versions.node}`
 })
 
-await check('Dependencies installed', () => {
+await check('📦', 'Dependencies installed', () => {
   if (!existsSync(join(root, 'node_modules', '@playwright', 'test')))
     throw new Error('run `npm install` in the repository root first')
   return 'node_modules is present'
 })
 
-await check(`Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
+await check('🎭', `Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
   const version = run('npx', ['playwright', '--version']).replace(/^Version\s+/, '')
   const parts = version.split('.').map(Number)
   for (let i = 0; i < MIN_PLAYWRIGHT.length; i++) {
@@ -57,19 +59,19 @@ await check(`Playwright ${MIN_PLAYWRIGHT.join('.')} or newer`, () => {
   return version
 })
 
-await check('Browser CLI available', () => {
+await check('💻', 'Browser CLI available', () => {
   const help = run('npx', ['playwright', 'cli', '--help'])
   if (!help.includes('snapshot')) throw new Error('`npx playwright cli --help` did not list the browser commands')
   return 'npx playwright cli responds'
 })
 
-await check('Test-runner MCP server available', () => {
+await check('🔌', 'Test-runner MCP server available', () => {
   const help = run('npx', ['playwright', 'run-test-mcp-server', '--help'])
   if (!help.includes('MCP')) throw new Error('`npx playwright run-test-mcp-server --help` did not respond')
   return 'npx playwright run-test-mcp-server responds'
 })
 
-await check('Chromium downloaded', () => {
+await check('🌐', 'Chromium downloaded', () => {
   // `install --dry-run` prints the resolved browser path without downloading anything.
   const out = run('npx', ['playwright', 'install', '--dry-run', 'chromium'])
   const match = out.match(/Install location:\s*(.+)/)
@@ -78,7 +80,7 @@ await check('Chromium downloaded', () => {
   return match[1].trim()
 })
 
-await check(`Demo app reachable (${APP_URL})`, async () => {
+await check('🍔', `Demo app reachable (${APP_URL})`, async () => {
   let res
   try {
     res = await fetch(APP_URL, { signal: AbortSignal.timeout(15_000) })
@@ -89,18 +91,22 @@ await check(`Demo app reachable (${APP_URL})`, async () => {
   return 'HTTP 200'
 })
 
-const pad = Math.max(...results.map((r) => r[1].length))
+const pad = Math.max(...results.map((r) => r[2].length))
 console.log('')
-for (const [status, name, detail] of results) {
-  const mark = status === 'ok' ? '\x1b[32m✓\x1b[0m' : '\x1b[31m✗\x1b[0m'
-  console.log(`  ${mark} ${name.padEnd(pad)}  \x1b[2m${detail}\x1b[0m`)
+for (const [status, icon, name, detail] of results) {
+  const mark = status === 'ok' ? '✅' : '❌'
+  const text = status === 'ok' ? `\x1b[2m${detail}\x1b[0m` : `\x1b[31m${detail}\x1b[0m`
+  console.log(`  ${mark} ${icon} ${name.padEnd(pad)}  ${text}`)
 }
 console.log('')
 
 if (failed) {
-  console.log(`\x1b[31m${failed} check${failed > 1 ? 's' : ''} failed.\x1b[0m Fix the above, then run \`npm run verify\` again.`)
-  console.log('Still stuck? Message me on LinkedIn before the workshop — not on the morning of.\n')
+  const passed = results.length - failed
+  console.log(`  😬 \x1b[31m${failed} check${failed > 1 ? 's' : ''} failed\x1b[0m, ${passed} of ${results.length} green — almost there!`)
+  console.log('  🛠️  Fix the red lines above, then run \x1b[1mnpm run verify\x1b[0m again.')
+  console.log('  💬 Still stuck? Message me on LinkedIn before the workshop — not on the morning of. 🙏\n')
   process.exit(1)
 }
 
-console.log('\x1b[32mYou are ready.\x1b[0m See you at Tesena Fest.\n')
+console.log(`  🎉 \x1b[32m\x1b[1mAll ${results.length} green. You are ready!\x1b[0m 🚀`)
+console.log('  🤖 🐍 🦁 🔬  The Zoo is waiting. See you at Tesena Fest! 👋\n')
