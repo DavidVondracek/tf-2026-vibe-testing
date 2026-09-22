@@ -329,6 +329,36 @@ working it out, and today is one day of that.
 
 ---
 block: stack
+---
+
+# Intent-driven testing: <span class="y">say what, not how</span>
+
+The test states the user's goal and what must be true afterwards. The agent works out the clicks.
+
+<div class="cards c3 intent">
+<div class="card"><div class="n">THE AGENT RUNS EVERY TIME</div><h3>It plays the test</h3><p>Reads the intent on every run and finds its own way. Survives a redesign — costs an LLM call, and can vary.</p><p class="who">Wopee.io · Momentic · Midscene</p></div>
+<div class="card"><div class="n">THE AGENT WRITES THE CODE</div><h3>Intent in, Playwright out</h3><p>A plan in Markdown, reviewed, turned into a test that runs without an LLM.</p><p class="who">Playwright Test Agents · QA Wolf · Octomind</p></div>
+<div class="card dark"><div class="n">THE CATCH</div><h3>Who decides what is correct?</h3><p>Best agent found real web app bugs at <b>26% F1</b>. Given a human checklist: <b>49%</b>.</p><p class="who">WebTestBench, March 2026</p></div>
+</div>
+
+<div class="banner">The intent says <em>what to do</em>. Your spec says <em>what is right</em>.</div>
+
+<style>
+.intent .who { font-size: 0.72em; margin-top: 0.8em; opacity: 0.7; }
+</style>
+
+<!--
+09:21 — 3 minutes. If the developer only says what they want, the test has to do the same: this is what that looks like.
+Vendor term, no standard definition (Harness, mabl, Momentic, BlazeMeter). Two camps: agent on every run (Wopee.io,
+Exhibit 4) vs agent writes code once (Playwright planner/generator, Exhibit 2). Hybrids cache and replay (Stagehand, Momentic).
+The number: WebTestBench (Kong et al., arXiv 2603.25226, 26 Mar 2026) — best F1 26.4% (GPT-5.1), precision ~30%;
+with a gold checklist 49.2% (Claude Sonnet 4.5). Deciding what to check is the hard part, not clicking.
+Risk to name: an agent that adapts can adapt past your bug — Playwright's healer may skip a test "if it believes functionality is broken".
+That is why AGENTS.md says: expected results come from spec/. Full report: docs/research/intent-driven-testing.md.
+-->
+
+---
+block: stack
 clicks: 4
 ---
 
