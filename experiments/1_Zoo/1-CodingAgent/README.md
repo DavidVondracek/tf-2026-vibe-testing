@@ -2,8 +2,9 @@
 
 **20 minutes.** Define the intent. Let the agent write, run and interpret the tests. Find where it breaks.
 
-We use **VS Code + GitHub Copilot Chat**. If you have no Copilot licence, or the free one,
-you still do the whole exercise — see [No Copilot licence?](#no-copilot-licence) below.
+We use **VS Code + GitHub Copilot Chat** with the **Agent**. No Copilot licence, or only the free
+one? You still do the whole exercise — see [No Copilot licence?](#no-copilot-licence).
+Using Claude Code instead? The same steps work; see [Claude Code](#claude-code).
 
 ## The task
 
@@ -16,10 +17,12 @@ Same task at all four exhibits:
 
 You did most of this before the workshop (see the [root README](../../../README.md#get-ready-for-the-workshop)). Two minutes to confirm:
 
-1. Open this repository folder in VS Code.
-2. When VS Code offers the recommended extensions, click **Install**. You need
-   **GitHub Copilot Chat**, **Vercel AI Gateway** and **Playwright Test**.
-3. Open the Chat view: `Ctrl/Cmd+Alt+I`.
+1. Open the **repository root** in VS Code (not this folder).
+2. Check the extensions: **Vercel AI Gateway** and **Playwright Test for VSCode**. GitHub Copilot
+   Chat is built into VS Code, so there is nothing to install for it.
+3. Open the Chat view: `Ctrl+Alt+I` (macOS: `Ctrl+Cmd+I`).
+4. In the chat input box, set the **agent picker** to **Agent** (not Ask or Plan). The
+   **model picker** sits next to it.
 
 ### No Copilot licence?
 
@@ -29,7 +32,7 @@ You only need to add the key:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
 2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
-3. Open a new chat. The model picker should now show **DeepSeek V4.1 Flash**.
+3. Open a new chat. The model picker in the chat input box should now show **DeepSeek V4.1 Flash**.
 4. Send `hi` and check you get an answer back.
 
 The key is workshop-only and is revoked afterwards — at home, use your own Copilot plan or your
@@ -37,21 +40,36 @@ own [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) key. It is stored by
 secret storage — **do not paste it into a file in this repository.**
 
 > Paying for Copilot and want the same model as everyone else? The gateway works alongside
-> Copilot; just pick DeepSeek V4.1 Flash in the model picker.
+> Copilot: pick DeepSeek V4.1 Flash in the model picker.
+
+### Claude Code
+
+Start `claude` in the repository root. Attach files with `@`, e.g. `@spec/foodora-spec.md`.
+Everything else below is the same.
 
 ## Steps
 
-1. Open this folder in VS Code and start a chat.
-2. Ask for what you want, in one sentence:
+1. Start a new chat in **Agent**.
+2. Ask for what you want, in one prompt, with [the spec](../../../spec/foodora-spec.md) attached:
 
    ```
    Order a meal on https://foodora.lovable.app/ and write a Playwright test that proves it worked.
+   Put it in experiments/1_Zoo/1-CodingAgent/tests/.
    ```
 
-   Attach [the spec](../../../spec/foodora-spec.md) (`#file:spec/foodora-spec.md`), so "worked"
-   means what `FD-05` and `FD-06` say, not whatever the app shows.
+   Attach the spec before you send: type `#`, start typing `foodora-spec` and pick the file, or
+   drag it from the Explorer into the chat. The spec makes "worked" mean what `FD-05` and
+   `FD-06` say, not whatever the app shows.
 
-3. Run the test. If it fails, paste the failure back and let the agent fix it — **twice, no more.**
+3. Let the agent run the test. It asks before each terminal command; approve it. Or run it
+   yourself:
+
+   ```bash
+   cd experiments/1_Zoo/1-CodingAgent
+   npx playwright test --project=chromium
+   ```
+
+   If it fails, let the agent fix it — **twice, no more.**
 
 ## Done when
 

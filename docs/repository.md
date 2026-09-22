@@ -15,7 +15,7 @@
 | [`.env.example`](../.env.example) | Local settings — `npm install` copies it to `.env` (gitignored): Wopee values, `FOODORA_URL` for the Battle |
 | [`AGENTS.md`](../AGENTS.md) | Rules your AI agent follows in this repository |
 | [`slides/`](../slides/) | The deck (Slidev) |
-| [`scripts/`](../scripts/) | What `npm run verify` and `npm run links` run |
+| [`scripts/`](../scripts/) | What `npm run verify`, `npm run agents` and `npm run links` run |
 
 ## Commands
 
@@ -26,6 +26,7 @@ Run from the repository root.
 | `npm run verify` | The seven setup checks |
 | `npm run browsers` | Downloads Chromium for Playwright (~150 MB) |
 | `npm run slides` | Opens the deck in your browser |
+| `npm run agents` | Wires Playwright's Test Agents into Copilot for Exhibit 2 — or `npm run agents -- teams/team-N` |
 | `npm run solutions` | Runs the exhibits' reference solutions against the live app |
 | `npm run links` | Checks every link in these docs still resolves |
 

@@ -49,7 +49,7 @@ Each team runs the skill of the team **before** it:
    Copy-Item -Recurse teams/team-M/skills/<their-skill> .claude/skills/<their-skill>
    ```
 
-4. Start a **new chat** with **your own tool**, in agent mode. Type only this:
+4. Start a **new chat** with **your own tool**, with the agent picker on **Agent**. Type only this:
 
    ```text
    run <their-skill>

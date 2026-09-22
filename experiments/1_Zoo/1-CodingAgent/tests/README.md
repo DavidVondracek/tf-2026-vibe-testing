@@ -9,5 +9,5 @@ cd experiments/1_Zoo/1-CodingAgent
 npx playwright test --project=chromium
 ```
 
-Fell behind? [`../solutions/`](../solutions/) has a reference test, and `npm run solutions` from
-the repository root runs it. Read it rather than copying it — the debrief question is where yours differed.
+Fell behind? [`../solutions/`](../solutions/) has the reference tests, and `npm run solutions` from
+the repository root runs them. Read them rather than copying them — the debrief question is where yours differed.

@@ -4,7 +4,9 @@
 
 Three agents ship with Playwright itself: **planner**, **generator**, **healer**. They run on a
 test-runner-aware MCP server (`npx playwright run-test-mcp-server`) that knows your config,
-your projects and your fixtures — not the general-purpose Playwright MCP.
+your projects and your fixtures. The general Playwright MCP (`npx playwright mcp`) cannot replace
+it: it has browser tools only, and none of the tools the agents call to run the seed test, save a
+plan, write a test or run tests.
 
 ## Setup
 
@@ -18,42 +20,57 @@ This folder already ships the two things the agents need before they can do anyt
 
 Keep the **repository root** open in VS Code. Copilot only reads `.github/agents/`,
 `.github/prompts/` and `.vscode/mcp.json` at the root of the open folder, so wire up the agents
-from the root and point them at this exhibit's config:
+from the root:
 
 ```bash
-npx playwright --version      # must be 1.62.0 or newer
-npx playwright init-agents --loop=vscode --prompts --config experiments/1_Zoo/2-PlaywrightAgents/playwright.config.ts
+npx playwright --version      # 1.63.0 in this repository
+npm run agents
 ```
 
-Look for `🎭 Using project "chromium" as a primary project` in the output. If it says
-`Using project ""`, the `--config` path is wrong — check you are in the repository root.
+Look for `🎭 Using project "chromium" as a primary project` in the output.
 
-You get four prompt files in `.github/prompts/` (the `/` commands in Copilot Chat) and three agent
-definitions in `.github/agents/` — both gitignored.
+`npm run agents` runs Playwright's own `init-agents` for this exhibit's config, then fixes two things
+it gets wrong for this workshop:
 
-The MCP server the agents use is already set up in this repository's
-[`.vscode/mcp.json`](../../../.vscode/mcp.json), pointed at this exhibit. `init-agents` rewrites
-that file and drops the pointer, so put it back straight away:
+- It rewrites [`.vscode/mcp.json`](../../../.vscode/mcp.json) and drops the `--config` that points
+  the MCP server at this exhibit. The script puts it back.
+- It pins every agent to `model: Claude Sonnet 4.6`, which overrides the model you picked in
+  Copilot Chat. The script deletes that line.
+
+What you get: three agent definitions in `.github/agents/` and four example prompts in
+`.github/prompts/` (the `/` commands in Copilot Chat) — all gitignored. It also writes
+`.github/workflows/copilot-setup-steps.yml` and prints a `TODO: GitHub > Settings > Copilot >
+Coding agent` block. Both are for Copilot in the cloud. Ignore them.
+
+Then reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the
+agents and the MCP server.
+
+<details>
+<summary>The same by hand, without the script</summary>
 
 ```bash
+npx playwright init-agents --loop=vscode --prompts --config experiments/1_Zoo/2-PlaywrightAgents/playwright.config.ts
 git restore .vscode/mcp.json
 ```
 
-Then reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the
-MCP server.
+Then delete the `model:` line in all three `.github/agents/*.agent.md` files. If the output says
+`Using project ""`, the `--config` path is wrong — check you are in the repository root.
+
+</details>
 
 > **Why only one Playwright server?** `playwright-test` already contains every browser tool the
 > agents use — tied to your seed test, so they act only on a page the test has set up. The
 > general browser server, `npx playwright mcp`, is not needed for any exhibit. Want it for your own
-> agent later? Add it to `.vscode/mcp.json` — but Copilot allows at most 128 tools per request, and
-> it adds 24.
+> agent later? Add it to `.vscode/mcp.json` — but Copilot allows at most 128 tools per request.
+> `playwright-test` alone has 89 (each agent turns on only the ones it needs), and `playwright mcp`
+> adds 24 more.
 
 > Ran `init-agents` from inside this folder? It still works for the terminal, but the files land
-> in this folder, where Copilot never looks. Run it again from the root as above.
+> in this folder, where Copilot never looks. Run `npm run agents` from the root instead.
 
 > On Claude Code instead of Copilot? `--loop=claude`. The choices are `claude`, `codex`,
-> `copilot`, `opencode`, `vscode`. Omitting `--loop` silently writes the VS Code wiring —
-> no error, no prompt.
+> `copilot`, `opencode`, `vscode`, `vscode-legacy`. `vscode` and `copilot` write the same files.
+> Omitting `--loop` also writes them — no error, no prompt.
 
 `init-agents` also wants to write `tests/seed.spec.ts`, but it will not overwrite the one that
 is already there. Ours asserts the app is reachable; the generated stub is empty.

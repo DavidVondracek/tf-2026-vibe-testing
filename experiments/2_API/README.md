@@ -12,7 +12,8 @@ traffic tells you where it is.
 
 ## Setup
 
-Nothing new: the root `npm install` covers it. Run everything from this folder:
+Nothing new: the root `npm install` covers it. Keep the repository root open in VS Code, and run
+tests from this folder:
 
 ```bash
 cd experiments/2_API
@@ -48,19 +49,20 @@ ready-to-use `foodoraApi` request context.
 2. **Ask your agent for tests**, in one prompt:
 
    ```
-   Write Playwright API tests in tests/restaurants.spec.ts. Use the foodoraApi fixture from
-   ../fixtures.ts. The API contract is https://foodora.lovable.app/openapi.json. Check the
-   restaurant list and one restaurant's menu against it. Take expected results from
-   spec/foodora-spec.md, not from what the API happens to return.
+   Write Playwright API tests in experiments/2_API/tests/restaurants.spec.ts. Import test and
+   expect from experiments/2_API/fixtures.ts and use its foodoraApi fixture. The API contract is
+   https://foodora.lovable.app/openapi.json. Check the restaurant list and one restaurant's menu
+   against it. Take expected results from spec/foodora-spec.md, not from what the API returns.
    ```
 
    The contract is the API's own [OpenAPI schema](https://foodora.lovable.app/openapi.json): every
    column of `restaurants` and `menu_items`, with its type and whether it can be empty.
 
-3. Run them: `npx playwright test tests/`
+3. Run them from this folder: `npx playwright test tests/`
 4. **Use the API as a second source of truth.** It knows each restaurant's delivery fee. Ask your
    agent for a test that the cart charges what the API advertises (`FD-05` in
-   [the spec](../../spec/foodora-spec.md)). If it fails, check the spec before you "fix" the test.
+   [the spec](../../spec/foodora-spec.md)). Whatever the result, check the spec before you change
+   the test.
 
 ## Done when
 
@@ -72,18 +74,18 @@ Your tests run, and one of them checks what the UI shows against what the API sa
   exist? Without the key? Which of those deserve a test — and which would your agent have written
   without being asked?
 - Look at `delivery_fee` in [the schema](https://foodora.lovable.app/openapi.json). What type
-  would you expect? What does the contract say? Why does that matter for the bug you just found?
+  would you expect? What does the contract say? Does that change how your UI test compares them?
 - Ask your agent for a contract test: every row the API returns must match the schema. Would it
   still pass if someone added a column tomorrow — and should it?
-- Ask your agent to test *placing an order* through the API. What does it find, and what does
-  that tell you about the order tracking page?
+- Ask your agent to test *placing an order* through the API. What does it find? The schema
+  documents only two tables — what does your agent do about everything else?
 
 ## If you get stuck
 
 1. **Ask your neighbour.** Or your team, after lunch.
 2. **Check [troubleshooting](../../docs/setup-troubleshooting.md#on-the-workshop-day)** — the workshop-day table.
 3. **Shortcut:** [`solutions/restaurants.spec.ts`](./solutions/restaurants.spec.ts) — four
-   read-only tests of the API itself. Run it with `npx playwright test solutions/`. The UI-against-API
-   test is yours to write.
+   read-only tests of the API itself. Run it from this folder with `npx playwright test solutions/`.
+   The UI-against-API test is yours to write.
 
 Repo map: [the Zoo exhibits](../1_Zoo/) · [the spec](../../spec/) · [what your agent must know](../../AGENTS.md)

@@ -32,10 +32,11 @@ it will not find the config.
 
 Agent wiring is the exception: run `init-agents`, `init-skills` and `npx playwright cli` from the
 **repository root**, because the editor only reads `.github/agents/`, `.github/prompts/`,
-`.vscode/mcp.json` and `.claude/skills/` there. Point `init-agents` at a config with
-`--config <folder>/playwright.config.ts` — without it, it reports `Using project ""`. The MCP
-servers (Playwright Test, Wopee) are preset in `.vscode/mcp.json`; after `init-agents`,
-run `git restore .vscode/mcp.json`, because it rewrites that file.
+`.vscode/mcp.json` and skills in `.github/skills/`, `.claude/skills/` or `.agents/skills/` there.
+Wire the Test Agents with `npm run agents` (Exhibit 2) or `npm run agents -- teams/team-N` (your
+team folder), not with a bare `init-agents`: the script points the preset `playwright-test` MCP
+server in `.vscode/mcp.json` at that folder and removes the `model:` line `init-agents` writes into
+`.github/agents/*.agent.md`, which would override the model picked in Copilot Chat.
 
 The optional API experiment lives in [`experiments/2_API/`](experiments/2_API/) and works the
 same way: `cd` into it, write into its `tests/`, and import `test` from its `fixtures.ts`.

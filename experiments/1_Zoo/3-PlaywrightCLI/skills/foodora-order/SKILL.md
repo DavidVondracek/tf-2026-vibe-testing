@@ -6,19 +6,19 @@ allowed-tools: Bash(npx:*)
 
 # Order a meal on the Foodora demo app
 
-The app is at https://foodora.lovable.app/. No login, no cookie banner — you can start ordering
-immediately.
+The app address is `$FOODORA_URL`, falling back to https://foodora.lovable.app/. No login, no
+cookie banner — you can start ordering immediately.
 
 ## Steps
 
 1. Open the app in the `lab` session:
-   `npx playwright cli -s=lab open https://foodora.lovable.app/`
+   `npx playwright cli -s=lab open "${FOODORA_URL:-https://foodora.lovable.app}/"`
 2. Open a restaurant. They are **links**, not buttons: `find "Burger Palace"`, then `click` the
    ref. This is client-side routing to `/restaurant/1` — the page does not reload.
-3. Add a dish. The quick-add control is a **`+` button with no accessible name**, nested inside
-   the menu-item link. Snapshot the menu item first, then click the button ref inside it.
+3. Add a dish. The quick-add control is the **`+` button next to the price**, nested inside the
+   menu-item link. Snapshot the menu item first, then click the button ref inside it.
 4. Confirm it landed by reading the header cart button: its name changes from `Cart` to `Cart 1`.
-   Do **not** rely on the "Added to cart!" toast — it renders twice and auto-dismisses.
+   Do **not** rely on the "Added to cart!" toast — it auto-dismisses.
 5. Click the cart button, then `Proceed to Checkout`. This navigates to `/checkout`.
 6. Fill the delivery form: `Full Name`, `Street Address`, `City`, `Phone Number`. Select the
    `Cash on Delivery` radio.
@@ -39,9 +39,7 @@ The order succeeded when the page shows:
 - Always use `-s=lab`. Never the default session.
 - Never run `close-all` or `kill-all` — other people's sessions are running on this machine.
 - Re-snapshot after every navigation. Refs are invalidated when the page changes.
-- **Never reload the page mid-flow.** The cart lives in React state, not storage — a reload
-  empties it silently and checkout then shows an empty-state view. You cannot seed a cart;
-  you must click through every time.
+- Click through the whole flow in one session, from the home page to the confirmation.
 - The app has **no `data-testid` attributes anywhere**. Use roles, labels and text.
-- The checkout form has **no validation** — not one field is `required`, and an entirely empty
-  form still places an order. Never assert an error message here without seeing it first.
+- Take expected results from `spec/foodora-spec.md`, not from what the app happens to do. When
+  the two disagree, report it.

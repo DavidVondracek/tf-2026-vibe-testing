@@ -9,6 +9,7 @@
   },
   "scripts": {
     "postinstall": "node scripts/create-env.mjs",
+    "agents": "node scripts/agents.mjs",
     "slides": "npm --prefix slides install && npm --prefix slides run dev",
     "verify": "node scripts/verify-setup.mjs",
     "links": "node scripts/check-links.mjs",
