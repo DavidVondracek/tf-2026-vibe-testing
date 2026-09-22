@@ -60,7 +60,9 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 
 | What you see | Fix |
 | --- | --- |
-| VS Code did not offer the recommended extensions | `Ctrl/Cmd+Shift+P` → **Extensions: Show Recommended Extensions** → install all three. |
+| **Workspace Recommendations** says *No extensions found* | You already have them — type `@installed` and look for **Vercel AI Gateway** and **Playwright Test for VSCode**. Copilot Chat never shows there on current VS Code: it is built in. |
+| No **Workspace Recommendations** section at all | VS Code is not open at the repository root. **File → Open Folder…** → the `tf-2026-vibe-testing-web-apps` folder itself, not a folder inside it. |
+| No Copilot Chat | It is built into current VS Code. Update VS Code (**Help → Check for Updates**), then sign in with your GitHub account. |
 | The Chat view asks you to sign in | Sign in with your GitHub account. The free Copilot plan is enough. |
 | **DeepSeek V4.1 Flash** is not in the model picker | Run **Vercel AI Gateway: Manage Authentication** again and paste the key. Then **Developer: Reload Window**. |
 | The model answers with an authentication error | The key was pasted incompletely. It starts with `vck_`. Paste it again. |
