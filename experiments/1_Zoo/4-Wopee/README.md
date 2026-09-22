@@ -16,20 +16,48 @@ Here you do not write the test. You give Wopee the URL and the goal, and judge w
 ## Steps
 
 1. **Create the project.** Sign in at [cmd.wopee.io](https://cmd.wopee.io) and click
-   **New Project** (top right).
+   **NEW PROJECT** (top right).
    - **App URL:** keep **My app** selected and paste `https://foodora.lovable.app/`.
-   - **Test instructions:** paste `FD-05` and `FD-06` from [the spec](../../../spec/foodora-spec.md),
-     or the short version: *order a meal and verify the confirmation.*
-   - Leave **Advanced settings** as they are — *Explore the app and generate tests* stays on.
+   - **Test instructions** (optional): the chips add ready-made ones — **+ Checkout** is the one
+     for us. Or type the short version: *order a meal and verify the confirmation.* Leave it empty
+     and the agent decides for itself.
+   - Leave **Advanced settings** as they are — it says *Playwright · explore and generate on*.
    - Click **Create project and generate tests**.
-2. **Watch it explore.** Open **Analysis** in the top menu. The agent opens a real browser, clicks
-   through the app and takes a screenshot after every step. Then it writes an app description,
-   user stories and test cases. Exploring takes 5–15 minutes; the rest a few more.
-3. **Open a comparison.** Open **Runs**, pick the newest run, then a scenario, then a step. The
-   **Comparison view** shows **Current Image** on the left and **Baseline** on the right.
-   A brand-new project has no baseline yet, so the right side asks you to **APPROVE** the current
-   image. Approving makes it the baseline the next run is compared against. To judge a real
-   difference, open the same view in the shared project (see [If you get stuck](#if-you-get-stuck)).
+2. **Answer its one question, then watch.** The analysis opens with a live **Browser** view: the
+   agent clicks through your app while you watch, and **TAKE CONTROL** hands you the same browser.
+   Left are the scenarios, starting with **Initial crawl**, with its own progress (*6 / 25 steps*).
+
+   Early on it asks *"Where should I explore next?"* and waits. Pick **Browse restaurants and order
+   a meal**, or type your own. That is the last thing you have to do here.
+
+   The rest runs by itself, about five minutes in our rehearsal:
+   - the crawl orders a meal and reaches the tracking page;
+   - **Generating analysis artifacts** — application description, user flows, scenarios;
+   - it queues and runs one scenario on its own, so you get a run without asking for one.
+
+   Read the **Agent report** when the crawl is done: every step with its expected outcome and what
+   was actually verified, then **Issues Encountered** and recommendations. Ours asked for
+   *"more stable accessible labels for item-level add-to-cart controls"* — compare that with what
+   your own tests found in Exhibits 1 to 3.
+
+   Watch the scenario's result line. Ours said **Test passed · verdict gate disagreed**: the agent
+   called it a pass and Wopee's verdict gate did not. Open it and decide who was right — that is
+   the same judgement as the comparison below.
+3. **Read the run.** Click a scenario that has run, then its run under **Test Runs** (or open
+   **Runs** in the top menu and pick the newest one). Four tabs: **Report**, **Steps**,
+   **Playwright report**, **Logs**.
+
+   - **Report** is the agent's account: every step with its *expected outcome* and what it
+     *verified*, then **Issues Encountered** and a **Final Analysis**. This is the artifact a
+     non-tester can read.
+   - **Steps from execution** lists what the agent actually did, one screenshot per step. Click
+     through and watch the app go by; this is your evidence when you doubt the verdict.
+   - The same view has **✨ GENERATE STEPS**: turn what the agent did into the test's steps — the
+     same trade-off as the **Save steps** switch in the run dialog.
+
+   Scroll the report to the bottom, to **Verdict Grounding** and **Verdict Integrity**. That is
+   where the agent's prose verdict and the recorded assertions are reconciled, and where a gate
+   decides what the run is worth.
 
 ## Done when
 
@@ -58,28 +86,50 @@ created that file for you.
    `.env` is gitignored — the values stay on your laptop.
 4. Start the server: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server**
    (**Restart Server** if it is already running, so it reads the new `.env`).
-5. Open Copilot Chat in **Agent** mode and ask: *list my Wopee analysis suites, then start a new
-   Wopee analysis focused on the checkout flow.* Allow the tool calls when asked. You should see
-   `wopee_fetch_analysis_suites`, then `wopee_dispatch_analysis`.
-6. The new analysis shows up under **Analysis** in cmd.wopee.io. When it has finished, ask Copilot
-   to fetch its user stories (`wopee_fetch_artifact`) and compare them with the spec.
+5. Open Copilot Chat in **Agent** mode, in a new chat, and ask three things — one per chat:
 
-The server's other tools create suites, generate and update artifacts (app context, user stories,
-test cases, Playwright code), run chosen test cases with the agent (`wopee_dispatch_agent`), and
-fetch recent results (`wopee_fetch_recent_executions`).
+   ```
+   Use the Wopee tools: what test coverage does my project have? List the analyses, the test cases
+   and their latest status, and tell me which FD-05 and FD-06 rules from spec/foodora-spec.md are
+   not covered.
+   ```
 
-> On Claude Code instead? It does not read `.vscode/mcp.json`. Add a `.mcp.json` in the
-> repository root with the same server under `mcpServers`, plus
-> `"env": { "WOPEE_PROJECT_UUID": "${WOPEE_PROJECT_UUID}", "WOPEE_API_KEY": "${WOPEE_API_KEY}" }`.
-> Then start Claude Code with the `.env` values loaded: `set -a; . ./.env; set +a; claude`.
+   ```
+   Add a new Wopee test case for FD-06: placing an order with an empty checkout form must be
+   rejected. Put it in the existing analysis suite and show me what you created.
+   ```
+
+   ```
+   Run the Wopee test case "Open a restaurant from the homepage" with the agent and tell me the
+   result when it finishes.
+   ```
+
+   You should see `wopee_fetch_test_inventory`, then `wopee_fetch_artifact` and
+   `wopee_update_artifact`, then `wopee_dispatch_agent`. The new test case appears under
+   **Scenarios** in cmd.wopee.io, and the run under **Runs**.
+
+   **Wopee words:** an **analysis** is a suite (`A001`, with a `suiteUuid`), a **scenario** is a
+   test case, and the test cases live in the `USER_STORIES` artifact of one analysis. Every tool
+   call works on exactly one analysis.
+
+   > **The third one will not tell you the result** (September 2026). `wopee_dispatch_agent` starts
+   > the run, but with a project API key the two result tools answer `Not Authorised!` and the
+   > inventory keeps reporting `NOT_RUN` for test cases that have already run. cmd.wopee.io shows
+   > the run and its report correctly. A good agent says exactly that instead of inventing a
+   > verdict — watch whether yours does.
 
 ## The question to answer at the debrief
 
-Open a comparison and decide: **real regression, or noise?**
+Open a run and decide: **who decides whether this passed — the agent, the assertions, or you?**
 
-That judgement is the whole job. A tool that shows you every difference has not saved you
-anything; a tool that hides the wrong one has cost you a bug. Score it on the scorecard
-accordingly — and score it honestly. Especially this one.
+Our rehearsal gave both halves of that question in one afternoon. A scenario finished as *Test
+passed · verdict gate disagreed*. The `FD-06` test we wrote ourselves ended as **Failed**, with the
+report noting *"All 1 assertion(s) passed but prose reports FAILED"* and the gate flagging
+`unsupported-failure`.
+
+That judgement is the whole job. A tool that calls everything a failure has not saved you anything;
+a tool that calls a real defect a pass has cost you a bug. Score it on the scorecard accordingly —
+and score it honestly. Especially this one.
 
 ## If you get stuck
 
