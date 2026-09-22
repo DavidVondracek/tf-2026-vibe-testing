@@ -6,5 +6,9 @@
   },
   "files.autoSave": "afterDelay",
   "chat.mcp.autostart": "never",
-  "workbench.browser.enableChatTools": false
+  "workbench.browser.enableChatTools": false,
+  "chat.tools.terminal.autoApprove": {
+    "/^npx playwright test\\b/": true
+  },
+  "chat.agent.maxRequests": 200
 }
