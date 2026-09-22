@@ -60,9 +60,12 @@ Everything else below is the same.
    ```
    Write a Playwright test that orders a meal on https://foodora.lovable.app/ and proves it worked.
    Take the expected results from spec/foodora-spec.md (FD-05, FD-06), not from what the app shows.
-   Put it in experiments/1_Zoo/1-CodingAgent/tests/, run it with npx playwright test, and fix it
-   from the test output.
+   Put it in experiments/1_Zoo/1-CodingAgent/tests/, run it with npx playwright test --headed,
+   and fix it from the test output.
    ```
+
+   `--headed` opens the browser, so you watch every run the agent starts. The agent itself has no
+   browser tools: it learns the app from the spec and from the test output.
 
    The agent opens the spec itself. To attach it as well: open `spec/foodora-spec.md` in the editor (click it in the
    Explorer), then type `#foodora` in the chat and pick `foodora-spec.md`. `#` only suggests files
