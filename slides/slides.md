@@ -97,7 +97,7 @@ label: Welcome
 
 <Wifi class="mt-7" />
 
-<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. And paste the AI key from the room: <b>Vercel AI Gateway: Manage Authentication</b>.</p>
+<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. No Copilot? Paste the AI key from the room: <b>Vercel AI Gateway: Manage Authentication</b>.</p>
 
 <!--
 09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
@@ -138,7 +138,7 @@ label: Welcome
 <tr><td>09:00</td><td>Kick-off: Speed Gap Diagnostic</td></tr>
 <tr><td>09:15</td><td>Concepts: The New Stack</td></tr>
 <tr class="pause"><td>09:55</td><td>Break</td></tr>
-<tr><td>10:10</td><td>The Zoo: 4 exhibits, 1 demo app</td></tr>
+<tr><td>10:10</td><td>The Zoo — 4 exhibits, 1 demo app</td></tr>
 <tr><td>11:50</td><td>Teams & Mission</td></tr>
 <tr class="pause"><td>12:00</td><td>Lunch</td></tr>
 <tr><td>13:00</td><td>Build One Thing</td></tr>
@@ -178,7 +178,7 @@ image: /img/photos/diagnostic.jpg
 
 # Speed Gap Diagnostic
 
-Kick-off · 15 min
+Kick-off · 5 min
 
 ---
 block: kickoff
@@ -317,7 +317,7 @@ clicks: 4
 <StackDiagram />
 
 <!--
-09:26 — builds in four clicks, one sentence each. The Zoo makes every piece concrete.
+09:24 — builds in four clicks, one sentence each. The Zoo makes every piece concrete.
 [click] SKILL.md — know-how the agent loads only when a task needs it. Exhibit 3 and the afternoon.
 [click] CLI — the agent drives the browser with shell commands; answers are file paths. Exhibit 3.
 [click] MCP — the same browser, through tools that live in the agent's context. Exhibit 2.
@@ -366,7 +366,7 @@ Head-to-head studies, 2025–2026 — same tasks, one done through MCP, one thro
 <div class="banner">The protocol matters less than <em>how the tools are designed.</em></div>
 
 <!--
-09:30 — the point: it is not "CLI good, MCP bad". Success is about level; the cost gap is mostly the upfront tool list, and clients now defer it.
+09:29 — the point: it is not "CLI good, MCP bad". Success is about level; the cost gap is mostly the upfront tool list, and clients now defer it.
 Sources: Anthropic "Advanced tool use", 24 Nov 2025 (GitHub MCP ~26K tokens / 35 tools; 5 servers ~55K; tool search −85%, Opus 4 accuracy 49→74%).
 Mario Zechner, 15 Aug 2025: same tool as MCP and CLI, 120 runs, 100% vs 100%, $19.45 vs $19.95.
 Kun Chen, 21 Mar 2026: 17 GitHub tasks × 5, CLI 86% / $0.054 vs MCP 87% / $0.148 per task. Scalekit, Mar 2026: CLI 1.4–9.4K vs MCP 32–83K tokens.
@@ -386,7 +386,7 @@ Playwright, landing page → checkout: tokens that land in the agent's context. 
 <p class="chart-note">Every modern step costs ~100 tokens: both write the page to a file and return a link. The difference is what loads first. "4× fewer tokens" comes from a Medium post, not Microsoft.</p>
 
 <!--
-09:34 — our own measurement, re-runnable: docs/research/measure/run.sh (write-up: docs/research/foodora-measurement.md). Playwright 1.63 built-in MCP and CLI, @playwright/mcp 0.0.82 identical to built-in; 0.0.41 = Oct 2025.
+09:32 — our own measurement, re-runnable: docs/research/measure/run.sh (write-up: docs/research/foodora-measurement.md). Playwright 1.63 built-in MCP and CLI, @playwright/mcp 0.0.82 identical to built-in; 0.0.41 = Oct 2025.
 Tokenizer: o200k (OpenAI), within ~10% of Claude. Lower bound: the agent never re-reads the page file; reading it every step adds ~5.6K to each bar.
 MCP stopped putting the page tree into every answer in @playwright/mcp 0.0.69 / Playwright 1.59 (Mar–Apr 2026, PR #39768). Only an explicit browser_snapshot puts it inline.
 Checkly (Stefan Judis, 30 Jul 2026, one task × 3 runs): CLI 45–48K vs MCP 48–50K — also near parity.
@@ -409,7 +409,7 @@ block: stack
 <p class="chart-note">Vet every MCP server you add: in a 2025 study, poisoned tool descriptions hijacked agents up to 72.8% of the time.</p>
 
 <!--
-09:37 — close the section with the decision, not the debate. Both ship in one package; you will try all of them in the Zoo.
+09:35 — close the section with the decision, not the debate. Both ship in one package; you will try all of them in the Zoo.
 Sources: microsoft/playwright-mcp and microsoft/playwright-cli READMEs (Sep 2026): CLI + skills for "high-throughput coding agents", MCP for "exploratory automation, self-healing tests, long-running autonomous workflows".
 Playwright 1.62 (24 Jul 2026) bundles `playwright mcp` and `playwright cli`; Test Agents since 1.56 (6 Oct 2025).
 MCPTox (arXiv 2508.14925, Aug 2025): 45 real servers, 353 tools, attack success up to 72.8%, refusal rate under 3%.
@@ -450,7 +450,7 @@ description: Log in to the demo
 </div>
 
 <!--
-09:33 — define "run cold" here: a fresh agent session, given only the SKILL.md, does the job without follow-up prompts.
+09:37 — define "run cold" here: a fresh agent session, given only the SKILL.md, does the job without follow-up prompts.
 -->
 
 ---
@@ -472,7 +472,7 @@ block: stack
 
 # API testing with AI agents: <span class="y">an honest map</span>
 
-Foodora has an API too — on another host. The UI's traffic shows you where: <code>GET …supabase.co/rest/v1/restaurants</code>
+Foodora has an API too — on another host. The UI's traffic shows you where: <code>GET https://&lt;another host&gt;/rest/v1/restaurants</code>
 
 <div class="cards c3">
 <div class="card"><div class="n">WORKS TODAY</div><h3>Tests from real traffic</h3><p>Show the agent one captured request. Status, shape, filters, errors — written in minutes.</p></div>
@@ -528,7 +528,7 @@ Everyone on the same exhibit at the same time. Nobody left behind.
 | 🤖 | **AI Coding Agent** | Define intent, watch the agent write, run and interpret tests. Find where it breaks | Agent autonomy, and where human judgment still wins |
 | 🐍 | **Playwright Agents** | Let the planner explore, the generator write and the healer repair — you review the artifacts | Plan → test → repair, riding on MCP |
 | 🦁 | **Playwright CLI + Skills** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge |
-| <img src="/img/wopee-monkey.svg" class="h-9 mx-auto" /> | **Wopee.io + MCP** | Paste the URL, watch it map the app, generate and run visual + functional regression | Purpose-built testing agent vs. general-purpose tools |
+| <img src="/img/wopee-monkey.svg" class="h-9 mx-auto" /> | **Wopee.io + MCP** | Paste the URL, watch it map the app, generate and run its own tests | Purpose-built testing agent vs. general-purpose tools |
 
 </div>
 
@@ -595,7 +595,7 @@ stuck: Open the solutions/ folder and read what a good run produces.
 <p class="mt-5"><span class="hl">Bonus</span> &nbsp;Ask for a negative case: checkout with an empty cart. Did it invent an error message the app never shows?</p>
 
 <!--
-10:10 — intro 2 min, hands-on until 10:30, debrief 5 min.
+10:10 — intro 2 min, hands-on 10:12–10:30, debrief 5 min.
 -->
 
 ---
@@ -606,6 +606,11 @@ label: The Zoo · debrief
 # Exhibit 1 debrief: <span class="y">what worked, what broke?</span>
 
 <Scorecard active="agent" />
+
+
+<!--
+10:30 — 5 minutes. One thing each tool got wrong, from three tables. Fill the scorecard row live.
+-->
 
 ---
 layout: exhibit
@@ -630,12 +635,12 @@ goal: Let the planner explore, the generator write, the healer repair. You revie
 path: experiments/1_Zoo/2-PlaywrightAgents/
 until: '10:55'
 minutes: 20
-done: A plan in specs/, a generated test, and a green run you did not write.
-stuck: The folder ships a working config and a green seed test — start from there.
+done: A plan in specs/, a generated test, and a run that is green 3× with --retries=0.
+stuck: Read solutions/order.md and solutions/order.spec.ts — npm run solutions runs them.
 ---
 
-1. From the <b>repo root</b>, run <code>npm run agents</code>, then <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Start Server</b>. Run the seed test once. It must be green.
-2. New chat, <b>planner</b> + <b>Claude Haiku 4.5</b>: plan one dish, cash on delivery (prompt in the README). Read its <code>specs/order.md</code> — the artifact a non-coder can review.
+1. From the <b>repo root</b>: <code>npm run agents</code> → <b>Developer: Reload Window</b> → seed test green → <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Start Server</b>.
+2. New chat, <b>planner</b> + <b>Auto</b> or <b>Claude Haiku 4.5</b>: plan one dish, cash on delivery (prompt in the README). Read its <code>specs/order.md</code> — the artifact a non-coder can review.
 3. New chat, <b>generator</b>: scenario 1.1 only, then run it. Which <code>expect</code> accepts what the spec forbids?
 
 <p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then search <code>tests/</code> for <code>test.fixme</code>. Did it repair your test — or just silence it?</p>
@@ -652,6 +657,11 @@ label: The Zoo · debrief
 # Exhibit 2 debrief: <span class="y">what worked, what broke?</span>
 
 <Scorecard active="mcp" />
+
+
+<!--
+10:55 — 5 minutes. Ask who found the expect that accepts what the spec forbids. Fill the row live.
+-->
 
 ---
 layout: exhibit
@@ -676,15 +686,15 @@ goal: Install the skills. Watch your agent drive a browser without you writing a
 path: experiments/1_Zoo/3-PlaywrightCLI/
 until: '11:20'
 minutes: 20
-done: Snapshots are landing in .playwright-cli/ — not in your context.
-stuck: All of it is npx playwright … — nothing extra to install.
+done: The skill is on disk and 3+ snapshots are in .playwright-cli/ — not in your context.
+stuck: Compare with skills/foodora-order/SKILL.md in the exhibit folder.
 ---
 
 1. <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Stop Server</b>. Then, from the <b>repo root</b>: <code>npx playwright init-skills --loop=claude</code>, then open <code>.claude/skills/playwright-cli/SKILL.md</code>. Three frontmatter fields are all the agent holds up front.
-2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. Every answer is a <em>file path</em>, not a page.
+2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. <code>open</code>/<code>click</code> answer with a <em>file path</em>; <code>find</code> with a few lines and a ref.
 3. Now ask your agent to order the meal. It never had to be told the commands.
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Write your own <code>SKILL.md</code> for the order flow — then break its <code>description</code> and watch the agent stop finding it.</p>
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Write your own <code>SKILL.md</code> for the order flow, copy it to <code>.github/skills/</code> — then break its <code>description</code> and watch the agent stop finding it.</p>
 
 <!--
 11:00 — hands-on until 11:20, debrief 5 min.
@@ -714,7 +724,7 @@ tagline: A purpose-built testing agent — from the cloud, or called by your own
 facts:
   - { k: Habitat, v: 'cmd.wopee.io, and any MCP client' }
   - { k: Feeds on, v: 'A URL — or a tool call from your coding agent' }
-  - { k: Best at, v: 'Mapping the app, visual + functional regression' }
+  - { k: Best at, v: 'Mapping the app, then generating and running its own tests' }
   - { k: Watch out, v: 'Less control over the generated code' }
 ---
 
@@ -722,19 +732,19 @@ facts:
 layout: task
 block: zoo
 kicker: Exhibit 4 · Wopee.io
-goal: Paste the URL. Watch it map the app, generate and run regression — then call the same agent from your own agent.
+goal: Paste the URL, watch it map the app — then call the same agent from your own agent.
 path: experiments/1_Zoo/4-Wopee/
 until: '11:45'
 minutes: 20
-done: A run finished, and you opened one visual diff.
+done: The analysis finished, you read its test cases, and you opened one run's report.
 stuck: Use the shared project on the whiteboard — a finished run is already waiting there.
 ---
 
-1. Sign in at <code>cmd.wopee.io</code>, <b>NEW PROJECT</b> with the Foodora URL, instruction: *order a meal and verify the confirmation.*
+1. Sign in at <code>cmd.wopee.io</code>, <b>NEW PROJECT</b> with the Foodora URL, the <b>+ Checkout</b> chip (or type: *order a meal and verify the confirmation*).
 2. Answer its one question — where to explore next — then watch it crawl, write its artifacts and run a scenario on its own.
 3. Open the run's report and decide: <b>who says this passed — the agent, the assertions, or you?</b>
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;The <code>wopee</code> MCP server is preset: ask <em>your</em> agent for the project's coverage, then to write a test case. Install <code>wopee-intent-tests</code> from the folder and watch the same request come back as intent instead of clicks.</p>
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;The <code>wopee</code> MCP server is preset but off — <b>MCP: List Servers → wopee → Start Server</b>. Then ask <em>your</em> agent for the project's coverage, then to write a test case. Install <code>wopee-intent-tests</code> from the folder and watch the same request come back as intent instead of clicks.</p>
 
 <!--
 11:25 — hands-on until 11:45, debrief 5 min.
@@ -955,7 +965,7 @@ checkpoints:
 <div v-click class="mt-4 battle-cmd">
 
 <ol class="battle-steps">
-<li><code>git pull upstream main</code> — the three stories</li>
+<li><code>git switch team-N</code> → <code>git pull upstream main</code> — the three stories</li>
 <li>In <code>.env</code>, remove the <code>#</code> before <code>FOODORA_URL</code></li>
 <li><code>cd teams/team-N</code> → <code>npx playwright test</code></li>
 </ol>
@@ -965,8 +975,8 @@ checkpoints:
 </div>
 
 <!--
-15:15 — BEFORE the reveal: publish foodora-new and push spec/battle/ (the stories are prepared in the
-private battle folder, not in this repo). Then click through: three story ids, then the commands.
+15:15 — BEFORE the reveal: publish foodora-new and merge branch battle/reveal into main (it holds spec/battle/, the
+answer key and this deck's reveal slide; it is kept rebased). Then click through: three story ids, then the commands.
 Leave this slide up until 15:55.
 The original foodora.lovable.app stays as it is — teams run the same suite against both.
 -->
