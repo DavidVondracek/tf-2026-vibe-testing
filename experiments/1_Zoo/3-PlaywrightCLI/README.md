@@ -7,6 +7,10 @@ The browser CLI and its skills ship inside the `playwright` package. No separate
 Run everything here from the **repository root** — the folder you have open in VS Code. That is
 where your agent looks for skills, and where its terminal starts.
 
+Stop the Playwright MCP server from Exhibit 2 before you start: `Ctrl/Cmd+Shift+P` → **MCP: List
+Servers** → **playwright-test** → **Stop Server**. With it running, the agent may drive the browser
+over MCP instead of the CLI, and this exhibit is about the CLI.
+
 ## Steps
 
 1. Install the skills and look at what you got:

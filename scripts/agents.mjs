@@ -39,4 +39,5 @@ for (const file of readdirSync(agentsDir).filter((f) => f.endsWith('.agent.md'))
   writeFileSync(path, readFileSync(path, 'utf8').replace(/^model:.*\r?\n/m, ''))
 }
 
-console.log(`\n  Agents ready for ${folder}. Reload VS Code: Ctrl/Cmd+Shift+P → Developer: Reload Window.\n`)
+console.log(`\n  Agents ready for ${folder}. Reload VS Code (Ctrl/Cmd+Shift+P → Developer: Reload Window),`)
+console.log('  then start their MCP server: MCP: List Servers → playwright-test → Start Server.\n')

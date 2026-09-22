@@ -37,6 +37,8 @@ Wire the Test Agents with `npm run agents` (Exhibit 2) or `npm run agents -- tea
 team folder), not with a bare `init-agents`: the script points the preset `playwright-test` MCP
 server in `.vscode/mcp.json` at that folder and removes the `model:` line `init-agents` writes into
 `.github/agents/*.agent.md`, which would override the model picked in Copilot Chat.
+The MCP servers in `.vscode/mcp.json` do not start on their own (`chat.mcp.autostart` is `never`):
+each exhibit that needs one says to start it with **MCP: List Servers** → **Start Server**.
 
 The optional API experiment lives in [`experiments/2_API/`](experiments/2_API/) and works the
 same way: `cd` into it, write into its `tests/`, and import `test` from its `fixtures.ts`.

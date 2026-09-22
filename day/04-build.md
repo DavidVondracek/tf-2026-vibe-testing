@@ -98,7 +98,8 @@ cp experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts teams/team-N/tests/
 npm run agents -- teams/team-N
 ```
 
-It points the `playwright-test` MCP server at your folder. Reload the window. Before the Swap, run
+It points the `playwright-test` MCP server at your folder. Reload the window, then start it:
+**MCP: List Servers** → **playwright-test** → **Start Server**. Before the Swap, run
 `git restore .vscode/mcp.json` — that file is shared, so keep your change out of your team's PR. Save plans to `teams/team-N/specs/`. The details are in
 [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup).
 
@@ -109,7 +110,7 @@ agent to turn what it did into Playwright tests in `teams/team-N/tests/`.
 **Wopee.io.** Your suite lives in [cmd.wopee.io](https://cmd.wopee.io), in the Foodora project
 from [Exhibit 4](../experiments/1_Zoo/4-Wopee/). Check its user stories and test cases against
 `FD-01` … `FD-08`. Your `SKILL.md` drives that suite through the Wopee MCP server (set up in the
-Exhibit 4 bonus), for example:
+Exhibit 4 bonus — start it with **MCP: List Servers** → **wopee** → **Start Server**), for example:
 
 1. `wopee_fetch_analysis_suites` — find the suite.
 2. `wopee_dispatch_agent` — run the chosen test cases.

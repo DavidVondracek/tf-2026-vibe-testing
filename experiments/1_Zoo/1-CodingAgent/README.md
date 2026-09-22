@@ -24,6 +24,11 @@ You did most of this before the workshop (see the [root README](../../../README.
 4. In the chat input box, set the **agent picker** to **Agent** (not Ask or Plan). The
    **model picker** sits next to it.
 
+This exhibit is the coding agent on its own: it writes and runs test code. The repository's MCP
+servers stay off until an exhibit starts them (`chat.mcp.autostart` is `never` in
+[`.vscode/settings.json`](../../../.vscode/settings.json)), so the agent cannot drive the browser
+through Exhibit 2's server instead of writing the test.
+
 ### No Copilot licence?
 
 Use the Vercel AI Gateway instead. It is already configured in this repository —
@@ -50,17 +55,18 @@ Everything else below is the same.
 ## Steps
 
 1. Start a new chat in **Agent**.
-2. Ask for what you want, in one prompt, with [the spec](../../../spec/foodora-spec.md) attached:
+2. Ask for what you want, in one prompt:
 
    ```
-   Order a meal on https://foodora.lovable.app/ and write a Playwright test that proves it worked.
-   Put it in experiments/1_Zoo/1-CodingAgent/tests/.
+   Write a Playwright test that orders a meal on https://foodora.lovable.app/ and proves it worked.
+   Take the expected results from spec/foodora-spec.md (FD-05, FD-06), not from what the app shows.
+   Put it in experiments/1_Zoo/1-CodingAgent/tests/ and run it.
    ```
 
-   Attach the spec before you send: open `spec/foodora-spec.md` in the editor (click it in the
+   The agent opens the spec itself. To attach it as well: open `spec/foodora-spec.md` in the editor (click it in the
    Explorer), then type `#foodora` in the chat and pick `foodora-spec.md`. `#` only suggests files
-   that are open. The spec makes "worked" mean what `FD-05` and
-   `FD-06` say, not whatever the app shows.
+   that are open. The spec makes "worked" mean what `FD-05` and `FD-06` say, not whatever the
+   app shows.
 
 3. Let the agent run the test. It asks before each terminal command; approve it. Or run it
    yourself:

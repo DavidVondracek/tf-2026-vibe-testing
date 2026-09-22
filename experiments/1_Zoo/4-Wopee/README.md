@@ -40,8 +40,9 @@ Comparison view.
 
 Ask your coding agent to start a Wopee analysis. It calls a testing agent as a tool.
 
-The Wopee MCP server is already set up in [`.vscode/mcp.json`](../../../.vscode/mcp.json). It
-reads its values from `.env` in the repository root — `npm install` created that file for you.
+The Wopee MCP server is already set up in [`.vscode/mcp.json`](../../../.vscode/mcp.json), and
+off until you start it. It reads its values from `.env` in the repository root — `npm install`
+created that file for you.
 
 1. In cmd.wopee.io, open your project, then **More → Settings → API Keys**.
 2. Type a name (for example `workshop`) and click **Generate a new key**. Copy the
@@ -55,8 +56,8 @@ reads its values from `.env` in the repository root — `npm install` created th
    ```
 
    `.env` is gitignored — the values stay on your laptop.
-4. Restart the server: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Restart Server**
-   (or **Developer: Reload Window**).
+4. Start the server: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server**
+   (**Restart Server** if it is already running, so it reads the new `.env`).
 5. Open Copilot Chat in **Agent** mode and ask: *list my Wopee analysis suites, then start a new
    Wopee analysis focused on the checkout flow.* Allow the tool calls when asked. You should see
    `wopee_fetch_analysis_suites`, then `wopee_dispatch_analysis`.
