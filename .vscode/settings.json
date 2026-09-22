@@ -10,5 +10,9 @@
   "chat.tools.terminal.autoApprove": {
     "/^npx playwright test\\b/": true
   },
+  "search.exclude": {
+    "**/solutions/**": true,
+    "**/SPOILERS-*.md": true
+  },
   "chat.agent.maxRequests": 200
 }
