@@ -11,7 +11,7 @@
 | [`experiments/2_API/`](../experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time |
 | [`teams/`](../teams/) | Team work after lunch. Copy [`_template/`](../teams/_template/) to `teams/team-N/` in your team's fork |
 | [`docs/`](.) | [About the workshop](workshop.md), [setup troubleshooting](setup-troubleshooting.md), [research](research/) |
-| [`.vscode/mcp.json`](../.vscode/mcp.json) | The MCP servers Copilot uses, preset: Playwright Test (Exhibit 2's agents) and Wopee (Exhibit 4) |
+| [`.vscode/mcp.json`](../.vscode/mcp.json) | The MCP servers Copilot uses, preset: Playwright Test (Exhibit 2's agents) and Wopee (Exhibit 4). They start only when an exhibit says so |
 | [`.env.example`](../.env.example) | Local settings — `npm install` copies it to `.env` (gitignored): Wopee values, `FOODORA_URL` for the Battle |
 | [`AGENTS.md`](../AGENTS.md) | Rules your AI agent follows in this repository |
 | [`slides/`](../slides/) | The deck (Slidev) |

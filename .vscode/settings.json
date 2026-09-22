@@ -4,5 +4,6 @@
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.editor"
   },
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "chat.mcp.autostart": "never"
 }

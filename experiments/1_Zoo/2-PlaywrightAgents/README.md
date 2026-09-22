@@ -43,7 +43,9 @@ What you get: three agent definitions in `.github/agents/` and four example prom
 Coding agent` block. Both are for Copilot in the cloud. Ignore them.
 
 Then reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the
-agents and the MCP server.
+agents, and start the MCP server they use: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **playwright-test** → **Start Server**. The repository's MCP
+servers never start on their own (`chat.mcp.autostart` is `never`), so Exhibit 1 stays a
+coding agent without browser tools.
 
 <details>
 <summary>The same by hand, without the script</summary>

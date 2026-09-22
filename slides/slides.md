@@ -588,8 +588,8 @@ done: A test file exists, it runs, and you can name one thing the agent got wron
 stuck: Open the solutions/ folder and read what a good run produces.
 ---
 
-1. Open this folder in VS Code and open the <b>repo root</b> in VS Code and start a Copilot chat (<code>Ctrl+Alt+I</code>, Mac <code>Ctrl+Cmd+I</code>). No licence? The gateway key is in the folder README.
-2. Ask it in one sentence: *order a meal on <code>foodora.lovable.app</code> and write a Playwright test that proves it.*
+1. Open the <b>repo root</b> in VS Code and start a Copilot chat in <b>Agent</b>. No MCP servers running — the agent writes the code itself.
+2. Paste the prompt from the folder README: a Playwright test that orders a meal and proves it worked, expected results from the spec.
 3. Run the test. If it fails, paste the failure back and let the agent fix it — <b>twice</b>, no more.
 
 <p class="mt-5"><span class="hl">Bonus</span> &nbsp;Ask for a negative case: checkout with an empty cart. Did it invent an error message the app never shows?</p>
@@ -634,7 +634,7 @@ done: A plan in specs/, a generated test, and a green run you did not write.
 stuck: The folder ships a working config and a green seed test — start from there.
 ---
 
-1. From the <b>repo root</b>, run <code>npm run agents</code> — it wires the agents to this exhibit. Then run the seed test once. It must be green.
+1. From the <b>repo root</b>, run <code>npm run agents</code>, then <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Start Server</b>. Run the seed test once. It must be green.
 2. Ask the <b>planner</b> for a plan of ordering a meal. Read its <code>specs/order.md</code> — that is the artifact a non-coder can review.
 3. Ask the <b>generator</b> for bullet 1.1 only, then run it.
 
@@ -680,7 +680,7 @@ done: Snapshots are landing in .playwright-cli/ — not in your context.
 stuck: All of it is npx playwright … — nothing extra to install.
 ---
 
-1. From the <b>repo root</b>: <code>npx playwright init-skills --loop=claude</code>, then open <code>.claude/skills/playwright-cli/SKILL.md</code>. Three frontmatter fields are all the agent holds up front.
+1. <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Stop Server</b>. Then, from the <b>repo root</b>: <code>npx playwright init-skills --loop=claude</code>, then open <code>.claude/skills/playwright-cli/SKILL.md</code>. Three frontmatter fields are all the agent holds up front.
 2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. Every answer is a <em>file path</em>, not a page.
 3. Now ask your agent to order the meal. It never had to be told the commands.
 
