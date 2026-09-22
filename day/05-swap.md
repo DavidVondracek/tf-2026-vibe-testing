@@ -33,7 +33,8 @@ Each team runs the skill of the team **before** it:
    ```
 
 3. Make it cold. In Copilot Chat, `Ctrl/Cmd+Shift+P` → **Clear All Memory Files**, so nothing your
-   agent remembered from the day helps it. Then remove your own skill from `.github/skills/`, and
+   agent remembered from the day helps it (Claude Code: `/clear`, and delete any memory notes it
+   wrote today). Then remove your own skill from `.github/skills/`, and
    install theirs (`M` is their team number):
 
    ```bash

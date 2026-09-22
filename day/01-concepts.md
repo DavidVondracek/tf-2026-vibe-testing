@@ -19,7 +19,7 @@ runs and fixes tests. Four things help it:
 | --- | --- | --- |
 | **SKILL.md** | Know-how in a file. The agent reads it only when a task needs it | [Exhibit 3](../experiments/1_Zoo/3-PlaywrightCLI/), and all afternoon |
 | **CLI** | The agent drives the browser with shell commands. Each answer is a few lines of text, not a page | [Exhibit 3](../experiments/1_Zoo/3-PlaywrightCLI/) |
-| **MCP** | The same browser, through tools the agent holds in its context | [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/) |
+| **MCP** | Tools the agent holds in its context — a test-runner-aware server in Exhibit 2, Wopee in Exhibit 4 | [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/) · [Exhibit 4](../experiments/1_Zoo/4-Wopee/) |
 | **Testing agent** | Wopee.io maps the app on its own, or your agent calls it as an MCP tool | [Exhibit 4](../experiments/1_Zoo/4-Wopee/) |
 
 **CLI or MCP?** Ask what the agent is doing. A planned run with a shell: CLI. Exploring,

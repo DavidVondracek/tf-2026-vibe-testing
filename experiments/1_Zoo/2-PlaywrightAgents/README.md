@@ -101,11 +101,11 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
    The planner runs this exact test to boot your environment. If it is red, the problem is your
    network or the app, and none of the rest will work until you fix it.
 2. Ask the **planner** for a plan. New chat, **playwright-test-planner** in the agent picker (where
-   you usually choose **Agent**), and **Claude Haiku 4.5** in the model picker:
+   you usually choose **Agent**), and **Auto** or **Claude Haiku 4.5** in the model picker:
 
    ```
    Plan one scenario: a customer orders one dish at Burger Palace and pays cash on delivery.
-   Check it against FD-05 and FD-06 in spec/foodora-spec.md. Explore only that path, no edge cases.
+   Check it against FD-05, FD-06 and FD-07 in spec/foodora-spec.md. Explore only that path, no edge cases.
    Test files go in experiments/1_Zoo/2-PlaywrightAgents/tests/.
    Save the plan with planner_save_plan to experiments/1_Zoo/2-PlaywrightAgents/specs/order.md.
    ```
@@ -128,7 +128,8 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
    Without them, VS Code asks twice for every step — about 20 times per plan. It asks because a web
    page could carry instructions for the agent; this server only drives our own demo app.
 
-3. Ask the **generator** for the test. New chat, **playwright-test-generator**, **Claude Haiku 4.5**:
+3. Ask the **generator** for the test. New chat, **playwright-test-generator**, **Auto** or
+   **Claude Haiku 4.5**:
 
    ```
    Generate a test for scenario 1.1 only from experiments/1_Zoo/2-PlaywrightAgents/specs/order.md.
@@ -180,7 +181,7 @@ It optimises for green, and it cannot tell a broken test from a broken app.
 pick a bigger model (**Claude Sonnet 5**, or **Auto** with your own Copilot plan), and send:
 
 ```
-Review tests/order-cart.spec.ts against specs/order.md and spec/foodora-spec.md.
+Review the test the generator wrote in tests/ against specs/order.md and spec/foodora-spec.md.
 Where the app and the spec disagree, the test must fail. Do not change an expected value to
 match the app.
 ```

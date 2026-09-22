@@ -64,6 +64,7 @@ teams/team-N/
 
   ```bash
   mkdir -p .github/skills
+  rm -rf .github/skills/<name>
   cp -r teams/team-N/skills/<name> .github/skills/
   ```
 
