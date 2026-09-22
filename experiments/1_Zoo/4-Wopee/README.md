@@ -118,6 +118,72 @@ created that file for you.
    > the run and its report correctly. A good agent says exactly that instead of inventing a
    > verdict — watch whether yours does.
 
+## Bonus — change how the tool behaves, with a skill
+
+Look at the test case the agent just wrote. It is a list of steps with locators — 
+`CLICK`, `getByRole('button', { name: 'Place Order' })` — because that is what it assumes a test
+case is. But a Wopee test case is run by an AI agent that works out the clicks itself, so the
+locators are noise that will rot.
+
+You cannot change the MCP server. You can change what your agent does with it:
+
+```bash
+mkdir -p .github/skills
+cp -r experiments/1_Zoo/4-Wopee/skills/wopee-intent-tests .github/skills/
+```
+
+On Claude Code instead of Copilot? Same command with `.claude/skills/`.
+
+Start a **new chat** and ask for the same test case again. The agent now writes a title and a
+Markdown description that carries the goal, the data, the steps and the expected results, with
+`steps: []` — the intent, not the clicks. Read
+[`SKILL.md`](./skills/wopee-intent-tests/SKILL.md): it is 90 lines of Markdown — a template for the
+description, and the fetch → edit → update → verify dance for adding, changing and deleting test
+cases — and it changed the output of a tool you do not own.
+
+**Then run it.** In cmd.wopee.io the new test case sits under **Scenarios** (and in the analysis
+queue) as *Not run*. Open it — the description renders as the plan, and the **Steps** tab says
+*No steps yet* — and press **▶ Run**.
+
+The dialog confirms what you built: *"This test doesn't have detailed steps yet. It will be
+executed by an AI agent that interprets the description and performs the test autonomously."*
+Two switches:
+
+- **Save steps from this run** — **turn it off.** On, a successful run records the clicks and
+  assertions as the test's steps, and from then on the test replays them: "more predictable, and
+  less adaptive to app changes". That is the whole intent-versus-script trade-off in one toggle.
+  Leave it on when you want the intent compiled into a fixed test; off while the intent is the point.
+- **Interactive mode** — leave it on, so you watch the run and can take over the browser.
+
+The agent then executes the test from the description alone: no steps, no locators, written by your
+chat five minutes ago.
+
+Watch the result, and read it against the spec rather than against the colour. Our `FD-06` test
+says an order with empty required fields must be rejected; the app places it anyway. A test that
+fails here is doing its job — ours failed at step 3 with *"Instead of validation errors, the app
+navigated to an Order Confirmed / Order Tracking flow and displayed order number FDR-BFW89H"*.
+
+Then scroll to **Verdict Grounding** and **Verdict Integrity** at the bottom of the report. Ours
+read: *"All 1 assertion(s) passed but prose reports FAILED"*, and the gate flagged
+`unsupported-failure` in `REPORT_ONLY` mode. The agent's account of the run says fail; the recorded
+assertions say pass; a gate decides what the run is worth. Same question as the *verdict gate
+disagreed* line on the first scenario, and the same question you answer yourself in the comparison
+above. **Who decides a pass — the agent, the assertions, or you?** That is the answer to bring to
+the debrief.
+
+**That is the transferable trick.** A tool gives an agent *capability*; a skill gives it your
+team's *judgement* about how to use that capability. The same move works on any MCP server your
+team adopts.
+
+The server's other tools create suites, generate and update artifacts (app context, user stories,
+test cases, Playwright code), run chosen test cases with the agent (`wopee_dispatch_agent`), and
+fetch recent results (`wopee_fetch_recent_executions`).
+
+> On Claude Code instead? It does not read `.vscode/mcp.json`. Add a `.mcp.json` in the
+> repository root with the same server under `mcpServers`, plus
+> `"env": { "WOPEE_PROJECT_UUID": "${WOPEE_PROJECT_UUID}", "WOPEE_API_KEY": "${WOPEE_API_KEY}" }`.
+> Then start Claude Code with the `.env` values loaded: `set -a; . ./.env; set +a; claude`.
+
 ## The question to answer at the debrief
 
 Open a run and decide: **who decides whether this passed — the agent, the assertions, or you?**
