@@ -75,6 +75,12 @@ Take expected results from the product spec, [`spec/foodora-spec.md`](spec/foodo
 says what the app should do. When the app and the spec disagree, report it — do not change the
 test to match the app.
 
+## Memory
+
+Do not save notes with the chat's memory tool. Findings go where people can read them: a comment
+in the test, or a bug report that quotes the spec ID. Several exercises run an agent cold, and a
+remembered workaround spoils them.
+
 ## Secrets
 
 The Vercel AI Gateway key lives in the editor's secret storage. The Wopee values live in `.env`,
