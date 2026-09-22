@@ -103,6 +103,9 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | `#foodora` suggests nothing, or only tools | `#` only suggests files that are open. Open `spec/foodora-spec.md` in the editor first, then type `#foodora` again. |
 | Exhibit 1: the agent opens the app in VS Code's browser ("Sharing with Agent", "Ran Playwright code") | The Integrated Browser tools are on. Check `.vscode/settings.json` has `"workbench.browser.enableChatTools": false` and the folder is trusted, then **Developer: Reload Window** and start a **New Chat**. |
 | Exhibit 1: the agent clicks through the app ("Ran Click – playwright-test") instead of writing a test | A server is still running from an earlier test. `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → stop **playwright-test** and **wopee**, then start a **New Chat**. |
+| Exhibit 2: *Sorry, no response was returned* right when the planner saves or the generator writes | DeepSeek breaks down on that step. Switch the model picker to **Claude Haiku 4.5** (or **Auto**) in the same chat and ask it to save. |
+| macOS: *Google Chrome for Testing quit unexpectedly* | Click **OK**, not Reopen. The test browser stops itself when the agent's run ends abruptly; the next run starts a fresh one. |
+| A stray `</think>` in the middle of an answer | Harmless. A reasoning model (DeepSeek V4 Pro) marks its thinking with tags, and one slipped through. Only a screen full of tags means a breakdown — see the next row. |
 | The answer turns into repeated `</parameter> </invoke>` or "Let me run…", then *Sorry, no response was returned* | The conversation got too long for the model — usually big page snapshots. Start a **New Chat** and send the prompt again. In Exhibit 1, check no MCP server is running first. |
 | The agent answers but cannot edit files or run commands | Set the agent picker in the chat input to **Agent** (not Ask or Plan). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |

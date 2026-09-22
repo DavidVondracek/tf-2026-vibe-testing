@@ -40,7 +40,19 @@ it gets wrong for this workshop:
 What you get: three agent definitions in `.github/agents/` and four example prompts in
 `.github/prompts/` (the `/` commands in Copilot Chat) — all gitignored. It also writes
 `.github/workflows/copilot-setup-steps.yml` and prints a `TODO: GitHub > Settings > Copilot >
-Coding agent` block. Both are for Copilot in the cloud. Ignore them.
+Coding agent` block. Both are for Copilot in the cloud. Ignore them, and the empty `specs/` folder it
+creates at the repository root too (also gitignored).
+
+**Open one agent file before you use it** — say `.github/agents/playwright-test-planner.agent.md`.
+Each agent is one Markdown file: frontmatter with a `name`, a `description` and a `tools:` list,
+then plain instructions (*"You are an expert web test planner…"*). The same shape as a `SKILL.md`
+in Exhibit 3. The `tools:` list is what the agent may use: the planner gets 22 of the server's 89
+tools and cannot edit files, only save its plan; the healer is the only one that can `edit`. Want
+the agent to behave differently? Change the instructions — it is a file you can review in a PR.
+
+The example prompts in `.github/prompts/` are Playwright's generic ones — `/playwright-test-plan`
+plans "add to cart" and saves to `specs/coverage.plan.md` at the repository root. Use the prompts in
+[Steps](#steps) instead.
 
 Then reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the
 agents, and start the MCP server they use: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **playwright-test** → **Start Server**. The repository's MCP
@@ -88,20 +100,66 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
 
    The planner runs this exact test to boot your environment. If it is red, the problem is your
    network or the app, and none of the rest will work until you fix it.
-2. Ask the **planner** for a plan of ordering a meal, checked against `FD-05` and `FD-06` in
-   [the spec](../../../spec/foodora-spec.md), saved as
-   `experiments/1_Zoo/2-PlaywrightAgents/specs/order.md` (the planner saves relative to the
-   repository root). Read it — [`specs/`](./specs/) explains what that artifact is for.
-3. Ask the **generator** for bullet **1.1 only**, then run it.
+2. Ask the **planner** for a plan. New chat, **playwright-test-planner** in the agent picker (where
+   you usually choose **Agent**), and **Claude Haiku 4.5** in the model picker:
+
+   ```
+   Plan one scenario: a customer orders one dish at Burger Palace and pays cash on delivery.
+   Check it against FD-05 and FD-06 in spec/foodora-spec.md. Explore only that path, no edge cases.
+   Test files go in experiments/1_Zoo/2-PlaywrightAgents/tests/.
+   Save the plan with planner_save_plan to experiments/1_Zoo/2-PlaywrightAgents/specs/order.md.
+   ```
+
+   Read it — [`specs/`](./specs/) explains what that artifact is for. Left alone, the planner
+   explores *thoroughly*: 100+ steps and 7 minutes. The prompt keeps it to one path.
+
+   > **Which model.** Every new chat starts on the workspace default, DeepSeek V4.1 Flash, so pick
+   > the model again each time. Flash is fine for Exhibit 1, but here it breaks down (*Sorry, no
+   > response was returned*) exactly when the agent saves a plan or writes a test. Use **Claude
+   > Haiku 4.5**, or **Auto** if you have your own Copilot plan. Already stuck? Switch the model
+   > in the same chat and ask it to save.
+
+   **Two clicks stop the approval prompts.** VS Code shows the server as *Playwright Test Runner*:
+
+   - First **Run …** prompt (for example *Run Click*): **⌄** next to **Allow in this Session** →
+     **Allow Tools from Playwright Test Runner in this Workspace**.
+   - First **Approve Tool Result**: **⌄** → **Allow Tools from Playwright Test Runner Without
+     Review in this Workspace**.
+
+   Without them, VS Code asks twice for every step — about 20 times per plan. It asks because a web
+   page could carry instructions for the agent; this server only drives our own demo app.
+
+3. Ask the **generator** for the test. New chat, **playwright-test-generator**, **Claude Haiku 4.5**:
+
+   ```
+   Generate a test for scenario 1.1 only from experiments/1_Zoo/2-PlaywrightAgents/specs/order.md.
+   Save it in experiments/1_Zoo/2-PlaywrightAgents/tests/.
+   ```
+
+   Then run it. **Before you trust it, compare every `expect` with the plan and the spec.** The
+   generator writes down what it *saw* the app do. Where the app breaks the spec, it can turn the
+   bug into the expected result — with the spec's rule still quoted in the comment above.
+
+   *Continue to iterate?* is Copilot's step limit, not an error. This repository raises it to 200
+   requests (`chat.agent.maxRequests`); if you still see it, click **Continue** once, and if it asks
+   again, stop and read where the agent is stuck.
 
 Generate one bullet at a time, never in parallel — all three agents share one browser page.
 
 ## Done when
 
-A plan in [`specs/`](./specs/), a generated test, and a green run you did not write.
+A plan in [`specs/`](./specs/), a generated test, and a green run you did not write — green three
+times in a row with retries off:
+
+```bash
+npx playwright test --project=chromium --retries=0 --repeat-each=3
+```
 
 Read the plan out loud. That Markdown file is the artifact a non-coder on your team could
 review — that is the actual point of this exhibit.
+
+The question for the debrief: **find one `expect` in the generated test that accepts what the spec
+forbids.**
 
 ## Bonus
 
@@ -118,6 +176,18 @@ test `test.fixme()` when it cannot fix it — so a healer "success" can be a ski
 It optimises for green, and it cannot tell a broken test from a broken app.
 
 **Commit before you heal.** The healer is the only one of the three with write access to your files.
+
+**Bonus, or homework: does a stronger model catch the bug?** Start a new chat, pick the healer,
+pick a bigger model (**Claude Sonnet 5**, or **Auto** with your own Copilot plan), and send:
+
+```
+Review tests/order-cart.spec.ts against specs/order.md and spec/foodora-spec.md.
+Where the app and the spec disagree, the test must fail. Do not change an expected value to
+match the app.
+```
+
+Did it find the `expect` that accepts what the spec forbids? Was it the model, or the prompt?
+Try the same prompt on Haiku to find out.
 
 ## If you get stuck
 
