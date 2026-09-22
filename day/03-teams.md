@@ -38,7 +38,7 @@ this morning (`N` is your team number).
    git remote -v        # origin = your fork, upstream = Wopee-io
    ```
 
-   Starting on a new laptop instead? `gh repo fork Wopee-io/tf-2026-vibe-testing-web-apps --clone`,
+   Starting on a new laptop instead? `gh repo fork Wopee-io/tf-2026-vibe-testing --clone`,
    then `npm install` in the new folder.
 
 2. Make a branch and your team folder:
@@ -64,7 +64,7 @@ this morning (`N` is your team number).
 **Settings → Collaborators**. Each teammate then, in their own clone:
 
 ```bash
-git remote add team https://github.com/<owner>/tf-2026-vibe-testing-web-apps
+git remote add team https://github.com/<owner>/tf-2026-vibe-testing
 git fetch team
 git switch team-N
 ```

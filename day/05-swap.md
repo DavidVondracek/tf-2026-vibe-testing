@@ -23,13 +23,13 @@ Each team runs the skill of the team **before** it:
 1. Commit and push your own work first. Then find the other team's pull request number:
 
    ```bash
-   gh pr list --repo Wopee-io/tf-2026-vibe-testing-web-apps
+   gh pr list --repo Wopee-io/tf-2026-vibe-testing
    ```
 
 2. Check out their pull request:
 
    ```bash
-   gh pr checkout <number> --repo Wopee-io/tf-2026-vibe-testing-web-apps
+   gh pr checkout <number> --repo Wopee-io/tf-2026-vibe-testing
    ```
 
 3. Make it cold: remove your own skill from `.claude/skills/`, and install theirs
@@ -60,7 +60,7 @@ Each team runs the skill of the team **before** it:
 5. Write 3 lines of feedback on their pull request:
 
    ```bash
-   gh pr comment <number> --repo Wopee-io/tf-2026-vibe-testing-web-apps --body "Worked: …
+   gh pr comment <number> --repo Wopee-io/tf-2026-vibe-testing --body "Worked: …
    Broke or needed a hint: …
    One fix: …"
    ```

@@ -74,7 +74,7 @@ At 15:55 your new tests are pushed, and your team is ready to demo.
 
 ## If stuck
 
-- `git pull upstream main` says there is no `upstream`: `git remote add upstream https://github.com/Wopee-io/tf-2026-vibe-testing-web-apps`, then pull again.
+- `git pull upstream main` says there is no `upstream`: `git remote add upstream https://github.com/Wopee-io/tf-2026-vibe-testing`, then pull again.
 - Every test fails against the new build, even the old ones? Check the address in `FOODORA_URL`.
 - 15:35 and nothing covered? Pick one story and one test. One solid test beats three guesses.
 
