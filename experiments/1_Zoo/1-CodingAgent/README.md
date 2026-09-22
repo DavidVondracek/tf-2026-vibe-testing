@@ -57,8 +57,9 @@ Everything else below is the same.
    Put it in experiments/1_Zoo/1-CodingAgent/tests/.
    ```
 
-   Attach the spec before you send: type `#`, start typing `foodora-spec` and pick the file, or
-   drag it from the Explorer into the chat. The spec makes "worked" mean what `FD-05` and
+   Attach the spec before you send: open `spec/foodora-spec.md` in the editor (click it in the
+   Explorer), then type `#foodora` in the chat and pick `foodora-spec.md`. `#` only suggests files
+   that are open. The spec makes "worked" mean what `FD-05` and
    `FD-06` say, not whatever the app shows.
 
 3. Let the agent run the test. It asks before each terminal command; approve it. Or run it

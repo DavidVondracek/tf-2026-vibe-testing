@@ -15,7 +15,7 @@ a test that copies the app's behaviour passes on every bug.
 
 | Where | How |
 | --- | --- |
-| [Exhibit 1 — AI Coding Agent](../experiments/1_Zoo/1-CodingAgent/) | Attach the spec to your prompt: `#file:spec/foodora-spec.md` in Copilot Chat, `@spec/foodora-spec.md` in Claude Code |
+| [Exhibit 1 — AI Coding Agent](../experiments/1_Zoo/1-CodingAgent/) | Attach the spec to your prompt. Copilot Chat: open `spec/foodora-spec.md`, then type `#foodora` in the chat. Claude Code: `@spec/foodora-spec.md` |
 | [Exhibit 2 — Playwright Agents](../experiments/1_Zoo/2-PlaywrightAgents/) | Ask the planner to plan against `FD-05` and `FD-06` |
 | [Exhibit 3 — Playwright CLI + Skills](../experiments/1_Zoo/3-PlaywrightCLI/) | Tell your agent the spec is where expected results come from |
 | [Exhibit 4 — Wopee.io](../experiments/1_Zoo/4-Wopee/) | Paste `FD-05` and `FD-06` into the project's test instructions |
