@@ -197,6 +197,7 @@ Try the same prompt on Haiku to find out.
 
 **Shortcut:** [`solutions/`](./solutions/) has [the plan the planner should produce](./solutions/order.md)
 and [the test the generator writes from it](./solutions/order.spec.ts). Run it with
-`npm run solutions` from the repository root.
+`npm run solutions` from the repository root. [`rehearsal-notes.md`](./solutions/rehearsal-notes.md)
+lists what the three agents got wrong in our own run — a checklist for yours.
 
 Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)
