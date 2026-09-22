@@ -560,17 +560,6 @@
   margin-top: 0.6rem;
 }
 
-/* Four short quoted phrases instead of full quote cards */
-.phrases .card {
-  display: flex;
-  align-items: center;
-  min-height: 6.5rem;
-}
-
-.phrases .card h3 {
-  font-size: 1.35rem;
-}
-
 .battle-cmd .slidev-code {
   font-size: 0.95rem !important;
 }
