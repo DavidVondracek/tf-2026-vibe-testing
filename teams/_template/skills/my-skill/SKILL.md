@@ -10,7 +10,7 @@ hyphens, or the skill will not load.
 
 ## Before you start
 
-- The app address is `FOODORA_URL` if it is set, otherwise `https://foodora.lovable.app`.
+- The app address is `FOODORA_URL` from the repository's `.env` if it is set there, otherwise `https://foodora.lovable.app`.
 - Expected results come from `spec/foodora-spec.md`, not from what the app shows.
 
 ## Steps

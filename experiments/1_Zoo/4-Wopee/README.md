@@ -18,27 +18,21 @@ A run finished, and you opened one visual diff.
 
 ## Bonus — the testing agent as a tool
 
-Add the Wopee MCP server to your coding agent and ask **it** to start the run. Your coding agent
-now calls a testing agent as a tool.
+Ask your coding agent to start the Wopee run. It calls a testing agent as a tool — the Wopee MCP
+server is already wired up.
 
-Put [`mcp.json.example`](./mcp.json.example) into `.vscode/mcp.json` at the repository root, then
-reload VS Code. If you have no `.vscode/mcp.json` yet, copy it from the repository root:
+The Wopee MCP server is already set up in this repository's
+[`.vscode/mcp.json`](../../../.vscode/mcp.json). It reads its two values from `.env` in the
+repository root — `npm install` created that file for you. Open it and fill in:
 
 ```bash
-cp experiments/1_Zoo/4-Wopee/mcp.json.example .vscode/mcp.json
+WOPEE_PROJECT_UUID=<your project UUID>
+WOPEE_API_KEY=<your project API key>
 ```
 
-PowerShell: `Copy-Item experiments/1_Zoo/4-Wopee/mcp.json.example .vscode/mcp.json`
-
-**Already have one from Exhibit 2?** Do not overwrite it — you would lose the `playwright-test`
-server. Open both files and copy the `wopee` entry into `servers`, and the two entries into
-`inputs`.
-
-VS Code prompts you for the project UUID and the API key on first use and keeps them in its
-secret storage. **Do not paste the key into a file in this repository** — same rule as the
-gateway key at Exhibit 1.
-
-Both values come from **cmd.wopee.io → your project → Settings** (the key under *API Keys*).
+Both come from **cmd.wopee.io → your project → Settings** (the key under *API Keys*). `.env` is
+gitignored — the values stay on your laptop. Then reload VS Code
+(`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**).
 
 Open Copilot Chat in **agent mode** and ask: *start a Wopee analysis on my project and tell me
 what it found.* You should see it call `wopee_dispatch_analysis`.
@@ -47,9 +41,8 @@ The server's tools create and fetch suites, dispatch an analysis, dispatch an ag
 test cases, fetch the results, and fetch, update or generate artifacts such as user stories and
 Playwright code.
 
-> On Claude Code instead? Same two values, different file and a different top-level key:
-> `.mcp.json` with `mcpServers` rather than `servers`, and no `inputs` block. See
-> [`.env.example`](./.env.example) for the environment-variable route.
+> On Claude Code instead? Same server, different file: `.mcp.json` in the repository root, with
+> `mcpServers` instead of `servers`. The values come from the same `.env`.
 
 ## The question to answer at the debrief
 
@@ -66,7 +59,6 @@ accordingly — and score it honestly. Especially this one.
 3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
 
 **Shortcut:** use the shared project on the whiteboard — a finished run is already waiting there.
-Config to copy: [`mcp.json.example`](./mcp.json.example) for VS Code, or
-[`.env.example`](./.env.example) for the terminal.
+The config is already in [`.vscode/mcp.json`](../../../.vscode/mcp.json); the values go in `.env`.
 
 Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)

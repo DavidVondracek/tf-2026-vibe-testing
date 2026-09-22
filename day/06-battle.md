@@ -25,32 +25,21 @@ what you built: no rebuilding, no switching tools.
 
    Never forked (a teammate's own clone)? Then Wopee-io is your `origin`: `git pull origin main`.
 
-2. Point your suite at the new build, `https://foodora-new.lovable.app`, and run it
-   from `teams/team-N/`:
-
-   bash (macOS, Linux, Git Bash):
+2. Point your suite at the new build: open `.env` in the repository root and remove the `#` in
+   front of the last line, so it reads
 
    ```bash
-   export FOODORA_URL=https://foodora-new.lovable.app
+   FOODORA_URL=https://foodora-new.lovable.app
+   ```
+
+   Every config in the repository reads it — on every operating system, in every terminal. Then
+   run your suite from `teams/team-N/`:
+
+   ```bash
    npx playwright test
    ```
 
-   PowerShell:
-
-   ```powershell
-   $env:FOODORA_URL="https://foodora-new.lovable.app"
-   npx playwright test
-   ```
-
-   cmd.exe:
-
-   ```bat
-   set FOODORA_URL=https://foodora-new.lovable.app
-   npx playwright test
-   ```
-
-   The variable lives only in that terminal. Your agent's terminal needs it too — tell the agent
-   the address once.
+   Tell your agent the new address once too: it reads `.env` only if you ask it to.
 
 3. Read the three stories. Add tests for them with your skill and your tool. **Test against the
    story, not the build**: a test that copies what the new build does passes on every bug.
