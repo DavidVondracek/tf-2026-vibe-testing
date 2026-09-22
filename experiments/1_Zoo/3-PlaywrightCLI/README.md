@@ -28,9 +28,10 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
    context until a task matches. Then the 13 KB body arrives. The nine files in `references/` only
    load if the task needs mocking, or tracing, or video. That is the whole idea.
 
-   > **Copilot in VS Code reads this too.** It finds skills in `.github/skills/`, `.claude/skills/`
-   > and `.agents/skills/` at the root of the open folder, so `--loop=claude` works for Claude Code
-   > and Copilot alike. (`--loop=agents` writes the same three skills to `.agents/skills/`.) Run
+   > **Copilot in VS Code reads these too.** It finds skills in `.github/skills/`,
+   > `.claude/skills/` and `.agents/skills/` at the root of the open folder, so `--loop=claude`
+   > installs them for Claude Code and Copilot alike. Skills you write yourself go in
+   > `.github/skills/`, Copilot's own folder. (`--loop=agents` writes the same three skills to `.agents/skills/`.) Run
    > `init-skills` inside a subfolder and the skills land where no agent looks. Type `/` in Chat
    > to see them; if they are missing, reload the window.
 
@@ -79,10 +80,12 @@ Write your own skill — this is the thing you take home.
 
 Write it yourself first, from what you just learned driving the CLI by hand. Then compare with
 [`skills/foodora-order/SKILL.md`](./skills/foodora-order/SKILL.md) in this folder, which is a
-worked version. Install one by copying its folder into `.claude/skills/` at the root:
+worked version. Install one by copying its folder into `.github/skills/` at the root — that is
+where Copilot looks (on Claude Code use `.claude/skills/` instead):
 
 ```bash
-cp -r experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order .claude/skills/
+mkdir -p .github/skills
+cp -r experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order .github/skills/
 ```
 
 The folder name must match the `name` in the frontmatter, or it will not load.

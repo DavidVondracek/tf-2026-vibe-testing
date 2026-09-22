@@ -9,6 +9,8 @@ playwright/.cache/
 .playwright-mcp/
 # the healer writes its page snapshot here
 snapshot.txt
+# agents sometimes drop CLI snapshots at the root instead of .playwright-cli/
+/*.yml
 *.webm
 *.zip
 
@@ -16,12 +18,20 @@ snapshot.txt
 # Committed copies live in each exhibit's solutions/ folder instead.
 .claude/
 .agents/
+**/.github/skills/
 **/.github/agents/
 **/.github/prompts/
 **/.github/workflows/copilot-setup-steps.yml
 **/.vscode/mcp.json
 !/.vscode/mcp.json
 /specs/
+
+# What you produce in the Zoo stays on your laptop — the exhibits are practice, and the work you
+# share lives in teams/. The seed test and the READMEs are tracked and unaffected.
+experiments/1_Zoo/*/tests/*.spec.ts
+experiments/1_Zoo/*/specs/*.md
+!experiments/1_Zoo/*/specs/README.md
+experiments/2_API/tests/*.spec.ts
 
 # Secrets — the Vercel AI Gateway key and the Wopee API key never land in the repo
 .env
