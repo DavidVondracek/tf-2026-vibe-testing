@@ -29,23 +29,27 @@ click through the app instead, [`.vscode/settings.json`](../../../.vscode/settin
 MCP servers off until an exhibit starts them (`chat.mcp.autostart`) and turns off the agent's
 tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 
-### No Copilot licence?
+### Which model
 
-Use the Vercel AI Gateway instead. It is already configured in this repository —
-[`.vscode/settings.json`](../../../.vscode/settings.json) sets `deepseek/deepseek-v4.1-flash` as the default chat model.
-You only need to add the key:
+With a GitHub account you have **Copilot Free**, which gives you **Auto** in the model picker and
+costs you nothing. That is the default here, and it is enough for every exhibit.
+
+No Copilot, or out of Copilot requests? Use the Vercel AI Gateway and pick **Claude Haiku 4.5** in
+the model picker. You only need to add the key:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
 2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
-3. Open a new chat. The model picker in the chat input box should now show **DeepSeek V4.1 Flash**.
+3. Open a new chat and pick **Claude Haiku 4.5** in the model picker.
 4. Send `hi` and check you get an answer back.
 
 The key is workshop-only and is revoked afterwards — at home, use your own Copilot plan or your
 own [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) key. It is stored by the extension in VS Code's
 secret storage — **do not paste it into a file in this repository.**
 
-> Paying for Copilot and want the same model as everyone else? The gateway works alongside
-> Copilot: pick DeepSeek V4.1 Flash in the model picker.
+> The gateway works alongside Copilot, so you can switch between **Auto** and a gateway model in
+> the same chat. Cheaper gateway models exist, but DeepSeek V4.1 Flash broke down (*Sorry, no
+> response was returned*) in three of our four exhibits, always when a long page snapshot or a
+> generated test had to be handled. Haiku did not.
 
 ### Claude Code
 

@@ -113,11 +113,10 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
    Read it — [`specs/`](./specs/) explains what that artifact is for. Left alone, the planner
    explores *thoroughly*: 100+ steps and 7 minutes. The prompt keeps it to one path.
 
-   > **Which model.** Every new chat starts on the workspace default, DeepSeek V4.1 Flash, so pick
-   > the model again each time. Flash is fine for Exhibit 1, but here it breaks down (*Sorry, no
-   > response was returned*) exactly when the agent saves a plan or writes a test. Use **Claude
-   > Haiku 4.5**, or **Auto** if you have your own Copilot plan. Already stuck? Switch the model
-   > in the same chat and ask it to save.
+   > **Which model.** **Auto** (Copilot Free) or **Claude Haiku 4.5** (the gateway). Both handle
+   > this exhibit. A cheap model will not: DeepSeek V4.1 Flash answered *Sorry, no response was
+   > returned* exactly when the planner saved its plan and when the generator wrote its test.
+   > Already stuck? Switch the model in the same chat and press **Try Again**.
 
    **Two clicks stop the approval prompts.** VS Code shows the server as *Playwright Test Runner*:
 
