@@ -24,7 +24,7 @@ async function check(icon, name, fn) {
   }
 }
 
-console.log('\n  🧪 \x1b[1mVibe Testing Lab\x1b[0m — checking your laptop, grab a coffee ☕')
+console.log('\n  🧪 \x1b[1mVibe Testing Lab\x1b[0m — checking your laptop. Grab a coffee ☕ or a beer 🍺')
 
 // On Windows `npx` is `npx.cmd`, which Node only starts through a shell.
 function run(cmd, args) {
