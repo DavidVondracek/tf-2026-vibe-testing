@@ -60,7 +60,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 
 | What you see | Fix |
 | --- | --- |
-| **Workspace Recommendations** says *No extensions found* | You already have both — type `@installed` and look for **Vercel AI Gateway** and **Playwright Test for VSCode**. |
+| **Workspace Recommendations** says *No extensions found* | You already have them — type `@installed` and look for **Vercel AI Gateway** and **Playwright Test for VSCode**. Copilot Chat never shows there on current VS Code: it is built in. |
 | No **Workspace Recommendations** section at all | VS Code is not open at the repository root. **File → Open Folder…** → the `tf-2026-vibe-testing-web-apps` folder itself, not a folder inside it. |
 | No Copilot Chat | It is built into current VS Code. Update VS Code (**Help → Check for Updates**), then sign in with your GitHub account. |
 | The Chat view asks you to sign in | Sign in with your GitHub account. The free Copilot plan is enough. |
