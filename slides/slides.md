@@ -212,93 +212,43 @@ image: /img/photos/new-stack.jpg
 The minimum theory to survive the Zoo
 
 ---
+layout: statement
 block: stack
 ---
 
-# First, <span class="y">the name on the door</span>
-
-May 2025: Ministry of Testing asked its community to define "vibe testing". Four days, four answers.
-
-<div class="cards c4 phrases">
-<div class="card"><h3>"Tell the AI what to test"</h3></div>
-<div class="card"><h3>"Ask the model what is missing"</h3></div>
-<div class="card"><h3>"Less rigid, more creative"</h3></div>
-<div class="card"><h3>"Test how it <em>feels</em>"</h3></div>
+<div class="memory">
+  <div class="quote">
+    <span class="mark">“</span>
+    <h1>Developers have stopped<br>writing code.</h1>
+    <p class="when"><span></span>2026</p>
+  </div>
+  <div v-click class="band"><h2>Code is no longer the bottleneck.</h2></div>
 </div>
 
-<div class="banner">"…an unprofessional, ineffective and pointless activity <em>masquerading as testing</em>." — Steve Green</div>
-
-<p v-click class="text-2xl font-bold text-center mt-5">He is right about the word. Stay for <span class="hl">the practice underneath.</span></p>
+<style>
+.memory { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.memory .quote { position: relative; align-self: center; text-align: left; }
+.memory .mark { position: absolute; left: -5.2rem; top: -1.4rem; font-family: 'Bungee', sans-serif; font-size: 7rem; line-height: 1; color: var(--wp-yellow); }
+.memory h1 { white-space: nowrap; font-size: 3.7rem !important; line-height: 1.05 !important; letter-spacing: -0.02em; margin: 0 !important; }
+.memory .when { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; margin: 1.4rem 0 0 !important; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; letter-spacing: 0.3em; color: var(--wp-yellow) !important; }
+.memory .when span { display: block; width: 5rem; height: 2px; background: var(--wp-yellow); }
+.memory .band { margin: 3.2rem -4rem 0; background: var(--wp-yellow); padding: 1.1rem 4rem; transition: transform 0.5s ease, opacity 0.5s ease; }
+.memory .band.slidev-vclick-hidden { transform: translateX(-6%); }
+.memory .band h2 { color: var(--wp-black) !important; margin: 0 !important; font-size: 2.6rem !important; text-align: center; }
+</style>
 
 <!--
-09:15 — Open the day's thinking here.
-The four answers, if asked: Demi Van Malcot (16 May, "tell the AI what you want to test… and let them figure out
-the rest"), Andre Leroux (20 May, ask the model what coverage is missing, "but you need to verify"), Yogendra
-Porwal (25 May, "less rigid, more dynamic"), and vendors ever since (how the app feels — no method, no oracle).
-Steve Green's full line, same thread, 17 May 2025: "an unprofessional, ineffective and pointless
-software-related activity masquerading as testing." Say it before anyone else can: the title on your badge is indefensible as a term.
-Four incompatible definitions and one flat rejection inside 96 hours — from the practitioner community itself, not from vendors.
-The term has no coiner and no literature. Every other label in this space was minted by a vendor or an analyst.
-Simon Willison on his own coinage: "Is this a stupid name? Yeah, probably." Kent Beck: vibe coding "just sounds like you're relaxing in a hot tub."
-Then turn the room with the next slide — the man who coined the parent term agrees with the critics.
-Attacking your own title is the cheapest credibility you will buy all day, and it disarms the hostile question before it is asked.
+09:15 — two lines, then stop talking for a second. The agent writes the code now; the developer asks, reviews, approves.
+[click] Code is no longer the bottleneck — the next slide shows what is.
 -->
 
 ---
 block: stack
 ---
 
-# The man who named it <span class="y">already retired the word</span>
+# The whole lifecycle moved. <span class="y">Test is stage 4.</span>
 
-<div class="grid grid-cols-2 gap-10">
-<div class="flex flex-col justify-center">
-  <p class="text-2xl muted my-1">2 Feb 2025 — Karpathy coins <b>vibe coding</b>:</p>
-  <p class="text-3xl font-bold my-2">"forget that the code even exists"</p>
-  <p v-click class="text-2xl muted mt-6 my-1">8 Feb 2026 — one year later, he replaces it:</p>
-  <p v-click class="text-3xl font-bold my-2"><span class="hl">agentic engineering</span></p>
-</div>
-<div v-click class="flex flex-col justify-center">
-  <p class="text-xl">"at the top tiers, deep technical expertise may be <b>even more</b> of a multiplier than before because of the added leverage."</p>
-  <p class="muted mt-3">— Karpathy, Feb 2026</p>
-</div>
-</div>
-
-<!--
-09:17 — Open here. Do NOT defend the word; concede it in the first five minutes and the room is yours.
-Kent Beck, on why he calls it augmented coding instead: "vibe coding just sounds like you're relaxing in a hot tub."
-Steve Green, Ministry of Testing, May 2025: "an unprofessional, ineffective and pointless activity masquerading as testing."
-Rosie Sherry asked MoT to define "vibe testing" — four incompatible answers and one flat rejection in 96 hours. The term arrived definition-free.
--->
-
----
-block: stack
----
-
-# They all renamed it. <span class="y">They all landed on your job.</span>
-
-<div class="cards c3">
-<div class="card"><div class="n">KENT BECK · JUN 2025</div><h3>Augmented coding</h3><p>"You care deeply about the code, its complexity, <b>the tests, &amp; their coverage</b>."</p></div>
-<div class="card"><div class="n">SIMON WILLISON · OCT 2025</div><h3>Vibe engineering</h3><p>Professionals accelerate with LLMs "while staying <b>proudly and confidently accountable</b>".</p></div>
-<div class="card"><div class="n">KARPATHY · FEB 2026</div><h3>Agentic engineering</h3><p>You orchestrate agents and <b>act as oversight</b>. Expertise matters more, not less.</p></div>
-</div>
-
-<div v-click class="banner">Willison lists <em>11 practices</em> that make it work. <span class="y">Seven of them are testing.</span></div>
-
-<p v-click class="text-2xl font-bold text-center mt-4">Nobody coordinated this. They independently reinvented <span class="hl">the testing profession</span>.</p>
-
-<!--
-09:19 — This is the slide that turns a sceptical QA room around. The successors to vibe coding are structurally a QA discipline.
-Willison's 11: automated testing and test-first · advance planning · documentation · version control · CI/CD and linting · code review · manual QA and edge cases · research skills · preview environments · intuition for what AI can handle · estimation.
-Veracode, Mar 2026: two years of model progress moved code security 55% → 55%. The model is provably not the variable. The discipline is.
--->
-
----
-block: stack
----
-
-# Code is no longer <span class="y">the bottleneck.</span>
-
-The human-speed steps around it are.
+The code is fast now. The human-speed steps around it are not.
 
 <div class="lifecycle">
   <div class="lc"><span>1 · PLAN</span><b>intent.md</b></div>
@@ -318,13 +268,43 @@ The human-speed steps around it are.
 </div>
 
 <!--
-09:21 — lead with the quote, not the stages. Source out loud: Anthropic's AI-native SDLC playbook,
-21 August 2026. Six stages, each commits an artifact the next one reads — the strip is support, point at it once.
+09:17 — the statement just said it; this is what it looks like. Source out loud: Anthropic's AI-native SDLC playbook,
+21 August 2026 — "Code is no longer the bottleneck. The human-speed steps around it are." Six stages, each commits an artifact the next one reads.
 Stage 4 is the callback for later: the agent proves its own fix with a test it wrote. Who checks that test?
 [click] Ask the room first and let two people answer. Do not rush to yours.
 [click] Mine: shape it, maintain it, define the rules, manage the whole process.
 Then be honest: whether that is a job title or a skill every engineer needs — nobody knows yet. We are all
 working it out, and today is one day of that.
+-->
+
+---
+block: stack
+---
+
+# Intent-driven testing: <span class="y">say what, not how</span>
+
+The test states the user's goal and what must be true afterwards. The agent works out the clicks.
+
+<div class="cards c3 intent">
+<div class="card"><div class="n">THE AGENT RUNS EVERY TIME</div><h3>It plays the test</h3><p>Reads the intent on every run and finds its own way. Survives a redesign — costs an LLM call, and can vary.</p><p class="who">Wopee.io · Momentic · Midscene</p></div>
+<div class="card"><div class="n">THE AGENT WRITES THE CODE</div><h3>Intent in, Playwright out</h3><p>A plan in Markdown, reviewed, turned into a test that runs without an LLM.</p><p class="who">Playwright Test Agents · QA Wolf · Octomind</p></div>
+<div class="card dark"><div class="n">THE CATCH</div><h3>Who decides what is correct?</h3><p>Best agent found real web app bugs at <b>26% F1</b>. Given a human checklist: <b>49%</b>.</p><p class="who">WebTestBench, March 2026</p></div>
+</div>
+
+<div class="banner">The intent says <em>what to do</em>. Your spec says <em>what is right</em>.</div>
+
+<style>
+.intent .who { font-size: 0.72em; margin-top: 0.8em; opacity: 0.7; }
+</style>
+
+<!--
+09:21 — 3 minutes. If the developer only says what they want, the test has to do the same: this is what that looks like.
+Vendor term, no standard definition (Harness, mabl, Momentic, BlazeMeter). Two camps: agent on every run (Wopee.io,
+Exhibit 4) vs agent writes code once (Playwright planner/generator, Exhibit 2). Hybrids cache and replay (Stagehand, Momentic).
+The number: WebTestBench (Kong et al., arXiv 2603.25226, 26 Mar 2026) — best F1 26.4% (GPT-5.1), precision ~30%;
+with a gold checklist 49.2% (Claude Sonnet 4.5). Deciding what to check is the hard part, not clicking.
+Risk to name: an agent that adapts can adapt past your bug — Playwright's healer may skip a test "if it believes functionality is broken".
+That is why AGENTS.md says: expected results come from spec/. Full report: docs/research/intent-driven-testing.md.
 -->
 
 ---
