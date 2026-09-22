@@ -7,6 +7,8 @@ blob-report/
 playwright/.cache/
 .playwright-cli/
 .playwright-mcp/
+# the healer writes its page snapshot here
+snapshot.txt
 *.webm
 *.zip
 

@@ -635,8 +635,8 @@ stuck: The folder ships a working config and a green seed test — start from th
 ---
 
 1. From the <b>repo root</b>, run <code>npm run agents</code>, then <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Start Server</b>. Run the seed test once. It must be green.
-2. Ask the <b>planner</b> for a plan of ordering a meal. Read its <code>specs/order.md</code> — that is the artifact a non-coder can review.
-3. Ask the <b>generator</b> for bullet 1.1 only, then run it.
+2. New chat, <b>planner</b> + <b>Claude Haiku 4.5</b>: plan one dish, cash on delivery (prompt in the README). Read its <code>specs/order.md</code> — the artifact a non-coder can review.
+3. New chat, <b>generator</b>: scenario 1.1 only, then run it. Which <code>expect</code> accepts what the spec forbids?
 
 <p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then search <code>tests/</code> for <code>test.fixme</code>. Did it repair your test — or just silence it?</p>
 

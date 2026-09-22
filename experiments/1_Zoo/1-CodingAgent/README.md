@@ -72,8 +72,9 @@ Everything else below is the same.
    that are open. The spec makes "worked" mean what `FD-05` and `FD-06` say, not whatever the
    app shows.
 
-3. Let the agent run the test. It asks before each terminal command: click the **⌄** next to
-   **Allow** and allow it for the session, so it stops asking. Or run it yourself:
+3. Let the agent run the test. `npx playwright test` is pre-approved in
+   [`.vscode/settings.json`](../../../.vscode/settings.json); for any other command it asks first —
+   click the **⌄** next to **Allow** and allow it for the session. Or run it yourself:
 
    ```bash
    cd experiments/1_Zoo/1-CodingAgent

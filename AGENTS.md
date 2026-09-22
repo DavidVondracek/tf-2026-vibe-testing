@@ -75,6 +75,9 @@ Take expected results from the product spec, [`spec/foodora-spec.md`](spec/foodo
 says what the app should do. When the app and the spec disagree, report it — do not change the
 test to match the app.
 
+Never read `solutions/` folders or `SPOILERS-app-notes.md`. They are the answer keys for the
+people doing the exercises; an agent that copies them has not done the exercise.
+
 ## Memory
 
 Do not save notes with the chat's memory tool. Findings go where people can read them: a comment
