@@ -42,6 +42,12 @@ git restore .vscode/mcp.json
 Then reload VS Code (`Ctrl/Cmd+Shift+P` → **Developer: Reload Window**) so Copilot picks up the
 MCP server.
 
+> **Why only one Playwright server?** `playwright-test` already contains every browser tool the
+> agents use — tied to your seed test, so they act only on a page the test has set up. The
+> general browser server, `npx playwright mcp`, is not needed for any exhibit. Want it for your own
+> agent later? Add it to `.vscode/mcp.json` — but Copilot allows at most 128 tools per request, and
+> it adds 24.
+
 > Ran `init-agents` from inside this folder? It still works for the terminal, but the files land
 > in this folder, where Copilot never looks. Run it again from the root as above.
 

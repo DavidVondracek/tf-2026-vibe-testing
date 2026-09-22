@@ -1,19 +1,22 @@
 {
   "servers": {
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["playwright", "mcp"]
-    },
     "playwright-test": {
       "type": "stdio",
       "command": "npx",
-      "args": ["playwright", "run-test-mcp-server", "--config", "${workspaceFolder}/experiments/1_Zoo/2-PlaywrightAgents"]
+      "args": [
+        "playwright",
+        "run-test-mcp-server",
+        "--config",
+        "${workspaceFolder}/experiments/1_Zoo/2-PlaywrightAgents"
+      ]
     },
     "wopee": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "wopee-mcp@latest"],
+      "args": [
+        "-y",
+        "wopee-mcp@latest"
+      ],
       "envFile": "${workspaceFolder}/.env"
     }
   }

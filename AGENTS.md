@@ -34,7 +34,7 @@ Agent wiring is the exception: run `init-agents`, `init-skills` and `npx playwri
 **repository root**, because the editor only reads `.github/agents/`, `.github/prompts/`,
 `.vscode/mcp.json` and `.claude/skills/` there. Point `init-agents` at a config with
 `--config <folder>/playwright.config.ts` — without it, it reports `Using project ""`. The MCP
-servers (Playwright, Playwright Test, Wopee) are preset in `.vscode/mcp.json`; after `init-agents`,
+servers (Playwright Test, Wopee) are preset in `.vscode/mcp.json`; after `init-agents`,
 run `git restore .vscode/mcp.json`, because it rewrites that file.
 
 The optional API experiment lives in [`experiments/2_API/`](experiments/2_API/) and works the
