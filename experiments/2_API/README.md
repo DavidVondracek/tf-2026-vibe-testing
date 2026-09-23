@@ -49,25 +49,24 @@ ready-to-use `foodoraApi` request context.
 2. **Ask your agent for tests**, in one prompt:
 
    ```
-   Write Playwright API tests in experiments/2_API/tests/restaurants.spec.ts. Import test and
-   expect from ../fixtures (that is experiments/2_API/fixtures.ts) and use its foodoraApi fixture. The API contract is
-   https://foodora.lovable.app/openapi.json. Check the restaurant list and one restaurant's menu
-   against it. Take expected results from spec/foodora-spec.md, not from what the API returns.
+   Write Playwright API tests in experiments/2_API/tests/restaurants.spec.ts. Import test and expect from ../fixtures (that is experiments/2_API/fixtures.ts) and use its foodoraApi fixture. The API contract is https://foodora.lovable.app/openapi.json. Check the restaurant list and one restaurant's menu against it. Take expected results from spec/foodora-spec.md, not from what the API returns.
    ```
 
    The contract is the API's own [OpenAPI schema](https://foodora.lovable.app/openapi.json) — served
    by the app, describing the API on the other host: every column of `restaurants` and
    `menu_items`, with its type and whether it can be empty.
 
-3. Run them from this folder: `npx playwright test tests/`
+3. Run them from this folder: `npx playwright test tests/`. Then read what they assert: that a
+   field has the right type, or the value the spec expects?
 4. **Use the API as a second source of truth.** It knows each restaurant's delivery fee. Ask your
    agent, in the same chat:
 
    ```
-   Add a test in experiments/2_API/tests/ that opens Burger Palace in the browser, quick-adds one
-   Classic Beef Burger, opens the cart, and asserts the Delivery Fee shown there equals that
-   restaurant's delivery_fee from the API. The rule is FD-05 in spec/foodora-spec.md.
+   Add tests in experiments/2_API/tests/ that, for every restaurant the API lists, open it in the browser, quick-add its first dish, open the cart, and assert the Delivery Fee shown there equals that restaurant's delivery_fee from the API. One test per restaurant. The rule is FD-05 in spec/foodora-spec.md.
    ```
+
+   Why every restaurant? A test on one restaurant proves that one restaurant, and only if its fee
+   happens to differ from what the cart charges.
 
    Whatever the result, check the spec before you change the test.
 
