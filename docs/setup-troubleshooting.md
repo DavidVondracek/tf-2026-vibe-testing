@@ -80,6 +80,9 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | The model picker has no model, or **GPT-6 Luna · Vercel AI Gateway** is missing from it | With a GitHub account you should see **Auto**; sign in to Copilot if you do not. For the gateway models, run **Vercel AI Gateway: Manage Authentication** again and paste the key, then **Developer: Reload Window**. |
 | *API key budget exceeded* on a gateway model | The workshop key has hit its spending limit. Switch the model picker to **Auto** (Copilot) and type *Continue.* in the same chat — nothing you did is lost. Raise your hand so the presenter can lift the limit. |
 | Copilot says you are out of requests | Switch the model picker to **GPT-6 Luna · Vercel AI Gateway** and carry on with the gateway key. |
+| Every command the agent runs asks for approval, even `npx playwright` | You are not signed in to GitHub — without a sign-in VS Code applies no pre-approvals. Sign in (account icon, bottom left; Copilot Free is enough), or keep clicking **Allow**. |
+| A *Set BYOK utility models* banner in the chat | Shown when you use the gateway without a GitHub sign-in. Click **Configure** → **Main Agent Model**. Optional: it only switches on chat titles and commit messages. |
+| The chat bar says *GPT-6 Sol* or *GPT 5.6 Luna* | Wrong model — the gateway lists hundreds. Open the picker, type `gpt-6-luna`, pick **GPT-6 Luna · Vercel AI Gateway**. |
 | The model answers with an authentication error | The key was pasted incompletely. It starts with `vck_`. Paste it again. |
 
 ## Step 8 — Wopee.io
