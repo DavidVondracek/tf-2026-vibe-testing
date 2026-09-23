@@ -87,17 +87,18 @@ label: Welcome
 
 # Everything lives in <span class="y">one repo</span>
 
-<div class="flex items-center justify-center gap-14">
+<div class="flex items-center justify-center gap-10">
   <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="11rem" caption="Scan to open" />
   <div>
     <a class="repo-link" href="https://github.com/Wopee-io/tf-2026-vibe-testing"><span>github.com/Wopee-io/</span><span>tf-2026-vibe-testing</span></a>
     <p class="text-2xl">Every block of the day has a page in <code>playbook/</code>.<br>Lose me? Follow the page.</p>
   </div>
+  <Qr url="https://forms.gle/hU57AS3A5SPrqKWK8" size="7rem" caption="No AI key? Form" />
 </div>
 
 <Wifi class="mt-7" />
 
-<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. Then paste the AI key from the room (<b>Vercel AI Gateway: Manage Authentication</b>) and pick <b>GPT-6 Luna</b> — type <code>gpt-6-luna</code> in the model picker.</p>
+<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. Then paste key 1 from the form's document (<b>Vercel AI Gateway: Manage Authentication</b>) and pick <b>GPT-6 Luna</b> — type <code>gpt-6-luna</code> in the model picker. No document yet? Submit <b>forms.gle/hU57AS3A5SPrqKWK8</b> now.</p>
 
 <!--
 09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
