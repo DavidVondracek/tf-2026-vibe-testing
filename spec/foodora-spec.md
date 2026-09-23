@@ -100,7 +100,8 @@ The cart opens as a panel from the **Cart** button in the header. The button sho
 are in the cart.
 
 - Each line shows the dish, the restaurant, the price and a quantity stepper (**−** / **+**), and a
-  way to remove it. **Clear Cart** removes everything.
+  way to remove it. With two or more different dishes in the cart, **Clear Cart** appears and
+  removes everything; with a single dish it is not shown.
 - The summary shows **Subtotal**, **Delivery Fee**, **Service Fee** and **Total**, and
   Total = Subtotal − discount + Delivery Fee + Service Fee.
 - The **Delivery Fee** is the fee the restaurant advertises — **Free** means $0.00.
