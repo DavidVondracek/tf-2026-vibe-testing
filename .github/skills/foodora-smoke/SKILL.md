@@ -6,7 +6,7 @@ allowed-tools: Bash(npx:*)
 
 # Foodora smoke check
 
-Three checks in one browser session, judged against [`spec/foodora-spec.md`](../../../spec/foodora-spec.md).
+Four checks in one browser session, judged against [`spec/foodora-spec.md`](../../../spec/foodora-spec.md).
 Report what you find. Do not fix anything and do not write test files.
 
 The app address is `$FOODORA_URL`, falling back to https://foodora.lovable.app.
@@ -14,7 +14,8 @@ The app address is `$FOODORA_URL`, falling back to https://foodora.lovable.app.
 ## Steps
 
 Run every command from the repository root, exactly as written: `npx playwright …` is
-pre-approved, a command wrapped in a variable or chained with `&&` stops for approval.
+pre-approved, a command wrapped in a variable or chained with `&&` stops for approval. Do not
+create folders: the screenshot command creates `test-results/` itself.
 
 1. Open the app in its own session:
    `npx playwright cli -s=smoke open "${FOODORA_URL:-https://foodora.lovable.app}/"`
@@ -25,10 +26,13 @@ pre-approved, a command wrapped in a variable or chained with `&&` stops for app
 3. **FD-03 · Restaurant menu.** Click the first card that is available — cards are links.
    Snapshot. Read FD-03 in full — the list of what the page shows **and every line under
    Rules** — and check each one you can see in the snapshot. One unmet rule makes the check FAIL.
-4. **Quick-add.** The quick-add is the button inside a dish's link, next to the price.
+4. **Button names.** FD-03's last rule: every button has an accessible name that says what it
+   does. In the menu snapshot, a button with a name reads `button "…"`; a button without one reads
+   `button [ref=…]`. Count the dish buttons without a name. Any at all: FAIL.
+5. **Quick-add.** The quick-add is the button inside a dish's link, next to the price.
    Click it on the first dish, snapshot, and read the header's cart button. Check it against
    FD-03's quick-add rule. Ignore the toast: it disappears on its own.
-5. `npx playwright cli -s=smoke screenshot --filename=test-results/foodora-smoke.png`, then
+6. `npx playwright cli -s=smoke screenshot --filename=test-results/foodora-smoke.png`, then
    `npx playwright cli -s=smoke close`.
 
 ## Report
@@ -39,6 +43,7 @@ Write `test-results/foodora-smoke.md`, then show the same table in the chat:
 | --- | --- | --- | --- |
 | Restaurant list | FD-01 | PASS / FAIL | … |
 | Restaurant menu | FD-03 | PASS / FAIL | … |
+| Button names | FD-03 | PASS / FAIL | … |
 | Quick-add | FD-03 | PASS / FAIL | … |
 
 End with the screenshot, `test-results/foodora-smoke.png`.
