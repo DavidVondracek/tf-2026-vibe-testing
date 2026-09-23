@@ -142,7 +142,7 @@ label: Welcome
 <tr><td>11:50</td><td>Teams & Mission</td></tr>
 <tr class="pause"><td>12:00</td><td>Lunch</td></tr>
 <tr><td>13:00</td><td>Build One Thing</td></tr>
-<tr><td>14:30</td><td>SKILL.md Swap</td></tr>
+<tr><td>14:30</td><td>SKILL.md Swap <span class="muted">· optional</span></td></tr>
 <tr class="pause"><td>15:00</td><td>Break</td></tr>
 <tr><td>15:15</td><td>Speed Gap Battle</td></tr>
 <tr><td>16:15</td><td>Wrap-up & Q&A</td></tr>
@@ -885,7 +885,7 @@ emoji: 🔁
 
 # SKILL.md Swap
 
-14:30 · 30 min · does it really run cold?
+14:30 · 30 min · optional · does it really run cold?
 
 ---
 layout: work
@@ -911,6 +911,8 @@ checkpoints:
 
 <!--
 14:30 — 2 min setup, 20 min runs, 8 min feedback. Teams use their own tool on someone else's skill: that is the reusability test.
+OPTIONAL. Decide at 14:20 by the build checkpoints: if fewer than half the teams have a skill that ran cold, skip this and the
+next slide — say "keep building until the break, the Battle starts 15:15", and point at playbook/05-swap.md for home.
 -->
 
 ---
@@ -922,7 +924,7 @@ until: '15:15'
 image: /img/photos/break.jpg
 ---
 
-Fix what the swap found. The Battle starts from your branch.
+Fix what the swap found — or keep building if we skipped it. The Battle starts from your branch.
 
 ---
 layout: section

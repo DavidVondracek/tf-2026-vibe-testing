@@ -95,7 +95,7 @@ too old, or signed in to the wrong account.
 3. Write your names and your tool at the top of `teams/team-N/README.md`. Running
    `npx playwright test` in the folder now says *Error: No tests found* — right, there are none
    yet.
-4. Push, and open a draft pull request to Wopee-io's repository. The Swap finds your skill through it.
+4. Push, and open a draft pull request to Wopee-io's repository. The Swap (if we run it) finds your skill through it.
 
    ```bash
    git add teams/team-N .github/skills

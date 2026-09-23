@@ -1,4 +1,8 @@
-# 14:30 · SKILL.md Swap
+# 14:30 · SKILL.md Swap (optional)
+
+> **Optional block.** If the build runs late, the presenter skips the Swap: teams keep building
+> until the break at 15:00, and the Battle starts at 15:15 as planned. Run it at home instead — it
+> is still the best test of whether your skill really runs cold.
 
 **Time:** 14:30–15:00 · 30 min (2 min setup, 20 min runs, 8 min feedback), then a break until 15:15
 
