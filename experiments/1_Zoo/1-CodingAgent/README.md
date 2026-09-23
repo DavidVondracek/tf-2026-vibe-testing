@@ -34,13 +34,13 @@ tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 With a GitHub account you have **Copilot Free**, which gives you **Auto** in the model picker and
 costs you nothing. That is the default here, and it is enough for every exhibit.
 
-No Copilot, or out of Copilot requests? Use the Vercel AI Gateway and pick **Claude Haiku 4.5** in
-the model picker. **The picker resets with every new chat** — pick your model again each time. You
-only need to add the key:
+Paid Copilot? Pick **GPT-6 Luna** rather than Auto. No Copilot, or out of Copilot requests? Use the
+Vercel AI Gateway and pick **GPT-6 Luna · Vercel AI Gateway** in the model picker. **The picker
+resets with every new chat** — pick your model again each time. You only need to add the key:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
 2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
-3. Open a new chat and pick **Claude Haiku 4.5** in the model picker.
+3. Open a new chat and pick **GPT-6 Luna · Vercel AI Gateway** in the model picker.
 4. Send `hi` and check you get an answer back.
 
 The key is workshop-only and is revoked afterwards — at home, use your own Copilot plan or your
@@ -50,7 +50,9 @@ secret storage — **do not paste it into a file in this repository.**
 > The gateway works alongside Copilot, so you can switch between **Auto** and a gateway model in
 > the same chat. Cheaper gateway models exist, but DeepSeek V4.1 Flash broke down (*Sorry, no
 > response was returned*) in three of our four exhibits, always when a long page snapshot or a
-> generated test had to be handled. Haiku did not.
+> generated test had to be handled. Claude Haiku 4.5 did not, and GPT-6 Luna — a tenth of Haiku's
+> price — ran the 09:38 demo skill correctly through the gateway. If GPT-6 Luna struggles, Claude
+> Haiku 4.5 is the other gateway model.
 
 ### Claude Code
 

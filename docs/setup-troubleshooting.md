@@ -77,9 +77,9 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | No **Workspace Recommendations** section at all | VS Code is not open at the repository root. **File → Open Folder…** → the `tf-2026-vibe-testing` folder itself, not a folder inside it. |
 | No Copilot Chat | It is built into current VS Code. Update VS Code (**Help → Check for Updates**), then sign in with your GitHub account. |
 | The Chat view asks you to sign in | Sign in with your GitHub account. The free Copilot plan is enough. |
-| The model picker has no model, or **Claude Haiku 4.5** is missing from it | With a GitHub account you should see **Auto**; sign in to Copilot if you do not. For the gateway models, run **Vercel AI Gateway: Manage Authentication** again and paste the key, then **Developer: Reload Window**. |
+| The model picker has no model, or **GPT-6 Luna · Vercel AI Gateway** is missing from it | With a GitHub account you should see **Auto**; sign in to Copilot if you do not. For the gateway models, run **Vercel AI Gateway: Manage Authentication** again and paste the key, then **Developer: Reload Window**. |
 | *API key budget exceeded* on a gateway model | The workshop key has hit its spending limit. Switch the model picker to **Auto** (Copilot) and type *Continue.* in the same chat — nothing you did is lost. Raise your hand so the presenter can lift the limit. |
-| Copilot says you are out of requests | Switch the model picker to **Claude Haiku 4.5** and carry on with the gateway key. |
+| Copilot says you are out of requests | Switch the model picker to **GPT-6 Luna · Vercel AI Gateway** and carry on with the gateway key. |
 | The model answers with an authentication error | The key was pasted incompletely. It starts with `vck_`. Paste it again. |
 
 ## Step 8 — Wopee.io
@@ -119,7 +119,7 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | Exhibit 1: the agent opens the app in VS Code's browser ("Sharing with Agent", "Ran Playwright code") | The Integrated Browser tools are on. Check `.vscode/settings.json` has `"workbench.browser.enableChatTools": false` and the folder is trusted, then **Developer: Reload Window** and start a **New Chat**. |
 | Exhibit 3: the agent drives the browser over MCP ("Ran Click – playwright-test") instead of `npx playwright cli` | Stop the server: **MCP: List Servers** → **playwright-test** → **Stop Server**, then start a **New Chat**. |
 | Exhibit 1: the agent clicks through the app ("Ran Click – playwright-test") instead of writing a test | A server is still running from an earlier test. `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → stop **playwright-test** and **wopee**, then start a **New Chat**. |
-| *Sorry, no response was returned* right when an agent saves a plan, writes a test or reads a long snapshot | The model gave up on a long answer. Switch the model picker to **Claude Haiku 4.5** or **Auto** in the same chat and press **Try Again**. |
+| *Sorry, no response was returned* right when an agent saves a plan, writes a test or reads a long snapshot | The model gave up on a long answer. Switch the model picker to another model — **GPT-6 Luna**, **Claude Haiku 4.5** or **Auto** — in the same chat and press **Try Again**. |
 | A `.md` file opens rendered and you cannot edit it | The workspace opens Markdown in VS Code's Markdown Editor. Click the pencil in its toolbar, or right-click the file → **Open With…** → **Text Editor**. |
 | A file you know exists is missing from search | `solutions/` and `SPOILERS-app-notes.md` are hidden from workspace search (and from the agents). They open normally from the Explorer. |
 | macOS: *Google Chrome for Testing quit unexpectedly* | Click **OK**, not Reopen. The test browser stops itself when the agent's run ends abruptly; the next run starts a fresh one. |

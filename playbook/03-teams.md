@@ -35,7 +35,7 @@ this morning (`N` is your team number).
 
 This repository ships a skill for it —
 [`.github/skills/team-setup/SKILL.md`](../.github/skills/team-setup/SKILL.md). New chat,
-**Agent**, **Auto** or **Claude Haiku 4.5**, and type:
+**Agent**, **Auto** or **GPT-6 Luna**, and type:
 
 ```
 Set up my team: team 3, tool Playwright CLI + Skills.

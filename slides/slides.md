@@ -653,7 +653,7 @@ stuck: Read solutions/order.md and solutions/order.spec.ts — npm run solutions
 ---
 
 1. From the <b>repo root</b>: <code>npm run agents</code> → <b>Developer: Reload Window</b> → seed test green → <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Start Server</b>.
-2. New chat, <b>planner</b> + <b>Auto</b> or <b>Claude Haiku 4.5</b>: plan one dish, cash on delivery (prompt in the README). Read its <code>specs/order.md</code> — the artifact a non-coder can review.
+2. New chat, <b>planner</b> + <b>Auto</b> or <b>GPT-6 Luna</b>: plan one dish, cash on delivery (prompt in the README). Read its <code>specs/order.md</code> — the artifact a non-coder can review.
 3. New chat, <b>generator</b>: scenario 1.1 only, then run it. Which <code>expect</code> accepts what the spec forbids?
 
 <p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then search <code>tests/</code> for <code>test.fixme</code>. Did it repair your test — or just silence it?</p>

@@ -101,7 +101,7 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
    The planner runs this exact test to boot your environment. If it is red, the problem is your
    network or the app, and none of the rest will work until you fix it.
 2. Ask the **planner** for a plan. New chat, **playwright-test-planner** in the agent picker (where
-   you usually choose **Agent**), and **Auto** or **Claude Haiku 4.5** in the model picker:
+   you usually choose **Agent**), and **Auto** or **GPT-6 Luna** in the model picker:
 
    ```
    Plan one scenario: a customer orders one dish at Burger Palace and pays cash on delivery.
@@ -113,8 +113,9 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
    Read it — [`specs/`](./specs/) explains what that artifact is for. Left alone, the planner
    explores *thoroughly*: 100+ steps and 7 minutes. The prompt keeps it to one path.
 
-   > **Which model.** **Auto** (Copilot Free) or **Claude Haiku 4.5** (the gateway). Both handle
-   > this exhibit. A cheap model will not: DeepSeek V4.1 Flash answered *Sorry, no response was
+   > **Which model.** **Auto** (Copilot Free) or **GPT-6 Luna** (paid Copilot or the gateway). This
+   > exhibit was rehearsed on Claude Haiku 4.5, the other gateway model — switch to it if Luna
+   > struggles. Not every model copes: DeepSeek V4.1 Flash answered *Sorry, no response was
    > returned* exactly when the planner saved its plan and when the generator wrote its test.
    > Already stuck? Switch the model in the same chat and press **Try Again**.
 
@@ -129,7 +130,7 @@ is already there. Ours asserts the app is reachable; the generated stub is empty
    page could carry instructions for the agent; this server only drives our own demo app.
 
 3. Ask the **generator** for the test. New chat, **playwright-test-generator**, **Auto** or
-   **Claude Haiku 4.5**:
+   **GPT-6 Luna**:
 
    ```
    Generate a test for scenario 1.1 only from experiments/1_Zoo/2-PlaywrightAgents/specs/order.md.
@@ -187,7 +188,7 @@ match the app.
 ```
 
 Did it find the `expect` that accepts what the spec forbids? Was it the model, or the prompt?
-Try the same prompt on Haiku to find out.
+Try the same prompt on another model to find out.
 
 ## If you get stuck
 

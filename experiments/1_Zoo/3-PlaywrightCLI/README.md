@@ -52,7 +52,7 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
    accessibility tree that was on disk the whole time, never in the model's context.
 
 3. Now ask your agent to order the meal. It was never told the commands — the skill told it.
-   New chat, agent picker **Agent**, model **Auto** or **Claude Haiku 4.5**:
+   New chat, agent picker **Agent**, model **Auto** or **GPT-6 Luna**:
 
    ```
    Order a meal on https://foodora.lovable.app/ using the Playwright CLI: one Classic Beef Burger
