@@ -472,6 +472,9 @@ lines:
 
 <!--
 09:38 — 10 minutes. Fresh agent session, only the SKILL.md, no follow-up prompts. This is the bar for the afternoon.
+Before the talk: mkdir -p .github/skills && cp -r docs/demo/foodora-smoke .github/skills/ (gitignored). Live: show the SKILL.md for
+a minute — description with "use when", spec IDs, the FAIL rule — then New Chat, Agent, Auto, type: run foodora-smoke
+Point at the report table: expected results from the spec, not the app. Takes about 1–2 minutes; talk over it.
 -->
 
 ---
