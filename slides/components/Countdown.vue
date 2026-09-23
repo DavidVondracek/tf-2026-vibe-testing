@@ -3,15 +3,17 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { onSlideEnter, useNav, useSlideContext } from '@slidev/client'
 import { eventDate } from '../agenda'
 
-// On the workshop day the timer ends at the wall-clock time `until`; on any other day (rehearsal)
-// it starts with `minutes` when the slide first opens. Either way it keeps running while you are on
-// other slides, can be adjusted (+ / − / R, or the hover buttons), and is shared between the
-// presenter and audience windows through localStorage.
+// Every time you open the slide the timer starts fresh: on the workshop day it counts down to the
+// wall-clock time `until`, on any other day (rehearsal) it starts with `minutes`. A custom end time
+// typed into the hover field ("until 10:00") wins over both until you press ↺. + / − / R and the hover
+// buttons adjust it; the presenter and audience windows share it through localStorage.
 const props = defineProps<{ until: string; minutes?: number; label?: string }>()
 
 const { $page, $nav } = useSlideContext()
 const { isPrintMode } = useNav()
 const storageKey = `wp-timer:${eventDate}:${props.until}:${props.minutes ?? ''}`
+const customKey = `${storageKey}:custom`
+const customTime = ref('')
 
 const now = ref(Date.now())
 const endsAt = ref<number | undefined>(load())
@@ -40,9 +42,9 @@ function todayString(t: number) {
 
 const isEventDay = computed(() => todayString(now.value) === eventDate || !props.minutes)
 
-function wallClockEnd() {
-  const [h, m] = props.until.split(':').map(Number)
-  const d = new Date(now.value)
+function wallClockEnd(at = props.until) {
+  const [h, m] = at.split(':').map(Number)
+  const d = new Date()
   d.setHours(h, m, 0, 0)
   return d.getTime()
 }
@@ -51,27 +53,59 @@ function fullLength() {
   return Date.now() + (props.minutes ?? 0) * 60_000
 }
 
-// A saved timer that ended more than 30 min ago is stale: start fresh.
-function ensureStarted() {
-  const saved = load()
-  if (saved && saved > Date.now() - 30 * 60_000) {
-    endsAt.value = saved
-    return
+function loadCustom(): string {
+  try {
+    return localStorage.getItem(customKey) ?? ''
+  } catch {
+    return ''
+  }
+}
+
+// Opening the slide always restarts the countdown: at a custom end time if one is set and still
+// ahead, otherwise at the default for today.
+function restart() {
+  customTime.value = loadCustom()
+  if (customTime.value) {
+    // A time that has already passed today means tomorrow (rehearsing the night before).
+    let custom = wallClockEnd(customTime.value)
+    if (custom <= Date.now()) custom += 24 * 60 * 60_000
+    return save(custom)
   }
   save(isEventDay.value ? wallClockEnd() : fullLength())
+}
+
+// The slide swallows keystrokes, so an inline field cannot be typed into; a prompt can.
+function askUntil() {
+  const answer = window.prompt('Count down until (HH:MM, 24h). Empty = back to the default.', customTime.value || props.until)
+  if (answer === null) return
+  const t = answer.trim().replace('.', ':')
+  if (t === '') return setCustom('')
+  const m = t.match(/^(\d{1,2}):?(\d{2})$/)
+  if (!m || +m[1] > 23 || +m[2] > 59) return
+  setCustom(`${m[1].padStart(2, '0')}:${m[2]}`)
+}
+
+function setCustom(value: string) {
+  customTime.value = value
+  try {
+    value ? localStorage.setItem(customKey, value) : localStorage.removeItem(customKey)
+  } catch {}
+  restart()
 }
 
 function onAction(e: Event) {
   if ($page.value !== $nav.value.currentSlideNo) return
   const action = (e as CustomEvent).detail
-  if (!endsAt.value) ensureStarted()
+  if (!endsAt.value) restart()
   if (action === 'plus') save(endsAt.value! + 60_000)
   if (action === 'minus') save(Math.max(Date.now(), endsAt.value! - 60_000))
-  if (action === 'reset') save(fullLength())
+  if (action === 'reset') setCustom('')
+  if (action === 'until') askUntil()
 }
 
 function onStorage(e: StorageEvent) {
   if (e.key === storageKey) endsAt.value = load()
+  if (e.key === customKey) customTime.value = loadCustom()
 }
 
 let timer: ReturnType<typeof setInterval> | undefined
@@ -86,7 +120,7 @@ onUnmounted(() => {
   window.removeEventListener('storage', onStorage)
 })
 onSlideEnter(() => {
-  if (!isPrintMode.value) ensureStarted()
+  if (!isPrintMode.value) restart()
 })
 
 const remaining = computed(() => {
@@ -112,9 +146,10 @@ const fire = (action: string) => window.dispatchEvent(new CustomEvent('wp-timer'
     <div class="wp-countdown-label">{{ label ?? `Time left · ends ${until}` }}</div>
     <div class="wp-countdown-value">{{ display }}</div>
     <div class="wp-countdown-controls">
-      <button title="One minute less (−)" @click.stop="fire('minus')">−1</button>
-      <button title="Restart at full length (R)" @click.stop="fire('reset')">↺</button>
-      <button title="One minute more (+)" @click.stop="fire('plus')">+1</button>
+      <button title="One minute less (−)" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('minus')">−1</button>
+      <button title="Restart at full length (R)" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('reset')">↺</button>
+      <button title="One minute more (+)" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('plus')">+1</button>
+      <button class="until" title="Count down to a clock time (T)" @click.stop="($event.currentTarget as HTMLElement).blur(); askUntil()">until {{ customTime || '…' }}</button>
     </div>
   </div>
 </template>
@@ -162,6 +197,7 @@ const fire = (action: string) => window.dispatchEvent(new CustomEvent('wp-timer'
 .wp-countdown:hover .wp-countdown-controls {
   opacity: 1;
 }
+
 
 .wp-countdown-controls button {
   background: var(--wp-black);
