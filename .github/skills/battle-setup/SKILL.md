@@ -27,10 +27,14 @@ the one folder under `teams/` that is not `_template`. Ask only if neither tells
    `git pull --no-rebase origin main`.
 3. **Check they arrived:** `ls spec/battle/` must list the stories for `FD-09`, `FD-10` and
    `FD-11`. Empty or missing? Stop: the presenter has not published them yet — say so.
-4. **Point the suite at the new build.** In `.env` at the repository root, the last line is
-   `# FOODORA_URL=https://foodora-new.lovable.app`. Remove the `# ` so it reads
-   `FOODORA_URL=https://foodora-new.lovable.app`. Change nothing else in `.env`, and never print
-   its other lines — they hold keys.
+4. **Point the suite at the new build.** The last line of `.env` at the repository root is
+   `# FOODORA_URL=https://foodora-new.lovable.app`. Uncomment it with this command, and never open
+   or print `.env` — it holds keys, and an edit or a read would put them on screen:
+   ```bash
+   node -e "const fs=require('fs');fs.writeFileSync('.env',fs.readFileSync('.env','utf8').replace(/^# ?FOODORA_URL=/m,'FOODORA_URL='))"
+   grep '^FOODORA_URL=' .env
+   ```
+   The `grep` must print `FOODORA_URL=https://foodora-new.lovable.app` and nothing else.
 5. **Run the suite once** against the new build:
    `cd teams/team-N && npx playwright test --project=chromium; cd ../..`.
 
