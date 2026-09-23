@@ -747,7 +747,7 @@ stuck: Use the shared project on the whiteboard — a finished run is already wa
 2. Answer its one question — where to explore next — then watch it crawl, write its artifacts and run a scenario on its own.
 3. Open the run's report and decide: <b>who says this passed — the agent, the assertions, or you?</b>
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;The <code>wopee</code> MCP server is preset but off — <b>MCP: List Servers → wopee → Start Server</b>. Then ask <em>your</em> agent for the project's coverage, then to write a test case. Install <code>wopee-intent-tests</code> from the folder and watch the same request come back as intent instead of clicks.</p>
+<p class="mt-5"><span class="hl">Bonus</span> &nbsp;The <code>wopee</code> MCP server is preset but off — <b>MCP: List Servers → wopee → Start Server</b>. Then ask <em>your</em> agent for the project's coverage, to write a test case and dispatch it — and judge the run's report together. Install <code>wopee-intent-tests</code> from the folder and watch the same request come back as intent instead of clicks.</p>
 
 <!--
 11:25 — hands-on until 11:45, debrief 5 min.

@@ -151,26 +151,29 @@ Deleting rewrites the artifact without it, and there is no undo.
 
 From cmd.wopee.io, **▶ Run** on the test case; from chat, `wopee_dispatch_agent`.
 
-**Nothing notifies you when a run finishes — poll for it.** `wopee_dispatch_agent` returns as soon
-as the agent has been dispatched. Never tell the person you will report back "when it finishes" and
-then stop: you have to go and look.
+The run dialog in cmd.wopee.io offers **Save steps from this run**. It is on by default, and on a
+green run it records the clicks and assertions as the test's steps — from then on the test replays
+them instead of being interpreted. Turn it off to keep the test intent-driven; turn it on
+deliberately when a flow has settled and you want the cheaper, repeatable version. Never leave a
+test half-way: steps plus description means the steps win.
+
+**After dispatching, hand the result to the person — do not go looking for it.** With a project
+API key the tools cannot read run results yet (September 2026): `wopee_fetch_recent_executions`,
+`wopee_fetch_executed_test_cases` and `wopee_read_chat_history` answer `Not Authorised!`, and the
+inventory reports every status as `UNKNOWN`. The dispatch tool's own description tells you to poll
+them — do not.
 
 1. Dispatch, and say which test case is running, in which analysis.
-2. Check after about 30 seconds — `sleep 30` in the terminal — then every 30 seconds. These are
-   cheap API calls; the point is to give the person a progress line, not to save requests.
-3. Poll with `wopee_fetch_test_inventory` and read the status of that test case. Still `NOT_RUN`?
-   Say so in one line — "still running, checked at 21:16" — and check again.
-4. Stop after about ten minutes, say plainly that you cannot see a result yet, and give the person
-   the scenario in cmd.wopee.io to look at. Never invent a verdict you have not read.
-5. When you have a result, report the verdict, the step that failed and what the report says —
-   including whether the prose verdict and the recorded assertions agree.
+2. Tell the person where to watch it: cmd.wopee.io → **Projects** → their project (name it by
+   its URL, and say it is the one whose UUID is `WOPEE_PROJECT_UUID` if they have several) — the
+   run shows under
+   **RUNNING NOW** and then **COMPLETED**; click it, then the run's **Report** down to **Verdict
+   Grounding**.
+3. Offer to judge the report once they paste it: compare the verdict and the failing step with the
+   spec rule the test case names, and say whether it failed for the right reason. Never invent a
+   verdict you have not read.
 
-> **Known limitation, September 2026.** With a project API key the two result tools,
-> `wopee_fetch_recent_executions` and `wopee_fetch_executed_test_cases`, answer
-> `[GRAPHQL_ERROR] Not Authorised!`, and `wopee_fetch_test_inventory` keeps reporting `NOT_RUN` for
-> test cases that have already run. cmd.wopee.io shows the run and its report perfectly. So today,
-> after dispatching, say where the result will appear instead of promising to fetch it — and check
-> whether this still holds before relying on it.
+Delete the paragraph above the list once run results are readable with a project key.
 
 ## Reviewing a test case
 

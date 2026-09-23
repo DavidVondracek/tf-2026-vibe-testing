@@ -87,22 +87,45 @@ created that file for you.
 4. Start the server: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server**
    (**Restart Server** if it is already running, so it reads the new `.env`).
 5. Open Copilot Chat in **Agent** mode, model **Auto** or **Claude Haiku 4.5** (pick it again in
-   every new chat), and ask three things — one per chat:
+   every new chat), and ask these — one per chat:
+
+   **a. Coverage**
 
    ```
-   Use the Wopee tools: what test coverage does my project have? List the analyses, the test cases
-   and their latest status, and tell me which FD-05, FD-06 and FD-07 rules from spec/foodora-spec.md are
-   not covered.
+   Use the Wopee tools: which analyses and test cases does my project have, and which FD-05,
+   FD-06 and FD-07 rules from spec/foodora-spec.md are not covered by any test case?
    ```
+
+   **b. Add a test case**
 
    ```
    Add a new Wopee test case for FD-06: placing an order with an empty checkout form must be
-   rejected. Put it in the existing analysis suite and show me what you created.
+   rejected. Put it in the existing analysis and show me what you created.
    ```
 
+   **c. Run it**
+
    ```
-   Run the Wopee test case "Open a restaurant from the homepage" with the agent and tell me the
-   result when it finishes.
+   Run the Wopee test case for FD-06 with the agent and tell me where to watch it.
+   ```
+
+   The agent dispatches the run and tells you which scenario it is. In
+   [cmd.wopee.io](https://cmd.wopee.io) you land on **Projects**: click your
+   `foodora.lovable.app` project — with several, the one with the newest **Latest run**, or the
+   one whose **More → Settings** shows the `WOPEE_PROJECT_UUID` in your `.env`. The run shows
+   under **RUNNING NOW** in the analysis, with a progress bar, and
+   moves to **COMPLETED** in a minute or two. Click it, open the run's **Report** and read it down
+   to **Verdict Grounding**. A **Generate scenarios** panel may pop up — collapse it with **−**,
+   and do not click *Rebuild*: it replaces your scenarios.
+
+   **d. Judge the result together**
+
+   Copy the whole report with the copy icon at its top right. In the same chat, type the question
+   first, then paste the report below it:
+
+   ```
+   Judge this Wopee run against FD-06 in spec/foodora-spec.md — did the test fail for the right
+   reason, or pass for the wrong one? The report:
    ```
 
    You should see `wopee_fetch_test_inventory`, then `wopee_fetch_artifact` and
@@ -113,11 +136,10 @@ created that file for you.
    test case, and the test cases live in the `USER_STORIES` artifact of one analysis. Every tool
    call works on exactly one analysis.
 
-   > **The third one will not tell you the result** (September 2026). `wopee_dispatch_agent` starts
-   > the run, but with a project API key the two result tools answer `Not Authorised!` and the
-   > inventory keeps reporting `NOT_RUN` for test cases that have already run. cmd.wopee.io shows
-   > the run and its report correctly. A good agent says exactly that instead of inventing a
-   > verdict — watch whether yours does.
+   > **Why you read the result in cmd.wopee.io** (September 2026): with a project API key the
+   > tools cannot read run results yet, so the coverage answer shows every status as `UNKNOWN` and
+   > the agent cannot fetch a verdict. That is why step **d** hands the report to the agent — and
+   > the question it asks is the one this exhibit is about anyway: who says this passed?
 
 ## Bonus — change how the tool behaves, with a skill
 
