@@ -46,8 +46,9 @@ Then check, and stop with the fix if one fails:
    agent finds it.
 4. **Fill the header** of `teams/team-N/README.md`: the team line (ask for names if you do not
    have them; "Team N" is fine) and the tool line, keeping only the team's tool.
-5. **Check the folder runs:** `cd teams/team-N && npx playwright test --project=chromium; cd ../..`.
-   *Error: No tests found* is the correct result for a new team — say so.
+5. **Check the folder runs:**
+   `cd teams/team-N && npx playwright test --project=chromium --pass-with-no-tests; cd ../..`.
+   It finds the config and no tests, and exits cleanly — the correct result for a new team.
 6. **Commit, push, draft PR:**
    ```bash
    git add teams/team-N .github/skills/team-N-my-skill
