@@ -41,7 +41,7 @@ label: Welcome
 # Your zookeeper today
 
 <div class="flex items-center justify-center gap-10 mt-4">
-  <img src="/img/marcel.jpg" class="w-44 h-44 rounded-full object-cover border-6 border-[#ffcc00]" />
+  <img src="/img/marcel.jpg" class="w-60 h-60 rounded-full object-cover border-6 border-[#ffcc00]" />
   <div>
     <h3 class="text-4xl">Marcel Veselka</h3>
     <p class="muted text-2xl mt-2">Founder of Wopee.io and Tesena</p>
@@ -50,12 +50,11 @@ label: Welcome
 </div>
 
 <div class="flex items-center justify-center gap-14 mt-8">
-  <img src="/img/wopee-logo.svg" class="h-16" />
   <img src="/img/tesena.jpg" class="h-16" />
 </div>
 
 <!--
-09:00 — 1 minute. Who I am, why I built Wopee.io, and the promise: every tool gets a fair test, including mine.
+09:00 — 30 seconds. Who I am, why I built Wopee.io, and the promise: every tool gets a fair test, including mine.
 -->
 
 ---
@@ -65,7 +64,7 @@ label: Welcome
 
 # Meet your neighbour
 
-Pairs. 2 minutes each. Then 3 volunteers share with the room.
+Turn to your neighbour — 1 minute, both of you.
 
 <div class="cards c4">
 <div class="card"><div class="num">1</div><h3>Your name</h3><p>and where you work</p></div>
@@ -77,7 +76,7 @@ Pairs. 2 minutes each. Then 3 volunteers share with the room.
 <p class="text-2xl font-bold mt-8 text-center">What do you want to <span class="y">take home</span> today?</p>
 
 <!--
-09:02 — 5 minutes max. Pairs, not a round of 30 intros.
+09:01 — 1 minute, hard stop. Pairs, not a round of 30 intros; no volunteers.
 -->
 
 ---
@@ -85,23 +84,53 @@ block: kickoff
 label: Welcome
 ---
 
-# Everything lives in <span class="y">one repo</span>
+# Ready in <span class="y">3 steps</span>
 
-<div class="flex items-center justify-center gap-10">
-  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="11rem" caption="Scan to open" />
-  <div>
-    <a class="repo-link" href="https://github.com/Wopee-io/tf-2026-vibe-testing"><span>github.com/Wopee-io/</span><span>tf-2026-vibe-testing</span></a>
-    <p class="text-2xl">Every block of the day has a page in <code>playbook/</code>.<br>Lose me? Follow the page.</p>
+<div class="ready">
+  <div v-click class="rs">
+    <div class="rn">1</div>
+    <h3>Get online</h3>
+    <Wifi />
   </div>
-  <Qr url="https://forms.gle/hU57AS3A5SPrqKWK8" size="7rem" caption="No AI key? Form" />
+  <div v-click class="rs">
+    <div class="rn">2</div>
+    <h3>Open the repo</h3>
+    <div class="rq"><Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="7.5rem" caption="" /></div>
+    <p class="url">github.com/Wopee-io/<br>tf-2026-vibe-testing</p>
+    <p>Terminal: <code>npm run verify</code><br>→ <b>7 green</b> lines</p>
+  </div>
+  <div v-click class="rs dark">
+    <div class="rn">3</div>
+    <h3>Add your AI key</h3>
+    <p><b>Key 1</b> from the form's document → <code>Ctrl/Cmd+Shift+P</code> → <b>Vercel AI Gateway: Manage Authentication</b></p>
+    <p>Model picker: type <code>gpt-6-luna</code></p>
+    <div class="rform"><Qr url="https://forms.gle/hU57AS3A5SPrqKWK8" size="4.6rem" caption="" /><span>No document yet?<br>Submit the form now.</span></div>
+  </div>
 </div>
 
-<Wifi class="mt-7" />
+<p v-click="'+0'" class="ready-note">Every block of the day has a page in <code>playbook/</code>. Lose me? Follow the page.</p>
 
-<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. Then paste key 1 from the form's document (<b>Vercel AI Gateway: Manage Authentication</b>) and pick <b>GPT-6 Luna</b> — type <code>gpt-6-luna</code> in the model picker. No document yet? Submit <b>forms.gle/hU57AS3A5SPrqKWK8</b> now.</p>
+<style>
+.ready { display: grid; grid-template-columns: 1.05fr 1fr 1.1fr; gap: 1.1rem; margin-top: 1.1rem; }
+.ready .rs { transition: transform 0.35s ease, opacity 0.35s ease; }
+.ready .rs.slidev-vclick-hidden { transform: translateY(24px); }
+.ready .rs { position: relative; background: var(--wp-card); border-top: 6px solid var(--wp-yellow); padding: 1.4rem 1.2rem 1.1rem; }
+.ready .rs.dark { background: #000; color: #fff; }
+.ready .rn { position: absolute; top: -1.35rem; left: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--wp-yellow); color: #000; font-family: 'Bungee', sans-serif; font-size: 1.35rem; display: flex; align-items: center; justify-content: center; }
+.ready h3 { font-size: 1.45rem; font-weight: 700; margin: 0.2rem 0 0.7rem; }
+.ready p { font-size: 1rem; line-height: 1.4; margin: 0.45rem 0; }
+.ready .rs.dark code { background: #333; color: var(--wp-yellow); }
+.ready .rq { float: right; margin: -0.4rem 0 0 0.6rem; }
+.ready .url { font-weight: 700; font-size: 1.02rem !important; }
+.ready .rform { display: flex; align-items: center; gap: 0.7rem; margin-top: 0.8rem; font-size: 0.9rem; color: #ddd; }
+.ready :deep(.wp-wifi) { flex-direction: column; align-items: flex-start; border-left: 0; padding: 0; background: none; }
+.ready :deep(.wp-wifi-fields) { flex-direction: column; gap: 0.9rem; }
+.ready :deep(.wp-wifi .v) { font-size: 1.5rem; }
+.ready-note { text-align: center; margin-top: 1rem; font-size: 1.05rem; color: var(--wp-grey); }
+</style>
 
 <!--
-09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
+09:02 — 1 minute. The wifi is on this slide, on the cover and on every break slide. Say it out loud here too.
 Anyone without a working setup: pair them with a neighbour now, fix it during the concepts block.
 `npm run verify` checks Node, deps, the Playwright version, the browser CLI, the test MCP server,
 Chromium on disk, and that the demo app answers. Green all the way down or they are not ready.
@@ -112,21 +141,24 @@ block: kickoff
 label: Welcome
 ---
 
-# How to get <span class="y">unstuck</span>
+# Stuck? <span class="y">In this order</span>
 
-One zookeeper, up to 30 visitors. This is the queue.
-
-<div class="cards c4">
-<div class="card"><div class="num">1</div><h3>Ask your neighbour</h3><p>Or your team, after lunch.</p></div>
-<div class="card"><div class="num">2</div><h3>Check the README</h3><p>Setup troubleshooting covers the usual suspects.</p></div>
-<div class="card"><div class="num">3</div><h3>Raise your hand</h3><p>Or flip your laptop lid halfway. I work through the queue.</p></div>
-<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit README ends with a shortcut. Use it and keep going.</p></div>
+<div class="cards c4 unstuck">
+<div class="card"><div class="num">1</div><h3>Ask your neighbour</h3><p>After lunch: your team.</p></div>
+<div class="card"><div class="num">2</div><h3>Read the page</h3><p><code>playbook/</code> → your block → <b>If stuck</b></p><p>Setup trouble? <code>docs/</code> → <b>setup-troubleshooting</b> → search the error</p></div>
+<div class="card"><div class="num">3</div><h3>Raise your hand</h3><p>Or lid half down. I work the queue.</p></div>
+<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Exhibit README → <b>If you get stuck</b>: a <code>solutions/</code> folder, the worked skill, or the shared Wopee project.</p></div>
 </div>
 
-<div class="banner">The agent asks before it acts. <em>Read it, then click the blue Allow</em> — not the ⌄ menu.</div>
+<div class="banner">The agent asks first. <em>Read it, then click the blue Allow</em> — not ⌄.</div>
+
+<style>
+.unstuck p { font-size: 1rem !important; line-height: 1.4; margin: 0.35rem 0; }
+.unstuck .card.dark code { background: #333; color: var(--wp-yellow); }
+</style>
 
 <!--
-09:06 — 1 minute. Repeat the rule before each hands-on block.
+09:03 — 1 minute. Repeat the rule before each hands-on block.
 The banner: the default answer to every approval is the blue Allow, after reading the command. The ⌄ menu's Session/Workspace/Always
 options approve whole command families (git …, gh …) including push and fork; only use them where an exhibit says so (Exhibit 2's
 Playwright Test Runner approvals). Reading commands are pre-approved. Not sure? Skip, and ask the agent what the command does.
@@ -141,7 +173,7 @@ label: Welcome
 
 <table class="agenda">
 <tbody>
-<tr><td>09:00</td><td>Kick-off: Speed Gap Diagnostic</td></tr>
+<tr><td>09:00</td><td>Kick-off · 09:05 Speed Gap Diagnostic</td></tr>
 <tr><td>09:15</td><td>Concepts: The New Stack</td></tr>
 <tr class="pause"><td>09:55</td><td>Break</td></tr>
 <tr><td>10:10</td><td>The Zoo — 4 exhibits, 1 demo app</td></tr>
@@ -160,19 +192,33 @@ block: kickoff
 label: Welcome
 ---
 
-# No death by slides. The day has <span class="y">4 gears</span>.
+# Your day: <span class="y">try, pick, build, race</span>
 
-<div class="cards c4">
-<div class="card"><div class="num">1</div><h3>The Zoo</h3><p>4 exhibits, 1 demo app. Every tool gets the same fair test. Including the one we built.</p></div>
-<div class="card"><div class="num">2</div><h3>Teams & Mission</h3><p>Before lunch you get a team and a mission card.</p></div>
-<div class="card"><div class="num">3</div><h3>Build One Thing</h3><p>90 min. A real AI-assisted test suite and a SKILL.md your agent runs cold. Then another team tests it.</p></div>
-<div class="card dark"><div class="num">4</div><h3>Speed Gap Battle</h3><p>3 new features just shipped. Your suite is your only weapon.</p></div>
+<div class="gears">
+  <div v-click class="gear"><img src="/img/gears/zoo.jpg" /><div class="gt"><span class="gn">1</span><span class="gtime">10:10</span></div><h3>Try · The Zoo</h3><p>4 AI testing tools. Same app, same task.</p></div>
+  <div v-click class="gear"><img src="/img/gears/team.jpg" /><div class="gt"><span class="gn">2</span><span class="gtime">11:50</span></div><h3>Pick · Teams</h3><p>One tool per team, one mission card.</p></div>
+  <div v-click class="gear"><img src="/img/gears/build.jpg" /><div class="gt"><span class="gn">3</span><span class="gtime">13:00</span></div><h3>Build · One Thing</h3><p>A test suite and a SKILL.md that runs cold.</p></div>
+  <div v-click class="gear dark"><img src="/img/gears/battle.jpg" /><div class="gt"><span class="gn">4</span><span class="gtime">15:15</span></div><h3>Race · The Battle</h3><p>3 new features, 40 min. Speed, accuracy, reuse.</p></div>
 </div>
 
-<div class="banner">Same app. Different tools. Head-to-head. <em>You pick the winner.</em></div>
+<style>
+.gear { transition: transform 0.35s ease, opacity 0.35s ease; }
+.gear.slidev-vclick-hidden { transform: translateY(28px) rotate(-2deg); }
+.gears { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; margin-top: 1.4rem; }
+.gear { background: #fff; border: 3px solid #000; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #000; }
+.gear img { width: 100%; aspect-ratio: 1 / 0.78; object-fit: cover; object-position: center 35%; border-bottom: 3px solid #000; }
+.gear .gt { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 0.8rem 0; }
+.gear .gn { width: 2rem; height: 2rem; border-radius: 50%; background: var(--wp-yellow); border: 2px solid #000; font-family: 'Bungee', sans-serif; display: flex; align-items: center; justify-content: center; }
+.gear .gtime { font-family: 'Bungee', sans-serif; font-size: 0.9rem; color: var(--wp-grey); }
+.gear h3 { font-size: 1.25rem; font-weight: 700; margin: 0.35rem 0.8rem 0.1rem; }
+.gear p { font-size: 0.95rem !important; margin: 0 0.8rem 0.8rem; color: var(--wp-grey); line-height: 1.3; }
+.gear.dark { background: #000; color: #fff; }
+.gear.dark p, .gear.dark .gtime { color: #ddd; }
+.gear.dark img { border-bottom-color: var(--wp-yellow); }
+</style>
 
 <!--
-09:08 — the promise of the day. Say the fairness line out loud.
+09:04 — 1 minute, four clicks: try the tools, pick one as a team, build with it, race with it. The promise of the day. Say the fairness line out loud. Diagnostic starts at 09:05.
 -->
 
 ---
@@ -184,7 +230,7 @@ image: /img/photos/diagnostic.jpg
 
 # Speed Gap Diagnostic
 
-Kick-off · 5 min
+09:05 · 10 min
 
 ---
 block: kickoff
@@ -203,7 +249,7 @@ Write both numbers on a sticky note. Put it on the board. No judgment.
 <p v-click class="text-2xl font-bold mt-8 text-center">Today is about <span class="y">closing the gap</span> between these two numbers.</p>
 
 <!--
-09:10 — sticky notes: yellow for DEV, white for QA. Photograph the board; we come back to it at 16:15.
+09:05 — sticky notes: yellow for DEV, white for QA. Photograph the board; we come back to it at 16:15.
 -->
 
 ---

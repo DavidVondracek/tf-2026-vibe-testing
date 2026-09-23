@@ -1,6 +1,6 @@
 # 09:00 · Kick-off: Speed Gap Diagnostic
 
-**Time:** 09:00–09:15 · 15 min
+**Time:** 09:00–09:15 · 15 min — welcome and setup until 09:05, then the Speed Gap Diagnostic
 
 **Goal:** get your laptop ready, and measure how fast your team is today.
 
