@@ -61,8 +61,8 @@ Here you do not write the test. You give Wopee the URL and the goal, and judge w
 
 ## Done when
 
-The analysis finished, you read the test cases it generated, and you opened one step in the
-Comparison view.
+The analysis finished, you read the test cases it generated, and you opened one run's report and
+its steps.
 
 ## Bonus — the testing agent as a tool
 
@@ -86,11 +86,12 @@ created that file for you.
    `.env` is gitignored — the values stay on your laptop.
 4. Start the server: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server**
    (**Restart Server** if it is already running, so it reads the new `.env`).
-5. Open Copilot Chat in **Agent** mode, in a new chat, and ask three things — one per chat:
+5. Open Copilot Chat in **Agent** mode, model **Auto** or **Claude Haiku 4.5** (pick it again in
+   every new chat), and ask three things — one per chat:
 
    ```
    Use the Wopee tools: what test coverage does my project have? List the analyses, the test cases
-   and their latest status, and tell me which FD-05 and FD-06 rules from spec/foodora-spec.md are
+   and their latest status, and tell me which FD-05, FD-06 and FD-07 rules from spec/foodora-spec.md are
    not covered.
    ```
 
@@ -129,6 +130,7 @@ You cannot change the MCP server. You can change what your agent does with it:
 
 ```bash
 mkdir -p .github/skills
+rm -rf .github/skills/wopee-intent-tests
 cp -r experiments/1_Zoo/4-Wopee/skills/wopee-intent-tests .github/skills/
 ```
 
@@ -137,7 +139,7 @@ On Claude Code instead of Copilot? Same command with `.claude/skills/`.
 Start a **new chat** and ask for the same test case again. The agent now writes a title and a
 Markdown description that carries the goal, the data, the steps and the expected results, with
 `steps: []` — the intent, not the clicks. Read
-[`SKILL.md`](./skills/wopee-intent-tests/SKILL.md): it is 90 lines of Markdown — a template for the
+[`SKILL.md`](./skills/wopee-intent-tests/SKILL.md): it is about 180 lines of Markdown — a template for the
 description, and the fetch → edit → update → verify dance for adding, changing and deleting test
 cases — and it changed the output of a tool you do not own.
 
@@ -184,6 +186,11 @@ fetch recent results (`wopee_fetch_recent_executions`).
 > `"env": { "WOPEE_PROJECT_UUID": "${WOPEE_PROJECT_UUID}", "WOPEE_API_KEY": "${WOPEE_API_KEY}" }`.
 > Then start Claude Code with the `.env` values loaded: `set -a; . ./.env; set +a; claude`.
 
+## Housekeeping
+
+Leaving Exhibit 4 for the team work? **MCP: List Servers** → **wopee** → **Stop Server**, unless
+your team's tool is Wopee. Every running server adds its tools to each request.
+
 ## The question to answer at the debrief
 
 Open a run and decide: **who decides whether this passed — the agent, the assertions, or you?**
@@ -205,8 +212,8 @@ and score it honestly. Especially this one.
 
 **Shortcut:** use the shared Foodora project. The presenter writes its name on the whiteboard and
 adds you to it — give them the email you signed up with. It already has a finished analysis and a
-second run compared against an approved baseline, so the Comparison view shows real differences.
+run whose verdict gate disagreed with the agent — open its report and decide who was right.
 For the bonus, the whiteboard also lists that project's `WOPEE_PROJECT_UUID` and a workshop
-`WOPEE_API_KEY` — put them in `.env` as in step 3.
+`WOPEE_API_KEY` — put them in `.env` as in step 3, and nowhere else: never into a tracked file.
 
 Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)

@@ -16,9 +16,9 @@ a test that copies the app's behaviour passes on every bug.
 | Where | How |
 | --- | --- |
 | [Exhibit 1 — AI Coding Agent](../experiments/1_Zoo/1-CodingAgent/) | Attach the spec to your prompt. Copilot Chat: open `spec/foodora-spec.md`, then type `#foodora` in the chat. Claude Code: `@spec/foodora-spec.md` |
-| [Exhibit 2 — Playwright Agents](../experiments/1_Zoo/2-PlaywrightAgents/) | Ask the planner to plan against `FD-05` and `FD-06` |
+| [Exhibit 2 — Playwright Agents](../experiments/1_Zoo/2-PlaywrightAgents/) | Ask the planner to plan against `FD-05`, `FD-06` and `FD-07` |
 | [Exhibit 3 — Playwright CLI + Skills](../experiments/1_Zoo/3-PlaywrightCLI/) | Tell your agent the spec is where expected results come from |
-| [Exhibit 4 — Wopee.io](../experiments/1_Zoo/4-Wopee/) | Paste `FD-05` and `FD-06` into the project's test instructions |
+| [Exhibit 4 — Wopee.io](../experiments/1_Zoo/4-Wopee/) | Pick the **+ Checkout** chip in the project's test instructions, or type *order a meal and verify the confirmation*; the agent reads the app, not the spec — compare what it generates with `FD-05`, `FD-06` and `FD-07` |
 | Build One Thing, the Swap and the Battle | Cover stories, and name the `FD-xx` in every test |
 | [Optional — API testing](../experiments/2_API/) | The app's API is a second source of truth: prices and fees in the UI must match it (`FD-01`, `FD-05`). Its contract is the [OpenAPI schema](https://foodora.lovable.app/openapi.json) |
 

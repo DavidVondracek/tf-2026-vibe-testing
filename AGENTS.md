@@ -5,7 +5,7 @@ demo app behaves is the exercise, so nothing about it is written down here.
 
 ## The shell
 
-On Windows, this repository sets VS Code's terminal to **Git Bash**. Use bash syntax everywhere
+On Windows, this repository sets VS Code's terminal to **Git Bash**. Use bash syntax by default
 (`export`, `cp`, forward slashes) — not PowerShell or `cmd`.
 
 ## Running Playwright

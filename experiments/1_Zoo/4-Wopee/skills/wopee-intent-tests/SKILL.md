@@ -110,7 +110,8 @@ stock, dates — lives in the app and changes without notice.
 
 A test case that carries an invented price fails on the price, and the defect you were hunting
 goes unnoticed behind that red. (In our rehearsal an agent wrote "$12.99" and "$2.50" for a dish
-that costs $12.95 with a $2.99 delivery fee, and stated the values came from the spec.)
+that costs $12.95 with a $2.99 delivery fee, and stated the values came from the spec — the wrong
+figures are quoted here on purpose.)
 
 ## Add a test case
 

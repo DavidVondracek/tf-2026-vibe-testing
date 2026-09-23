@@ -21,6 +21,8 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
    ls .claude/skills/playwright-cli/references/
    ```
 
+   PowerShell: `Get-Content .claude/skills/playwright-cli/SKILL.md -TotalCount 4`.
+
    You get three — `playwright-cli`, `playwright-component-testing`, `playwright-trace`. We only
    use the first.
 
@@ -55,7 +57,7 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
    ```
    Order a meal on https://foodora.lovable.app/ using the Playwright CLI: one Classic Beef Burger
    from Burger Palace, paid cash on delivery.
-   Take the expected results from spec/foodora-spec.md (FD-05, FD-06) and tell me where the app differs.
+   Take the expected results from spec/foodora-spec.md (FD-05, FD-06, FD-07) and tell me where the app differs.
    ```
 
    `npx playwright` commands are pre-approved in
@@ -85,6 +87,7 @@ where Copilot looks (on Claude Code use `.claude/skills/` instead):
 
 ```bash
 mkdir -p .github/skills
+rm -rf .github/skills/foodora-order
 cp -r experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order .github/skills/
 ```
 

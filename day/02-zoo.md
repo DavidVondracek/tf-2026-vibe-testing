@@ -10,7 +10,7 @@ included.
 > Order a meal on [foodora.lovable.app](https://foodora.lovable.app/) — add a dish to the cart,
 > complete the checkout — and get a check that passes. Then find one thing the tool got wrong.
 
-"Worked" means what `FD-05` and `FD-06` in [the spec](../spec/foodora-spec.md) say.
+"Worked" means what `FD-05`, `FD-06` and `FD-07` in [the spec](../spec/foodora-spec.md) say.
 
 ## Steps
 
@@ -21,7 +21,7 @@ Keep the **repository root** open in VS Code the whole day. Each exhibit README 
 | 10:10–10:30 | 🤖 AI Coding Agent | [`1-CodingAgent/`](../experiments/1_Zoo/1-CodingAgent/) |
 | 10:35–10:55 | 🐍 Playwright Agents | [`2-PlaywrightAgents/`](../experiments/1_Zoo/2-PlaywrightAgents/) |
 | 11:00–11:20 | 🦁 Playwright CLI + Skills | [`3-PlaywrightCLI/`](../experiments/1_Zoo/3-PlaywrightCLI/) |
-| 11:25–11:45 | Wopee.io + MCP | [`4-Wopee/`](../experiments/1_Zoo/4-Wopee/) |
+| 11:25–11:45 | 🐒 Wopee.io + MCP | [`4-Wopee/`](../experiments/1_Zoo/4-Wopee/) |
 
 After each exhibit: 5 minutes of debrief. Fill in that row of the scorecard.
 

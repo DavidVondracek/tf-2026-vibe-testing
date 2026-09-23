@@ -3,7 +3,7 @@
 **20 minutes.** Define the intent. Let the agent write, run and interpret the tests. Find where it breaks.
 
 We use **VS Code + GitHub Copilot Chat** with the **Agent**. No Copilot licence, or only the free
-one? You still do the whole exercise — see [No Copilot licence?](#no-copilot-licence).
+one? You still do the whole exercise — see [Which model](#which-model).
 Using Claude Code instead? The same steps work; see [Claude Code](#claude-code).
 
 ## The task
@@ -35,7 +35,8 @@ With a GitHub account you have **Copilot Free**, which gives you **Auto** in the
 costs you nothing. That is the default here, and it is enough for every exhibit.
 
 No Copilot, or out of Copilot requests? Use the Vercel AI Gateway and pick **Claude Haiku 4.5** in
-the model picker. You only need to add the key:
+the model picker. **The picker resets with every new chat** — pick your model again each time. You
+only need to add the key:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
 2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
@@ -63,7 +64,7 @@ Everything else below is the same.
 
    ```
    Write a Playwright test that orders a meal on https://foodora.lovable.app/ and proves it worked.
-   Take the expected results from spec/foodora-spec.md (FD-05, FD-06), not from what the app shows.
+   Take the expected results from spec/foodora-spec.md (FD-05, FD-06, FD-07), not from what the app shows.
    Put it in experiments/1_Zoo/1-CodingAgent/tests/, run it with npx playwright test --headed,
    and fix it from the test output.
    ```
@@ -73,11 +74,11 @@ Everything else below is the same.
 
    The agent opens the spec itself. To attach it as well: open `spec/foodora-spec.md` in the editor (click it in the
    Explorer), then type `#foodora` in the chat and pick `foodora-spec.md`. `#` only suggests files
-   that are open. The spec makes "worked" mean what `FD-05` and `FD-06` say, not whatever the
+   that are open. The spec makes "worked" mean what `FD-05`, `FD-06` and `FD-07` say, not whatever the
    app shows.
 
-3. Let the agent run the test. `npx playwright test` is pre-approved in
-   [`.vscode/settings.json`](../../../.vscode/settings.json); for any other command it asks first —
+3. Let the agent run the test. `npx playwright` commands are pre-approved in
+   [`.vscode/settings.json`](../../../.vscode/settings.json); for anything else it asks first —
    click the **⌄** next to **Allow** and allow it for the session. Or run it yourself:
 
    ```bash
@@ -102,7 +103,12 @@ That last part is the exercise. The test passing is not the point.
 
 ## Bonus
 
-Ask for a negative case: checkout with an empty cart.
+Ask for a negative case, in the same chat:
+
+```
+Write a second Playwright test: opening /checkout with an empty cart. Take the expected result
+from spec/foodora-spec.md (FD-06), not from what you assume a checkout does.
+```
 
 Did it invent an error message the app never shows? That is the failure mode to remember —
 the agent asserts what _should_ be true rather than what _is_ true, and the test passes

@@ -21,6 +21,8 @@ The landing page (`/`) lists the restaurants under **Popular Restaurants**.
   *20% OFF orders over $25*.
 - Selecting a card opens that restaurant's page.
 - **View All** shows the full list of restaurants.
+- A restaurant that does not deliver to the current address is shown greyed out with a *Not available at
+  your address* badge, and the subtitle counts them (*1 don't deliver there*). It cannot be opened.
 
 ![Landing page](screens/01-landing.jpg)
 
@@ -35,7 +37,8 @@ The landing page (`/`) lists the restaurants under **Popular Restaurants**.
 - Search ignores upper and lower case: *burger* and *BURGER* give the same result.
 - Results update while the customer types; pressing **Search** gives the same result.
 - The cuisine chips (**All**, **Pizza**, **Burgers**, **Sushi**, **Italian**, **Mediterranean**)
-  show only restaurants serving that cuisine. **All** shows every restaurant.
+  show only restaurants serving that cuisine. **All** shows every restaurant. Not every cuisine has a
+  chip; **All** is the only view guaranteed to show every restaurant.
 - A search and a selected cuisine chip apply **together**: with **Pizza** selected, searching
   *burger* shows only restaurants that match both.
 - When nothing matches, the page says so — *No restaurants found* — with a hint to try another
@@ -112,6 +115,9 @@ are in the cart.
 | --- | --- | --- |
 | ![One item](screens/07-cart-drawer-one-item.jpg) | ![Several items](screens/08-cart-drawer-multiple-items.jpg) | ![Empty cart](screens/09-cart-drawer-empty.jpg) |
 
+> Screenshots show the build on the day they were taken. Where a screenshot and a rule disagree, the
+> rule is the requirement — that disagreement is a finding, not a correction to the spec.
+
 ---
 
 ## FD-06 · Checkout
@@ -152,7 +158,7 @@ After **Place Order**:
 
 - The customer sees **Order Confirmed!**, a line saying the order was placed, the estimated
   delivery time, the order number and the total.
-- Order numbers look like `FDR-` followed by six letters or digits, and every order gets a new one.
+- Order numbers look like `FDR-` followed by six upper-case letters or digits, and every order gets a new one.
 - **Track My Order** opens the tracking page; **Back to Home** returns to the landing page.
 
 The tracking page (`/order/<order number>`) shows:

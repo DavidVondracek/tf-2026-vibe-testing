@@ -104,38 +104,17 @@
 /* Card rows stagger in */
 .cards > .card,
 .gap-eq > *,
-.vs > * {
-  animation: wp-rise 0.45s ease-out both;
-}
-
 .cards > .card:nth-child(1),
 .gap-eq > :nth-child(1),
-.vs > :nth-child(1) {
-  animation-delay: 0.15s;
-}
-
 .cards > .card:nth-child(2),
 .gap-eq > :nth-child(2),
-.vs > :nth-child(2) {
-  animation-delay: 0.25s;
-}
-
 .cards > .card:nth-child(3),
 .gap-eq > :nth-child(3),
-.vs > :nth-child(3) {
-  animation-delay: 0.35s;
-}
-
 .cards > .card:nth-child(4) {
   animation-delay: 0.45s;
 }
 
 .gap-eq-mid,
-.vs-disc {
-  animation-name: wp-pop !important;
-  animation-duration: 0.5s !important;
-}
-
 .banner {
   animation: wp-rise 0.45s 0.6s ease-out both;
 }
@@ -304,7 +283,7 @@
 }
 
 /* Statement slide */
-.wp-statement > h1 {
+.wp-statement h1 {
   animation: wp-rise 0.6s ease-out both;
 }
 

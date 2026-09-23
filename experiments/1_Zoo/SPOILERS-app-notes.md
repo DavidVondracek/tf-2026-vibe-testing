@@ -355,7 +355,7 @@ The cart lives in React context/state only. Therefore:
    does not. Fixed with `/^Order #FDR-[A-Z0-9]{6}$/`.
 3. `getByRole('link', { name: /Burger Palace/ })` → ambiguous, needs `.first()`.
 
-**Three consecutive runs of `happy-path.spec.js`: 3/3 PASS**, ~7–8 s each, zero retries,
+**Three consecutive runs of [`1-CodingAgent/solutions/order-a-meal.spec.ts`](1-CodingAgent/solutions/order-a-meal.spec.ts): 3/3 PASS**, ~7–8 s each, zero retries,
 zero console errors on any page of the flow. No flakiness once the three issues above were
 fixed. Each run produced a distinct order number (`FDR-XQ6FF0`, `FDR-23G7K0`, `FDR-CY4VGX`),
 confirming the id is generated per order and must be matched by pattern, never by value.
@@ -385,7 +385,7 @@ after choosing Large. Customisation options: Size (Regular / Large +$3.00) and A
 await page.getByRole('link', { name: 'Back' }).click();   // -> /restaurant/1, header returns, badge shows the count
 ```
 
-That extra hop is why `happy-path.spec.js` uses the quick-add button on the restaurant page.
+That extra hop is why [`1-CodingAgent/solutions/order-a-meal.spec.ts`](1-CodingAgent/solutions/order-a-meal.spec.ts) uses the quick-add button on the restaurant page.
 
 ---
 

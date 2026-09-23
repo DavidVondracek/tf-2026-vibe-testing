@@ -36,7 +36,7 @@ on the same demo app. You build the test suite, then you race to defend it.
 | 🤖 | **[AI Coding Agent](../experiments/1_Zoo/1-CodingAgent/)** | Define intent, watch the agent write, run and interpret tests. Find where it breaks | Agent autonomy, and where human judgment still wins |
 | 🐍 | **[Playwright Agents](../experiments/1_Zoo/2-PlaywrightAgents/)** | Let the planner explore, the generator write and the healer repair — you review the artifacts | Plan → test → repair, riding on MCP |
 | 🦁 | **[Playwright CLI + Skills](../experiments/1_Zoo/3-PlaywrightCLI/)** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge |
-| 🔬 | **[Wopee.io + MCP](../experiments/1_Zoo/4-Wopee/)** | Paste the URL and watch it map the app — then call the same agent from your own coding agent | Purpose-built testing agent vs. general-purpose tools |
+| 🐵 | **[Wopee.io + MCP](../experiments/1_Zoo/4-Wopee/)** | Paste the URL and watch it map the app — then call the same agent from your own coding agent | Purpose-built testing agent vs. general-purpose tools |
 
 ## The demo app
 

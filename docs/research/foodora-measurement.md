@@ -1,5 +1,8 @@
 # Our measurement: Playwright MCP vs CLI on Foodora
 
+Researched 21 September 2026. Our own measurement — every number is primary (**H**); the method and
+its limits are below.
+
 **Question:** for the same task, how many tokens does each Playwright interface put into an AI
 agent's context?
 

@@ -1,7 +1,6 @@
 # Intent-driven testing
 
-Researched 22 September 2026. Confidence: **H** primary source read · **M** primary source but a
-vendor claim or a narrow setup · **L** could not verify (not used).
+Researched 22 September 2026. Confidence: **H** primary source read · **M** primary source with a caveat (a vendor claim, a narrow setup), or a reputable secondary source linking to the primary · **L** could not verify (not used).
 
 ## The short version
 
