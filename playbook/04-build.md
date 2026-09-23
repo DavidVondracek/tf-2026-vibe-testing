@@ -87,7 +87,7 @@ npm run agents -- teams/team-N
 ```
 
 It points the `playwright-test` MCP server at your folder. Reload the window, then start it:
-**MCP: List Servers** → **playwright-test** → **Start Server**. Before the Swap, run
+**MCP: List Servers** → **playwright-test** → **Start Server**. Before you push for the Swap or the Battle, run
 `git restore .vscode/mcp.json` — that file is shared, so keep your change out of your team's PR. Save plans to `teams/team-N/specs/`. The details are in
 [Exhibit 2](../experiments/1_Zoo/2-PlaywrightAgents/README.md#setup).
 
@@ -121,4 +121,4 @@ Write the suite's name in `teams/team-N/README.md`. Never write the API key into
   that the folder name equals `name`, and start a new chat.
 - Ask your team first, then raise your hand.
 
-Next: [14:30 · SKILL.md Swap](05-swap.md)
+Next: [14:30 · SKILL.md Swap](05-swap.md) — optional; if it is skipped, keep building until the break, then the [Battle](06-battle.md) at 15:15.
