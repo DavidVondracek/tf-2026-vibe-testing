@@ -12,18 +12,16 @@
 >
 > You have 90 min after lunch. Your suite goes straight into the Battle.
 
-- **6 teams of 4.** Mixed leads and engineers, assigned in advance.
-- **1 tool per team:**
+- **Teams of 4.** Mixed leads and engineers, assigned in advance.
+- **1 tool per team — your team picks:**
 
-  | Tool | Teams |
+  | Tool | As in the Zoo |
   | --- | --- |
-  | 🤖 AI Coding Agent | 2 teams |
-  | 🐍 Playwright Agents | 1 team |
-  | 🦁 Playwright CLI + Skills | 2 teams |
-  | Wopee.io | 1 team |
+  | a · 🤖 Coding agent — no CLI, no MCP | Exhibit 1 |
+  | b · 🦁 Coding agent + Playwright CLI | Exhibit 3 |
+  | c · 🐍 Coding agent + Playwright MCP (Test Agents) | Exhibit 2 |
 
-  Two tools are used twice, on purpose. Same tool, different team: the only difference left is
-  how you worked.
+  Two teams on the same tool? Good: at the Battle, the only difference left is how you worked.
 - **Lunch is yours.** But your team is already talking.
 
 ## Steps

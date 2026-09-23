@@ -100,23 +100,9 @@ It points the `playwright-test` MCP server at your folder. Reload the window, th
 [`foodora-order`](../experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md). Ask the
 agent to turn what it did into Playwright tests in `teams/team-N/tests/`.
 
-**Wopee.io.** Your suite lives in [cmd.wopee.io](https://cmd.wopee.io), in the Foodora project
-from [Exhibit 4](../experiments/1_Zoo/4-Wopee/). Check its user stories and test cases against
-`FD-01` … `FD-08`. Your `SKILL.md` drives that suite through the Wopee MCP server (set up in the
-Exhibit 4 bonus — start it with **MCP: List Servers** → **wopee** → **Start Server**), for example:
-
-1. `wopee_fetch_analysis_suites` — find the suite.
-2. `wopee_dispatch_agent` — run the chosen test cases, and say where to watch them in cmd.wopee.io.
-3. Stop there. You read the result in cmd.wopee.io and paste the report back for a pass or fail per
-   `FD-xx` — the result tools cannot read runs with a project key yet
-   ([Exhibit 4](../experiments/1_Zoo/4-Wopee/README.md) explains).
-
-Write the suite's name in `teams/team-N/README.md`. Never write the API key into a file.
-`tests/` can stay empty.
-
 ## Done when
 
-- Tests in `teams/team-N/tests/` pass with `npx playwright test` (Wopee.io: a suite run finished).
+- Tests in `teams/team-N/tests/` pass with `npx playwright test`.
 - A fresh agent session runs your skill cold.
 - Everything is pushed and your pull request is up to date.
 

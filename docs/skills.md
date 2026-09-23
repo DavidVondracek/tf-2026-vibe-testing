@@ -131,4 +131,4 @@ Use it on your own skill before the Swap, and on the one you receive.
 | [`team-setup`](../.github/skills/team-setup/SKILL.md) and [`battle-setup`](../.github/skills/battle-setup/SKILL.md) | Shipped with the repository, so they work from the first chat: a procedure you would otherwise type, look-before-asking for facts, stop-on-failure rules |
 | [`foodora-smoke`](../.github/skills/foodora-smoke/SKILL.md) | The 09:38 live demo, run cold: four checks with spec IDs, a fixed report table, FAIL when a step cannot run |
 | [`teams/_template/SKILL.md`](../teams/_template/SKILL.md) | The starting point for your own |
-| `.claude/skills/playwright-cli` (after `npx playwright init-skills`) | Microsoft's: a command-surface body plus references loaded on demand — and a description without "use when", which is why our prompts name the CLI |
+| `.agents/skills/playwright-cli` (after `npx playwright init-skills --loop=agents`) | Microsoft's: a command-surface body plus references loaded on demand — and a description without "use when", which is why our prompts name the CLI |

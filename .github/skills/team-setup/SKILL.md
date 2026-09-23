@@ -13,7 +13,7 @@ what you are about to do before each step, and show the output.
 You need two facts no tool knows. Ask for them in one question if the person did not give them:
 
 - **The team number** `N` (a whole number, from the mission card).
-- **The team's tool**: AI Coding Agent, Playwright Agents, Playwright CLI + Skills, or Wopee.io.
+- **The team's tool**: a · Coding agent, b · Coding agent + Playwright CLI, or c · Coding agent + Playwright MCP.
 
 Then check, and stop with the fix if one fails:
 

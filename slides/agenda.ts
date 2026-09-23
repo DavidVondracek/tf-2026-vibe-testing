@@ -16,6 +16,7 @@ export const agenda: Block[] = [
   { id: 'swap', time: '14:30', title: 'SKILL.md Swap (optional)' },
   { id: 'break2', time: '15:00', title: 'Break', pause: true },
   { id: 'battle', time: '15:15', title: 'Speed Gap Battle' },
+  { id: 'demos', time: '15:55', title: 'Demos & Vote' },
   { id: 'wrap', time: '16:15', title: 'Wrap-up & Q&A' },
 ]
 

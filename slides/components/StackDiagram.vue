@@ -66,7 +66,7 @@ const wopee = at(4)
       <rect x="284" y="104" width="206" height="52" rx="6" fill="#f2f2f2" stroke="#000" stroke-width="2" />
       <text x="298" y="126" class="t s">CLI</text>
       <g class="badge"><circle cx="470" cy="120" r="17" /><text x="470" y="126" text-anchor="middle">3</text></g>
-      <text x="298" y="146" class="d">shell commands, file paths</text>
+      <text x="298" y="146" class="d">shell commands → files</text>
       <line x1="490" y1="130" x2="526" y2="130" class="arrow" marker-end="url(#wp-arrow)" />
     </g>
 
@@ -76,7 +76,7 @@ const wopee = at(4)
       <rect x="284" y="166" width="206" height="52" rx="6" fill="#f2f2f2" stroke="#000" stroke-width="2" />
       <text x="298" y="188" class="t s">MCP</text>
       <g class="badge"><circle cx="470" cy="182" r="17" /><text x="470" y="188" text-anchor="middle">4</text></g>
-      <text x="298" y="208" class="d">tools in the agent's context</text>
+      <text x="298" y="208" class="d">tools, always in context</text>
       <line x1="490" y1="192" x2="526" y2="192" class="arrow" marker-end="url(#wp-arrow)" />
     </g>
 

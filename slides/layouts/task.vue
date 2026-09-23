@@ -23,7 +23,7 @@ import { repoUrl } from '../agenda'
         <div class="k">Stuck?</div>
         <div>{{ $frontmatter.stuck ?? 'Ask your neighbour → README troubleshooting → raise your hand.' }}</div>
       </div>
-      <Qr v-if="$frontmatter.path" :url="`${repoUrl}/tree/main/${$frontmatter.path}`" size="5.5rem" caption="Open the folder" />
+      <Qr v-if="$frontmatter.path" :url="`${repoUrl}/tree/main/${$frontmatter.path}`" size="8rem" caption="Open the folder" />
     </aside>
   </div>
 </template>
@@ -73,8 +73,16 @@ import { repoUrl } from '../agenda'
 }
 
 .wp-task-steps :deep(li) {
+  font-size: 1.35rem;
+  margin: 0.7rem 0;
+}
+
+.wp-task-steps :deep(.readme-go) {
+  margin-top: 1.6rem;
+  background: var(--wp-yellow-light);
+  border-left: 6px solid #000;
+  padding: 0.7rem 1rem;
   font-size: 1.1rem;
-  margin: 0.35rem 0;
 }
 
 .wp-task-side {

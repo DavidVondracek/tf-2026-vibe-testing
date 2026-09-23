@@ -4,7 +4,7 @@ Your team's folder, copied from `teams/_template/` — the `team-setup` skill do
 only inside it. The day's steps are in [`playbook/04-build.md`](../../playbook/04-build.md).
 
 - **Team:** name, name, name, name
-- **Tool:** AI Coding Agent / Playwright Agents / Playwright CLI + Skills / Wopee.io
+- **Tool:** a · Coding agent / b · Coding agent + Playwright CLI / c · Coding agent + Playwright MCP
 - **Skill:** `.github/skills/team-N-<name>/` — run it with `run team-N-<name>`
 
 ## Checklist

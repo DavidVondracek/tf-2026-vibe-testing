@@ -14,7 +14,8 @@ stuck. Lost the presenter, or running the day at home? Follow them in order.
 | 13:00 | Build One Thing: a test suite and a `SKILL.md` that runs cold | [`04-build.md`](04-build.md) |
 | 14:30 | SKILL.md Swap: another team runs your skill cold — *optional, skipped if the build runs late* | [`05-swap.md`](05-swap.md) |
 | 15:00 | ☕ Break | |
-| 15:15 | Speed Gap Battle: 3 new features, 40 min, 3-min demos | [`06-battle.md`](06-battle.md) |
+| 15:15 | Speed Gap Battle: 3 new features, 40 min | [`06-battle.md`](06-battle.md) |
+| 15:55 | Demos & Vote: 3 min per team, the room scores | [`06-battle.md`](06-battle.md#scoring) |
 | 16:15 | Wrap-up & Q&A | [`07-wrap.md`](07-wrap.md) |
 | 17:00 | End | |
 

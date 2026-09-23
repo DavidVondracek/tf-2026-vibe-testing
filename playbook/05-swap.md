@@ -105,9 +105,6 @@ The other team has your 3 lines on their pull request, and you have theirs on yo
 - `gh pr checkout` refuses because of local changes: commit or push your own work first.
 - The other team has no skill yet: run their tests instead (`cd teams/team-M`,
   `npx playwright test`) and give feedback on those.
-- Their skill uses the Wopee MCP server? Run it against your own Foodora project from
-  [Exhibit 4](../experiments/1_Zoo/4-Wopee/). A skill that only works on one project is useful
-  feedback too.
 - Over the break: fix what the swap found. The Battle starts from your branch.
 
 Next: [15:15 · Speed Gap Battle](06-battle.md)

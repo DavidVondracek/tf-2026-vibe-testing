@@ -13,7 +13,7 @@ import Countdown from '../components/Countdown.vue'
       <ol class="wp-work-checkpoints" v-if="$frontmatter.checkpoints">
         <li v-for="c in $frontmatter.checkpoints" :key="c.t"><b>{{ c.t }}</b> {{ c.v }}</li>
       </ol>
-      <div class="wp-work-help">Stuck? Neighbour → README → raise your hand.</div>
+      <div class="wp-work-help">Stuck? Your team → playbook → raise your hand.</div>
     </aside>
   </div>
 </template>
