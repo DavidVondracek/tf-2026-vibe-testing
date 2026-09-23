@@ -26,6 +26,11 @@ add the rest:
 Name the story in every test: `test('FD-05 · …')`. Take expected results from the spec. When the
 app and the spec disagree, write it down — that may be a bug, not a broken test.
 
+**One story per prompt.** An agent that looks at the app, then writes and runs tests, takes
+minutes: two stories in one prompt took 8 in rehearsal. Ask for one story at a time, and do not
+watch it work — while it runs, a teammate reads the next story or drafts the `SKILL.md`. Or
+fetches the coffee.
+
 ## Checkpoints
 
 | Time | You should have |
@@ -101,8 +106,10 @@ from [Exhibit 4](../experiments/1_Zoo/4-Wopee/). Check its user stories and test
 Exhibit 4 bonus — start it with **MCP: List Servers** → **wopee** → **Start Server**), for example:
 
 1. `wopee_fetch_analysis_suites` — find the suite.
-2. `wopee_dispatch_agent` — run the chosen test cases.
-3. `wopee_fetch_recent_executions` — wait for the results, then report pass or fail per `FD-xx`.
+2. `wopee_dispatch_agent` — run the chosen test cases, and say where to watch them in cmd.wopee.io.
+3. Stop there. You read the result in cmd.wopee.io and paste the report back for a pass or fail per
+   `FD-xx` — the result tools cannot read runs with a project key yet
+   ([Exhibit 4](../experiments/1_Zoo/4-Wopee/README.md) explains).
 
 Write the suite's name in `teams/team-N/README.md`. Never write the API key into a file.
 `tests/` can stay empty.
