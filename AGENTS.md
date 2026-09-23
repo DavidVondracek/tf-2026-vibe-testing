@@ -54,6 +54,9 @@ After lunch each team works in its own fork, in **`teams/team-N/`** and its skil
   teams' folders, `experiments/` or `spec/`.
 - The same address rule applies: `baseURL` in `teams/team-N/playwright.config.ts` reads
   `FOODORA_URL`, and tests use relative paths.
+- The team's pull request: on the team branch, `gh pr view` shows it — no number needed. Do not
+  search with `gh pr list --head <owner>:<branch>`; `--head` takes a branch name only, finds
+  nothing, and a team told "no pull request exists" opens a second one.
 - A team's skill is committed where it runs: `.github/skills/team-N-<name>/SKILL.md` at the
   repository root. The folder name must match `name` in the frontmatter. Touch only your own
   team's skill folder; other skills in `.github/skills/` are gitignored copies or ship with the

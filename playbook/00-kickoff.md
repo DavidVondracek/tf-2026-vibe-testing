@@ -19,7 +19,8 @@
    - **Leave the ⌄ menu next to it alone,** unless an exhibit tells you which option to pick. Its
      *in this Session*, *in this Workspace* and *Always* options approve whole families of commands
      — `git …`, `gh …` — including ones that push, fork or delete in your name.
-   - Reading commands (`git status`, `ls`, `npx playwright …`) are pre-approved and never ask.
+   - Reading commands (`git status`, `git fetch`, `ls`, `cd`, `printf`, `npx playwright …`) are
+     pre-approved and never ask.
    - Not sure what a command does? Click **Skip** and ask the agent to explain it first.
 5. Learn how to get unstuck (the order matters):
    1. Ask your neighbour. After lunch, ask your team.

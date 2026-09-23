@@ -8,10 +8,12 @@
   "workbench.browser.enableChatTools": false,
   "chat.tools.terminal.autoApprove": {
     "/^npx playwright\\b/": true,
-    "/^git (status|branch --show-current|remote -v|log|diff)\\b/": true,
+    "/^git (status|branch --show-current|remote -v|log|diff|show|rev-parse|ls-files|check-ignore|fetch)\\b/": true,
+    "/^git branch( -vv| -a| -r)?$/": true,
     "/^gh auth status\\b/": true,
     "/^gh pr (list|view)\\b/": true,
-    "/^ls\\b/": true
+    "/^(ls|pwd|cd|test)\\b/": true,
+    "/^(printf|echo|jq)\\b[^>]*$/": true
   },
   "search.exclude": {
     "**/solutions/**": true,
