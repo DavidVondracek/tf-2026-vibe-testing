@@ -501,10 +501,7 @@ The banner is the point: an API test that checks the API against itself proves l
 knows what the UI should show — test the UI against it. What that finds is the experiment, and
 material for the Build.
 From the rehearsal (23 Sep, Auto → GPT Luna): the contract tests took 51 s, all green, named FD-01
-and FD-03 — and checked only types. The UI-vs-API fee test on Burger Palace passed too: its $2.99
-happens to match what the cart always charges. Run for every restaurant, four of five went red
-(Pizza Corner Free, Sushi Masters $1.99, two at $3.49 — all charged $2.99). One restaurant proved
-nothing; all five found the bug.
+and FD-03 — and checked only types. Do not say what the UI-vs-API test finds; that is the experiment.
 -->
 
 ---
