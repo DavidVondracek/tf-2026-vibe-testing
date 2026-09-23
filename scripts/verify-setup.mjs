@@ -110,4 +110,4 @@ if (failed) {
 }
 
 console.log(`  🎉 \x1b[32m\x1b[1mAll ${results.length} green. You are ready!\x1b[0m 🚀`)
-console.log('  🤖 🐍 🦁 🔬  The Zoo is waiting. See you at Tesena Fest! 👋\n')
+console.log('  🤖 🐍 🦁 🐒  The Zoo is waiting. See you at Tesena Fest! 👋\n')
