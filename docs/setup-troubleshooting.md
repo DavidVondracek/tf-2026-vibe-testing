@@ -42,6 +42,10 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 No admin rights needed. If your company's policy blocks both, use Git Bash.
 
+Keep VS Code's terminal on Git Bash either way. The commands your agent runs — from the shipped
+skills and from the exhibits — are bash (`${FOODORA_URL:-…}`, `mkdir -p`, `cp -r`). They work in
+Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell and they break.
+
 ## Step 3 — Install the tools
 
 | What you see | Fix |
@@ -126,6 +130,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json` but never start on their own. `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → the server → **Start Server**. Check the status bar does not say **Restricted Mode** (if it does, trust the folder). Reload the VS Code window and set the agent picker to **Agent**. Ran a bare `init-agents`? Run `npm run agents` instead — it puts the `--config` back. If the **wopee** server also disappeared, run `git restore .vscode/mcp.json` first. |
 | Wopee tools answer `WOPEE_PROJECT_UUID is not set` | Fill in `WOPEE_PROJECT_UUID` and `WOPEE_API_KEY` in `.env` (see [Exhibit 4](../experiments/1_Zoo/4-Wopee/)), then `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server** (or **Restart Server**). No `.env`? Run `npm install` once — it creates it. |
 | A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, raise your hand. |
+| An agent's command fails with *bad substitution*, *A parameter cannot be found*, or *is not recognized* | The terminal is PowerShell, and the command is bash. Switch it back to **Git Bash**: **⌄** next to **+** in the terminal panel → **Git Bash**, then ask the agent to run it again. |
 | `head` "is not recognized" in PowerShell (Exhibit 3) | Use `Get-Content <file> -TotalCount 4`, or open the file in VS Code. `ls` and `cat` work in PowerShell; `head` does not. |
 
 Still stuck? Ask your neighbour, then raise your hand. Do not spend 10 of your 20 minutes on setup.

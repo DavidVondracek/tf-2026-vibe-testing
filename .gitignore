@@ -19,9 +19,10 @@ snapshot.txt
 .claude/
 .agents/
 **/.github/skills/*
-# …except the two workshop skills this repository ships
+# …except the workshop skills this repository ships
 !/.github/skills/team-setup/
 !/.github/skills/battle-setup/
+!/.github/skills/foodora-smoke/
 # …and each team's own skill, team-N-<name>
 !/.github/skills/team-*/
 **/.github/agents/
