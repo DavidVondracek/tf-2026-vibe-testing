@@ -175,7 +175,7 @@ the debrief.
 
 **That is the transferable trick.** A tool gives an agent *capability*; a skill gives it your
 team's *judgement* about how to use that capability. The same move works on any MCP server your
-team adopts.
+team adopts. Writing your own: [`docs/skills.md`](../../../docs/skills.md).
 
 The server's other tools create suites, generate and update artifacts (app context, user stories,
 test cases, Playwright code), run chosen test cases with the agent (`wopee_dispatch_agent`), and

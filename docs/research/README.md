@@ -1,7 +1,7 @@
-# Research: MCP, CLI, Playwright and intent-driven testing
+# Research: MCP, CLI, Playwright, intent-driven testing and skills
 
 The data behind the "Concepts: The New Stack" slides, for anyone who wants more than one slide per
-topic. Researched 21–22 September 2026 (each report carries its date); every claim links to its source.
+topic. Researched 21–23 September 2026 (each report carries its date); every claim links to its source.
 
 | Report | The question it answers |
 | --- | --- |
@@ -9,6 +9,7 @@ topic. Researched 21–22 September 2026 (each report carries its date); every c
 | [CLIs for AI agents](cli-for-agents.md) | Why do agents like the command line, and what do head-to-head studies measure? |
 | [Playwright: MCP, CLI and Test Agents](playwright.md) | What does Microsoft ship, how does each interface work, and what is true about the "4× fewer tokens" claim? |
 | [Intent-driven testing](intent-driven-testing.md) | What does "intent-driven" mean, which tools do it, and what has actually been measured? |
+| [Skills for AI agents](skills.md) | What a skill is, where each tool looks for it, what has been measured, and what makes one work. The guide built on it: [`docs/skills.md`](../skills.md) |
 | [measure/](measure/) | The scripts behind the Foodora measurement — `./run.sh` re-runs it |
 | [Our measurement on Foodora](foodora-measurement.md) | How many tokens does each Playwright interface put into an agent's context for the same task? Re-runnable. |
 
@@ -22,6 +23,9 @@ topic. Researched 21–22 September 2026 (each report carries its date); every c
 - **For Playwright today, each step costs the same** on MCP and CLI — both write the page to a file
   and hand the agent a link. The difference is what loads first.
 - **Tool design matters more than the protocol.**
+- **A skill is cheap until it fires, and the description is the trigger.** Curated, focused skills
+  lifted agents' pass rate by about 17 points in the one independent benchmark; a vague description
+  meant a skill was never used in more than half of the runs.
 - **Intent-driven testing moves the hard part to the oracle.** The agent works out the steps; it
   still needs a spec to know what is correct. With a human checklist, agents' defect detection
   nearly doubled (F1 26% → 49%).
