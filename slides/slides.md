@@ -486,9 +486,9 @@ block: stack
 Foodora has an API too — on another host. The UI's traffic shows you where: <code>GET https://&lt;another host&gt;/rest/v1/restaurants</code>
 
 <div class="cards c3">
-<div class="card"><div class="n">WORKS TODAY</div><h3>Tests from real traffic</h3><p>Show the agent one captured request. Status, shape, filters, errors — written in minutes.</p></div>
+<div class="card"><div class="n">WORKS TODAY</div><h3>Tests from the contract</h3><p>Give the agent one captured request or the OpenAPI schema. List, menu, filters, errors — green in about a minute.</p></div>
 <div class="card"><div class="n">WITH CARE</div><h3>Keys and shared data</h3><p>A public key is fine in a test. A secret key never goes in a prompt — and an agent will happily write to a shared database.</p></div>
-<div class="card dark"><div class="n">NOT YET</div><h3>Knowing what is right</h3><p>The agent asserts whatever the API returns. Whether that is correct still needs a spec — and a human.</p></div>
+<div class="card dark"><div class="n">NOT YET</div><h3>Knowing what is right</h3><p>The agent checks that a fee is a string, not that it is the right fee. Whether a value is correct still needs a spec — and a human.</p></div>
 </div>
 
 <div class="banner">Best use: the API as a <em>second source of truth</em> for what the UI shows.</div>
@@ -500,6 +500,11 @@ Foodora has an API too — on another host. The UI's traffic shows you where: <c
 The banner is the point: an API test that checks the API against itself proves little. The API
 knows what the UI should show — test the UI against it. What that finds is the experiment, and
 material for the Build.
+From the rehearsal (23 Sep, Auto → GPT Luna): the contract tests took 51 s, all green, named FD-01
+and FD-03 — and checked only types. The UI-vs-API fee test on Burger Palace passed too: its $2.99
+happens to match what the cart always charges. Run for every restaurant, four of five went red
+(Pizza Corner Free, Sushi Masters $1.99, two at $3.49 — all charged $2.99). One restaurant proved
+nothing; all five found the bug.
 -->
 
 ---
