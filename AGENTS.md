@@ -31,7 +31,9 @@ exists. In this repository, that fallback is always the correct form.
 ## Where things go
 
 - Every exhibit and team folder owns its `playwright.config.ts`. `cd` into it before
-  `npx playwright test`; from the repository root the config is not found.
+  `npx playwright test`; from the repository root the config is not found. The terminal stays in
+  that folder afterwards: `cd` back to the repository root before a command with a root-relative
+  path (`.github/…`, `teams/…`, `spec/…`).
 - Write tests into that folder's `tests/`. The API experiment's tests import `test` from its
   `fixtures.ts`. Leave `solutions/` alone.
 - Agent wiring runs from the **repository root**, because the editor only reads `.github/agents/`,
