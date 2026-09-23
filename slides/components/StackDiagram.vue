@@ -4,6 +4,7 @@ import { useSlideContext } from '@slidev/client'
 
 // The new stack, built up one click at a time (the slide sets `clicks: 4`):
 // 0 you → agent · 1 SKILL.md · 2 CLI road to the browser · 3 MCP road · 4 the testing agent.
+// Badges number the four pieces: 1 agent, 2 SKILL.md, 3 CLI, 4 MCP.
 const { $clicks } = useSlideContext()
 const at = (step: number) => computed(() => $clicks.value >= step)
 const skill = at(1)
@@ -31,8 +32,9 @@ const wopee = at(4)
 
       <rect x="0" y="100" width="230" height="112" rx="6" fill="#000" />
       <text x="16" y="128" class="k y">CODING AGENT</text>
-      <text x="16" y="156" class="t w">Claude Code · Copilot</text>
-      <text x="16" y="178" class="t w">Cursor</text>
+      <g class="badge"><circle cx="210" cy="120" r="17" /><text x="210" y="126" text-anchor="middle">1</text></g>
+      <text x="16" y="156" class="t w">GitHub Copilot</text>
+      <text x="16" y="178" class="t w">Claude Code · Cursor</text>
       <text x="16" y="200" class="d g">writes, runs and fixes tests</text>
     </g>
 
@@ -41,6 +43,7 @@ const wopee = at(4)
       <line x1="115" y1="268" x2="115" y2="216" class="arrow" marker-end="url(#wp-arrow)" />
       <rect x="0" y="270" width="230" height="78" rx="6" fill="#ffcc00" />
       <text x="16" y="298" class="t">SKILL.md</text>
+      <g class="badge"><circle cx="210" cy="290" r="17" /><text x="210" y="296" text-anchor="middle">2</text></g>
       <text x="16" y="320" class="d">know-how the agent loads</text>
       <text x="16" y="338" class="d">only when a task needs it</text>
     </g>
@@ -62,6 +65,7 @@ const wopee = at(4)
       <line x1="232" y1="130" x2="282" y2="130" class="arrow" />
       <rect x="284" y="104" width="206" height="52" rx="6" fill="#f2f2f2" stroke="#000" stroke-width="2" />
       <text x="298" y="126" class="t s">CLI</text>
+      <g class="badge"><circle cx="470" cy="120" r="17" /><text x="470" y="126" text-anchor="middle">3</text></g>
       <text x="298" y="146" class="d">shell commands, file paths</text>
       <line x1="490" y1="130" x2="526" y2="130" class="arrow" marker-end="url(#wp-arrow)" />
     </g>
@@ -71,6 +75,7 @@ const wopee = at(4)
       <line x1="232" y1="192" x2="282" y2="192" class="arrow" />
       <rect x="284" y="166" width="206" height="52" rx="6" fill="#f2f2f2" stroke="#000" stroke-width="2" />
       <text x="298" y="188" class="t s">MCP</text>
+      <g class="badge"><circle cx="470" cy="182" r="17" /><text x="470" y="188" text-anchor="middle">4</text></g>
       <text x="298" y="208" class="d">tools in the agent's context</text>
       <line x1="490" y1="192" x2="526" y2="192" class="arrow" marker-end="url(#wp-arrow)" />
     </g>
@@ -80,7 +85,8 @@ const wopee = at(4)
       <path d="M385,218 V304 H526" class="arrow dash" fill="none" marker-end="url(#wp-arrow)" />
       <text x="394" y="296" class="d">as an MCP tool</text>
       <rect x="530" y="270" width="350" height="78" rx="6" fill="#000" />
-      <image href="/img/wopee-monkey.svg" x="542" y="276" width="44" height="66" />
+      <circle cx="566" cy="309" r="31" fill="#ffcc00" />
+      <image href="/img/wopee-head.png" x="543" y="280" width="46" height="61" />
       <text x="598" y="298" class="k y">TESTING AGENT · Wopee.io</text>
       <text x="598" y="320" class="d w">maps the app, runs regression —</text>
       <text x="598" y="338" class="d w">on its own, or called by your agent</text>
@@ -90,6 +96,18 @@ const wopee = at(4)
 </template>
 
 <style scoped>
+.badge circle {
+  fill: #ffcc00;
+  stroke: #000;
+  stroke-width: 2;
+}
+
+.badge text {
+  font-size: 19px;
+  font-weight: 700;
+  fill: #000;
+}
+
 .wp-stack {
   width: 100%;
   height: auto;
