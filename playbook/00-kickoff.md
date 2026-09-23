@@ -9,12 +9,17 @@
 1. Say hello to your neighbour. They are your first help today.
 2. Open the repository in VS Code and run `npm run verify` in the terminal. All seven lines must be
    green. Red? It tells you what to fix.
-3. Check your model. Start a new chat in **Agent** and send "hi". With a GitHub account, the picker
-   shows **Auto** (Copilot Free) — that is all you need. Paid Copilot? Pick **GPT-6 Luna** instead:
-   Auto sometimes hands work to a smaller model that checks its own results less carefully. No
-   Copilot, or out of requests? Take the key handed out in the room: `Ctrl/Cmd+Shift+P` →
-   **Vercel AI Gateway: Manage Authentication** → paste it, then pick **GPT-6 Luna · Vercel AI
-   Gateway** in the model picker.
+3. Set up your model — the same for everyone:
+   1. Sign in to GitHub in VS Code (the account icon, bottom left). Copilot Free is enough. Without
+      a sign-in it still works, but every command the agent runs asks for approval.
+   2. Take the key handed out in the room: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage
+      Authentication** → paste it.
+   3. New chat, **Agent**, open the model picker and type `gpt-6-luna`. Pick **GPT-6 Luna · Vercel
+      AI Gateway** — not *GPT-6 Sol*, not *GPT 5.6 Luna*. Check the chat bar says **GPT-6 Luna**,
+      then send "hi". The picker resets with every new chat: pick it again each time.
+
+   Why not **Auto**? It sometimes hands work to a smaller model that checks its own results less
+   carefully. Auto stays your fallback if the key runs out.
 4. Learn how to answer the agent's questions. All day, the agent asks before it runs a command or
    uses a tool:
    - **Read what it wants to run, then click the blue Allow.** That is the default answer.

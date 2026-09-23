@@ -97,7 +97,7 @@ label: Welcome
 
 <Wifi class="mt-7" />
 
-<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. No Copilot? Paste the AI key from the room: <b>Vercel AI Gateway: Manage Authentication</b>.</p>
+<p class="text-center muted mt-3">Then <code>npm run verify</code> — seven checks. Then paste the AI key from the room (<b>Vercel AI Gateway: Manage Authentication</b>) and pick <b>GPT-6 Luna</b> — type <code>gpt-6-luna</code> in the model picker.</p>
 
 <!--
 09:05 — the wifi is on this slide, on the cover and on every break slide. Say it out loud here too.

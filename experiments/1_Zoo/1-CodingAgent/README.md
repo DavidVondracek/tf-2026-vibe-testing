@@ -31,16 +31,15 @@ tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 
 ### Which model
 
-With a GitHub account you have **Copilot Free**, which gives you **Auto** in the model picker and
-costs you nothing. That is the default here, and it is enough for every exhibit.
-
-Paid Copilot? Pick **GPT-6 Luna** rather than Auto. No Copilot, or out of Copilot requests? Use the
-Vercel AI Gateway and pick **GPT-6 Luna · Vercel AI Gateway** in the model picker. **The picker
-resets with every new chat** — pick your model again each time. You only need to add the key:
+Everyone uses **GPT-6 Luna · Vercel AI Gateway**, with the key handed out in the room. Stay signed in
+to GitHub (Copilot Free is enough): without a sign-in, every command the agent runs asks for
+approval. **Auto** (Copilot) is the fallback if the key runs out. **The picker resets with every new
+chat** — pick your model again each time. Add the key once:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
 2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
-3. Open a new chat and pick **GPT-6 Luna · Vercel AI Gateway** in the model picker.
+3. Open a new chat, type `gpt-6-luna` in the model picker and pick **GPT-6 Luna · Vercel AI Gateway**
+   — not *GPT-6 Sol*, not *GPT 5.6 Luna*.
 4. Send `hi` and check you get an answer back.
 
 The key is workshop-only and is revoked afterwards — at home, use your own Copilot plan or your
