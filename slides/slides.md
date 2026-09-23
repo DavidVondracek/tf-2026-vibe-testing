@@ -425,6 +425,25 @@ Anthropic's own view (D. Soria Parra, Apr 2026): skills, MCP and CLI compose —
 block: stack
 ---
 
+# Pick the model: <span class="y">smart, cheap, fast</span>
+
+<ModelMap />
+
+<p class="chart-note">A dot per reasoning effort, low → max. Hover for numbers, click a name to hide it. Artificial Analysis, 23 Sep 2026.</p>
+
+<!--
+09:36 — 2 minutes. Same agent, same skill: the model decides how good, how expensive and how fast the answer is.
+Point at three things: (1) Opus 5.5 max is the smartest at ~$6 per task; (2) GPT-6 Luna medium — today's default — is ~350× cheaper per
+task and the fastest, at about half the index; (3) effort matters as much as the model: Luna low → max nearly doubles its index.
+Switch to Speed: the cheap models are also the fast ones. Our rehearsals: Luna ran every task right; Copilot's Auto often picked a
+smaller model (MAI-Code-1.1-Flash) that passed checks it should have failed — so we pin the model instead of trusting Auto.
+Numbers: Artificial Analysis model pages, read 23 Sep 2026 (Index v4.3.2); Haiku 4.5 is its reasoning variant; Opus 5.5 max has no speed yet.
+-->
+
+---
+block: stack
+---
+
 # SKILL.md: knowledge an agent can <span class="y">run cold</span>
 
 Reusable instructions and scripts. Teach an agent one workflow, and it runs it without your help.
