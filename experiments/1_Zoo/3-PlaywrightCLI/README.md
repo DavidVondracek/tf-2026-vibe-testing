@@ -96,7 +96,8 @@ The folder name must match the `name` in the frontmatter, or it will not load.
 Then break it: change the `description` to something vague like `helper`, start a fresh chat and
 ask for the same thing. Watch the agent fail to find the skill.
 
-**The description is the only part always in context. It is the skill's API.**
+**The description is the only part always in context. It is the skill's API.** The rest of what
+makes a skill work — and what the measurements say — is in [`docs/skills.md`](../../../docs/skills.md).
 
 ## Housekeeping
 

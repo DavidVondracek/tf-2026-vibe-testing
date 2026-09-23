@@ -41,15 +41,6 @@ organised by step.
 
 ## Find your way
 
-| Page | What is in it |
-| --- | --- |
-| [`docs/workshop.md`](docs/workshop.md) | About the workshop: who it is for, what you do, the four tools, the demo app |
-| [`day/`](day/) | The agenda, and one page per block — what to do if you lose the presenter |
-| [`experiments/`](experiments/) | The four Zoo exhibits, and the optional API experiment |
-| [`teams/`](teams/) | Your team's folder after lunch — copy `_template/` |
-| [`spec/`](spec/) | What the demo app should do — the input for every test you write |
-| [`docs/setup-troubleshooting.md`](docs/setup-troubleshooting.md) | Fixes, before and during the workshop |
-| [`docs/repository.md`](docs/repository.md) | What is where in this repository, and the `npm run` commands |
-| [`docs/research/`](docs/research/) | The data behind the concepts: MCP, CLIs, Playwright, and our own measurement |
-| [`AGENTS.md`](AGENTS.md) | Rules your AI agent follows in this repository |
-| [`slides/`](slides/) | The deck — `npm run slides` |
+Lost? [`docs/repository.md`](docs/repository.md) says what is where and which `npm run` commands
+exist; [`day/`](day/) is the agenda with one page per block; [`AGENTS.md`](AGENTS.md) is what your
+AI agent reads; [`docs/skills.md`](docs/skills.md) is how to write a skill it can run cold.

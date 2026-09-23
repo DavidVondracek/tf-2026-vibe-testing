@@ -451,6 +451,9 @@ description: Log in to the demo
 
 <!--
 09:37 — define "run cold" here: a fresh agent session, given only the SKILL.md, does the job without follow-up prompts.
+Point at docs/skills.md for the afternoon: the ten rules and the review checklist. Numbers if asked: SkillsBench +16.6 pp with
+curated skills (33.9% → 50.5%); Vercel: a skill with a vague description never invoked in 56% of runs. Snyk: 36.8% of 3,984 public
+skills had a flaw, 76 were malicious — read every line before installing one.
 -->
 
 ---
@@ -793,12 +796,13 @@ block: teams
   <h3 class="mt-5">1 tool per team</h3>
   <p>🤖 Coding Agent ×2 · 🐍 Playwright Agents · 🦁 CLI + Skills ×2 · <img src="/img/wopee-monkey.svg" class="inline h-5 align-text-bottom" /> Wopee.io</p>
   <h3 class="mt-5">Before lunch: fork the repo</h3>
-  <p>One laptop per team — <code>day/03-teams.md</code>. Then lunch is yours.</p>
+  <p>One laptop per team. Ask your agent: <em>Set up my team: team N, tool …</em> — the <code>team-setup</code> skill does the rest. By hand: <code>day/03-teams.md</code>.</p>
 </div>
 </div>
 
 <!--
 11:50 — 10 min. Hand out the cards, then go to lunch.
+Show the team-setup skill working on one laptop first: it is the first skill of the day that the room watches run, and the afternoon asks them to write their own.
 Two tools are used twice — on purpose. Same tool, different team: the only variable left is how they worked.
 
 PREP, 48 h before: 6 teams of 4 from the Tesena attendee list. Mix leads and engineers.
@@ -970,7 +974,7 @@ checkpoints:
 <li><code>cd teams/team-N</code> → <code>npx playwright test</code></li>
 </ol>
 
-<p class="text-sm muted">Same on every OS. All of it: <code>day/06-battle.md</code></p>
+<p class="text-sm muted">Or ask your agent: <em>Prepare the battle.</em> — the <code>battle-setup</code> skill does it. All of it: <code>day/06-battle.md</code></p>
 
 </div>
 

@@ -5,7 +5,8 @@
 **Goal:** two deliverables, built with your team's tool:
 
 1. **A working test suite** that covers the demo app's core user flows.
-2. **At least one `SKILL.md`** — a reusable testing behaviour your agent runs cold.
+2. **At least one `SKILL.md`** — a reusable testing behaviour your agent runs cold. How to write
+   one, and the checklist to review it: [`docs/skills.md`](../docs/skills.md).
 
 This is the thing you take home. It also goes straight into the [Battle](06-battle.md).
 
@@ -49,34 +50,19 @@ the `SKILL.md`, not the prompt, and try again.
 teams/team-N/
 ├── README.md             your checklist
 ├── playwright.config.ts  do not change baseURL
-├── tests/                your *.spec.ts
-└── skills/<name>/SKILL.md
+└── tests/                your *.spec.ts
+
+.github/skills/team-N-<name>/SKILL.md   your skill — where the agent finds it
 ```
 
 - **Never write the app's address in a test.** Use `page.goto('/checkout')`. The config reads
   `FOODORA_URL`, so the Battle can point your suite at a new build.
 - **Your skill must use `FOODORA_URL` too.** Write "open `FOODORA_URL`, or
   `https://foodora.lovable.app` if it is not set" — not a fixed address.
-- **Where the agent finds your skill.** Copilot looks in `.github/skills/` at the repository root
-  (Claude Code: `.claude/skills/`).
-  That folder is gitignored, so keep the real copy in `teams/team-N/skills/` and install it
-  after every edit:
-
-  ```bash
-  mkdir -p .github/skills
-  rm -rf .github/skills/<name>
-  cp -r teams/team-N/skills/<name> .github/skills/
-  ```
-
-  PowerShell:
-
-  ```powershell
-  New-Item -ItemType Directory -Force .github/skills | Out-Null
-  Remove-Item -Recurse -Force .github/skills/<name> -ErrorAction SilentlyContinue
-  Copy-Item -Recurse teams/team-N/skills/<name> .github/skills/<name>
-  ```
-
-  The folder name must match the `name` in the frontmatter.
+- **Your skill is committed where it runs:** `.github/skills/team-N-<name>/`. Edit it there; the
+  next new chat sees the change — nothing to copy. The folder name and `name:` in the frontmatter
+  must match and start with your team (`team-3-order-meal`). Claude Code reads `.claude/skills/`:
+  on Claude Code, keep the same folder there instead.
 
 Run your tests:
 
@@ -85,7 +71,7 @@ cd teams/team-N
 npx playwright test
 ```
 
-Push often: `git add teams/team-N`, `git commit -m "…"`, `git push`. Your pull request updates by
+Push often: `git add teams/team-N .github/skills`, `git commit -m "…"`, `git push`. Your pull request updates by
 itself.
 
 ## Notes per tool
@@ -131,7 +117,7 @@ Write the suite's name in `teams/team-N/README.md`. Never write the API key into
 
 - No green test by 13:30? Start from the order-path test in
   [Exhibit 1's solutions](../experiments/1_Zoo/1-CodingAgent/solutions/) and extend it.
-- The agent cannot find your skill? Check it is in `.github/skills/<name>/SKILL.md` at the root,
+- The agent cannot find your skill? Check it is in `.github/skills/team-N-<name>/SKILL.md` at the root,
   that the folder name equals `name`, and start a new chat.
 - Ask your team first, then raise your hand.
 

@@ -5,7 +5,7 @@ The day's steps are in [`day/04-build.md`](../../day/04-build.md).
 
 - **Team:** name, name, name, name
 - **Tool:** AI Coding Agent / Playwright Agents / Playwright CLI + Skills / Wopee.io
-- **Skill:** `skills/<name>/` — run it with `run <name>`
+- **Skill:** `.github/skills/team-N-<name>/` — run it with `run team-N-<name>`
 
 ## Checklist
 
@@ -14,7 +14,7 @@ The day's steps are in [`day/04-build.md`](../../day/04-build.md).
 - [ ] Tests cover the core user flows (`FD-01` … `FD-08`), and each test names its `FD-xx`
 - [ ] App address only in `baseURL` — tests use relative paths like `page.goto('/checkout')`
 - [ ] `SKILL.md` drafted — **14:00**
-- [ ] Cold run passes: fresh agent session, only the `SKILL.md` and `run <name>`, no follow-up prompts — **14:20**
+- [ ] Cold run passes: fresh agent session, only the `SKILL.md` and `run team-N-<name>`, no follow-up prompts — **14:20**
 - [ ] Pushed, pull request up to date — **14:30**
 
 ## Run
@@ -30,4 +30,4 @@ npx playwright test
 | --- | --- |
 | [`playwright.config.ts`](playwright.config.ts) | Reads the app address from `FOODORA_URL` in the repository's `.env`. Keep the project name `chromium` |
 | [`tests/`](tests/) | Your tests |
-| [`skills/my-skill/SKILL.md`](skills/my-skill/SKILL.md) | Your skill. Rename the folder and the `name` together |
+| [`SKILL.md`](SKILL.md) | The starting point for your skill. Move it to `.github/skills/team-N-<name>/SKILL.md` at the repository root and set `name` to `team-N-<name>` — that is where your agent finds it |
