@@ -122,8 +122,13 @@ One zookeeper, up to 30 visitors. This is the queue.
 <div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Every exhibit README ends with a shortcut. Use it and keep going.</p></div>
 </div>
 
+<div class="banner">The agent asks before it acts. <em>Read it, then click the blue Allow</em> — not the ⌄ menu.</div>
+
 <!--
 09:06 — 1 minute. Repeat the rule before each hands-on block.
+The banner: the default answer to every approval is the blue Allow, after reading the command. The ⌄ menu's Session/Workspace/Always
+options approve whole command families (git …, gh …) including push and fork; only use them where an exhibit says so (Exhibit 2's
+Playwright Test Runner approvals). Reading commands are pre-approved. Not sure? Skip, and ask the agent what the command does.
 -->
 
 ---

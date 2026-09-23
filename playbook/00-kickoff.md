@@ -13,13 +13,21 @@
    shows **Auto** (Copilot Free) — that is all you need. No Copilot, or out of requests? Take the
    key handed out in the room: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** →
    paste it, then pick **Claude Haiku 4.5** in the model picker.
-4. Learn how to get unstuck (the order matters):
+4. Learn how to answer the agent's questions. All day, the agent asks before it runs a command or
+   uses a tool:
+   - **Read what it wants to run, then click the blue Allow.** That is the default answer.
+   - **Leave the ⌄ menu next to it alone,** unless an exhibit tells you which option to pick. Its
+     *in this Session*, *in this Workspace* and *Always* options approve whole families of commands
+     — `git …`, `gh …` — including ones that push, fork or delete in your name.
+   - Reading commands (`git status`, `ls`, `npx playwright …`) are pre-approved and never ask.
+   - Not sure what a command does? Click **Skip** and ask the agent to explain it first.
+5. Learn how to get unstuck (the order matters):
    1. Ask your neighbour. After lunch, ask your team.
    2. Check [when something breaks](../docs/setup-troubleshooting.md#on-the-workshop-day) and
       [setup troubleshooting](../docs/setup-troubleshooting.md).
    3. Raise your hand, or put your laptop lid half down.
    4. Take the shortcut: open the exhibit's `solutions/` folder and keep going.
-5. Write two numbers on two sticky notes and put them on the board. No judgment.
+6. Write two numbers on two sticky notes and put them on the board. No judgment.
    - **DEV:** how long does your team need to ship a feature? From ticket to merged code.
    - **QA:** how long does your team need to verify it? From merged code to "we trust it in
      production".
