@@ -1116,5 +1116,5 @@ layout: closing
 
 <div class="flex items-end gap-8 mt-8">
   <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="8rem" caption="The repo" />
-  <div class="todo">QR code to the feedback form</div>
+  <Qr url="https://survey.tesena.com/zs/kIC5Nn" size="8rem" caption="Feedback, 2 min" />
 </div>
