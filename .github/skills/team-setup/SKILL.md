@@ -66,13 +66,13 @@ branch, the folder, and the draft pull request's URL. Then check the pull reques
 ## Rules
 
 - Do these steps and nothing else. Wiring the team's tool (`npm run agents`, seed tests, MCP
-  servers, skills) belongs to the Build block after lunch, in `day/04-build.md` — do not start it
+  servers, skills) belongs to the Build block after lunch, in `playbook/04-build.md` — do not start it
   here, even if it looks helpful.
 - Touch only `teams/team-N/` and `.github/skills/team-N-my-skill/`. Never edit `experiments/`, `spec/` or another team's folder.
 - Never force-push, never delete a branch, never close someone else's pull request.
 - A step fails? Stop, show the error and the one command that fixes it. Do not work around it.
 - `gh` missing, too old or not signed in, and the person cannot fix it now? Do the `git` steps
-  yourself and hand the two GitHub steps to them in the browser, from `day/03-teams.md`:
+  yourself and hand the two GitHub steps to them in the browser, from `playbook/03-teams.md`:
   **Fork** on Wopee-io's page (then `git remote rename origin upstream` and
   `git remote add origin https://github.com/<them>/tf-2026-vibe-testing`), and **Compare & pull
   request → Create draft pull request** after the push.

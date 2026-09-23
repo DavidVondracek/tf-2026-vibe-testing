@@ -2,7 +2,7 @@
 
 | Where | What is in it |
 | --- | --- |
-| [`day/`](../day/) | The agenda, and one page per block of the day |
+| [`playbook/`](../playbook/) | The playbook: the agenda, and one page per block of the day — what to do, where files go, what to do when stuck |
 | [`spec/`](../spec/) | [The product spec](../spec/foodora-spec.md) — what Foodora should do, with a screenshot of every page. The input for every experiment |
 | [`experiments/1_Zoo/1-CodingAgent/`](../experiments/1_Zoo/1-CodingAgent/) | Exhibit 1 — a config and an empty [`tests/`](../experiments/1_Zoo/1-CodingAgent/tests/) for the agent to fill |
 | [`experiments/1_Zoo/2-PlaywrightAgents/`](../experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](../experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](../experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |

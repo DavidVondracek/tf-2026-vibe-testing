@@ -91,7 +91,7 @@ label: Welcome
   <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="11rem" caption="Scan to open" />
   <div>
     <a class="repo-link" href="https://github.com/Wopee-io/tf-2026-vibe-testing"><span>github.com/Wopee-io/</span><span>tf-2026-vibe-testing</span></a>
-    <p class="text-2xl">Every block of the day has a page in <code>day/</code>.<br>Lose me? Follow the page.</p>
+    <p class="text-2xl">Every block of the day has a page in <code>playbook/</code>.<br>Lose me? Follow the page.</p>
   </div>
 </div>
 
@@ -796,7 +796,7 @@ block: teams
   <h3 class="mt-5">1 tool per team</h3>
   <p>🤖 Coding Agent ×2 · 🐍 Playwright Agents · 🦁 CLI + Skills ×2 · <img src="/img/wopee-monkey.svg" class="inline h-5 align-text-bottom" /> Wopee.io</p>
   <h3 class="mt-5">Before lunch: fork the repo</h3>
-  <p>One laptop per team. Ask your agent: <em>Set up my team: team N, tool …</em> — the <code>team-setup</code> skill does the rest. By hand: <code>day/03-teams.md</code>.</p>
+  <p>One laptop per team. Ask your agent: <em>Set up my team: team N, tool …</em> — the <code>team-setup</code> skill does the rest. By hand: <code>playbook/03-teams.md</code>.</p>
 </div>
 </div>
 
@@ -871,7 +871,7 @@ checkpoints:
 <li>App address only in <code>baseURL</code> — never in a test</li>
 </ul>
 
-<p class="muted mt-6">This is the thing you take home. Step by step: <code>day/04-build.md</code></p>
+<p class="muted mt-6">This is the thing you take home. Step by step: <code>playbook/04-build.md</code></p>
 
 <!--
 13:05 → 14:30 — leave this slide up. Walk the room; call out the checkpoints.
@@ -907,7 +907,7 @@ checkpoints:
 <li>Give them 3 lines of feedback</li>
 </ul>
 
-<p class="muted mt-6">The Battle scores reusability. This is your dress rehearsal. Step by step: <code>day/05-swap.md</code></p>
+<p class="muted mt-6">The Battle scores reusability. This is your dress rehearsal. Step by step: <code>playbook/05-swap.md</code></p>
 
 <!--
 14:30 — 2 min setup, 20 min runs, 8 min feedback. Teams use their own tool on someone else's skill: that is the reusability test.
@@ -974,7 +974,7 @@ checkpoints:
 <li><code>cd teams/team-N</code> → <code>npx playwright test</code></li>
 </ol>
 
-<p class="text-sm muted">Or ask your agent: <em>Prepare the battle.</em> — the <code>battle-setup</code> skill does it. All of it: <code>day/06-battle.md</code></p>
+<p class="text-sm muted">Or ask your agent: <em>Prepare the battle.</em> — the <code>battle-setup</code> skill does it. All of it: <code>playbook/06-battle.md</code></p>
 
 </div>
 

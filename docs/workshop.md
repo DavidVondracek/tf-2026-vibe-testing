@@ -48,6 +48,6 @@ check. Take expected results from there, not from what the app happens to do.
 
 ## How the day runs
 
-No death by slides. The [agenda](../day/) has one page per block — goal, steps, where your files
+No death by slides. The [playbook](../playbook/) has one page per block — goal, steps, where your files
 go, when you are done, and what to do if you are stuck. Lost the presenter, or running the day at
 home? Follow those pages in order.

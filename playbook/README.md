@@ -1,4 +1,4 @@
-# The day, block by block
+# Playbook: the day, block by block
 
 One page per block: goal, steps, where your files go, when you are done, and what to do if you are
 stuck. Lost the presenter, or running the day at home? Follow them in order.

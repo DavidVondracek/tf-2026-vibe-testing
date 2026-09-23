@@ -1,7 +1,7 @@
 # Team N · &lt;your tool&gt;
 
 Copy this folder to `teams/team-N/` (N = your team number) and work only inside it.
-The day's steps are in [`day/04-build.md`](../../day/04-build.md).
+The day's steps are in [`playbook/04-build.md`](../../playbook/04-build.md).
 
 - **Team:** name, name, name, name
 - **Tool:** AI Coding Agent / Playwright Agents / Playwright CLI + Skills / Wopee.io
