@@ -1,7 +1,8 @@
 # Instructions for AI agents working in this repository
 
 This is a workshop repository. These are tooling rules, not app knowledge — working out how the
-demo app behaves is the exercise, so nothing about it is written down here.
+demo app behaves is the exercise, so nothing about it is written down here. What is where, and the
+`npm run` commands, are in [`docs/repository.md`](docs/repository.md).
 
 ## The shell
 
@@ -26,41 +27,32 @@ exists. In this repository, that fallback is always the correct form.
 
 ## Where things go
 
-Each exhibit lives in [`experiments/1_Zoo/`](experiments/1_Zoo/)`<n>-<name>/` and owns its `playwright.config.ts`.
-`cd` into the exhibit folder before running `npx playwright test` — run from the repository root
-it will not find the config.
-
-Agent wiring is the exception: run `init-agents`, `init-skills` and `npx playwright cli` from the
-**repository root**, because the editor only reads `.github/agents/`, `.github/prompts/`,
-`.vscode/mcp.json` and skills in `.github/skills/`, `.claude/skills/` or `.agents/skills/` there.
-Wire the Test Agents with `npm run agents` (Exhibit 2) or `npm run agents -- teams/team-N` (your
-team folder), not with a bare `init-agents`: the script points the preset `playwright-test` MCP
-server in `.vscode/mcp.json` at that folder and removes the `model:` line `init-agents` writes into
-`.github/agents/*.agent.md`, which would override the model picked in Copilot Chat.
-The MCP servers in `.vscode/mcp.json` do not start on their own (`chat.mcp.autostart` is `never`):
-each exhibit that needs one says to start it with **MCP: List Servers** → **Start Server**.
-
-The optional API experiment lives in [`experiments/2_API/`](experiments/2_API/) and works the
-same way: `cd` into it, write into its `tests/`, and import `test` from its `fixtures.ts`.
-
-Write tests into that exhibit's `tests/`. Leave `solutions/` alone: it holds reference answers
-and is run separately via `npm run solutions`.
-
-The setup steps are in the [root README](README.md); fixes are in [setup troubleshooting](docs/setup-troubleshooting.md).
+- Every exhibit and team folder owns its `playwright.config.ts`. `cd` into it before
+  `npx playwright test`; from the repository root the config is not found.
+- Write tests into that folder's `tests/`. The API experiment's tests import `test` from its
+  `fixtures.ts`. Leave `solutions/` alone.
+- Agent wiring runs from the **repository root**, because the editor only reads `.github/agents/`,
+  `.github/prompts/`, `.vscode/mcp.json` and skills in `.github/skills/`, `.claude/skills/` or
+  `.agents/skills/` there. Wire the Test Agents with `npm run agents` (Exhibit 2) or
+  `npm run agents -- teams/team-N`, never a bare `init-agents`: the script keeps the preset
+  `playwright-test` server pointed at that folder and removes the `model:` line that would override
+  the model picked in Copilot Chat.
+- The MCP servers in `.vscode/mcp.json` do not start on their own (`chat.mcp.autostart` is
+  `never`). Each exhibit that needs one says to start it: **MCP: List Servers** → **Start Server**.
 
 ## Team work
 
-After lunch each team works in its own fork, in **`teams/team-N/`** only, copied from
+After lunch each team works in its own fork, in **`teams/team-N/`** and its skill folder only, copied from
 [`teams/_template/`](teams/_template/). The block-by-block guide is in [`day/`](day/).
 
 - Write tests into `teams/team-N/tests/` and run them from `teams/team-N/`. Do not touch other
   teams' folders, `experiments/` or `spec/`.
 - The same address rule applies: `baseURL` in `teams/team-N/playwright.config.ts` reads
   `FOODORA_URL`, and tests use relative paths.
-- Skills are committed in `teams/team-N/skills/<name>/SKILL.md`. Agents load them from
-  `.github/skills/<name>/` at the repository root (Claude Code: `.claude/skills/`), which is
-  gitignored — copy the folder there
-  after each edit. The folder name must match `name` in the frontmatter.
+- A team's skill is committed where it runs: `.github/skills/team-N-<name>/SKILL.md` at the
+  repository root. The folder name must match `name` in the frontmatter. Touch only your own
+  team's skill folder; other skills in `.github/skills/` are gitignored copies or ship with the
+  repository.
 - A skill that opens the app reads the address from `FOODORA_URL`, falling back to
   `https://foodora.lovable.app`.
 
