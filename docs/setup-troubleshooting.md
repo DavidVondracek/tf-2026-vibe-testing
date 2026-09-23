@@ -50,6 +50,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | The installer asks for admin rights you do not have | Tell me in the form or on LinkedIn **before** the workshop. You can pair with a neighbour on the day, but you will get more out of it on your own laptop. |
 | `gh auth login` asks how to authenticate | Choose **GitHub.com**, **HTTPS**, **Login with a web browser**. |
 | `gh pr create` says *No default remote repository has been set* | Your clone has two remotes (your fork and Wopee-io). Run `gh repo set-default Wopee-io/tf-2026-vibe-testing` once, then create the PR again. |
+| `git pull` stops with *You have divergent branches and need to specify how to reconcile them* | Add `--no-rebase`: `git pull --no-rebase upstream main`. It merges Wopee-io's changes into your branch and keeps your commits. |
 | `gh` will not work at all on the day (not installed, blocked, wrong account) | Every `gh` step in [`playbook/03-teams.md`](../playbook/03-teams.md) and [`playbook/05-swap.md`](../playbook/05-swap.md) has a *Without `gh`* alternative in the browser. Plain `git` does the rest. |
 | `gh` is old | `gh repo fork` and `gh pr checkout` want a current release. Update before the day: `brew upgrade gh` (macOS), `winget upgrade GitHub.cli` (Windows), or the [releases page](https://github.com/cli/cli/releases). |
 

@@ -976,7 +976,7 @@ checkpoints:
 <div v-click class="mt-4 battle-cmd">
 
 <ol class="battle-steps">
-<li><code>git switch team-N</code> → <code>git pull upstream main</code> — the three stories</li>
+<li><code>git switch team-N</code> → <code>git pull --no-rebase upstream main</code> — the stories</li>
 <li>In <code>.env</code>, remove the <code>#</code> before <code>FOODORA_URL</code></li>
 <li><code>cd teams/team-N</code> → <code>npx playwright test</code></li>
 </ol>
