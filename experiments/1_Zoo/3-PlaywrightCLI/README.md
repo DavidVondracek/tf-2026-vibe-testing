@@ -16,12 +16,12 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
 1. Install the skills and look at what you got:
 
    ```bash
-   npx playwright init-skills --loop=claude
-   head -4 .claude/skills/playwright-cli/SKILL.md
-   ls .claude/skills/playwright-cli/references/
+   npx playwright init-skills --loop=agents
+   head -4 .agents/skills/playwright-cli/SKILL.md
+   ls .agents/skills/playwright-cli/references/
    ```
 
-   PowerShell: `Get-Content .claude/skills/playwright-cli/SKILL.md -TotalCount 4`.
+   PowerShell: `Get-Content .agents/skills/playwright-cli/SKILL.md -TotalCount 4`.
 
    You get three — `playwright-cli`, `playwright-component-testing`, `playwright-trace`. We only
    use the first.
@@ -30,10 +30,11 @@ over MCP instead of the CLI, and this exhibit is about the CLI.
    context until a task matches. Then the 13 KB body arrives. The nine files in `references/` only
    load if the task needs mocking, or tracing, or video. That is the whole idea.
 
-   > **Copilot in VS Code reads these too.** It finds skills in `.github/skills/`,
-   > `.claude/skills/` and `.agents/skills/` at the root of the open folder, so `--loop=claude`
-   > installs them for Claude Code and Copilot alike. Skills you write yourself go in
-   > `.github/skills/`, Copilot's own folder. (`--loop=agents` writes the same three skills to `.agents/skills/`.) Run
+   > **Why `--loop=agents`.** Copilot in VS Code finds skills in `.github/skills/`,
+   > `.claude/skills/` and `.agents/skills/` at the root of the open folder. `--loop=agents` writes
+   > to `.agents/skills/`, the shared folder Copilot, Codex and others read. On Claude Code, use
+   > `--loop=claude` (the default), which writes to `.claude/skills/`. Skills you write yourself go
+   > in `.github/skills/`, Copilot's own folder. Run
    > `init-skills` inside a subfolder and the skills land where no agent looks. Type `/` in Chat
    > to see them; if they are missing, reload the window.
 
