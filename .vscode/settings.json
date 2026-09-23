@@ -17,7 +17,8 @@
   },
   "search.exclude": {
     "**/solutions/**": true,
-    "**/SPOILERS-*.md": true
+    "**/SPOILERS-*.md": true,
+    "**/docs/battle/**": true
   },
   "chat.agent.maxRequests": 200
 }

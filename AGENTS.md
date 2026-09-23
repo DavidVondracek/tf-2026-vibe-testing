@@ -80,8 +80,8 @@ Write one test per rule in a story, with the spec ID in its name (`FD-09 · unkn
 refused`). A test that checks five rules stops at the first failure, and the other four are never
 checked.
 
-Never read `solutions/` folders or `SPOILERS-app-notes.md`. They are the answer keys for the
-people doing the exercises; an agent that copies them has not done the exercise.
+Never read `solutions/` folders, `SPOILERS-app-notes.md` or `docs/battle/`. They are the answer
+keys for the people doing the exercises; an agent that copies them has not done the exercise.
 
 ## Memory
 
