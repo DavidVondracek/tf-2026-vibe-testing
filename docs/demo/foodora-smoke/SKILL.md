@@ -13,6 +13,9 @@ The app address is `$FOODORA_URL`, falling back to https://foodora.lovable.app.
 
 ## Steps
 
+Run every command from the repository root, exactly as written: `npx playwright …` is
+pre-approved, a command wrapped in a variable or chained with `&&` stops for approval.
+
 1. Open the app in its own session:
    `npx playwright cli -s=smoke open "${FOODORA_URL:-https://foodora.lovable.app}/"`
 2. **FD-01 · Browse restaurants.** `npx playwright cli -s=smoke snapshot`. The restaurant cards
@@ -25,7 +28,8 @@ The app address is `$FOODORA_URL`, falling back to https://foodora.lovable.app.
 4. **Quick-add.** The quick-add is the unnamed button inside a dish's link, next to the price.
    Click it on the first dish, snapshot, and read the header's cart button. Check it against
    FD-03's quick-add rule. Ignore the toast: it disappears on its own.
-5. `npx playwright cli -s=smoke screenshot`, then `npx playwright cli -s=smoke close`.
+5. `npx playwright cli -s=smoke screenshot --filename=test-results/foodora-smoke.png`, then
+   `npx playwright cli -s=smoke close`.
 
 ## Report
 
@@ -37,7 +41,7 @@ Write `test-results/foodora-smoke.md`, then show the same table in the chat:
 | Restaurant menu | FD-03 | PASS / FAIL | … |
 | Quick-add | FD-03 | PASS / FAIL | … |
 
-End with the screenshot's path.
+End with the screenshot, `test-results/foodora-smoke.png`.
 
 ## Rules
 
