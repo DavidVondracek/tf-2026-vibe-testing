@@ -1,6 +1,6 @@
 # 15:15 · Speed Gap Battle
 
-**Time:** 15:15–16:15 · 40 min build (until 15:55) + 18 min demos
+**Time:** 15:15–15:55 build · 15:55–16:15 Demos & Vote (3 min per team)
 
 **Goal:** the demo app just shipped 3 new features. Extend your suite to cover them. Use exactly
 what you built: no rebuilding, no switching tools.
@@ -59,10 +59,6 @@ once. The steps below are the same thing by hand.
    **one test per rule**, named after its `FD-xx`: one long test stops at its first failure, and
    the rules after it are never checked.
 4. Push before 15:55: `git add teams/team-N .github/skills`, `git commit -m "Battle"`, `git push`.
-
-**Wopee.io team:** run your suite against the new build — create a second project with
-`https://foodora-new.lovable.app` in cmd.wopee.io — and
-add test cases for `FD-09` … `FD-11`.
 
 ## Scoring
 
