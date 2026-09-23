@@ -1,5 +1,15 @@
+<script setup lang="ts">
+import { onMounted, onUnmounted, ref } from 'vue'
+
+// The cover stays up while people arrive: replay its entrance animation every 5 minutes.
+const replay = ref(0)
+let timer: ReturnType<typeof setInterval> | undefined
+onMounted(() => (timer = setInterval(() => replay.value++, 5 * 60_000)))
+onUnmounted(() => clearInterval(timer))
+</script>
+
 <template>
-  <div class="slidev-layout wp-cover">
+  <div class="slidev-layout wp-cover" :key="replay">
     <div class="wp-cover-text">
       <slot />
     </div>

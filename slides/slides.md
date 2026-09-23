@@ -20,7 +20,7 @@ favicon: /favicon.svg
 
 # Vibe Testing Lab
 
-## AI Agents, MCP, and the New Stack for Web App Testing
+## AI Agents, MCP, and the New Stack<br>for Web App Testing
 
 24\. 9. 2026 @ Tesena Fest, Prague
 
@@ -64,12 +64,12 @@ label: Welcome
 
 # Meet your neighbour
 
-Turn to your neighbour — 1 minute, both of you.
+1 minute. Both of you answer.
 
 <div class="cards c4">
 <div class="card"><div class="num">1</div><h3>Your name</h3><p>and where you work</p></div>
 <div class="card"><div class="num">2</div><h3>Your role</h3><p>engineer, lead, manager</p></div>
-<div class="card"><div class="num">3</div><h3>Your stack</h3><p>Playwright, Cypress, something else</p></div>
+<div class="card"><div class="num">3</div><h3>Your stack</h3><p>Playwright, Cypress, other</p></div>
 <div class="card"><div class="num">4</div><h3>Your AI use</h3><p>none, curious, daily driver</p></div>
 </div>
 
@@ -95,16 +95,16 @@ label: Welcome
   <div v-click class="rs">
     <div class="rn">2</div>
     <h3>Open the repo</h3>
-    <div class="rq"><Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="7.5rem" caption="" /></div>
+    <div class="rq"><Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="10.5rem" caption="" /></div>
     <p class="url">github.com/Wopee-io/<br>tf-2026-vibe-testing</p>
     <p>Terminal: <code>npm run verify</code><br>→ <b>7 green</b> lines</p>
   </div>
   <div v-click class="rs dark">
     <div class="rn">3</div>
     <h3>Add your AI key</h3>
-    <p><b>Key 1</b> from the form's document → <code>Ctrl/Cmd+Shift+P</code> → <b>Vercel AI Gateway: Manage Authentication</b></p>
-    <p>Model picker: type <code>gpt-6-luna</code></p>
-    <div class="rform"><Qr url="https://forms.gle/hU57AS3A5SPrqKWK8" size="4.6rem" caption="" /><span>No document yet?<br>Submit the form now.</span></div>
+    <p><code>Ctrl/Cmd+Shift+P</code> → <b>Vercel AI Gateway: Manage Authentication</b> → paste <b>key 1</b> from the form's document</p>
+    <p>Model picker: type <code>gpt-6-luna</code> → <b>GPT-6 Luna</b></p>
+    <div class="rform"><Qr url="https://forms.gle/hU57AS3A5SPrqKWK8" size="7rem" caption="" /><span>No document yet?<br>Submit the form now.</span></div>
   </div>
 </div>
 
@@ -120,7 +120,7 @@ label: Welcome
 .ready h3 { font-size: 1.45rem; font-weight: 700; margin: 0.2rem 0 0.7rem; }
 .ready p { font-size: 1rem; line-height: 1.4; margin: 0.45rem 0; }
 .ready .rs.dark code { background: #333; color: var(--wp-yellow); }
-.ready .rq { float: right; margin: -0.4rem 0 0 0.6rem; }
+.ready .rq { display: flex; justify-content: center; margin: -0.2rem 0 0.2rem; }
 .ready .url { font-weight: 700; font-size: 1.02rem !important; }
 .ready .rform { display: flex; align-items: center; gap: 0.7rem; margin-top: 0.8rem; font-size: 0.9rem; color: #ddd; }
 .ready :deep(.wp-wifi) { flex-direction: column; align-items: flex-start; border-left: 0; padding: 0; background: none; }
@@ -145,9 +145,9 @@ label: Welcome
 
 <div class="cards c4 unstuck">
 <div class="card"><div class="num">1</div><h3>Ask your neighbour</h3><p>After lunch: your team.</p></div>
-<div class="card"><div class="num">2</div><h3>Read the page</h3><p><code>playbook/</code> → your block → <b>If stuck</b></p><p>Setup trouble? <code>docs/</code> → <b>setup-troubleshooting</b> → search the error</p></div>
+<div class="card"><div class="num">2</div><h3>Read the page</h3><p><code>playbook/</code> → your block → <b>If stuck</b></p><p>Setup trouble? <code>docs/</code> → <b>setup troubleshooting</b></p></div>
 <div class="card"><div class="num">3</div><h3>Raise your hand</h3><p>Or lid half down. I work the queue.</p></div>
-<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Exhibit README → <b>If you get stuck</b>: a <code>solutions/</code> folder, the worked skill, or the shared Wopee project.</p></div>
+<div class="card dark"><div class="num">4</div><h3>Take the shortcut</h3><p>Exhibit README → <b>If you get stuck</b>: <code>solutions/</code>, the worked skill or the shared Wopee project.</p></div>
 </div>
 
 <div class="banner">The agent asks first. <em>Read it, then click the blue Allow</em> — not ⌄.</div>
@@ -183,6 +183,7 @@ label: Welcome
 <tr><td>14:30</td><td>SKILL.md Swap <span class="muted">· optional</span></td></tr>
 <tr class="pause"><td>15:00</td><td>Break</td></tr>
 <tr><td>15:15</td><td>Speed Gap Battle</td></tr>
+<tr><td>15:55</td><td>Demos & Vote</td></tr>
 <tr><td>16:15</td><td>Wrap-up & Q&A</td></tr>
 </tbody>
 </table>
@@ -238,12 +239,12 @@ block: kickoff
 
 # How fast is <span class="y">your</span> team?
 
-Write both numbers on a sticky note. Put it on the board. No judgment.
+Two sticky notes: yellow for DEV, white for QA. On the board. No judgment.
 
 <div class="gap-eq">
-  <div class="card yellow"><div class="n">DEV</div><h3>Time to ship a feature</h3><p>From ticket to merged code.</p></div>
+  <div class="card yellow"><div class="n">DEV</div><h3>Time to ship a feature</h3><p>From ticket to merge.</p></div>
   <div class="gap-eq-mid">GAP</div>
-  <div class="card"><div class="n">QA</div><h3>Time to verify it</h3><p>From merged code to "we trust it in production".</p></div>
+  <div class="card"><div class="n">QA</div><h3>Time to verify it</h3><p>From merge to "we trust it in production".</p></div>
 </div>
 
 <p v-click class="text-2xl font-bold mt-8 text-center">Today is about <span class="y">closing the gap</span> between these two numbers.</p>
@@ -290,7 +291,7 @@ block: stack
 </style>
 
 <!--
-09:15 — two lines, then stop talking for a second. The agent writes the code now; the developer asks, reviews, approves.
+09:15 — two lines, then stop talking for a second. The quote is the 2026 mood, not one person: say it as yours. The agent writes the code now; the developer asks, reviews, approves.
 [click] Code is no longer the bottleneck — the next slide shows what is.
 -->
 
@@ -316,7 +317,7 @@ The code is fast now. The human-speed steps around it are not.
 
 <div v-click class="lc-answer">
   <div class="lc-verbs"><span>Shape it</span><span>Maintain it</span><span>Define the rules</span><span>Manage the whole process</span></div>
-  <p>A role or a skill in the team? Honestly, nobody knows yet — the industry is still searching.</p>
+  <p>A role or a skill? Nobody knows yet.</p>
 </div>
 
 <p class="chart-note lc-src">Six stages: Anthropic, <i>AI-native SDLC playbook</i>, 21 Aug 2026. The new goal: my own view.</p>
@@ -346,13 +347,13 @@ The test states the user's goal and what must be true afterwards. The agent work
 
 <div class="cards c3 intent">
 <div v-click class="card"><div class="n">THE AGENT RUNS EVERY TIME</div><h3>It plays the test</h3><p>Reads the intent on every run and finds its own way. Survives a redesign — costs an LLM call, and can vary.</p><p class="who">Wopee.io · Momentic · Midscene</p></div>
-<div v-click class="card"><div class="n">THE AGENT WRITES THE CODE</div><h3>Intent in, Playwright out</h3><p>A plan in Markdown, reviewed, turned into a test that runs without an LLM.</p><p class="who">Playwright Test Agents · QA Wolf · Octomind</p></div>
-<div v-click class="card dark"><div class="n">THE CATCH</div><h3>Good at doing the steps. Bad at judging the result.</h3><p>Tell it what "correct" means, and it finds <b>twice</b> as many bugs.</p></div>
+<div v-click class="card"><div class="n">THE AGENT WRITES THE CODE</div><h3>Intent in, Playwright out</h3><p>A plan in Markdown, reviewed, turned into a test that runs without an LLM.</p><p class="who">Playwright agents · QA Wolf · Octomind</p></div>
+<div v-click class="card dark"><div class="n">THE CATCH</div><h3>Good at doing the steps. Bad at judging the result.</h3><p>Tell it what "correct" means, and its score <b>nearly doubles</b>.</p></div>
 </div>
 
 <div v-click class="banner">The intent says <em>what to do</em>. Your spec says <em>what is right</em>.</div>
 
-<p class="chart-note">WebTestBench (Kong et al., March 2026): best agent 26% F1 on real web-app bugs, ~30% precision; with a human checklist 49%.</p>
+<p class="chart-note">WebTestBench (Kong et al., arXiv, Mar 2026): best agent 26% F1, ~30% precision. With a human checklist: 49%.</p>
 
 <style>
 .intent .who { font-size: 0.72em; margin-top: 0.8em; opacity: 0.7; }
@@ -392,7 +393,7 @@ block: stack
 
 <div class="cards c3 mt-5 vkeys">
 <div class="card"><div class="num">1</div><h3>Evidence, not prose</h3><p>A verdict counts only if the run recorded the proof.</p></div>
-<div class="card"><div class="num">2</div><h3>"I don't know" is a verdict</h3><p>Inconclusive beats a confident wrong answer.</p></div>
+<div class="card"><div class="num">2</div><h3>"Not sure" is a verdict</h3><p>Inconclusive beats a confident wrong answer.</p></div>
 <div class="card dark"><div class="num">3</div><h3>Until then</h3><p>Watch the agent — or let it ship deterministic code.</p></div>
 </div>
 
@@ -444,10 +445,10 @@ block: stack
 
 <div class="acm">
   <div class="acol">
-    <div class="ac agent"><div class="n">AGENT</div><h3>The loop</h3><p>Reads your intent, picks a tool, reads the result, tries again.</p></div>
-    <div class="ac small"><div class="n">IN THE ZOO</div><p>GitHub Copilot, Claude Code, Cursor — and the Wopee.io Agent in Exhibit 4.</p></div>
+    <div class="ac agent"><span class="nb">1</span><div class="n">AGENT</div><h3>The loop</h3><p>Reads your intent, picks a tool, reads the result, tries again. GitHub Copilot, Claude Code, Cursor, Wopee.io Agent.</p></div>
+    <div class="ac small"><span class="nb">2</span><div class="n">+ SKILLS</div><p>Know-how it loads only when a task needs it — a <code>SKILL.md</code> per workflow.</p></div>
   </div>
-  <div class="ac"><div class="n">CLI</div><h3>Commands in a shell</h3>
+  <div class="ac"><span class="nb">3</span><div class="n">CLI</div><h3>Commands in a shell</h3>
 
 ```bash
 npx playwright cli open foodora.lovable.app
@@ -456,7 +457,7 @@ npx playwright cli snapshot
 ```
 
 <p>Big answers go to a file. Cheap until used.</p></div>
-  <div class="ac"><div class="n">MCP</div><h3>Tools plugged into the agent</h3>
+  <div class="ac"><span class="nb">4</span><div class="n">MCP</div><h3>Tools plugged in</h3>
 
 ```json
 "servers": {
@@ -466,11 +467,13 @@ npx playwright cli snapshot
 ```
 
 <p>Every tool is in the agent's context. No shell needed.</p></div>
-  <div class="pw"><b>Playwright ships both</b> — CLI for coding agents (Exhibit 3), MCP for exploring (Exhibit 2).</div>
+  <div class="pw"><b>Playwright ships both</b> — the CLI for coding agents, MCP for exploring.</div>
 </div>
 
 <style>
 .acm { display: grid; grid-template-columns: 0.8fr 1.1fr 1.1fr; grid-template-rows: auto auto; gap: 0.9rem; margin-top: 1.2rem; }
+.acm .ac { position: relative; }
+.acm .nb { position: absolute; top: 0.6rem; right: 0.7rem; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--wp-yellow); border: 2.5px solid #000; color: #000; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
 .acm .acol { grid-row: span 2; display: flex; flex-direction: column; gap: 0.9rem; }
 .acm .acol .agent { flex: 1; }
 .acm .ac.small { padding: 0.7rem 1rem; border-top-width: 4px; }
@@ -508,7 +511,7 @@ block: stack
     <div class="lp l1">Think</div><div class="lp l2">Act<small>call a tool</small></div><div class="lp l3">Observe<small>read the result</small></div>
     <div class="lcore">until<br>done</div>
   </div>
-  <div class="parts">
+  <div v-click class="parts">
     <div class="pt"><b>Model</b><span>the brain — GPT-6 Luna today</span></div>
     <div class="pt"><b>System prompt</b><span><code>AGENTS.md</code>, or a custom agent like Playwright's planner</span></div>
     <div class="pt"><b>Your prompt</b><span>the intent, in one sentence</span></div>
@@ -517,7 +520,7 @@ block: stack
   </div>
 </div>
 
-<p class="agent-who">GitHub Copilot · Claude Code · Cursor · Wopee.io Agent · Playwright's planner, generator, healer — same recipe, different parts.</p>
+<p class="agent-who">GitHub Copilot · Claude Code · Cursor · Wopee.io Agent · Playwright's planner — same recipe, different parts.</p>
 
 <style>
 .agent { display: grid; grid-template-columns: 0.9fr 1.2fr; gap: 2rem; align-items: center; margin-top: 0.8rem; }
@@ -535,7 +538,7 @@ block: stack
 </style>
 
 <!--
-09:31 — 1 minute. Every agent in the Zoo is the same recipe: a model running think → act → observe until the job is done.
+09:28 — 1 minute. Every agent in the Zoo is the same recipe: a model running think → act → observe until the job is done.
 What changes between them is the parts: which model, which system prompt (AGENTS.md; Playwright's planner/generator/healer are
 custom agents = a system prompt + a tool list), which tools, which skills. (From the Geekle "MCP revolution" deck: tools · system prompt ·
 user prompt.) Wopee.io's agent is the same loop, run in the cloud against your app.
@@ -559,6 +562,8 @@ my-skill/
 └── assets/
 ```
 
+<div v-click>
+
 ```md
 ---
 name: login-flow
@@ -574,8 +579,13 @@ description: Log in to the demo
 
 </div>
 
+</div>
+
+<p class="chart-note">Until a task matches, the agent reads only <code>name</code> and <code>description</code>.</p>
+
+
 <!--
-09:37 — define "run cold" here: a fresh agent session, given only the SKILL.md, does the job without follow-up prompts.
+09:29 — define "run cold" here: a fresh agent session, given only the SKILL.md, does the job without follow-up prompts.
 Point at docs/skills.md for the afternoon: the ten rules and the review checklist. Numbers if asked: SkillsBench +16.6 pp with
 curated skills (33.9% → 50.5%); Vercel: a skill with a vague description never invoked in 56% of runs. Snyk: 36.8% of 3,984 public
 skills had a flaw, 76 were malicious — read every line before installing one.
@@ -593,7 +603,7 @@ block: stack
   <div class="mstack">
     <div class="mhost"><span class="mtag">YOUR AI APP · MCP CLIENT</span><b>GitHub Copilot · Claude · ChatGPT · Cursor · Gemini</b></div>
     <div class="mplug"><span>MCP</span><small>local process or HTTP</small></div>
-    <div class="mserver"><span class="mtag">MCP SERVER</span><b>Playwright · Wopee.io · GitHub · 31,000+ more</b></div>
+    <div class="mserver"><span class="mtag">MCP SERVER</span><b>Playwright · Wopee.io · GitHub · and many more</b></div>
     <div class="mprims">
       <div class="mp"><div class="mn">TOOLS</div><div class="who">the model decides</div><small>click, navigate, run a test</small></div>
       <div class="mp"><div class="mn">RESOURCES</div><div class="who">the app attaches</div><small>files, specs, test cases</small></div>
@@ -607,7 +617,7 @@ block: stack
   </div>
 </div>
 
-<p class="mwarn"><b>Not free:</b> every tool sits in the agent's context (GitHub's server ≈ 26K tokens), and poisoned tool descriptions fooled agents up to 73% of the time. Plug in only what you trust.</p>
+<p class="mwarn"><b>Not free:</b> every tool sits in the agent's context (GitHub's ≈ 26K tokens), and poisoned tool descriptions hijacked up to 73% of attacks. Plug in only what you trust.</p>
 
 <style>
 .mcpv { display: grid; grid-template-columns: 1fr 13rem; gap: 1.6rem; margin-top: 0.8rem; align-items: center; }
@@ -634,7 +644,7 @@ block: stack
 </style>
 
 <!--
-09:33 — 1 minute. Read the analogy (it is the official one), then walk top to bottom: your AI app holds an MCP client; it plugs
+09:30 — 1 minute. Read the analogy (it is the official one), then walk top to bottom: your AI app holds an MCP client; it plugs
 into an MCP server over a local process (stdio — both of ours) or HTTP; the server offers three things, each controlled by someone
 else: TOOLS — the model decides to call them (Playwright's click/navigate; Wopee's dispatch); RESOURCES — the app attaches them as
 context (files, specs); PROMPTS — the user picks them (slash commands). Spec 2026-07-28 (modelcontextprotocol.io).
@@ -670,12 +680,12 @@ block: stack
   <div class="cb dark">
     <div class="ch">🔒 Fenced</div>
     <div class="allow"><span class="cmd">git push origin main</span><span class="btn">Allow</span></div>
-    <p>A shell can do anything, so every command asks first. Reading commands are pre-approved.</p>
+    <p>A shell can do anything, so the agent asks before each command. Read-only ones are pre-approved.</p>
   </div>
 </div>
 
-<div class="clif">
-  <div class="cs"><div class="cn">1</div><code>npx playwright cli open foodora.lovable.app</code><small>opens a real browser</small></div>
+<div v-click class="clif">
+  <div class="cs"><div class="cn">1</div><code>npx playwright cli open &lt;url&gt;</code><small>opens a real browser</small></div>
   <div class="ca">→</div>
   <div class="cs"><div class="cn">2</div><code>npx playwright cli snapshot</code><small>the page goes to a file, not the chat</small></div>
   <div class="ca">→</div>
@@ -699,16 +709,17 @@ block: stack
 .allow { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; background: #1b1b1b; border: 1px solid #444; border-radius: 6px; padding: 0.35rem 0.5rem; }
 .allow .cmd { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #ddd; }
 .allow .btn { background: #0e639c; color: #fff; font-size: 0.8rem; font-weight: 700; padding: 0.15rem 0.7rem; border-radius: 4px; }
-.clif { display: flex; align-items: stretch; gap: 0.5rem; margin-top: 1.5rem; }
+.clif { display: flex; align-items: stretch; gap: 0.5rem; margin-top: 1.5rem; transition: opacity 0.4s ease, transform 0.4s ease; }
+.clif.slidev-vclick-hidden { transform: translateY(30px); }
 .clif .cs { position: relative; flex: 1; background: #fff; border: 2px solid #000; padding: 1.1rem 0.9rem 0.7rem; border-radius: 8px; }
-.clif .cs code { background: none; font-size: 0.8rem; font-weight: 700; }
+.clif .cs code { background: none; font-size: 0.78rem; font-weight: 700; }
 .clif .cs small { display: block; color: var(--wp-grey); font-size: 0.82rem; margin-top: 0.3rem; }
 .clif .cn { position: absolute; top: -0.9rem; left: 0.8rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--wp-yellow); border: 2px solid #000; color: #000; font-family: 'Bungee', sans-serif; display: flex; align-items: center; justify-content: center; }
 .clif .ca { align-self: center; font-size: 1.5rem; font-weight: 700; }
 </style>
 
 <!--
-09:35 — 1 minute. Exhibit 3 in three commands: open, snapshot (the page tree lands in .playwright-cli/page-….yml, the agent gets
+09:31 — 1 minute. Exhibit 3 in three commands: open, snapshot (the page tree lands in .playwright-cli/page-….yml, the agent gets
 a file path), click a ref from that file. Why CLI: nothing is loaded before the task (a skill costs ~100 tokens until used); our
 Foodora measurement, landing → checkout: CLI 2.3K vs MCP 6.3K tokens (docs/research/foodora-measurement.md). Agents already know
 git/gh/npm from training. The price: it needs a shell, so it needs a fence — VS Code asks before every command; this repo
@@ -739,10 +750,10 @@ block: stack
 
 <ModelMap />
 
-<p class="chart-note">A dot per reasoning effort, low → max. Hover for numbers, click a name to hide it. Artificial Analysis, 23 Sep 2026.</p>
+<p class="chart-note">One dot per reasoning effort, low → max. Source: Artificial Analysis, 23 Sep 2026.</p>
 
 <!--
-09:36 — 2 minutes. Same agent, same skill: the model decides how good, how expensive and how fast the answer is.
+09:33 — 2 minutes. Same agent, same skill: the model decides how good, how expensive and how fast the answer is.
 Point at three things: (1) Opus 5.5 max is the smartest at ~$6 per task; (2) GPT-6 Luna medium — today's default — is ~350× cheaper per
 task and the fastest, at about half the index; (3) effort matters as much as the model: Luna low → max nearly doubles its index.
 Switch to Speed: the cheap models are also the fast ones. Our rehearsals: Luna ran every task right; Copilot's Auto often picked a
@@ -764,7 +775,7 @@ block: stack
   </div>
   <div class="apim">
     <p class="big">Everything today works one layer down, too.</p>
-    <p>Lower in the pyramid: fewer moving parts, faster, more stable — so it is even easier for an agent to automate.</p>
+    <p>Lower in the pyramid: fewer moving parts, faster, more stable. An agent automates it even more easily.</p>
     <div class="try"><b>Try it after the workshop:</b> <code>experiments/2_API</code> — a small demo, with a solution.</div>
   </div>
 </div>
@@ -783,7 +794,7 @@ block: stack
 </style>
 
 <!--
-09:50 — 1 minute. The same intent-driven approach works for APIs. Following the testing pyramid, API tests have fewer moving
+09:35 — 1 minute. The same intent-driven approach works for APIs. Following the testing pyramid, API tests have fewer moving
 parts than UI tests, so an agent automates them even more easily. A small demo is in the repo (experiments/2_API) to try after
 the workshop. Do not say what the UI-vs-API test finds; that is the experiment.
 -->
@@ -798,7 +809,7 @@ lines:
 ---
 
 <!--
-09:40 — 10 minutes. Fresh agent session, only the SKILL.md, no follow-up prompts. This is the bar for the afternoon.
+09:36 — 10 minutes. Fresh agent session, only the SKILL.md, no follow-up prompts. This is the bar for the afternoon.
 The skill ships in .github/skills/foodora-smoke — nothing to install. Live: show the SKILL.md for a minute — description
 with "use when", spec IDs, the FAIL rule — then New Chat, Agent, GPT-6 Luna: run foodora-smoke. About 1 minute; talk over it.
 Point at the table: judged against the spec, not the app. The FD-03 FAIL (quick-add has no accessible name) is real — keep it.
@@ -824,28 +835,36 @@ image: /img/photos/zoo.jpg
 
 # The Zoo
 
-4 exhibits · 1 demo app · 20 min hands-on + 5 min debrief each
+10:10 · 4 exhibits · 25 min each
 
 ---
 block: zoo
 ---
 
-# Welcome to the Zoo
+# Welcome to the <span class="y">Zoo</span>
 
-Everyone on the same exhibit at the same time. Nobody left behind.
+4 exhibits, 25 minutes each, everyone on the same one at the same time.
 
-<div class="zoo">
-
-| | Exhibit | What you do | Core concept |
-|---|---|---|---|
-| 🤖 | **AI Coding Agent** | Define intent, watch the agent write, run and interpret tests. Find where it breaks | Agent autonomy, and where human judgment still wins |
-| 🐍 | **Playwright Agents** | Let the planner explore, the generator write and the healer repair — you review the artifacts | Plan → test → repair, riding on MCP |
-| 🦁 | **Playwright CLI + Skills** | Install one skill, then watch your agent drive the browser without being told the commands | Skills as reusable, reviewable agent knowledge |
-| <img src="/img/wopee-monkey.svg" class="h-9 mx-auto" /> | **Wopee.io + MCP** | Paste the URL, watch it map the app, generate and run its own tests | Purpose-built testing agent vs. general-purpose tools |
-
+<div class="zoo4">
+  <div class="z"><span class="zi">🤖</span><b>AI Coding Agent</b><small>the agent writes the code</small></div>
+  <div class="z"><span class="zi">🐍</span><b>Playwright Agents</b><small>plan → test → repair, over MCP</small></div>
+  <div class="z"><span class="zi">🦁</span><b>Playwright CLI + Skills</b><small>the agent drives a browser from the shell</small></div>
+  <div class="z dark"><span class="zi"><img src="/img/wopee-head.png" /></span><b>Wopee.io + MCP</b><small>a testing agent maps and tests the app</small></div>
 </div>
 
-<div class="banner">Same rules for all 4, <em>Wopee.io included</em>.</div>
+<p class="zoo-go">Schedule: <code>playbook/02-zoo.md</code> · steps and prompts: each exhibit's README</p>
+
+<style>
+.zoo4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; margin-top: 1.4rem; }
+.zoo4 .z { background: var(--wp-card); border-top: 6px solid var(--wp-yellow); padding: 1.1rem 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.zoo4 .z.dark { background: #000; color: #fff; }
+.zoo4 .zi { font-size: 2.6rem; line-height: 1; height: 3rem; }
+.zoo4 .zi img { height: 3.4rem; width: 3.4rem; object-fit: contain; background: var(--wp-yellow); border-radius: 50%; padding: 0.25rem; }
+.zoo4 b { font-size: 1.25rem; line-height: 1.2; }
+.zoo4 small { font-size: 0.95rem; color: var(--wp-grey); }
+.zoo4 .dark small { color: #ccc; }
+.zoo-go { text-align: center; margin-top: 1.6rem; font-size: 1.15rem; }
+</style>
 
 ---
 block: zoo
@@ -863,7 +882,7 @@ block: zoo
   <div class="app-flow"><span>Browse</span><span>Restaurant</span><span>Cart</span><span>Checkout</span><span>Confirmed</span><span>Tracking</span></div>
   <div class="app-spec-row">
     <p class="app-spec">What it <b>should</b> do:<br><code>spec/</code> — 8 stories, <b class="whitespace-nowrap">FD-01 … FD-08</b></p>
-    <Qr url="https://foodora.lovable.app/" size="5.5rem" caption="Open the app" />
+    <Qr url="https://foodora.lovable.app/" size="8.5rem" caption="Open the app" />
   </div>
 </div>
 </div>
@@ -901,11 +920,11 @@ done: A test file exists, it runs, and you can name one thing the agent got wron
 stuck: Open the solutions/ folder and read what a good run produces.
 ---
 
-1. Open the <b>repo root</b> in VS Code and start a Copilot chat in <b>Agent</b>. No MCP servers running — the agent writes the code itself.
-2. Paste the prompt from the folder README: a Playwright test that orders a meal and proves it worked, expected results from the spec.
-3. Run the test. If it fails, paste the failure back and let the agent fix it — <b>twice</b>, no more.
+1. <b>Agent</b> + <b>GPT-6 Luna</b> — pick both in every new chat.
+2. One prompt: order a meal, prove it worked.
+3. It fails? Let it fix — <b>twice</b>, no more.
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Ask for a negative case: checkout with an empty cart. Did it invent an error message the app never shows?</p>
+<p class="readme-go">📖 Prompts, bonus, help: the folder <b>README</b> — scan the QR.</p>
 
 <!--
 10:10 — intro 2 min, hands-on 10:12–10:30, debrief 5 min.
@@ -916,7 +935,7 @@ block: zoo
 label: The Zoo · debrief
 ---
 
-# Exhibit 1 debrief: <span class="y">what worked, what broke?</span>
+# Exhibit 1: <span class="y">what did the agent get wrong?</span>
 
 <Scorecard active="agent" />
 
@@ -934,7 +953,7 @@ icon: 🐍
 image: /img/photos/exhibit-mcp.jpg
 tagline: Planner, generator, healer — three agents riding on MCP.
 facts:
-  - { k: Habitat, v: 'Your repo, over a test-runner-aware MCP server' }
+  - { k: Habitat, v: 'Your repo, plus the playwright-test MCP server' }
   - { k: Feeds on, v: 'A seed test, and the page tree in context' }
   - { k: Best at, v: 'Plan → test → repair, as reviewable artifacts' }
   - { k: Watch out, v: 'The healer may skip a test instead of fixing it' }
@@ -952,11 +971,11 @@ done: A plan in specs/, a generated test, and a run that is green 3× with --ret
 stuck: Read solutions/order.md and solutions/order.spec.ts — npm run solutions runs them.
 ---
 
-1. From the <b>repo root</b>: <code>npm run agents</code> → <b>Developer: Reload Window</b> → seed test green → <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Start Server</b>.
-2. New chat, <b>planner</b> + <b>Auto</b> or <b>GPT-6 Luna</b>: plan one dish, cash on delivery (prompt in the README). Read its <code>specs/order.md</code> — the artifact a non-coder can review.
-3. New chat, <b>generator</b>: scenario 1.1 only, then run it. Which <code>expect</code> accepts what the spec forbids?
+1. <code>npm run agents</code>, reload, start the MCP server.
+2. Seed test green → <b>planner</b> plans → <b>generator</b> writes.
+3. Find the <code>expect</code> that accepts what the spec forbids.
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Break a locator, run the <b>healer</b>, then search <code>tests/</code> for <code>test.fixme</code>. Did it repair your test — or just silence it?</p>
+<p class="readme-go">📖 Prompts, bonus, help: the folder <b>README</b> — scan the QR.</p>
 
 <!--
 10:35 — hands-on until 10:55, debrief 5 min.
@@ -967,7 +986,7 @@ block: zoo
 label: The Zoo · debrief
 ---
 
-# Exhibit 2 debrief: <span class="y">what worked, what broke?</span>
+# Exhibit 2: <span class="y">would you trust that test?</span>
 
 <Scorecard active="mcp" />
 
@@ -988,7 +1007,7 @@ facts:
   - { k: Habitat, v: 'Your terminal' }
   - { k: Feeds on, v: 'Shell commands; snapshots land on disk' }
   - { k: Best at, v: 'Pre-planned runs, agents with a shell' }
-  - { k: Watch out, v: 'Needs Playwright 1.62+ — older builds lack half the commands' }
+  - { k: Watch out, v: 'A vague description — the agent never finds the skill' }
 ---
 
 ---
@@ -1000,14 +1019,14 @@ path: experiments/1_Zoo/3-PlaywrightCLI/
 until: '11:20'
 minutes: 20
 done: The skill is on disk and 3+ snapshots are in .playwright-cli/ — not in your context.
-stuck: Compare with skills/foodora-order/SKILL.md in the exhibit folder.
+stuck: Compare with the worked skill in skills/foodora-order/.
 ---
 
-1. <b>MCP: List Servers</b> → <b>playwright-test</b> → <b>Stop Server</b>. Then, from the <b>repo root</b>: <code>npx playwright init-skills --loop=claude</code>, then open <code>.claude/skills/playwright-cli/SKILL.md</code>. Three frontmatter fields are all the agent holds up front.
-2. Drive it by hand: <code>npx playwright cli open …</code> → <code>find</code> → <code>click</code>. <code>open</code>/<code>click</code> answer with a <em>file path</em>; <code>find</code> with a few lines and a ref.
-3. Now ask your agent to order the meal. It never had to be told the commands.
+1. <code>npx playwright init-skills --loop=agents</code>
+2. Drive it by hand: <code>open</code> → <code>find</code> → <code>click</code>.
+3. Ask your agent to order the meal.
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;Write your own <code>SKILL.md</code> for the order flow, copy it to <code>.github/skills/</code> — then break its <code>description</code> and watch the agent stop finding it.</p>
+<p class="readme-go">📖 Prompts, bonus, help: the folder <b>README</b> — scan the QR.</p>
 
 <!--
 11:00 — hands-on until 11:20, debrief 5 min.
@@ -1018,7 +1037,7 @@ block: zoo
 label: The Zoo · debrief
 ---
 
-# Exhibit 3 debrief: <span class="y">what worked, what broke?</span>
+# Exhibit 3: <span class="y">what stayed out of the context?</span>
 
 <Scorecard active="cli" />
 
@@ -1033,18 +1052,18 @@ no: '04'
 name: Wopee.io + MCP
 icon: monkey
 image: /img/photos/exhibit-wopee.jpg
-tagline: A purpose-built testing agent — from the cloud, or called by your own agent.
+tagline: A testing agent in the cloud — or called by your own agent.
 facts:
-  - { k: Habitat, v: 'cmd.wopee.io, and any MCP client' }
-  - { k: Feeds on, v: 'A URL — or a tool call from your coding agent' }
-  - { k: Best at, v: 'Mapping the app, then generating and running its own tests' }
-  - { k: Watch out, v: 'Less control over the generated code' }
+  - { k: Habitat, v: 'cmd.wopee.io, or over MCP' }
+  - { k: Feeds on, v: 'A URL, or a tool call' }
+  - { k: Best at, v: 'Mapping and testing the app' }
+  - { k: Watch out, v: 'Less control over the tests' }
 ---
 
 ---
 layout: task
 block: zoo
-kicker: Exhibit 4 · Wopee.io
+kicker: Exhibit 4 · Wopee.io + MCP
 goal: Paste the URL, watch it map the app — then call the same agent from your own agent.
 path: experiments/1_Zoo/4-Wopee/
 until: '11:45'
@@ -1053,14 +1072,14 @@ done: The analysis finished, you read its test cases, and you opened one run's r
 stuck: Use the shared project on the whiteboard — a finished run is already waiting there.
 ---
 
-1. Sign in at <code>cmd.wopee.io</code>, <b>NEW PROJECT</b> with the Foodora URL, the <b>+ Checkout</b> chip (or type: *order a meal and verify the confirmation*).
-2. Answer its one question — where to explore next — then watch it crawl, write its artifacts and run a scenario on its own.
-3. Open the run's report and decide: <b>who says this passed — the agent, the assertions, or you?</b>
+1. <code>cmd.wopee.io</code> → <b>New project</b> → the Foodora URL.
+2. Answer its one question, then watch it test on its own.
+3. Open the report: <b>who says this passed?</b>
 
-<p class="mt-5"><span class="hl">Bonus</span> &nbsp;The <code>wopee</code> MCP server is preset but off — <b>MCP: List Servers → wopee → Start Server</b>. Then ask <em>your</em> agent for the project's coverage, to write a test case and dispatch it — and judge the run's report together. Install <code>wopee-intent-tests</code> from the folder and watch the same request come back as intent instead of clicks.</p>
+<p class="readme-go">📖 Prompts, bonus, help: the folder <b>README</b> — scan the QR.</p>
 
 <!--
-11:25 — hands-on until 11:45, debrief 5 min.
+11:25 — hands-on until 11:45, debrief 5 min. Remind the room: the analysis waits for one answer, "Where should I explore next?"
 -->
 
 ---
@@ -1100,25 +1119,31 @@ block: teams
   <p class="mt-4">Include at least one SKILL.md your agent can run cold.</p>
   <p class="mt-4">You have 90 min after lunch. Your suite goes straight into the Battle.</p>
 </div>
-<div class="flex flex-col justify-center">
-  <h3>6 teams of 4</h3>
-  <p>Mixed leads and engineers, assigned in advance.</p>
-  <h3 class="mt-5">1 tool per team</h3>
-  <p>🤖 Coding Agent ×2 · 🐍 Playwright Agents · 🦁 CLI + Skills ×2 · <img src="/img/wopee-monkey.svg" class="inline h-5 align-text-bottom" /> Wopee.io</p>
-  <h3 class="mt-5">Before lunch: fork the repo</h3>
-  <p>One laptop per team. Ask your agent: <em>Set up my team: team N, tool …</em> — the <code>team-setup</code> skill does the rest. By hand: <code>playbook/03-teams.md</code>.</p>
+
+<style>
+.tools h3 { margin-bottom: 0.6rem; }
+.tools .tl { display: flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; margin: 0.3rem 0; }
+.tools .tl span { width: 1.7rem; height: 1.7rem; flex: none; border-radius: 50%; background: #000; color: var(--wp-yellow); font-family: 'Bungee', sans-serif; display: flex; align-items: center; justify-content: center; }
+.tools .tl em { margin-left: auto; font-style: normal; font-family: 'Bungee', sans-serif; color: var(--wp-grey); }
+.tools .go { margin-top: 0.6rem; }
+</style>
+<div class="flex flex-col justify-center tools">
+  <h3>Teams of 4 · your team picks one</h3>
+  <div class="tl"><span>a</span><b>Coding agent only</b><em>Zoo 1</em></div>
+  <div class="tl"><span>b</span><b>Coding agent + Playwright CLI</b><em>Zoo 3</em></div>
+  <div class="tl"><span>c</span><b>Coding agent + Playwright MCP</b><em>Zoo 2</em></div>
+  <p class="mt-5">Before lunch, one laptop per team: <em>Set up my team: team N, tool …</em></p>
+  <p class="go">Everything else: <code>playbook/03-teams.md</code></p>
 </div>
 </div>
 
 <!--
 11:50 — 10 min. Hand out the cards, then go to lunch.
 Show the team-setup skill working on one laptop first: it is the first skill of the day that the room watches run, and the afternoon asks them to write their own.
-Two tools are used twice — on purpose. Same tool, different team: the only variable left is how they worked.
+Tool choice is free: each team picks a, b or c. If two teams pick the same tool, good — at the Battle the only
+difference left between them is how they worked.
 
-PREP, 48 h before: 6 teams of 4 from the Tesena attendee list. Mix leads and engineers.
-Tools: Coding Agent x2, Playwright Agents, CLI + Skills x2, Wopee.io.
-Seat the two head-to-head pairs apart so they cannot watch each other work — the whole point
-of doubling a tool is that the difference at the Battle is the team's practice, not the tool.
+PREP, 48 h before: teams of 4 from the Tesena attendee list. Mix leads and engineers.
 -->
 
 ---
@@ -1150,11 +1175,11 @@ block: build
 # Two deliverables
 
 <div class="cards c2">
-<div class="card"><div class="num">1</div><h3>A working test suite</h3><p>Covers the demo app's core user flows. Built with your team's assigned tool.</p></div>
-<div class="card yellow"><div class="num">2</div><h3>At least one SKILL.md</h3><p>A reusable testing behavior (login flow, visual check pattern, or API assertion) your agent runs cold.</p></div>
+<div class="card"><div class="num">1</div><h3>A working test suite</h3><p>Covers the demo app's core user flows. Built with the tool your team picked.</p></div>
+<div class="card yellow"><div class="num">2</div><h3>At least one SKILL.md</h3><p>One reusable testing job, like the order path, that your agent runs cold.</p></div>
 </div>
 
-<div class="card mt-5"><div class="n">RUNS COLD = DONE WHEN</div><p class="text-xl">A fresh agent session, given only your SKILL.md and <code>run &lt;skill&gt;</code>, passes without follow-up prompts.</p></div>
+<div class="card mt-5"><div class="n">RUNS COLD</div><p class="text-xl">New chat, only your SKILL.md, type <code>run &lt;skill&gt;</code>. It does the job with no follow-up prompts.</p></div>
 
 <!--
 13:00 — 5 min briefing, then switch to the next slide and leave it up.
@@ -1176,12 +1201,12 @@ checkpoints:
 <ul class="checklist">
 <li>Test suite covers the core user flows</li>
 <li>At least one SKILL.md</li>
-<li>Fresh agent session runs it cold</li>
-<li>Pushed to your fork, pull request open</li>
-<li>App address only in <code>baseURL</code> — never in a test</li>
+<li>A new chat runs it cold</li>
+<li>Pushed, pull request up to date</li>
+<li>No app URL in any test</li>
 </ul>
 
-<p class="muted mt-6">This is the thing you take home. Step by step: <code>playbook/04-build.md</code></p>
+<p class="muted mt-4">You take this home. Steps: <code>playbook/04-build.md</code></p>
 
 <!--
 13:05 → 14:30 — leave this slide up. Walk the room; call out the checkpoints.
@@ -1203,21 +1228,21 @@ block: swap
 until: '15:00'
 minutes: 30
 checkpoints:
-  - { t: '14:30', v: 'Hand over your SKILL.md' }
-  - { t: '14:50', v: 'Feedback written' }
+  - { t: '14:32', v: 'Their skill running' }
+  - { t: '14:52', v: 'Write 3 lines' }
   - { t: '15:00', v: 'Fix it over coffee' }
 ---
 
 # Run another team's skill <span class="y">cold</span>
 
 <ul class="checklist">
-<li>Team N runs team N−1's skill: <code>gh pr checkout &lt;number&gt;</code></li>
-<li>Fresh agent session, with your own tool, only their SKILL.md</li>
+<li>Check out team N−1's pull request</li>
+<li>New chat, your own tool: run their skill</li>
 <li>Note every place it broke or needed a hint</li>
-<li>Give them 3 lines of feedback</li>
+<li>3 lines of feedback on their pull request</li>
 </ul>
 
-<p class="muted mt-6">The Battle scores reusability. This is your dress rehearsal. Step by step: <code>playbook/05-swap.md</code></p>
+<p class="muted mt-6">Dress rehearsal for the Battle's reusability score. Steps: <code>playbook/05-swap.md</code></p>
 
 <!--
 14:30 — 2 min setup, 20 min runs, 8 min feedback. Teams use their own tool on someone else's skill: that is the reusability test.
@@ -1234,7 +1259,7 @@ until: '15:15'
 image: /img/photos/break.jpg
 ---
 
-Fix what the swap found — or keep building if we skipped it. The Battle starts from your branch.
+Fix what the Swap found, or keep building. The Battle starts from your branch.
 
 ---
 layout: section
@@ -1245,7 +1270,7 @@ image: /img/photos/battle.jpg
 
 # Speed Gap Battle
 
-15:15 · 40 min build + 18 min show
+15:15 · 40 min
 
 ---
 block: battle
@@ -1261,7 +1286,7 @@ Extend your suite to cover them. Use exactly what you built. No rebuilding. No s
 <div class="card"><div class="n">💡 REUSABILITY</div><h3>Reuse beyond today</h3><p>Does your SKILL.md work on another app?</p></div>
 </div>
 
-<div class="banner">Last 18 min: each team presents in 3 min. <em>The room votes.</em></div>
+<div class="banner">Then each team demos for 3 min. <em>The room votes.</em></div>
 
 ---
 layout: work
@@ -1271,49 +1296,84 @@ minutes: 40
 checkpoints:
   - { t: '15:15', v: 'Features revealed' }
   - { t: '15:35', v: 'First feature covered' }
-  - { t: '15:55', v: 'Pencils down, presentations' }
+  - { t: '15:55', v: 'Pencils down, demos' }
 ---
 
 # 3 new features, <span class="y">one new build</span>
 
 <div v-click class="card yellow"><div class="n">THREE NEW STORIES</div><h3>FD-09 · FD-10 · FD-11 — in <code>spec/battle/</code></h3><p>Same rules as the rest of the spec. Test against the story, not the build.</p></div>
 
-<div v-click class="mt-4 battle-cmd">
-
-<ol class="battle-steps">
-<li><code>git switch team-N</code> → <code>git pull --no-rebase --no-edit upstream main</code> — the stories</li>
-<li>In <code>.env</code>, remove the <code>#</code> before <code>FOODORA_URL</code></li>
-<li><code>cd teams/team-N</code> → <code>npx playwright test</code></li>
-</ol>
-
-<p class="text-sm muted">Or ask your agent: <em>Prepare the battle.</em> — the <code>battle-setup</code> skill does it. All of it: <code>playbook/06-battle.md</code></p>
-
+<div v-click class="bsteps">
+  <div class="bs"><span>1</span><b>Get the stories</b><small>and point your suite at the new build</small></div>
+  <div class="bs"><span>2</span><b>Run your suite</b><small>what still passes?</small></div>
+  <div class="bs"><span>3</span><b>Cover the new features</b><small>with your tool and your skill</small></div>
 </div>
+
+<div v-click="'+0'" class="bgo">Ask your agent: <b><em>Prepare the battle.</em></b> · details: <code>playbook/06-battle.md</code></div>
+
+<style>
+.bsteps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin-top: 1.1rem; }
+.bsteps .bs { background: var(--wp-card); border-top: 5px solid var(--wp-yellow); padding: 0.8rem 0.9rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.bsteps span { width: 1.9rem; height: 1.9rem; border-radius: 50%; background: #000; color: var(--wp-yellow); font-family: 'Bungee', sans-serif; display: flex; align-items: center; justify-content: center; margin-bottom: 0.3rem; }
+.bsteps b { font-size: 1.15rem; }
+.bsteps small { font-size: 0.9rem; color: var(--wp-grey); }
+.bgo { margin-top: 1.1rem; background: #fff4c2; border-left: 6px solid #000; padding: 0.7rem 1rem; font-size: 1.05rem; }
+</style>
 
 <!--
 15:15 — BEFORE the reveal: publish foodora-new and merge branch battle/reveal into main (it holds spec/battle/, the
-answer key and this deck's reveal slide; it is kept rebased). Then click through: three story ids, then the commands.
+answer key and this deck's reveal slide; it is kept rebased). Then click through: three story ids, then the three steps. Commands live in playbook/06-battle.md; the battle-setup skill runs them.
 Leave this slide up until 15:55.
 The original foodora.lovable.app stays as it is — teams run the same suite against both.
 -->
 
 ---
-block: battle
+layout: section
+block: demos
+emoji: 🎤
+image: /img/photos/demo-mic.jpg
+---
+
+# Demos & Vote
+
+15:55 · 3 min per team
+
+---
+block: demos
 ---
 
 # How the room <span class="y">votes</span>
 
 <div class="cards c3">
-<div class="card"><div class="n">🚀 SPEED</div><h3>1–5 fingers</h3></div>
-<div class="card"><div class="n">🎯 ACCURACY</div><h3>1–5 fingers</h3></div>
-<div class="card"><div class="n">💡 REUSABILITY</div><h3>1–5 fingers</h3></div>
+<div class="card"><div class="n">🚀 SPEED</div><h3>1–5 fingers</h3><p>How much got covered?</p></div>
+<div class="card"><div class="n">🎯 ACCURACY</div><h3>1–5 fingers</h3><p>Would it catch a regression?</p></div>
+<div class="card"><div class="n">💡 REUSABILITY</div><h3>1–5 fingers</h3><p>Works on another app?</p></div>
 </div>
 
-<p class="text-2xl text-center mt-8">3 min per team, 6 teams. Vote after each one. <b>You don't vote for your own team.</b></p>
+<p class="text-2xl text-center mt-8">3-min demo, then vote. <b>Not for your own team.</b></p>
 
 <!--
-15:55 — tally on the whiteboard, six columns. Keep demos to 3 min or this overruns: 6 x 3 = 18 min and the block ends at 16:15.
-The two head-to-head pairs are the interesting comparison — same tool, so the difference is the team's practice, not the tool.
+15:55 — tally on the whiteboard, one column per team. The block ends at 16:15: 20 min holds six 3-min demos; with more teams, cut demos to 2 min.
+Two teams on the same tool are the interesting comparison: the difference is their practice, not the tool.
+-->
+
+---
+block: demos
+---
+
+# And the winner is…
+
+<div class="cards c3">
+<div v-click class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 4</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 5</div><h3>…</h3></div>
+<div v-click class="card"><div class="n">TEAM 6</div><h3>…</h3></div>
+</div>
+
+<!--
+16:12 — read the totals off the whiteboard; one click per team, lowest score first. Delete the cards for teams that do not exist before the session.
 -->
 
 ---
@@ -1331,29 +1391,12 @@ Winners · honest debrief · Q&A
 block: wrap
 ---
 
-# And the winner is…
-
-<div class="cards c3">
-<div v-click class="card"><div class="n">TEAM 1</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">TEAM 2</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">TEAM 3</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">TEAM 4</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">TEAM 5</div><h3>…</h3></div>
-<div v-click class="card"><div class="n">TEAM 6</div><h3>…</h3></div>
-</div>
-
-<div class="todo">Fill in the tally live.</div>
-
----
-block: wrap
----
-
 # Speed Gap, <span class="y">revisited</span>
 
 <div class="gap-eq">
-  <div class="card"><div class="n">09:00</div><h3>Your gap this morning</h3><p>The sticky notes on the board.</p></div>
+  <div class="card"><div class="n">THIS MORNING</div><h3>Your sticky notes</h3><p>DEV time vs QA time, on the board.</p></div>
   <div class="gap-eq-mid">→</div>
-  <div class="card yellow"><div class="n">NOW</div><h3>Your gap with today's stack</h3><p>What would you estimate now?</p></div>
+  <div class="card yellow"><div class="n">NOW</div><h3>Your gap with today's stack</h3><p>What is your QA number now?</p></div>
 </div>
 
 <!--
@@ -1372,18 +1415,22 @@ block: wrap
 <div v-click class="card dark"><div class="num">3</div><h3>What breaks in a real codebase?</h3><p>Where does today's approach stop scaling?</p></div>
 </div>
 
+<!--
+16:25 — one question per click, 3 min each. Take answers from leads and engineers.
+-->
+
 ---
 block: wrap
 ---
 
 # Your turn: <span class="y">Monday morning</span>
 
-Pen and paper. 3 minutes. Then share it — with your neighbour now, with your team on Monday.
+Pen and paper, 3 minutes, on your own. Then read it to your neighbour.
 
 <div class="cards c3 tall">
-<div class="card yellow"><div class="n">DO MONDAY</div><h3>One thing you will try on Monday</h3><p>Small enough to start before lunch.</p></div>
+<div class="card yellow"><div class="n">DO MONDAY</div><h3>One thing you try</h3><p>Small enough to start before lunch.</p></div>
 <div class="card"><div class="n">TAKES LONGER</div><h3>One thing that needs your team</h3><p>A tool, a process, a budget — who do you have to convince?</p></div>
-<div class="card dark"><div class="n">DROP NOW</div><h3>One habit you stop</h3><p>The one that today made look slow.</p></div>
+<div class="card dark"><div class="n">DROP NOW</div><h3>One habit you stop</h3><p>The one today made look slow.</p></div>
 </div>
 
 <!--
@@ -1415,6 +1462,6 @@ layout: closing
 </div>
 
 <div class="flex items-end gap-8 mt-8">
-  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="8rem" caption="The repo" />
-  <Qr url="https://survey.tesena.com/zs/kIC5Nn" size="8rem" caption="Feedback, 2 min" />
+  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="11rem" caption="The repo" />
+  <Qr url="https://survey.tesena.com/zs/kIC5Nn" size="11rem" caption="Feedback, 2 min" />
 </div>

@@ -103,7 +103,7 @@ const isPick = (m: Model, p: Point) => m.name === 'GPT-6 Luna' && p.effort === '
           :fill="s.m.color" :class="{ pick: isPick(s.m, p) }"
           @mouseenter="hover = { m: s.m, p, x: x(val(p)!), y: y(p.index) }" @mouseleave="hover = null" />
         <text v-if="s.shown.length" class="name" :fill="s.m.color"
-          :x="x(val(s.shown[s.shown.length - 1])!) + 8" :y="y(s.shown[s.shown.length - 1].index) - 6">{{ s.m.name }}</text>
+          :x="x(val(s.shown[s.shown.length - 1])!) + 8" :y="y(s.shown[s.shown.length - 1].index) + ({ 'GPT-6 Sol': 22, 'Claude Fable 5.1': 12 }[s.m.name] ?? -6)">{{ s.m.name }}</text>
       </g>
       <g v-if="!hidden.has('GPT-6 Luna')" class="pick-label">
         <text :x="x(axis === 'cost' ? 0.017 : 143) + 12" :y="y(29.5) + 18">← today's default (medium)</text>

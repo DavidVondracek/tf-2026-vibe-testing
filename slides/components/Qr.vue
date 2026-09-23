@@ -2,11 +2,12 @@
 import QRCode from 'qrcode'
 import { ref, watchEffect } from 'vue'
 
-// QR code rendered locally (no network), for links attendees open on their laptops.
+// QR code rendered locally (no network), for links attendees open on their laptops. Error correction
+// 'L' keeps the modules as large as possible, so the code scans from the back of the room.
 const props = withDefaults(defineProps<{ url: string; size?: string; caption?: string }>(), { size: '8rem' })
 const svg = ref('')
 watchEffect(async () => {
-  svg.value = await QRCode.toString(props.url, { type: 'svg', margin: 1, color: { dark: '#000000', light: '#ffffff' } })
+  svg.value = await QRCode.toString(props.url, { type: 'svg', margin: 1, errorCorrectionLevel: 'L', color: { dark: '#000000', light: '#ffffff' } })
 })
 </script>
 
