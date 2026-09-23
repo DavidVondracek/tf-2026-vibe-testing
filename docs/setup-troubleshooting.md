@@ -49,6 +49,9 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | `git`, `node` or `gh` "is not recognized" / "command not found" | Install it (see [Windows: do these first](#windows-do-these-first)), then restart VS Code completely. |
 | The installer asks for admin rights you do not have | Tell me in the form or on LinkedIn **before** the workshop. You can pair with a neighbour on the day, but you will get more out of it on your own laptop. |
 | `gh auth login` asks how to authenticate | Choose **GitHub.com**, **HTTPS**, **Login with a web browser**. |
+| `gh pr create` says *No default remote repository has been set* | Your clone has two remotes (your fork and Wopee-io). Run `gh repo set-default Wopee-io/tf-2026-vibe-testing` once, then create the PR again. |
+| `gh` will not work at all on the day (not installed, blocked, wrong account) | Every `gh` step in [`day/03-teams.md`](../day/03-teams.md) and [`day/05-swap.md`](../day/05-swap.md) has a *Without `gh`* alternative in the browser. Plain `git` does the rest. |
+| `gh` is old | `gh repo fork` and `gh pr checkout` want a current release. Update before the day: `brew upgrade gh` (macOS), `winget upgrade GitHub.cli` (Windows), or the [releases page](https://github.com/cli/cli/releases). |
 
 ## Step 5 — Clone and install
 
@@ -68,6 +71,7 @@ No admin rights needed. If your company's policy blocks both, use Git Bash.
 | No Copilot Chat | It is built into current VS Code. Update VS Code (**Help → Check for Updates**), then sign in with your GitHub account. |
 | The Chat view asks you to sign in | Sign in with your GitHub account. The free Copilot plan is enough. |
 | The model picker has no model, or **Claude Haiku 4.5** is missing from it | With a GitHub account you should see **Auto**; sign in to Copilot if you do not. For the gateway models, run **Vercel AI Gateway: Manage Authentication** again and paste the key, then **Developer: Reload Window**. |
+| *API key budget exceeded* on a gateway model | The workshop key has hit its spending limit. Switch the model picker to **Auto** (Copilot) and type *Continue.* in the same chat — nothing you did is lost. Raise your hand so the presenter can lift the limit. |
 | Copilot says you are out of requests | Switch the model picker to **Claude Haiku 4.5** and carry on with the gateway key. |
 | The model answers with an authentication error | The key was pasted incompletely. It starts with `vck_`. Paste it again. |
 

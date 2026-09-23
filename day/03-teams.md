@@ -31,10 +31,44 @@
 Pick **one laptop** as your team's driver. It owns the fork. Do this in the repository you cloned
 this morning (`N` is your team number).
 
-1. Fork the repository. Your fork becomes `origin`, and Wopee-io's repository becomes `upstream`:
+### The quick way: ask your agent
+
+This repository ships a skill for it —
+[`.github/skills/team-setup/SKILL.md`](../.github/skills/team-setup/SKILL.md). New chat,
+**Agent**, **Auto** or **Claude Haiku 4.5**, and type:
+
+```
+Set up my team: team 3, tool Playwright CLI + Skills.
+```
+
+It forks, sets the pull-request target, makes the branch and folder, runs the empty suite and
+opens your draft pull request, telling you each step. Read-only commands run without asking;
+it asks before anything that changes your branch or GitHub — `git switch`, `git commit`,
+`git push`, `gh pr create`. Read each one, then click **Allow** (the button, not the menu). Watch it: nobody told it the commands, the
+skill did — the same thing you will write for your own flow this afternoon.
+
+### By hand
+
+The same steps, if you prefer to type them or the agent gets stuck:
+
+Every step that uses `gh` has a browser alternative right below it — use it when `gh` is missing,
+too old, or signed in to the wrong account.
+
+1. Fork the repository. Your fork becomes `origin`, and Wopee-io's repository becomes `upstream`
+   (an old `gh` may refuse — `brew upgrade gh` / `winget upgrade GitHub.cli` first):
 
    ```bash
    gh repo fork --remote
+   git remote -v        # origin = your fork, upstream = Wopee-io
+   gh repo set-default Wopee-io/tf-2026-vibe-testing   # so gh pr create targets Wopee-io
+   ```
+
+   **Without `gh`:** open [https://github.com/Wopee-io/tf-2026-vibe-testing](https://github.com/Wopee-io/tf-2026-vibe-testing) → **Fork** (top right) →
+   **Create fork**. Then, with your GitHub user name in place of `<you>`:
+
+   ```bash
+   git remote rename origin upstream
+   git remote add origin https://github.com/<you>/tf-2026-vibe-testing
    git remote -v        # origin = your fork, upstream = Wopee-io
    ```
 
@@ -44,21 +78,38 @@ this morning (`N` is your team number).
 2. Make a branch and your team folder:
 
    ```bash
-   git switch -c team-N
+   git fetch upstream
+   git switch -c team-N upstream/main
    cp -r teams/_template teams/team-N
+   mkdir -p .github/skills/team-N-my-skill
+   mv teams/team-N/SKILL.md .github/skills/team-N-my-skill/SKILL.md
    ```
 
-   PowerShell: `Copy-Item -Recurse teams/_template teams/team-N`
+   Your skill lives at `.github/skills/team-N-my-skill/`, where your agent finds it — rename the
+   folder and its `name:` together once you know what it does.
 
-3. Write your names and your tool at the top of `teams/team-N/README.md`.
+   PowerShell: `Copy-Item -Recurse teams/_template teams/team-N`, then
+   `New-Item -ItemType Directory -Force .github/skills/team-N-my-skill` and
+   `Move-Item teams/team-N/SKILL.md .github/skills/team-N-my-skill/SKILL.md`.
+
+3. Write your names and your tool at the top of `teams/team-N/README.md`. Running
+   `npx playwright test` in the folder now says *Error: No tests found* — right, there are none
+   yet.
 4. Push, and open a draft pull request to Wopee-io's repository. The Swap finds your skill through it.
 
    ```bash
-   git add teams/team-N
+   git add teams/team-N .github/skills
    git commit -m "Team N: start"
    git push -u origin team-N
    gh pr create --draft --title "Team N · <your tool>" --body "Team N suite and skill"
    ```
+
+   **Without `gh`:** after `git push`, open your fork on GitHub. A yellow bar offers
+   **Compare & pull request** — click it (or **Contribute → Open pull request**). Check the
+   header reads **base repository: Wopee-io/tf-2026-vibe-testing, base: main ← head: your
+   fork, compare: team-N**. Title `Team N · <your tool>`, then the arrow next to **Create pull
+   request** → **Create draft pull request**. The pull request's **Files changed** tab must show
+   only `teams/team-N/`.
 
 **Teammates who want to push too (optional):** the fork owner adds them on GitHub — the fork's
 **Settings → Collaborators**. Each teammate then, in their own clone:
@@ -73,7 +124,8 @@ and pushes with `git push team team-N`. Pairing on the driver's laptop is fine t
 
 ## Where files go
 
-Only into `teams/team-N/`. Nothing else in the repository changes.
+Only into `teams/team-N/` and your skill folder `.github/skills/team-N-<name>/`. Nothing else in
+the repository changes.
 
 ## Done when
 

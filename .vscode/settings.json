@@ -7,7 +7,11 @@
   "chat.mcp.autostart": "never",
   "workbench.browser.enableChatTools": false,
   "chat.tools.terminal.autoApprove": {
-    "/^npx playwright\\b/": true
+    "/^npx playwright\\b/": true,
+    "/^git (status|branch --show-current|remote -v|log|diff)\\b/": true,
+    "/^gh auth status\\b/": true,
+    "/^gh pr (list|view)\\b/": true,
+    "/^ls\\b/": true
   },
   "search.exclude": {
     "**/solutions/**": true,

@@ -15,6 +15,16 @@ what you built: no rebuilding, no switching tools.
 
 ## Steps
 
+**The quick way:** ask your agent — the repository ships a
+[`battle-setup`](../.github/skills/battle-setup/SKILL.md) skill. New chat, **Agent**, and type:
+
+```
+Prepare the battle.
+```
+
+It pulls the stories onto your team branch, points `.env` at the new build and runs your suite
+once. The steps below are the same thing by hand.
+
 1. At 15:15, three new stories — `FD-09`, `FD-10` and `FD-11` — appear in `spec/battle/` in
    Wopee-io's repository. Get them on your team branch:
 
@@ -43,7 +53,7 @@ what you built: no rebuilding, no switching tools.
 
 3. Read the three stories. Add tests for them with your skill and your tool. **Test against the
    story, not the build**: a test that copies what the new build does passes on every bug.
-4. Push before 15:55: `git add teams/team-N`, `git commit -m "Battle"`, `git push`.
+4. Push before 15:55: `git add teams/team-N .github/skills`, `git commit -m "Battle"`, `git push`.
 
 **Wopee.io team:** run your suite against the new build — create a second project with
 `https://foodora-new.lovable.app` in cmd.wopee.io — and
@@ -66,7 +76,7 @@ A good 3-minute demo: what you covered, one thing your suite caught, and how you
 
 ## Where files go
 
-`teams/team-N/tests/` and `teams/team-N/skills/`, as before. Do not edit `spec/battle/`.
+`teams/team-N/tests/` and `.github/skills/team-N-<name>/`, as before. Do not edit `spec/battle/`.
 
 ## Done when
 

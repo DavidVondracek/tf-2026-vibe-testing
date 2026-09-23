@@ -26,30 +26,34 @@ Each team runs the skill of the team **before** it:
    gh pr list --repo Wopee-io/tf-2026-vibe-testing
    ```
 
+   **Without `gh`:** open [https://github.com/Wopee-io/tf-2026-vibe-testing/pulls](https://github.com/Wopee-io/tf-2026-vibe-testing/pulls) and find
+   **Team M · …**. Under its title it reads *wants to merge … from `<owner>:team-M`* — note the
+   owner.
+
 2. Check out their pull request:
 
    ```bash
    gh pr checkout <number> --repo Wopee-io/tf-2026-vibe-testing
    ```
 
-3. Make it cold. In Copilot Chat, `Ctrl/Cmd+Shift+P` → **Clear All Memory Files**, so nothing your
-   agent remembered from the day helps it (Claude Code: `/clear`, and delete any memory notes it
-   wrote today). Then remove your own skill from `.github/skills/`, and
-   install theirs (`M` is their team number):
+   **Without `gh`,** with that owner:
 
    ```bash
-   rm -rf .github/skills/<your-skill>
-   mkdir -p .github/skills
-   cp -r teams/team-M/skills/<their-skill> .github/skills/
+   git fetch https://github.com/<owner>/tf-2026-vibe-testing team-M:swap-team-M
+   git switch swap-team-M
    ```
 
-   PowerShell:
+   Afterwards, back to your own work with `git switch team-N`.
 
-   ```powershell
-   Remove-Item -Recurse -Force .github/skills/<your-skill> -ErrorAction SilentlyContinue
-   New-Item -ItemType Directory -Force .github/skills | Out-Null
-   Copy-Item -Recurse teams/team-M/skills/<their-skill> .github/skills/<their-skill>
-   ```
+3. Make it cold. In Copilot Chat, `Ctrl/Cmd+Shift+P` → **Clear All Memory Files**, so nothing your
+   agent remembered from the day helps it (Claude Code: `/clear`, and delete any memory notes it
+   wrote today). Nothing to install: their branch carries their skill in
+   `.github/skills/team-M-<name>/`, and yours is not on it. Check with `ls .github/skills/` — you
+   should see theirs, `team-setup` and `battle-setup`, and not your own.
+
+   Before you run theirs, take two minutes with the
+   [review checklist](../docs/skills.md#review-checklist) — and read every line of a skill before
+   you install it.
 
 4. Start a **new chat** with **your own tool**, with the agent picker on **Agent**. Type only this:
 
@@ -66,6 +70,9 @@ Each team runs the skill of the team **before** it:
    Broke or needed a hint: …
    One fix: …"
    ```
+
+   **Without `gh`:** open their pull request on GitHub, scroll to the comment box at the bottom
+   of **Conversation**, paste the three lines, **Comment**.
 
    | Line | Write |
    | --- | --- |

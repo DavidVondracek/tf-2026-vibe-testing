@@ -18,7 +18,12 @@ snapshot.txt
 # Committed copies live in each exhibit's solutions/ folder instead.
 .claude/
 .agents/
-**/.github/skills/
+**/.github/skills/*
+# …except the two workshop skills this repository ships
+!/.github/skills/team-setup/
+!/.github/skills/battle-setup/
+# …and each team's own skill, team-N-<name>
+!/.github/skills/team-*/
 **/.github/agents/
 **/.github/prompts/
 **/.github/workflows/copilot-setup-steps.yml

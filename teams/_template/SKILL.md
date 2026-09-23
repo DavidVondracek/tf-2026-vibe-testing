@@ -1,12 +1,13 @@
 ---
-name: my-skill
+name: team-N-my-skill
 description: One sentence on what this skill does, and one on when to use it. This is the only part the agent always sees, so name the app, the task and the trigger words.
 ---
 
 # What this skill does
 
-One line. Rename this folder and the `name` above together — they must match, lowercase with
-hyphens, or the skill will not load.
+One line. The folder is `.github/skills/team-N-<name>/`, and `name` above must match it — lower-case
+with hyphens, starting with your team, or the skill will not load. The rules and the review
+checklist: `docs/skills.md` in this repository.
 
 ## Before you start
 
