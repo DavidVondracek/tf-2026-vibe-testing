@@ -83,6 +83,19 @@ first, or `cp -r` nests it.
     to type one more word, the skill is not done. Then try it on a second model: what works on a
     big model often needs more guidance on a small one.
 
+    [`foodora-smoke`](../.github/skills/foodora-smoke/SKILL.md) in rehearsal, cold, on the two
+    models Copilot's **Auto** picked:
+
+    | Version of the skill | GPT Luna | MAI-Code Flash |
+    | --- | --- | --- |
+    | "Check the page against FD-03" | Finds the unnamed quick-add buttons | Misses them: menu PASS |
+    | "Check every line under FD-03's Rules" | Finds them | Still misses them: it read the rule, did not check it |
+    | **Button names** as its own check, with what a nameless button looks like in a snapshot | Finds them, 1 min 12 s | Finds them, 2 min 21 s |
+
+    The smaller model skipped a rule written as prose until the rule became its own row in the
+    report, with a concrete signal to count. The fix helps both models, and it makes the result
+    the same whichever one **Auto** picks.
+
 ## Before you install someone else's skill
 
 Skills run commands. In a scan of 3,984 public skills, more than a third had a security flaw and
