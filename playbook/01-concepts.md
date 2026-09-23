@@ -36,7 +36,16 @@ self-healing, long runs: MCP.
      Expected results come from here, not from what the app shows.
    - [`experiments/`](../experiments/) — the four Zoo exhibits, and the optional
      [API experiment](../experiments/2_API/).
-3. At the break, fix anything that is still red in `npm run verify`.
+3. Watch a skill run cold at 09:38: [`foodora-smoke`](../docs/demo/foodora-smoke/SKILL.md), in a
+   fresh chat, with only `run foodora-smoke`. To run it yourself — at the break, or at home — install
+   it first, [as the demo README shows](../docs/demo/README.md#run-it-yourself):
+
+   ```bash
+   mkdir -p .github/skills && cp -r docs/demo/foodora-smoke .github/skills/
+   ```
+
+   Then a new chat, **Agent**, and `run foodora-smoke`.
+4. At the break, fix anything that is still red in `npm run verify`.
 
 ## Where files go
 
