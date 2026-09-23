@@ -11,8 +11,10 @@
    green. Red? It tells you what to fix.
 3. Set up your model — the same for everyone:
    1. You signed in to GitHub during setup — the account icon, bottom left, shows it.
-   2. Take the key handed out in the room: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage
-      Authentication** → paste it.
+   2. Added the key during setup? Skip this. Otherwise take **key 1** from the document you got after
+      submitting the form: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** → paste it.
+      Never submitted the form? Do it now — [forms.gle/hU57AS3A5SPrqKWK8](https://forms.gle/hU57AS3A5SPrqKWK8) —
+      the document with the keys comes right after.
    3. New chat, **Agent**, open the model picker and type `gpt-6-luna`. Pick **GPT-6 Luna · Vercel
       AI Gateway** — not *GPT-6 Sol*, not *GPT 5.6 Luna*. Check the chat bar says **GPT-6 Luna**,
       then send "hi". The picker resets with every new chat: pick it again each time.

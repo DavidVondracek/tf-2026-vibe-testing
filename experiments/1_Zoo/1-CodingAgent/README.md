@@ -31,12 +31,12 @@ tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 
 ### Which model
 
-Everyone uses **GPT-6 Luna · Vercel AI Gateway**, with the key handed out in the room, signed in to
+Everyone uses **GPT-6 Luna · Vercel AI Gateway**, with **key 1** from the document you got after submitting the form, signed in to
 GitHub as in the setup. **Auto** (Copilot) is the fallback if the key runs out. **The picker resets with every new
 chat** — pick your model again each time. Add the key once:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
-2. Paste the API key handed out at the start of the workshop. It starts with `vck_`.
+2. Paste **key 1** from that document. It starts with `vck_`. Key 2 is the backup.
 3. Open a new chat, type `gpt-6-luna` in the model picker and pick **GPT-6 Luna · Vercel AI Gateway**
    — not *GPT-6 Sol*, not *GPT 5.6 Luna*.
 4. Send `hi` and check you get an answer back.
