@@ -10,8 +10,7 @@
 2. Open the repository in VS Code and run `npm run verify` in the terminal. All seven lines must be
    green. Red? It tells you what to fix.
 3. Set up your model — the same for everyone:
-   1. Sign in to GitHub in VS Code (the account icon, bottom left). Copilot Free is enough. Without
-      a sign-in it still works, but every command the agent runs asks for approval.
+   1. You signed in to GitHub during setup — the account icon, bottom left, shows it.
    2. Take the key handed out in the room: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage
       Authentication** → paste it.
    3. New chat, **Agent**, open the model picker and type `gpt-6-luna`. Pick **GPT-6 Luna · Vercel

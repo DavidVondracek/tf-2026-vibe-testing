@@ -31,9 +31,8 @@ tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 
 ### Which model
 
-Everyone uses **GPT-6 Luna · Vercel AI Gateway**, with the key handed out in the room. Stay signed in
-to GitHub (Copilot Free is enough): without a sign-in, every command the agent runs asks for
-approval. **Auto** (Copilot) is the fallback if the key runs out. **The picker resets with every new
+Everyone uses **GPT-6 Luna · Vercel AI Gateway**, with the key handed out in the room, signed in to
+GitHub as in the setup. **Auto** (Copilot) is the fallback if the key runs out. **The picker resets with every new
 chat** — pick your model again each time. Add the key once:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
