@@ -86,7 +86,7 @@ created that file for you.
    `.env` is gitignored — the values stay on your laptop.
 4. Start the server: `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server**
    (**Restart Server** if it is already running, so it reads the new `.env`).
-5. Open Copilot Chat in **Agent** mode, model **Auto** or **Claude Haiku 4.5** (pick it again in
+5. Open Copilot Chat in **Agent** mode, model **Auto** or **GPT-6 Luna** (pick it again in
    every new chat), and ask these — one per chat:
 
    **a. Coverage**
