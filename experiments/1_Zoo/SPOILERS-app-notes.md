@@ -401,6 +401,7 @@ the section above that proves them.
 | Story | Rule in the spec | Reality | Evidence |
 | --- | --- | --- | --- |
 | FD-01 | Cards show name, cuisines, rating, time, fee, promotion | matches | *21 Sep* |
+| FD-01 | A restaurant that does not deliver to the address cannot be opened | **deviates** — Koliba u Jána has the *Not available at your address* badge and is counted in the subtitle, but its card is still a link: a click opens `/restaurant/koliba-u-jana` | *23 Sep* |
 | FD-01 | **View All** shows the full list | **deviates** — the button does nothing, URL and list unchanged | *21 Sep* |
 | FD-02 | Search by restaurant or dish name, any case, live while typing | matches — *Classic Beef* finds Burger Palace | *21 Sep* |
 | FD-02 | Cuisine chips filter; **All** resets | matches | *21 Sep* |
@@ -425,7 +426,7 @@ the section above that proves them.
 | FD-07 | **Total paid** cannot be changed from the address bar | **deviates** — it is read from `?total=` and shows whatever the URL says | *21 Sep* |
 | FD-08 | Unknown address shows the 404 page | matches — `/cart` too | [§2](#2-page-inventory-routes-verified) |
 
-**Eleven deviations.** The Zoo exhibits hit FD-06 validation first, because it is on the order
+**Twelve deviations.** The Zoo exhibits hit FD-06 validation first, because it is on the order
 path. The pricing ones (FD-05 delivery fee and promotion) are the best material for the Build and
 the Battle: a happy-path test sails straight past them unless it checks the totals against the
 spec.
