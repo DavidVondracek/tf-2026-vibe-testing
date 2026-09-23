@@ -23,9 +23,9 @@ pre-approved, a command wrapped in a variable or chained with `&&` stops for app
    again, at most three times. Note every restaurant, which cards say *Not available at your
    address*, and the subtitle under the heading. Check them against FD-01.
 3. **FD-03 · Restaurant menu.** Click the first card that is available — cards are links.
-   Snapshot. Check the page against FD-03: the restaurant's details, the category tabs, and a name,
-   description, price and quick-add button for each dish.
-4. **Quick-add.** The quick-add is the unnamed button inside a dish's link, next to the price.
+   Snapshot. Read FD-03 in full — the list of what the page shows **and every line under
+   Rules** — and check each one you can see in the snapshot. One unmet rule makes the check FAIL.
+4. **Quick-add.** The quick-add is the button inside a dish's link, next to the price.
    Click it on the first dish, snapshot, and read the header's cart button. Check it against
    FD-03's quick-add rule. Ignore the toast: it disappears on its own.
 5. `npx playwright cli -s=smoke screenshot --filename=test-results/foodora-smoke.png`, then
