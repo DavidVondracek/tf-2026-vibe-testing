@@ -14,6 +14,9 @@ On Windows, this repository sets VS Code's terminal to **Git Bash**. Use bash sy
 Everything ships inside the `playwright` package. There is no separate CLI package to install.
 
 - The browser CLI is **`npx playwright cli …`**. Always invoke it that way.
+- To look at a page — its headings, links, what a button is called — use `npx playwright cli`.
+  Do not write a one-off `node` script that launches a browser: `npx playwright` is pre-approved,
+  a script stops for approval every time.
 - **Never call a bare `playwright-cli` binary.** It is not installed by this repository, and
   `playwright-cli` on npm is an unrelated project — running it fetches the wrong tool and
   nothing will work as documented.
@@ -67,6 +70,10 @@ test at another build of the app without editing a single file.
 Take expected results from the product spec, [`spec/foodora-spec.md`](spec/foodora-spec.md). It
 says what the app should do. When the app and the spec disagree, report it — do not change the
 test to match the app.
+
+Write one test per rule in a story, with the spec ID in its name (`FD-09 · unknown code is
+refused`). A test that checks five rules stops at the first failure, and the other four are never
+checked.
 
 Never read `solutions/` folders or `SPOILERS-app-notes.md`. They are the answer keys for the
 people doing the exercises; an agent that copies them has not done the exercise.
