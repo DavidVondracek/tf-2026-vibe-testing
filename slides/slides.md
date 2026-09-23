@@ -472,7 +472,7 @@ lines:
 
 <!--
 09:38 — 10 minutes. Fresh agent session, only the SKILL.md, no follow-up prompts. This is the bar for the afternoon.
-Setup and prompt: docs/demo/README.md (install the skill before the talk). Live: show the SKILL.md for a minute — description
+The skill ships in .github/skills/foodora-smoke — nothing to install. Live: show the SKILL.md for a minute — description
 with "use when", spec IDs, the FAIL rule — then New Chat, Agent, Auto: run foodora-smoke. About 1 minute; talk over it.
 Point at the table: judged against the spec, not the app. The FD-03 FAIL (quick-add has no accessible name) is real — keep it.
 -->
