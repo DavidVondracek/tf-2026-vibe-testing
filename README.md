@@ -9,7 +9,7 @@ The attendee repository for a full-day, hands-on workshop at
 
 Four AI testing tools go head-to-head on the same demo app, then teams build their own
 AI-assisted test suite and defend it. Everything you need for the day — and to rerun it at home —
-is in this repository: set up below, then follow [the day](day/).
+is in this repository: set up below, then follow [the playbook](playbook/).
 
 ## Get ready for the workshop
 
@@ -42,5 +42,5 @@ organised by step.
 ## Find your way
 
 Lost? [`docs/repository.md`](docs/repository.md) says what is where and which `npm run` commands
-exist; [`day/`](day/) is the agenda with one page per block; [`AGENTS.md`](AGENTS.md) is what your
+exist; [`playbook/`](playbook/) is the agenda with one page per block — follow it if you lose the presenter; [`AGENTS.md`](AGENTS.md) is what your
 AI agent reads; [`docs/skills.md`](docs/skills.md) is how to write a skill it can run cold.

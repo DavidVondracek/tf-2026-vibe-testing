@@ -43,7 +43,7 @@ exists. In this repository, that fallback is always the correct form.
 ## Team work
 
 After lunch each team works in its own fork, in **`teams/team-N/`** and its skill folder only, copied from
-[`teams/_template/`](teams/_template/). The block-by-block guide is in [`day/`](day/).
+[`teams/_template/`](teams/_template/). The block-by-block guide is in [`playbook/`](playbook/).
 
 - Write tests into `teams/team-N/tests/` and run them from `teams/team-N/`. Do not touch other
   teams' folders, `experiments/` or `spec/`.
