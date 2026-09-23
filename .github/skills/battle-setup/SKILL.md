@@ -21,10 +21,10 @@ the one folder under `teams/` that is not `_template`. Ask only if neither tells
 2. **Get the stories:**
    ```bash
    git switch team-N
-   git pull --no-rebase upstream main
+   git pull --no-rebase --no-edit upstream main
    ```
    No `upstream` remote (`git remote -v`)? Then this clone never forked and Wopee-io is `origin`:
-   `git pull --no-rebase origin main`.
+   `git pull --no-rebase --no-edit origin main`.
 3. **Check they arrived:** `ls spec/battle/` must list the stories for `FD-09`, `FD-10` and
    `FD-11`. Empty or missing? Stop: the presenter has not published them yet — say so.
 4. **Point the suite at the new build.** The last line of `.env` at the repository root is
