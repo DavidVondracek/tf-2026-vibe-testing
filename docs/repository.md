@@ -10,7 +10,7 @@
 | [`experiments/1_Zoo/4-Wopee/`](../experiments/1_Zoo/4-Wopee/) | Exhibit 4 — Wopee.io in the cloud, and as an MCP tool your agent calls |
 | [`experiments/2_API/`](../experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time |
 | [`teams/`](../teams/) | Team work after lunch. Copy [`_template/`](../teams/_template/) to `teams/team-N/` in your team's fork |
-| [`docs/`](.) | [About the workshop](workshop.md), [setup troubleshooting](setup-troubleshooting.md), [writing a skill](skills.md), [research](research/) |
+| [`docs/`](.) | [About the workshop](workshop.md), [setup troubleshooting](setup-troubleshooting.md), [writing a skill](skills.md), [the 09:38 demo skill](demo/), [research](research/) |
 | [`.github/skills/`](../.github/skills/) | Two skills the repository ships: [`team-setup`](../.github/skills/team-setup/SKILL.md) (fork, branch, folder, draft PR) and [`battle-setup`](../.github/skills/battle-setup/SKILL.md) (stories, new build, first run). Your team's skill lives here too, as `team-N-<name>`; skills you only try out are copied in and gitignored |
 | [`.vscode/settings.json`](../.vscode/settings.json) | The workspace settings: Git Bash on Windows, Markdown opens rendered, autosave, MCP servers off until an exhibit starts them, no Integrated Browser tools for the agent, `npx playwright` and read-only `git`/`gh` commands (`git status`, `git remote -v`, `gh auth status`, `gh pr list` …) pre-approved — anything that changes a branch or GitHub still asks, longer agent turns, `solutions/` hidden from search |
 | [`.vscode/mcp.json`](../.vscode/mcp.json) | The MCP servers Copilot uses, preset: Playwright Test (Exhibit 2's agents) and Wopee (Exhibit 4). They start only when an exhibit says so |
