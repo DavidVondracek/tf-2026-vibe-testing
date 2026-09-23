@@ -30,13 +30,13 @@ once. The steps below are the same thing by hand.
 
    ```bash
    git switch team-N
-   git pull --no-rebase upstream main
+   git pull --no-rebase --no-edit upstream main
    ```
 
    `--no-rebase` merges the stories into your branch; without it, a Git with no pull setting stops
    with *"divergent branches"*.
 
-   Never forked (a teammate's own clone)? Then Wopee-io is your `origin`: `git pull --no-rebase origin main`.
+   Never forked (a teammate's own clone)? Then Wopee-io is your `origin`: `git pull --no-rebase --no-edit origin main`.
 
 2. Point your suite at the new build: open `.env` in the repository root and remove the `#` in
    front of the last line, so it reads
@@ -89,7 +89,7 @@ At 15:55 your new tests are pushed, and your team is ready to demo.
 
 ## If stuck
 
-- `git pull --no-rebase upstream main` says there is no `upstream`: `git remote add upstream https://github.com/Wopee-io/tf-2026-vibe-testing`, then pull again.
+- `git pull --no-rebase --no-edit upstream main` says there is no `upstream`: `git remote add upstream https://github.com/Wopee-io/tf-2026-vibe-testing`, then pull again.
 - Every test fails against the new build, even the old ones? Check the address in `FOODORA_URL`.
 - 15:35 and nothing covered? Pick one story and one test. One solid test beats three guesses.
 
