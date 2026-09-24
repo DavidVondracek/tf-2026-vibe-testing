@@ -63,7 +63,7 @@ once. The steps below are the same thing by hand.
 ## Scoring
 
 Each team shows its work in **3 minutes** (6 teams, 18 minutes). After each demo the room votes
-with **1–5 fingers** on each of:
+with a **score of 1–5** on each of — show it with your hand:
 
 | | Question |
 | --- | --- |

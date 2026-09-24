@@ -1345,15 +1345,15 @@ block: demos
 # How the room <span class="y">votes</span>
 
 <div class="cards c3">
-<div class="card"><div class="n">🚀 SPEED</div><h3>1–5 fingers</h3><p>How much got covered?</p></div>
-<div class="card"><div class="n">🎯 ACCURACY</div><h3>1–5 fingers</h3><p>Would it catch a regression?</p></div>
-<div class="card"><div class="n">💡 REUSABILITY</div><h3>1–5 fingers</h3><p>Works on another app?</p></div>
+<div class="card"><div class="n">🚀 SPEED</div><h3>Score 1–5</h3><p>How much got covered?</p></div>
+<div class="card"><div class="n">🎯 ACCURACY</div><h3>Score 1–5</h3><p>Would it catch a regression?</p></div>
+<div class="card"><div class="n">💡 REUSABILITY</div><h3>Score 1–5</h3><p>Works on another app?</p></div>
 </div>
 
 <p class="text-2xl text-center mt-8">3-min demo, then vote. <b>Not for your own team.</b></p>
 
 <!--
-15:55 — tally on the whiteboard, one column per team. The block ends at 16:15: 20 min holds six 3-min demos; with more teams, cut demos to 2 min.
+15:55 — "Show your score, 1 to 5, with your hand." Tally on the whiteboard, one column per team. The block ends at 16:15: 20 min holds six 3-min demos; with more teams, cut demos to 2 min.
 Two teams on the same tool are the interesting comparison: the difference is their practice, not the tool.
 -->
 
