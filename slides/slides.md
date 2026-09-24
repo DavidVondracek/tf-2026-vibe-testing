@@ -185,7 +185,7 @@ label: Welcome
 <tr><td>15:15</td><td>Speed Gap Battle</td></tr>
 <tr><td>15:55</td><td>Demos & Vote</td></tr>
 <tr><td>16:15</td><td>Wrap-up & Q&A</td></tr>
-<tr class="beer"><td>17:00</td><td>🍺 Beer together</td></tr>
+<tr class="beer"><td>~17:30</td><td>🍺 Beer together</td></tr>
 </tbody>
 </table>
 
@@ -1271,7 +1271,7 @@ image: /img/photos/break.jpg
 
 Fix what the Swap found, or keep building. The Battle starts from your branch.
 
-<div class="flex items-center gap-4 mt-4"><Qr url="https://maps.app.goo.gl/iGMNNhUfn46zKTsE9" size="6.5rem" /><span>🍺 After 17:00: beer together — here's where.</span></div>
+<div class="flex items-center gap-4 mt-4"><Qr url="https://maps.app.goo.gl/iGMNNhUfn46zKTsE9" size="6.5rem" /><span>🍺 From ~17:30: beer together — here's where.</span></div>
 
 ---
 layout: section
