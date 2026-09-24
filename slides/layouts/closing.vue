@@ -21,7 +21,7 @@
 }
 
 .wp-closing-monkey {
-  height: 82%;
+  height: 68%;
   margin-left: 1rem;
 }
 
