@@ -55,7 +55,8 @@ function fullLength() {
 
 function loadCustom(): string {
   try {
-    return localStorage.getItem(customKey) ?? ''
+    const [time, day] = (localStorage.getItem(customKey) ?? '').split('@')
+    return time && day === todayString(Date.now()) ? time : ''
   } catch {
     return ''
   }
@@ -88,7 +89,7 @@ function askUntil() {
 function setCustom(value: string) {
   customTime.value = value
   try {
-    value ? localStorage.setItem(customKey, value) : localStorage.removeItem(customKey)
+    value ? localStorage.setItem(customKey, `${value}@${todayString(Date.now())}`) : localStorage.removeItem(customKey)
   } catch {}
   restart()
 }
@@ -143,11 +144,11 @@ const fire = (action: string) => window.dispatchEvent(new CustomEvent('wp-timer'
 
 <template>
   <div class="wp-countdown" :class="{ over: remaining === 0, soon: remaining > 0 && remaining <= 300 }">
-    <div class="wp-countdown-label">{{ label ?? `Time left · ends ${until}` }}</div>
+    <div class="wp-countdown-label">{{ label ?? 'Time left' }} · ends {{ customTime || until }}<span v-if="customTime" class="custom"> (moved)</span></div>
     <div class="wp-countdown-value">{{ display }}</div>
     <div class="wp-countdown-controls">
       <button title="One minute less (−)" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('minus')">−1</button>
-      <button title="Restart at full length (R)" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('reset')">↺</button>
+      <button :title="`Back to the schedule (R)`" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('reset')">↺ {{ isEventDay ? until : minutes + ' min' }}</button>
       <button title="One minute more (+)" @click.stop="($event.currentTarget as HTMLElement).blur(); fire('plus')">+1</button>
       <button class="until" title="Count down to a clock time (T)" @click.stop="($event.currentTarget as HTMLElement).blur(); askUntil()">until {{ customTime || '…' }}</button>
     </div>
@@ -198,6 +199,10 @@ const fire = (action: string) => window.dispatchEvent(new CustomEvent('wp-timer'
   opacity: 1;
 }
 
+
+.wp-countdown-label .custom {
+  color: var(--wp-yellow);
+}
 
 .wp-countdown-controls button {
   background: var(--wp-black);
