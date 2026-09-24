@@ -185,8 +185,18 @@ label: Welcome
 <tr><td>15:15</td><td>Speed Gap Battle</td></tr>
 <tr><td>15:55</td><td>Demos & Vote</td></tr>
 <tr><td>16:15</td><td>Wrap-up & Q&A</td></tr>
+<tr class="beer"><td>17:00</td><td>🍺 Beer together</td></tr>
 </tbody>
 </table>
+
+<div class="beer-qr"><Qr url="https://maps.app.goo.gl/iGMNNhUfn46zKTsE9" size="8.5rem" caption="🍺 Join us for a beer after the workshop" /></div>
+
+<style>
+.slidev-page .agenda { max-width: 62%; }
+.slidev-page .agenda td { padding-top: 0.12rem !important; padding-bottom: 0.12rem !important; font-size: 1.15rem !important; }
+.agenda tr.beer td { font-weight: 700; }
+.beer-qr { position: absolute; right: 3rem; bottom: calc(var(--wp-footer) + 2.2rem); width: 12rem; text-align: center; }
+</style>
 
 ---
 block: kickoff
@@ -1261,6 +1271,8 @@ image: /img/photos/break.jpg
 
 Fix what the Swap found, or keep building. The Battle starts from your branch.
 
+<div class="flex items-center gap-4 mt-4"><Qr url="https://maps.app.goo.gl/iGMNNhUfn46zKTsE9" size="6.5rem" /><span>🍺 After 17:00: beer together — here's where.</span></div>
+
 ---
 layout: section
 block: battle
@@ -1345,15 +1357,15 @@ block: demos
 # How the room <span class="y">votes</span>
 
 <div class="cards c3">
-<div class="card"><div class="n">🚀 SPEED</div><h3>1–5 fingers</h3><p>How much got covered?</p></div>
-<div class="card"><div class="n">🎯 ACCURACY</div><h3>1–5 fingers</h3><p>Would it catch a regression?</p></div>
-<div class="card"><div class="n">💡 REUSABILITY</div><h3>1–5 fingers</h3><p>Works on another app?</p></div>
+<div class="card"><div class="n">🚀 SPEED</div><h3>Score 1–5</h3><p>How much got covered?</p></div>
+<div class="card"><div class="n">🎯 ACCURACY</div><h3>Score 1–5</h3><p>Would it catch a regression?</p></div>
+<div class="card"><div class="n">💡 REUSABILITY</div><h3>Score 1–5</h3><p>Works on another app?</p></div>
 </div>
 
 <p class="text-2xl text-center mt-8">3-min demo, then vote. <b>Not for your own team.</b></p>
 
 <!--
-15:55 — tally on the whiteboard, one column per team. The block ends at 16:15: 20 min holds six 3-min demos; with more teams, cut demos to 2 min.
+15:55 — "Show your score, 1 to 5, with your hand." Tally on the whiteboard, one column per team. The block ends at 16:15: 20 min holds six 3-min demos; with more teams, cut demos to 2 min.
 Two teams on the same tool are the interesting comparison: the difference is their practice, not the tool.
 -->
 
@@ -1461,7 +1473,8 @@ layout: closing
   <div><h3 class="text-2xl">Marcel Veselka</h3><p class="text-xl">marcel.veselka@wopee.io</p></div>
 </div>
 
-<div class="flex items-end gap-8 mt-8">
-  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="11rem" caption="The repo" />
-  <Qr url="https://survey.tesena.com/zs/kIC5Nn" size="11rem" caption="Feedback, 2 min" />
+<div class="flex items-end gap-6 mt-8">
+  <Qr url="https://github.com/Wopee-io/tf-2026-vibe-testing" size="9.5rem" caption="The repo" />
+  <Qr url="https://survey.tesena.com/zs/kIC5Nn" size="9.5rem" caption="Feedback, 2 min" />
+  <Qr url="https://maps.app.goo.gl/iGMNNhUfn46zKTsE9" size="9.5rem" caption="🍺 Beer with us, now" />
 </div>
