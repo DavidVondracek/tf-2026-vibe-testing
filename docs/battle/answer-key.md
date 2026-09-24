@@ -33,7 +33,7 @@ They exist in the original too; leave both apps alike until after the workshop. 
 always $2.99, Burger Palace's 20% never applied) are still there and will interact: the FD-09
 numbers above assume the $2.99 the cart actually charges.
 
-## Scoring Accuracy (🎯, 1–5 fingers)
+## Scoring Accuracy (🎯, score 1–5)
 
 Ask each team, during their 3 minutes: **which of the three would your suite have caught?** Then
 reveal. Suggested guide for the room:
