@@ -106,6 +106,59 @@ Every red test is a <span style="color:var(--red)">finding</span>,<br>not a brok
 -->
 
 ---
+layout: two-cols
+layoutClass: gap-8
+---
+
+# How it is put together
+
+<div class="rule"></div>
+
+```txt
+teams/team-6/
+├── playwright.config.ts
+└── tests/
+    ├── helpers.ts
+    ├── fd-01-browse-restaurants.spec.ts
+    ├── fd-02-search-and-filter.spec.ts
+    ├── fd-03-restaurant-menu.spec.ts
+    ├── fd-04-customise-dish.spec.ts
+    ├── fd-05-cart.spec.ts
+    ├── fd-06-checkout.spec.ts
+    ├── fd-07-confirmation-tracking.spec.ts
+    └── fd-08-not-found.spec.ts
+
+.github/skills/team-6-spec-to-test/
+└── SKILL.md
+```
+
+::right::
+
+<div class="mt-20"></div>
+
+<div class="box y">
+<h3>The app address lives in one place</h3>
+<code>baseURL</code> reads <code>FOODORA_URL</code>; tests use relative paths. One variable
+repoints the whole suite at another build, with no file edited — that is what the Battle needs.
+</div>
+
+<div class="box mt-3">
+<h3>Locators come from roles and names</h3>
+<code>getByRole('button', &#123; name: 'Place Order' &#125;)</code> — styling can change, the test
+survives, and it checks accessibility on the way.
+</div>
+
+<div class="box mt-3">
+<h3><code>helpers.ts</code> holds the traps</h3>
+<code>Free</code> counts as <code>$0.00</code>, and a lookbehind stops <code>Total</code> from
+matching inside <code>Subtotal</code>.
+</div>
+
+<!--
+Optional. Skip it if the live finding ran long — the next slide is the one that scores.
+-->
+
+---
 
 # One finding, live
 
@@ -239,4 +292,60 @@ Team 6 · <code>teams/team-6/</code> · Wopee-io pull request #78
 
 <!--
 2:40 — Stop here. Leave 20 seconds for the room to raise hands.
+-->
+
+---
+
+# Backup · how to run it
+
+<div class="rule"></div>
+
+<div class="text-base opacity-65 mb-4">
+Everything runs from <code>teams/team-6/</code> — the config lives there, not at the repository root.
+</div>
+
+<div class="pair">
+<div>
+
+**The whole suite**
+
+```bash
+cd teams/team-6
+npx playwright test --project=chromium
+```
+
+**One test, visible browser**
+
+```bash
+npx playwright test --project=chromium \
+  --headed --retries=0 \
+  -g "empty form places no order"
+```
+
+</div>
+<div>
+
+**Graphical runner, for a demo**
+
+```bash
+npx playwright test --project=chromium --ui
+```
+
+**The HTML report** — from the repository root
+
+```bash
+npx playwright show-report playwright-report
+```
+
+</div>
+</div>
+
+<div class="box y mt-6">
+<h3>Another build?</h3>
+Set <code>FOODORA_URL</code> in the repository's <code>.env</code> and run the same commands.
+Not one test file changes.
+</div>
+
+<!--
+Backup slide. Only for questions — do not walk into it during the three minutes.
 -->

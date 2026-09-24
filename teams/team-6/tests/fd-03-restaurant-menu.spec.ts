@@ -21,7 +21,11 @@ test('FD-03 · the menu is grouped into category tabs', async ({ page }) => {
   await expect(page.getByRole('tab', { name: 'Sides' })).toBeVisible()
   await expect(page.getByRole('tab', { name: 'Drinks' })).toBeVisible()
 
-  await page.getByRole('tab', { name: 'Sides' }).click()
+  const sides = page.getByRole('tab', { name: 'Sides' })
+  await sides.click()
+
+  // A click before the tablist hydrates does nothing; wait for the selection, then the panel.
+  await expect(sides).toHaveAttribute('aria-selected', 'true')
   await expect(page.getByRole('tabpanel', { name: 'Sides' })).toBeVisible()
 })
 
